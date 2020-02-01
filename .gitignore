@@ -1,0 +1,10 @@
+# Ignore build
+build/*
+
+# Ignore any executables
+bin/*
+
+*.exe
+*.out
+# Ignore jupyter notebook checkpoint
+.ipynb_checkpoints
