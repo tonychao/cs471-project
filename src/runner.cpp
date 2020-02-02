@@ -6,7 +6,11 @@
 #include "functions1.h"
 #include <fstream>
 #include "../lib/mt19937ar.h"
-
+#include "genetic_algorithm.h"
+#include "genetic_algorithm.cpp" // contains template class
+#include <string>
+#include <vector>
+#include <sstream>
 
 
 template <class Tinput, class Toutput>
@@ -44,6 +48,13 @@ Runner<Tinput,Toutput>::~Runner()
     }
 
     delete [] solutions; // free memory for array of solutions
+
+
+    // free memory of different optimization algorithm
+    if(genetic_algorithm)
+    {
+        delete genetic_algorithm;
+    }
 
 }
 
@@ -104,6 +115,116 @@ void Runner<Tinput,Toutput>::run(int function_id,Tinput range_low, Tinput range_
     computeStatistic(clock_time); // compute all the statistical analysis beyond cpu time in ms
     saveStatistic();
 
+}
+template <class Tinput,class Toutput>
+void Runner<Tinput,Toutput>::run_optimization(int algorithm_id, std::string config_file, int function_id, Tinput range_low, Tinput range_high)
+{
+    this->function_id = function_id;
+    this->range_low = range_low;
+    this->range_high = range_high;
+
+    fillVectorsRandom(range_low, range_high);
+    
+    // to do: identify the optimization algorithm by id
+    // read some of the optimization algorithm parameters from file
+    // fill the parameter struct from optimization algorithm class 
+    GAInputParameter<Tinput> ga_parameters;
+    fillGAParameterFromFile("filename.csv",ga_parameters); // pass by reference
+    ga_parameters.bounds.l = range_low; 
+    ga_parameters.bounds.u = range_high;
+    ga_parameters.dim = this->dimensions;
+    ga_parameters.ns = this->n_samples;
+    printf("%f\n",ga_parameters.bounds.l);
+    std::cout<<ga_parameters.t_max<<std::endl;
+    genetic_algorithm = new GeneticAlgorithm<Tinput>(vectors, ga_parameters);
+    //genetic_algorithm->findBestSolution();
+
+
+    /*
+    clock_t start_c, stop_c;
+    start_c = clock();
+    for (int i = 0; i < n_samples; i++)
+    {
+        
+        //pointer to member function https://www.codeguru.com/cpp/cpp/article.php/c17401/C-Tutorial-PointertoMember-Function.htm
+        Functions1<Tinput,Toutput> x;
+        typename Functions1<Tinput,Toutput>::function_pointer fp = functions.getFunctionById(function_id);
+        solutions[i] = (x.*fp)(vectors[i], dimensions); 
+
+    }
+    stop_c = clock();
+    double clock_time;
+    clock_time = ((double)stop_c - (double)start_c)/CLOCKS_PER_SEC; // CLOCKS_PER_SEC=1000000 in linux   CLOCKS_PER_SEC=1000 in windows
+    clock_time *=1000.0; // convert to milisecond
+    
+    computeStatistic(clock_time); // compute all the statistical analysis beyond cpu time in ms
+    saveStatistic();
+    */
+}
+
+template <class Tinput, class Toutput>
+void Runner<Tinput,Toutput>::fillGAParameterFromFile(std::string config_filename, GAInputParameter<Tinput> &parameters)
+{
+    // File pointer 
+    std::fstream fin; 
+  
+    // Open an existing file 
+    fin.open("ga_config.csv", std::ios::in); 
+  
+
+    int count = 0; 
+
+
+    // Read the Data from the file 
+    // as String Vector 
+    std::vector<std::string> row; 
+    std::string line, word, temp; 
+
+    while (fin) { 
+        count++;
+        row.clear(); 
+         
+        // read an entire row and 
+        // store it in a string variable 'line' 
+        std::getline(fin, line); 
+
+        // used for breaking words 
+        std::stringstream s(line); 
+        
+        // read every column data of a row and 
+        // store it in a string variable, 'word' 
+        
+        while (std::getline(s, word, ',')) { 
+  
+            // add all the column data 
+            // of a row to a vector 
+            row.push_back(word); 
+           
+        } 
+                
+  
+  
+        // Compare the roll number 
+        if (count==2) { 
+  
+            parameters.t_max = std::stoi(row[0]); 
+            parameters.cr = std::stod(row[1]); 
+            parameters.m.rate = std::stod(row[2]);
+            parameters.m.range = std::stod(row[3]); 
+            parameters.m.precision = std::stod(row[4]);
+            parameters.er = std::stod(row[5]);
+            
+            break; 
+        } 
+        
+    } 
+   
+    if(count!=2)
+        std::cout << "config file not found\n"; 
+
+    fin.close();
+    
+    
 }
 
 template <class Tinput,class Toutput>

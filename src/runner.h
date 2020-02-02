@@ -3,6 +3,8 @@
 
 
 #include "functions1.h"
+#include "genetic_algorithm.h"
+#include <string>
 
 
 /// @brief  Template class which generates random sample of different dimensions and run a specific benchmark function
@@ -48,6 +50,11 @@ class Runner
     /// @brief save statistical result in csv file
     void saveStatistic();
 
+    // to do: create instance of each optimization algorithm that will be run
+    // create read configuration parameter for each optimization algorithm
+    GeneticAlgorithm<Tinput>* genetic_algorithm;
+    void fillGAParameterFromFile(std::string config_filename, GAInputParameter<Tinput> &parameters); //param = address of the configuration struct
+
     public:
     
     /// @brief constructor of the class Runner
@@ -66,6 +73,8 @@ class Runner
 	/// @param range_low ///< lowest value that the random generator should produce for each element of the sample
     /// @param range_high; ///< highgest value that the random generator should produce for each element of the sample
     void run(int function_id,Tinput range_low, Tinput range_high);
+
+    void run_optimization(int algorithm_id, std::string config_file, int function_id, Tinput range_low, Tinput range_high);
 
 };
 
