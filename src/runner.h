@@ -52,7 +52,7 @@ class Runner
 
     // to do: create instance of each optimization algorithm that will be run
     // create read configuration parameter for each optimization algorithm
-    GeneticAlgorithm<Tinput>* genetic_algorithm;
+    GeneticAlgorithm<Tinput, Toutput>* genetic_algorithm;
     void fillGAParameterFromFile(std::string config_filename, GAInputParameter<Tinput> &parameters); //param = address of the configuration struct
 
     public:
@@ -74,7 +74,9 @@ class Runner
     /// @param range_high; ///< highgest value that the random generator should produce for each element of the sample
     void run(int function_id,Tinput range_low, Tinput range_high);
 
-    void run_optimization(int algorithm_id, std::string config_file, int function_id, Tinput range_low, Tinput range_high);
+    void printVectors();
+
+    void runOptimization(int algorithm_id, std::string config_file, int function_id, Tinput range_low, Tinput range_high);
 
 };
 

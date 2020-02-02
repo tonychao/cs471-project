@@ -7,6 +7,9 @@
 #include "runner.h"
 #include "runner.cpp" //it contains template class
 
+#include "genetic_algorithm.h"
+#include "genetic_algorithm.cpp" // contains template class
+
 
 /// @brief  Run project 1, different benchmark functions 
 ///
@@ -44,7 +47,7 @@ int main(int argc, char** argv)
 
     Runner <float,float> runner(dimensions,n_samples); // <Tinput, Toutput>, dimensions, n_sample
     runner.run(function_id, range_min, range_max); //function_id, range_min, range_max
-    runner.run_optimization(0,"gaconfig.csv",function_id,range_min, range_max);
+    runner.runOptimization(0,"gaconfig.csv",function_id,range_min, range_max);
 
 
 

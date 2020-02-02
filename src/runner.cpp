@@ -7,7 +7,6 @@
 #include <fstream>
 #include "../lib/mt19937ar.h"
 #include "genetic_algorithm.h"
-#include "genetic_algorithm.cpp" // contains template class
 #include <string>
 #include <vector>
 #include <sstream>
@@ -87,6 +86,21 @@ void Runner<Tinput,Toutput>::fillVectorsRandom(Tinput range_low, Tinput range_hi
 }
 
 template <class Tinput,class Toutput>
+void Runner<Tinput,Toutput>::printVectors()
+{
+    for (int i = 0; i < n_samples; i++) 
+    {  
+        for (int j = 0; j < dimensions; j++) 
+        {
+            std::cout<< vectors[i][j] << " ";
+        }
+        std::cout<<std::endl;
+    }
+
+}
+
+
+template <class Tinput,class Toutput>
 void Runner<Tinput,Toutput>::run(int function_id,Tinput range_low, Tinput range_high)
 {
     this->function_id = function_id;
@@ -117,7 +131,7 @@ void Runner<Tinput,Toutput>::run(int function_id,Tinput range_low, Tinput range_
 
 }
 template <class Tinput,class Toutput>
-void Runner<Tinput,Toutput>::run_optimization(int algorithm_id, std::string config_file, int function_id, Tinput range_low, Tinput range_high)
+void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string config_file, int function_id, Tinput range_low, Tinput range_high)
 {
     this->function_id = function_id;
     this->range_low = range_low;
@@ -134,10 +148,12 @@ void Runner<Tinput,Toutput>::run_optimization(int algorithm_id, std::string conf
     ga_parameters.bounds.u = range_high;
     ga_parameters.dim = this->dimensions;
     ga_parameters.ns = this->n_samples;
-    printf("%f\n",ga_parameters.bounds.l);
-    std::cout<<ga_parameters.t_max<<std::endl;
-    genetic_algorithm = new GeneticAlgorithm<Tinput>(vectors, ga_parameters);
-    //genetic_algorithm->findBestSolution();
+    genetic_algorithm = new GeneticAlgorithm<Tinput, Toutput>(vectors, ga_parameters);
+    printVectors();
+
+    std::cout<<std::endl;
+    genetic_algorithm->printPopulation();
+    genetic_algorithm->findBestSolution(function_id);
 
 
     /*

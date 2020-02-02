@@ -38,7 +38,7 @@ struct GAInputParameter
 /// @author Chao Huang Lin (chao.huanglin@cwu.edu)
 /// @date 2020-02-01
 
-template <class Tinput>
+template <class Tinput, class Toutput>
 class GeneticAlgorithm
 {
 
@@ -46,14 +46,21 @@ class GeneticAlgorithm
     private:
     Tinput** population; ///< pointer to arrray of pointers
     GAInputParameter<Tinput> parameters;
-    /*
+    Toutput* cost;  ///< array that contains the cost of each individuo
+    Toutput* fitness; ///< array that contains the fitness of each individuo
+    Tinput** new_population;
+    void allocateMemoryNewPopulation();
+    void freeMemoryNewPopulation();
+    
+    void evaluate(int function_id); ///< calculate the cost
+    
     void reduce();
     void select();
     void selectParent();
     void getFitness();
     void mutate();
     void crossover();
-    */
+    
     
     public:
 
@@ -62,10 +69,14 @@ class GeneticAlgorithm
 	/// @param population ///< get the population allocated in the runner
 	/// @param parameters ///< get the configuration parameters for GA
     GeneticAlgorithm(Tinput** population, GAInputParameter<Tinput> parameters);
+    ~GeneticAlgorithm();
 
     /// @brief Find the best individuo of the population
     /// @return pointer to the array of the best individuo (each element of the array represents each dimension)
-    Tinput* findBestSolution();
+    Tinput* findBestSolution(int function_id);
+
+    void printPopulation();
+    void printCost();
 
 
 };
