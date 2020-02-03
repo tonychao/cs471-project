@@ -46,13 +46,19 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
 {
     int elite_sn = (int) (parameters.er * parameters.ns);
 
-    evaluate(function_id); // calculate the cost of each individuo
+    evaluateCost(function_id); // calculate the cost of each individuo
     //print to see
     printCost();
+
+    getFitness();
+    printFitness();
 
     //allocate memory for new population
     allocateMemoryNewPopulation();
 
+    // create parent1 and parent2
+    Tinput parent1[parameters.dim];
+    Tinput parent2[parameters.dim];
 
     for (int t=0; t<parameters.t_max; t++) // GA iteration
     {
@@ -65,6 +71,20 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
     freeMemoryNewPopulation();
     return population[0];
 }
+
+template <class Tinput, class Toutput>
+void GeneticAlgorithm<Tinput, Toutput>::select(Tinput &parent1, Tinput &parent2)
+{
+    selectParent(parent1);
+    selectParent(parent2);
+}
+
+template <class Tinput, class Toutput>
+void GeneticAlgorithm<Tinput, Toutput>::selectParent(Tinput &parent)
+{
+    Toutput r;
+}
+
 
 template <class Tinput, class Toutput>
 void GeneticAlgorithm<Tinput, Toutput>::allocateMemoryNewPopulation()
@@ -94,8 +114,9 @@ void GeneticAlgorithm<Tinput, Toutput>::freeMemoryNewPopulation()
 
 }
 
+//minimize cost
 template <class Tinput, class Toutput>
-void GeneticAlgorithm<Tinput, Toutput>::evaluate(int function_id)
+void GeneticAlgorithm<Tinput, Toutput>::evaluateCost(int function_id)
 {
     Functions1<Tinput,Toutput> functions;
     typename Functions1<Tinput,Toutput>::function_pointer fp = functions.getFunctionById(function_id);
@@ -106,6 +127,28 @@ void GeneticAlgorithm<Tinput, Toutput>::evaluate(int function_id)
     
 
 }
+
+//maximize fitness
+template <class Tinput, class Toutput>
+void GeneticAlgorithm<Tinput, Toutput>::getFitness()
+{
+    total_fitness = 0.0;
+    for (int i=0; i<parameters.ns; i++)
+    {
+        if(cost[i]>=0.0)
+        {
+            fitness[i] = 1/(1+cost[i]); //normalized index
+        }
+        else
+        {
+            fitness[i] = 1+fabs(cost[i]); // positive
+        }
+        //calculate the total fitness
+        total_fitness+= fitness[i];
+    }
+
+}
+
 
 template <class Tinput, class Toutput>
 void GeneticAlgorithm<Tinput,Toutput>::printPopulation()
@@ -128,5 +171,15 @@ void GeneticAlgorithm<Tinput,Toutput>::printCost()
     for (int i = 0; i < parameters.ns; i++) 
     {   
         std::cout<< cost[i] <<std::endl;
+    }
+}
+
+template <class Tinput, class Toutput>
+void GeneticAlgorithm<Tinput,Toutput>::printFitness()
+{
+    std::cout<<"------ fitness ------" << std::endl;
+    for (int i = 0; i < parameters.ns; i++) 
+    {   
+        std::cout<< fitness[i] <<std::endl;
     }
 }

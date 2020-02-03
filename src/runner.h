@@ -5,7 +5,7 @@
 #include "functions1.h"
 #include "genetic_algorithm.h"
 #include <string>
-
+#include "../lib/mt19937ar_class.h"
 
 /// @brief  Template class which generates random sample of different dimensions and run a specific benchmark function
 ///
@@ -35,6 +35,7 @@ class Runner
     Tinput range_high; ///< highgest value that the random generator should produce  for each element of the sample [parameter from run()]
     Toutput* solutions; ///< pointer to the array of the result of the benchmark function
     Functions1 <Tinput, Toutput> functions; ///< object of class Functions1 which contains the benchmark functions
+    MersenneTwister mersenne_twister; ///< mersenne twister random generator
 
     int function_id; ///< id of the function that will be run [parameter from run()]
     

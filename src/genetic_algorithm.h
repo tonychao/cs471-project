@@ -48,16 +48,18 @@ class GeneticAlgorithm
     GAInputParameter<Tinput> parameters;
     Toutput* cost;  ///< array that contains the cost of each individuo
     Toutput* fitness; ///< array that contains the fitness of each individuo
+    Toutput total_fitness; ///< total fitness of the population
     Tinput** new_population;
     void allocateMemoryNewPopulation();
     void freeMemoryNewPopulation();
-    
-    void evaluate(int function_id); ///< calculate the cost
+
+    void evaluateCost(int function_id); ///< calculate the cost
+    void getFitness(); ///< calculate fitness
+    void select(Tinput &parent1, Tinput &parent2); ///< select 2 parents by roulette wheel selection
+    void selectParent(Tinput &parent); ///< select 1 parent
     
     void reduce();
-    void select();
-    void selectParent();
-    void getFitness();
+
     void mutate();
     void crossover();
     
@@ -77,6 +79,8 @@ class GeneticAlgorithm
 
     void printPopulation();
     void printCost();
+    void printFitness();
+    
 
 
 };
