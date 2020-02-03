@@ -5,7 +5,6 @@
 #include "runner.h"
 #include "functions1.h"
 #include <fstream>
-#include "../lib/mt19937ar.h"
 #include "genetic_algorithm.h"
 #include <string>
 #include <vector>

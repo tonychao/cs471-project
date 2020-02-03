@@ -169,4 +169,9 @@ double MersenneTwister::genrand_real_range(double range_low, double range_high)
    return (range_high - range_low)*genrand_real1() + range_low;
 }
 
+double MersenneTwister::genrand_real_range_ex_high(double range_low, double range_high)
+{
+    return (range_high - range_low)*genrand_real2() + range_low;
+}
+
     

@@ -31,6 +31,8 @@ class MersenneTwister
     double genrand_real3(void); /* generates a random number on (0,1)-real-interval */
     double genrand_res53(void);  /* generates a random number on [0,1) with 53-bit resolution*/
     double genrand_real_range(double range_low, double range_high); // generate random between range_low and range_high
+    double genrand_real_range_ex_high(double range_low, double range_high); // generate random between range_low and range_high (exclusive)
+    
 
 };
 

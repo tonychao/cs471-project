@@ -1,6 +1,7 @@
 #ifndef _GENETICALGORITHM_H_
 #define _GENETICALGORITHM_H_
 
+#include "../lib/mt19937ar_class.h"
 
 template <class Tinput>
 struct GAInputParameter
@@ -55,13 +56,14 @@ class GeneticAlgorithm
 
     void evaluateCost(int function_id); ///< calculate the cost
     void getFitness(); ///< calculate fitness
-    void select(Tinput &parent1, Tinput &parent2); ///< select 2 parents by roulette wheel selection
-    void selectParent(Tinput &parent); ///< select 1 parent
-    
+    void select(Tinput* parent1, Tinput* parent2); ///< select 2 parents by roulette wheel selection
+    void selectParent(Tinput* parent); ///< select 1 parent
+    MersenneTwister ms_random_generator; ///< mersenne twister random generator
+    void crossover(Tinput* parent1, Tinput* parent2, double cr); ///< crossover
     void reduce();
 
     void mutate();
-    void crossover();
+    
     
     
     public:

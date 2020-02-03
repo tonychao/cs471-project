@@ -1,6 +1,7 @@
 #include "genetic_algorithm.h"
 #include <iostream>
 #include "functions1.h"
+#include <time.h> 
 
 
 template <class Tinput, class Toutput>
@@ -24,7 +25,8 @@ GeneticAlgorithm<Tinput,Toutput>::GeneticAlgorithm(Tinput** population, GAInputP
     std::cout << "number of solutions: " << parameters.ns << std::endl;
     std::cout << "maximum number of iterations: " << parameters.t_max << std::endl;
     
-    
+    // random generator seed
+    ms_random_generator.init_genrand(time(0));
     
 }
 
@@ -52,7 +54,7 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
 
     getFitness();
     printFitness();
-
+    std::cout<<"total fitness: " << total_fitness << std::endl;
     //allocate memory for new population
     allocateMemoryNewPopulation();
 
@@ -60,11 +62,21 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
     Tinput parent1[parameters.dim];
     Tinput parent2[parameters.dim];
 
+    
+
+                //select parents by roulette wheel selection
+            select(parent1, parent2); // pass parents by reference
+            crossover(parent1,parent2, parameters.cr);
+
+
     for (int t=0; t<parameters.t_max; t++) // GA iteration
     {
         for (int i=0; i<parameters.ns; i++)
         {
-            //select parents by roulette wheel selection
+
+
+
+            
         }
     }
 
@@ -73,16 +85,64 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
 }
 
 template <class Tinput, class Toutput>
-void GeneticAlgorithm<Tinput, Toutput>::select(Tinput &parent1, Tinput &parent2)
+void GeneticAlgorithm<Tinput, Toutput>::crossover(Tinput* parent1, Tinput* parent2, double cr)
+{
+    if (ms_random_generator.genrand_real_range(0,1) < cr) //crossover only when the criteria meet
+    {
+        int d = (int) ms_random_generator.genrand_real_range_ex_high(0,parameters.dim); //cast to int
+        std::cout << "random int: " << d << std::endl;
+        Tinput temp1[parameters.dim];
+        // copy parent1 to temp1
+        std::copy(parent1, parent1+parameters.dim, temp1);
+        //crossover
+        std::copy(parent2+d, parent2+parameters.dim, parent1+d); // copy 2nd part of parent2 to parent1
+        std::copy(temp1+d, temp1+parameters.dim, parent2+d); // copyt 2nd part of parent1 (stored in temp1) to parent2
+        
+        std::cout << "---after crossover---" << std::endl;
+        for (int i=0; i<parameters.dim; i++)
+        {
+            std::cout << parent1[i] << " ";
+        }
+        std::cout << std::endl;
+        for (int i=0; i<parameters.dim; i++)
+        {
+            std::cout << parent2[i] << " ";
+        }
+        std::cout << std::endl;
+
+    }
+}
+
+
+template <class Tinput, class Toutput>
+void GeneticAlgorithm<Tinput, Toutput>::select(Tinput *parent1, Tinput* parent2)
 {
     selectParent(parent1);
     selectParent(parent2);
 }
 
 template <class Tinput, class Toutput>
-void GeneticAlgorithm<Tinput, Toutput>::selectParent(Tinput &parent)
+void GeneticAlgorithm<Tinput, Toutput>::selectParent(Tinput* parent)
 {
-    Toutput r;
+    // changed to 0, because the total fitness can be less than 1, from the document (1,total_fitness)
+    Toutput random_number = ms_random_generator.genrand_real_range(0,total_fitness); 
+    std::cout << "random fitness: " << random_number << std::endl;
+    int s=0;
+    while (s < parameters.ns && random_number > 0)
+    {
+        random_number -= fitness[s];
+        s++;
+    }
+    //s-1 = selected element;
+    // copy the individuo to parent
+    std::cout << "selected parent: " << (s-1) << std::endl;
+    std::copy(population[s-1], population[s-1]+parameters.dim, parent);
+
+    for (int i=0; i<parameters.dim; i++)
+    {
+        std::cout << parent[i] << " ";
+    }
+    std::cout << std::endl;
 }
 
 
