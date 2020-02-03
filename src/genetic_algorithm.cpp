@@ -64,10 +64,11 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
 
     
 
-                //select parents by roulette wheel selection
-            select(parent1, parent2); // pass parents by reference
-            crossover(parent1,parent2, parameters.cr);
-
+    //select parents by roulette wheel selection
+    select(parent1, parent2); // pass parents by reference
+    crossover(parent1,parent2, parameters.cr);
+    mutate(parent1);
+    mutate(parent2);
 
     for (int t=0; t<parameters.t_max; t++) // GA iteration
     {
@@ -113,6 +114,28 @@ void GeneticAlgorithm<Tinput, Toutput>::crossover(Tinput* parent1, Tinput* paren
     }
 }
 
+template <class Tinput, class Toutput>
+void GeneticAlgorithm<Tinput, Toutput>::mutate(Tinput* individuo)
+{
+    for (int i = 0; i<parameters.dim; i++)
+    {   
+        if(ms_random_generator.genrand_real_range(0,1)<parameters.m.rate)
+        {
+            individuo[i] += ms_random_generator.genrand_real_range(-1,1)*(parameters.bounds.u - parameters.bounds.l)*\
+                            parameters.m.range*pow(2, -1*ms_random_generator.genrand_real_range(0,1)*parameters.m.precision);
+                            
+
+        }
+
+    }
+
+    std::cout << "---after mutation---" << std::endl;
+    for (int i=0; i<parameters.dim; i++)
+    {
+        std::cout << individuo[i] << " ";
+    }
+    std::cout<<std::endl;
+}
 
 template <class Tinput, class Toutput>
 void GeneticAlgorithm<Tinput, Toutput>::select(Tinput *parent1, Tinput* parent2)

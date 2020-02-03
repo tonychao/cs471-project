@@ -62,7 +62,7 @@ class GeneticAlgorithm
     void crossover(Tinput* parent1, Tinput* parent2, double cr); ///< crossover
     void reduce();
 
-    void mutate();
+    void mutate(Tinput* individuo); 
     
     
     
