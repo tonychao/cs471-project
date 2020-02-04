@@ -146,7 +146,7 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
     // read some of the optimization algorithm parameters from file
     // fill the parameter struct from optimization algorithm class 
     GAInputParameter<Tinput> ga_parameters;
-    fillGAParameterFromFile("filename.csv",ga_parameters); // pass by reference
+    fillGAParameterFromFile(config_file, ga_parameters); // pass by reference
     ga_parameters.bounds.l = range_low; 
     ga_parameters.bounds.u = range_high;
     ga_parameters.dim = this->dimensions;
@@ -188,7 +188,7 @@ void Runner<Tinput,Toutput>::fillGAParameterFromFile(std::string config_filename
     std::fstream fin; 
   
     // Open an existing file 
-    fin.open("ga_config.csv", std::ios::in); 
+    fin.open(config_filename, std::ios::in); 
   
 
     int count = 0; 
