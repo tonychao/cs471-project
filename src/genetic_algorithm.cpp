@@ -70,7 +70,7 @@ GeneticAlgorithm<Tinput,Toutput>::~GeneticAlgorithm()
 }
 
 template <class Tinput, class Toutput>
-Toutput GeneticAlgorithm<Tinput, Toutput>::reduce(int elite_sn)
+void GeneticAlgorithm<Tinput, Toutput>::reduce(int elite_sn, Toutput& best_cost, Tinput* best_individuo)
 {
         sortPopulationByIndexAsc();
         sortNewPopulationByIndexAsc();
@@ -90,17 +90,20 @@ Toutput GeneticAlgorithm<Tinput, Toutput>::reduce(int elite_sn)
             }
         }
         // ---------find the best------------
-        Toutput best;
+    
         if(cost[population_asc_index[0]] < new_population_cost[new_population_asc_index[0]])
         {
-            best = cost[population_asc_index[0]];
+            best_cost = cost[population_asc_index[0]];
+            
+            std::copy(population[population_asc_index[0]], population[population_asc_index[0]]+parameters.dim,best_individuo);
         }
         else
         {
-            best = new_population_cost[new_population_asc_index[0]];
+            best_cost = new_population_cost[new_population_asc_index[0]];
+            std::copy(new_population[new_population_asc_index[0]], new_population[new_population_asc_index[0]]+parameters.dim,best_individuo);
         }
         
-        if(PRINTCONSOLE) {std::cout<<"best: " << best << std::endl;}
+        if(PRINTCONSOLE) {std::cout<<"best: " << best_cost << std::endl;}
         
 
 
@@ -119,7 +122,6 @@ Toutput GeneticAlgorithm<Tinput, Toutput>::reduce(int elite_sn)
         new_population = population;
         population = temp;
 
-        return best;
 
 }
 
@@ -171,10 +173,12 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
         evaluateCost(function_id,new_population,new_population_cost);
         if (PRINTCONSOLE) {printCost(new_population_cost);}
         
-        Toutput best;
-        best = reduce(elite_sn); //alsco can find the best  solution in constant time, the arrays are already sorted
+        Toutput best_cost;
+        Tinput best_individuo[parameters.dim];
 
-        saveBest(best);
+        reduce(elite_sn, best_cost, best_individuo); //also can find the best  solution in constant time, the arrays are already sorted
+
+        saveBest(best_cost, best_individuo);
         if (PRINTCONSOLE) {printInputPopulation();}
 
         evaluateCost(function_id,population,cost);
@@ -190,7 +194,7 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
 }
 
 template <class Tinput, class Toutput>
-void GeneticAlgorithm<Tinput, Toutput>:: saveBest(Toutput best)
+void GeneticAlgorithm<Tinput, Toutput>:: saveBest(Toutput best_cost, Tinput* best_individuo)
 {
         // file pointer 
     std::fstream fout; 
@@ -199,7 +203,13 @@ void GeneticAlgorithm<Tinput, Toutput>:: saveBest(Toutput best)
     std::string file_name = "best.csv";
     fout.open(file_name, std::ios::out | std::ios::app); 
   
-    fout << best << "\n"; 
+    fout << best_cost << "," ;
+
+    for(int i =0; i<parameters.dim; i++)
+    {
+        fout << best_individuo[i] <<",";
+    }
+    fout<<"\n";
 
     fout.close();
 }

@@ -65,7 +65,7 @@ class GeneticAlgorithm
     void selectParent(Tinput* parent); ///< select 1 parent
     MersenneTwister ms_random_generator; ///< mersenne twister random generator
     void crossover(Tinput* parent1, Tinput* parent2, double cr); ///< crossover
-    Toutput reduce(int elite_sn);
+    void reduce(int elite_sn, Toutput& best_cost, Tinput* best_individuo);
     void mutate(Tinput* individuo); 
     
     void printPopulation(Tinput** pop);
@@ -100,7 +100,7 @@ class GeneticAlgorithm
     void sortPopulationByIndexAsc();
     void sortNewPopulationByIndexAsc();
 
-    void saveBest(Toutput best);
+    void saveBest(Toutput best_cost, Tinput *best_individuo);
 
 
     public:
