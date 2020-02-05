@@ -4,11 +4,13 @@
 #include <time.h>       //time
 #include "runner.h"
 #include "functions1.h"
-#include <fstream>
+#include <fstream>  //file
 #include "genetic_algorithm.h"
 #include <string>
-#include <vector>
-#include <sstream>
+#include <vector>    // working with csv file
+#include <sstream>   // to read csv file
+
+#define PRINTCONSOLE 0
 
 
 template <class Tinput, class Toutput>
@@ -152,33 +154,14 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
     ga_parameters.dim = this->dimensions;
     ga_parameters.ns = this->n_samples;
     genetic_algorithm = new GeneticAlgorithm<Tinput, Toutput>(vectors, ga_parameters);
-    printVectors();
+    //printVectors();
 
     std::cout<<std::endl;
-    genetic_algorithm->printPopulation();
+    if (PRINTCONSOLE) {genetic_algorithm->printInputPopulation();}
     genetic_algorithm->findBestSolution(function_id);
 
 
-    /*
-    clock_t start_c, stop_c;
-    start_c = clock();
-    for (int i = 0; i < n_samples; i++)
-    {
-        
-        //pointer to member function https://www.codeguru.com/cpp/cpp/article.php/c17401/C-Tutorial-PointertoMember-Function.htm
-        Functions1<Tinput,Toutput> x;
-        typename Functions1<Tinput,Toutput>::function_pointer fp = functions.getFunctionById(function_id);
-        solutions[i] = (x.*fp)(vectors[i], dimensions); 
 
-    }
-    stop_c = clock();
-    double clock_time;
-    clock_time = ((double)stop_c - (double)start_c)/CLOCKS_PER_SEC; // CLOCKS_PER_SEC=1000000 in linux   CLOCKS_PER_SEC=1000 in windows
-    clock_time *=1000.0; // convert to milisecond
-    
-    computeStatistic(clock_time); // compute all the statistical analysis beyond cpu time in ms
-    saveStatistic();
-    */
 }
 
 template <class Tinput, class Toutput>
