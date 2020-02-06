@@ -89,6 +89,7 @@ class Runner
     void printVectors();
 
     void runOptimization(int algorithm_id, std::string config_file,  std::string result_file, int function_id, Tinput range_low, Tinput range_high);
+    void printSolutions();
 
 };
 

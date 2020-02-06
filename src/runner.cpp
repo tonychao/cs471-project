@@ -78,6 +78,17 @@ void Runner<Tinput,Toutput>::printVectors()
 
 }
 
+template <class Tinput,class Toutput>
+void Runner<Tinput,Toutput>::printSolutions()
+{
+    for (int i = 0; i < n_samples; i++) 
+    {  
+      
+        std::cout<< solutions[i] <<std::endl;
+        
+    }
+
+}
 
 template <class Tinput,class Toutput>
 void Runner<Tinput,Toutput>::run(int function_id,Tinput range_low, Tinput range_high)
@@ -125,19 +136,34 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
     ga_parameters.bounds.l = range_low; 
     ga_parameters.bounds.u = range_high;
     ga_parameters.dim = this->dimensions;
-    ga_parameters.ns = this->n_samples;
+    //ga_parameters.ns = this->n_samples;
 
     
     genetic_algorithm = new GeneticAlgorithm<Tinput, Toutput>(ga_parameters);
-    //printVectors();
-
    
     debug(genetic_algorithm->printInputPopulation());
-    Toutput best_solution = genetic_algorithm->findBestSolution(function_id, range_low, range_high);
-    std::cout<<"best solution: " << best_solution<<std::endl;
+    
+    clock_t start_c, stop_c;
+    start_c = clock();
+    for (int i = 0; i < n_samples; i++)
+    {
+        Toutput best_solution = genetic_algorithm->findBestSolution(function_id, range_low, range_high);
+        solutions[i] = best_solution;
+        //std::cout<<"best solution: " << best_solution<<std::endl;
+    }
+    
+    stop_c = clock();
+    double clock_time;
+    clock_time = ((double)stop_c - (double)start_c)/CLOCKS_PER_SEC; // CLOCKS_PER_SEC=1000000 in linux   CLOCKS_PER_SEC=1000 in windows
+    clock_time *=1000.0; // convert to milisecond
+    
+    computeStatistic(clock_time); // compute all the statistical analysis beyond cpu time in ms
+    saveStatistic();
 
     delete genetic_algorithm; // this was deleted in the wrong place: destructor
-
+    std::cout<<"solutions: " <<std::endl;
+    printSolutions();
+    
 
 }
 
@@ -192,6 +218,7 @@ void Runner<Tinput,Toutput>::fillGAParameterFromFile(std::string config_filename
             parameters.m.range = std::stod(row[3]); 
             parameters.m.precision = std::stod(row[4]);
             parameters.er = std::stod(row[5]);
+            parameters.ns = std::stod(row[6]);
             
             break; 
         } 
@@ -271,22 +298,59 @@ void Runner<Tinput,Toutput>::saveStatistic()
   
     // opens an existing csv file or creates a new file. 
     std::string file_name = "f"+std::to_string(function_id)+"_"+std::to_string(n_samples)+"_"+std::to_string(dimensions)+".csv";
-    fout.open(file_name, std::ios::out | std::ios::app); 
   
-    fout << function_id << ","
-            << n_samples << ","
-            << dimensions << ","
-            << range_low << ","
-            << range_high << ","
-            << stat_analysis.mean << ", "
-            << stat_analysis.std_dev << ", "
-            << stat_analysis.range << ", "
-            << stat_analysis.median << ", "
-            << stat_analysis.time_ms << ", "
-            << stat_analysis.range_min << ", " //new 
-            << stat_analysis.range_max << ", " //new
-            << "\n"; 
+   
+    if(!std::ifstream(file_name)) // if file not exist, create new file with header
+    {
+        fout.open(file_name, std::fstream::in | std::fstream::out | std::fstream::app);
+        fout << "function_id" << ","
+                << "n_samples" << ","
+                << "dimensions" << ","
+                << "range_low" << ","
+                << "range_high" << ","
+                << "mean" << ", "
+                << "std_dev" << ", "
+                << "range" << ", "
+                << "median" << ", "
+                << "time_ms" << ", "
+                << "range_min" << ", " //new 
+                << "range_max" << ", " //new
+                << "\n"; 
+        fout << function_id << ","
+                << n_samples << ","
+                << dimensions << ","
+                << range_low << ","
+                << range_high << ","
+                << stat_analysis.mean << ", "
+                << stat_analysis.std_dev << ", "
+                << stat_analysis.range << ", "
+                << stat_analysis.median << ", "
+                << stat_analysis.time_ms << ", "
+                << stat_analysis.range_min << ", " //new 
+                << stat_analysis.range_max << ", " //new
+                << "\n"; 
+        fout.close();
+     
+    }
+    else
+    {
+        fout.open(file_name, std::fstream::in | std::fstream::out | std::fstream::app);
+        fout << function_id << ","
+                << n_samples << ","
+                << dimensions << ","
+                << range_low << ","
+                << range_high << ","
+                << stat_analysis.mean << ", "
+                << stat_analysis.std_dev << ", "
+                << stat_analysis.range << ", "
+                << stat_analysis.median << ", "
+                << stat_analysis.time_ms << ", "
+                << stat_analysis.range_min << ", " //new 
+                << stat_analysis.range_max << ", " //new
+                << "\n"; 
+        fout.close();
+    }
 
-    fout.close();
+    
 }
 
