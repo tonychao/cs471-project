@@ -1,16 +1,5 @@
-#include <random>       //mt19937
-#include <iostream>
-#include <algorithm>    //std::sort
-#include <time.h>       //time
+
 #include "runner.h"
-#include "functions1.h"
-#include <fstream>  //file
-#include "genetic_algorithm.h"
-#include <string>
-#include <vector>    // working with csv file
-#include <sstream>   // to read csv file
-
-
 
 
 template <class Tinput, class Toutput>
@@ -68,7 +57,6 @@ void Runner<Tinput,Toutput>::fillVectorsRandom(Tinput range_low, Tinput range_hi
     //using mt19937 from author webpage
     //mersennetwister::init_genrand(1);//time(0)
 
-   
     
     for (int i = 0; i < n_samples; i++) 
     {  
@@ -133,7 +121,7 @@ void Runner<Tinput,Toutput>::run(int function_id,Tinput range_low, Tinput range_
 
 }
 template <class Tinput,class Toutput>
-void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string config_file, int function_id, Tinput range_low, Tinput range_high)
+void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string config_file, std::string result_file, int function_id, Tinput range_low, Tinput range_high)
 {
     this->function_id = function_id;
     this->range_low = range_low;
@@ -157,7 +145,7 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
 
     std::cout<<std::endl;
     debug(genetic_algorithm->printInputPopulation());
-    genetic_algorithm->findBestSolution(function_id);
+    genetic_algorithm->findBestSolution(function_id, result_file);
     
 
     delete genetic_algorithm; // this was deleted in the wrong place: destructor

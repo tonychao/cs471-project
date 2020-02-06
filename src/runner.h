@@ -2,11 +2,21 @@
 #define _RUNNER_H_
 
 
+#include <random>       //mt19937
+#include <iostream>
+#include <algorithm>    //std::sort
+#include <time.h>       //time
+
 #include "functions1.h"
 #include "genetic_algorithm.h"
 #include <string>
 #include "../lib/mt19937ar_class.h"
 #include "../lib/debug.h"
+
+#include <fstream>  //file
+#include <vector>    // working with csv file
+#include <sstream>   // to read csv file
+
 
 /// @brief  Template class which generates random sample of different dimensions and run a specific benchmark function
 ///
@@ -78,7 +88,7 @@ class Runner
 
     void printVectors();
 
-    void runOptimization(int algorithm_id, std::string config_file, int function_id, Tinput range_low, Tinput range_high);
+    void runOptimization(int algorithm_id, std::string config_file,  std::string result_file, int function_id, Tinput range_low, Tinput range_high);
 
 };
 

@@ -3,6 +3,11 @@
 
 #include "../lib/mt19937ar_class.h"
 #include "../lib/debug.h"
+#include <iostream>
+#include "functions1.h"
+#include <time.h> 
+#include <algorithm>    //std::sort
+#include <fstream>  //file
 
 template <class Tinput>
 struct GAInputParameter
@@ -101,7 +106,7 @@ class GeneticAlgorithm
     void sortPopulationByIndexAsc();
     void sortNewPopulationByIndexAsc();
 
-    void saveBest(Toutput best_cost, Tinput *best_individuo);
+    void saveResult(Toutput best_cost, Tinput *best_individuo, std::string result_file);
 
 
     public:
@@ -115,7 +120,7 @@ class GeneticAlgorithm
 
     /// @brief Find the best individuo of the population
     /// @return pointer to the array of the best individuo (each element of the array represents each dimension)
-    Tinput* findBestSolution(int function_id);
+    Tinput* findBestSolution(int function_id, std::string result_file);
 
     //bool operator() (int i,int j);
     template <class T>

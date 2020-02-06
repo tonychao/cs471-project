@@ -1,9 +1,4 @@
 #include "genetic_algorithm.h"
-#include <iostream>
-#include "functions1.h"
-#include <time.h> 
-#include <algorithm>    //std::sort
-#include <fstream>  //file
 
 
 /* pass population by reference to avoid the problem of:
@@ -153,7 +148,7 @@ void GeneticAlgorithm<Tinput, Toutput>::reduce(int elite_sn, Toutput& best_cost,
 }
 
 template <class Tinput, class Toutput>
-Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
+Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id, std::string result_file)
 {
     int elite_sn = (int) (parameters.er * parameters.ns);
 
@@ -205,7 +200,7 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
         // caution: the swap of address of population can cause memory leak and double free problem
         reduce(elite_sn, best_cost, best_individuo); //also can find the best  solution in constant time, the arrays are already sorted
 
-        saveBest(best_cost, best_individuo);
+        saveResult(best_cost, best_individuo, result_file);
         debug(printInputPopulation());
 
         evaluateCost(function_id,population,cost);
@@ -221,13 +216,13 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
 }
 
 template <class Tinput, class Toutput>
-void GeneticAlgorithm<Tinput, Toutput>:: saveBest(Toutput best_cost, Tinput* best_individuo)
+void GeneticAlgorithm<Tinput, Toutput>:: saveResult(Toutput best_cost, Tinput* best_individuo, std::string result_file)
 {
     // file pointer 
     std::fstream fout; 
   
     // opens an existing csv file or creates a new file. 
-    std::string file_name = "best.csv";
+    std::string file_name = result_file;
     fout.open(file_name, std::ios::out | std::ios::app); 
   
     fout << best_cost << "," ;
