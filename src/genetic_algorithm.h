@@ -59,11 +59,13 @@ class GeneticAlgorithm
     Toutput total_fitness; ///< total fitness of the population
     Tinput** new_population;
 
+
+
     //todo: create population class
     int* population_asc_index;
     int* new_population_asc_index;
-    void allocateMemoryNewPopulation();
-    void freeMemoryNewPopulation();
+
+   
 
     void evaluateCost(int function_id, Tinput** pop, Toutput* cost); ///< calculate the cost
     void getFitness(); ///< calculate fitness
@@ -108,19 +110,20 @@ class GeneticAlgorithm
 
     void saveResult(Toutput best_cost, Tinput *best_individuo, std::string result_file);
 
-
+    void randomInit(Tinput range_low, Tinput range_high);
+    
     public:
 
     /// @brief constructor of the class GeneticAlgorithm
     /// 
 	/// @param population ///< get the population allocated in the runner
 	/// @param parameters ///< get the configuration parameters for GA
-    GeneticAlgorithm(Tinput** population, GAInputParameter<Tinput> parameters);
+    GeneticAlgorithm( GAInputParameter<Tinput> parameters);
     ~GeneticAlgorithm();
 
     /// @brief Find the best individuo of the population
     /// @return pointer to the array of the best individuo (each element of the array represents each dimension)
-    Tinput* findBestSolution(int function_id, std::string result_file);
+    Tinput* findBestSolution(int function_id, std::string result_file, Tinput range_low, Tinput range_high);
 
     //bool operator() (int i,int j);
     template <class T>

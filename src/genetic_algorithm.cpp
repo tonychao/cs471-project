@@ -10,7 +10,7 @@ the problem was the population in runner class still have the old address which 
 */
 
 template <class Tinput, class Toutput>
-GeneticAlgorithm<Tinput,Toutput>::GeneticAlgorithm(Tinput** population, GAInputParameter<Tinput> parameters)
+GeneticAlgorithm<Tinput,Toutput>::GeneticAlgorithm(GAInputParameter<Tinput> parameters)
 {
     // allocate memory for population
     this->population = new Tinput*[parameters.ns];
@@ -20,17 +20,18 @@ GeneticAlgorithm<Tinput,Toutput>::GeneticAlgorithm(Tinput** population, GAInputP
         this->population[i] = new Tinput[parameters.dim];
     }
    
-    //this->population = population; // copy it to avoid memory problem because of swap...
+
     
-    for (int i = 0; i<parameters.ns; i++)
-    {
-        for (int j = 0; j<parameters.dim; j++)
-        {
-            this->population[i][j] = population[i][j];
-        }
-    }
     
     this->parameters = parameters;
+
+    //allocate memory for new population
+    new_population = new Tinput*[parameters.ns];
+
+    for (int i = 0; i<parameters.ns; i++)
+    {
+        new_population[i] = new Tinput[parameters.dim];
+    }
 
     //allocate memory for array of cost
     cost =  new Toutput[parameters.ns];
@@ -96,6 +97,18 @@ GeneticAlgorithm<Tinput,Toutput>::~GeneticAlgorithm()
 
         delete [] population; // delete array of array
     }
+
+    // free memory for new population
+    if(new_population)
+    {
+        for (int i = 0; i<parameters.ns; i++)
+        {
+            if(new_population[i])
+            delete [] new_population[i]; //delete array
+        }
+
+        delete [] new_population; // delete array of array
+    }
     
 }
 
@@ -148,10 +161,10 @@ void GeneticAlgorithm<Tinput, Toutput>::reduce(int elite_sn, Toutput& best_cost,
 }
 
 template <class Tinput, class Toutput>
-Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id, std::string result_file)
+Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id, std::string result_file, Tinput range_low, Tinput range_high)
 {
     int elite_sn = (int) (parameters.er * parameters.ns);
-
+    randomInit(range_low, range_high); // population random Init
     evaluateCost(function_id,population,cost); // calculate the cost of each individuo
     //print to see
     debug(printCost(cost));
@@ -163,7 +176,7 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id, std
     debug(std::cout<<"total fitness: " << total_fitness << std::endl);
 
     //allocate memory for new population
-    allocateMemoryNewPopulation();
+   // allocateMemoryNewPopulation();
 
     // create parent1 and parent2
     Tinput parent1[parameters.dim];
@@ -211,7 +224,7 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id, std
         
     }
 
-    freeMemoryNewPopulation();
+    //freeMemoryNewPopulation();
     return population[0];
 }
 
@@ -328,33 +341,7 @@ void GeneticAlgorithm<Tinput, Toutput>::selectParent(Tinput* parent)
 }
 
 
-template <class Tinput, class Toutput>
-void GeneticAlgorithm<Tinput, Toutput>::allocateMemoryNewPopulation()
-{
-    new_population = new Tinput*[parameters.ns];
 
-    for (int i = 0; i<parameters.ns; i++)
-    {
-        new_population[i] = new Tinput[parameters.dim];
-    }
-}
-
-template <class Tinput, class Toutput>
-void GeneticAlgorithm<Tinput, Toutput>::freeMemoryNewPopulation()
-{
-    // free memory for new population
-    if(new_population)
-    {
-        for (int i = 0; i<parameters.ns; i++)
-        {
-            if(new_population[i])
-            delete [] new_population[i]; //delete array
-        }
-
-        delete [] new_population; // delete array of array
-    }
-
-}
 
 //minimize cost
 template <class Tinput, class Toutput>
@@ -451,4 +438,19 @@ void GeneticAlgorithm<Tinput,Toutput>::printArray(T* array, int n, char separato
         std::cout<< array[i] << separator;
     }
     std::cout <<std::endl;
+}
+
+template <class Tinput, class Toutput>
+void GeneticAlgorithm<Tinput,Toutput>::randomInit(Tinput range_low, Tinput range_high)
+{
+    for (int i = 0; i < parameters.ns; i++) 
+    {  
+        for (int j = 0; j < parameters.dim; j++) 
+        {
+
+            population[i][j] = ms_random_generator.genrand_real_range(range_low,range_high);
+           
+        }
+        
+    }
 }
