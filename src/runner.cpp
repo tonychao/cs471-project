@@ -10,7 +10,7 @@
 #include <vector>    // working with csv file
 #include <sstream>   // to read csv file
 
-#define PRINTCONSOLE 0
+
 
 
 template <class Tinput, class Toutput>
@@ -157,7 +157,7 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
     //printVectors();
 
     std::cout<<std::endl;
-    if (PRINTCONSOLE) {genetic_algorithm->printInputPopulation();}
+    debug(genetic_algorithm->printInputPopulation());
     genetic_algorithm->findBestSolution(function_id);
 
 

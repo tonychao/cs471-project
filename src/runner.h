@@ -6,6 +6,7 @@
 #include "genetic_algorithm.h"
 #include <string>
 #include "../lib/mt19937ar_class.h"
+#include "../lib/debug.h"
 
 /// @brief  Template class which generates random sample of different dimensions and run a specific benchmark function
 ///

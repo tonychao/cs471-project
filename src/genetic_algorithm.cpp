@@ -5,7 +5,7 @@
 #include <algorithm>    //std::sort
 #include <fstream>  //file
 
-#define PRINTCONSOLE 0
+
 
 
 template <class Tinput, class Toutput>
@@ -75,20 +75,12 @@ void GeneticAlgorithm<Tinput, Toutput>::reduce(int elite_sn, Toutput& best_cost,
         sortPopulationByIndexAsc();
         sortNewPopulationByIndexAsc();
         //print sorted index
-        if (PRINTCONSOLE)
-        {
-            std::cout<< "---population sorted index---" <<std::endl;
-            for(int i =0; i<parameters.ns; i++)
-            {
-                std::cout<< population_asc_index[i] <<std::endl;
-            }
-            
-            std::cout<< "---new population sorted index---" <<std::endl;
-            for(int i =0; i<parameters.ns; i++)
-            {
-                std::cout<< new_population_asc_index[i] <<std::endl;
-            }
-        }
+
+        debug(std::cout<< "---population sorted index---" <<std::endl);
+        debug(printArray<int>(population_asc_index, parameters.ns, '\n'));
+        debug(std::cout<< "---new population sorted index---" <<std::endl);
+        debug(printArray<int>(new_population_asc_index, parameters.ns, '\n'));
+        
         // ---------find the best------------
     
         if(cost[population_asc_index[0]] < new_population_cost[new_population_asc_index[0]])
@@ -103,7 +95,7 @@ void GeneticAlgorithm<Tinput, Toutput>::reduce(int elite_sn, Toutput& best_cost,
             std::copy(new_population[new_population_asc_index[0]], new_population[new_population_asc_index[0]]+parameters.dim,best_individuo);
         }
         
-        if(PRINTCONSOLE) {std::cout<<"best: " << best_cost << std::endl;}
+        debug(std::cout<<"best: " << best_cost << std::endl);
         
 
 
@@ -132,15 +124,14 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
 
     evaluateCost(function_id,population,cost); // calculate the cost of each individuo
     //print to see
-    if (PRINTCONSOLE){ printCost(cost);}
+    debug(printCost(cost));
 
 
     getFitness();
-    if (PRINTCONSOLE) 
-    {
-        printFitness();
-        std::cout<<"total fitness: " << total_fitness << std::endl;
-    }
+
+    debug(printFitness());
+    debug(std::cout<<"total fitness: " << total_fitness << std::endl);
+
     //allocate memory for new population
     allocateMemoryNewPopulation();
 
@@ -169,9 +160,9 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
             
         }
  
-        if (PRINTCONSOLE) { printNewPopulation();}
+        debug(printNewPopulation());
         evaluateCost(function_id,new_population,new_population_cost);
-        if (PRINTCONSOLE) {printCost(new_population_cost);}
+        debug(printCost(new_population_cost));
         
         Toutput best_cost;
         Tinput best_individuo[parameters.dim];
@@ -179,10 +170,10 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
         reduce(elite_sn, best_cost, best_individuo); //also can find the best  solution in constant time, the arrays are already sorted
 
         saveBest(best_cost, best_individuo);
-        if (PRINTCONSOLE) {printInputPopulation();}
+        debug(printInputPopulation());
 
         evaluateCost(function_id,population,cost);
-        if (PRINTCONSOLE) {printCost(cost);}
+        debug(printCost(cost));
 
         getFitness();
 
@@ -196,7 +187,7 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
 template <class Tinput, class Toutput>
 void GeneticAlgorithm<Tinput, Toutput>:: saveBest(Toutput best_cost, Tinput* best_individuo)
 {
-        // file pointer 
+    // file pointer 
     std::fstream fout; 
   
     // opens an existing csv file or creates a new file. 
@@ -214,12 +205,7 @@ void GeneticAlgorithm<Tinput, Toutput>:: saveBest(Toutput best_cost, Tinput* bes
     fout.close();
 }
 
-/*
-template <class Tinput, class Toutput>
-bool GeneticAlgorithm<Tinput, Toutput>::operator() (int i,int j) 
-{ 
-    return (cost[i]<cost[j]);
-}*/
+
 template <class Tinput, class Toutput>
 void GeneticAlgorithm<Tinput, Toutput>::sortPopulationByIndexAsc()
 {
@@ -240,7 +226,7 @@ void GeneticAlgorithm<Tinput, Toutput>::crossover(Tinput* parent1, Tinput* paren
     if (ms_random_generator.genrand_real_range(0,1) < cr) //crossover only when the criteria meet
     {
         int d = (int) ms_random_generator.genrand_real_range_ex_high(0,parameters.dim); //cast to int
-        if (PRINTCONSOLE) {std::cout << "random int: " << d << std::endl;}
+        debug(std::cout << "random int: " << d << std::endl);
         Tinput temp1[parameters.dim];
         // copy parent1 to temp1
         std::copy(parent1, parent1+parameters.dim, temp1);
@@ -248,20 +234,11 @@ void GeneticAlgorithm<Tinput, Toutput>::crossover(Tinput* parent1, Tinput* paren
         std::copy(parent2+d, parent2+parameters.dim, parent1+d); // copy 2nd part of parent2 to parent1
         std::copy(temp1+d, temp1+parameters.dim, parent2+d); // copyt 2nd part of parent1 (stored in temp1) to parent2
         
-        if(PRINTCONSOLE)
-        {
-            std::cout << "---after crossover---" << std::endl;
-            for (int i=0; i<parameters.dim; i++)
-            {
-                std::cout << parent1[i] << " ";
-            }
-            std::cout << std::endl;
-            for (int i=0; i<parameters.dim; i++)
-            {
-                std::cout << parent2[i] << " ";
-            }
-            std::cout << std::endl;
-        }
+
+        debug(std::cout << "---after crossover---" << std::endl);
+        debug(printArray<Tinput>(parent1, parameters.dim, ' '));
+        debug(printArray<Tinput>(parent2, parameters.dim, ' '));
+    
 
 
     }
@@ -281,15 +258,11 @@ void GeneticAlgorithm<Tinput, Toutput>::mutate(Tinput* individuo)
         }
 
     }
-    if(PRINTCONSOLE)
-    {
-        std::cout << "---after mutation---" << std::endl;
-        for (int i=0; i<parameters.dim; i++)
-        {
-            std::cout << individuo[i] << " ";
-        }
-        std::cout<<std::endl;
-    }
+
+    debug(std::cout << "---after mutation---" << std::endl);
+    debug(printArray<Tinput>(individuo,parameters.dim,' '));
+
+    
 
 }
 
@@ -305,7 +278,7 @@ void GeneticAlgorithm<Tinput, Toutput>::selectParent(Tinput* parent)
 {
     // changed to 0, because the total fitness can be less than 1, from the document (1,total_fitness)
     Toutput random_number = ms_random_generator.genrand_real_range(0,total_fitness); 
-    if (PRINTCONSOLE) {std::cout << "random fitness: " << random_number << std::endl;}
+    debug(std::cout << "random fitness: " << random_number << std::endl);
     int s=0;
     while (s < parameters.ns && random_number > 0)
     {
@@ -316,16 +289,10 @@ void GeneticAlgorithm<Tinput, Toutput>::selectParent(Tinput* parent)
     // copy the individuo to parent
     std::copy(population[s-1], population[s-1]+parameters.dim, parent);
 
-    if (PRINTCONSOLE)
-    {
-        std::cout << "selected parent: " << (s-1) << std::endl;
 
-        for (int i=0; i<parameters.dim; i++)
-        {
-            std::cout << parent[i] << " ";
-        }
-        std::cout << std::endl;
-    }
+    debug(std::cout << "selected parent: " << (s-1) << std::endl);
+    debug(printArray(parent, parameters.dim, ' '));
+
     
 }
 
@@ -442,4 +409,15 @@ void GeneticAlgorithm<Tinput,Toutput>::printFitness()
     {   
         std::cout<< fitness[i] <<std::endl;
     }
+}
+
+template <class Tinput, class Toutput>
+template <class T>  
+void GeneticAlgorithm<Tinput,Toutput>::printArray(T* array, int n, char separator)
+{
+    for (int i = 0; i < n; i++) 
+    {   
+        std::cout<< array[i] << separator;
+    }
+    std::cout <<std::endl;
 }

@@ -2,6 +2,7 @@
 #define _GENETICALGORITHM_H_
 
 #include "../lib/mt19937ar_class.h"
+#include "../lib/debug.h"
 
 template <class Tinput>
 struct GAInputParameter
@@ -117,7 +118,8 @@ class GeneticAlgorithm
     Tinput* findBestSolution(int function_id);
 
     //bool operator() (int i,int j);
-
+    template <class T>
+    void printArray(T* array, int n, char separtor);
     void printInputPopulation();
     void printNewPopulation();
 

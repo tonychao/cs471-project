@@ -11,6 +11,7 @@
 #include "genetic_algorithm.cpp" // contains template class
 
 #include "population.h"
+#include "../lib/debug.h"
 
 
 /// @brief  Run project 1, different benchmark functions 
@@ -53,7 +54,7 @@ int main(int argc, char** argv)
 
     PopulationBenchmark<float, float> actual_pop(n_items,dimensions);
     actual_pop.fillWithRandom(-10,10);
-    actual_pop.printPopulation();
+    debug(actual_pop.printPopulation());
 
     return 0;
 }
