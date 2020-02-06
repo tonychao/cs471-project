@@ -131,10 +131,10 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
     genetic_algorithm = new GeneticAlgorithm<Tinput, Toutput>(ga_parameters);
     //printVectors();
 
-    std::cout<<std::endl;
+   
     debug(genetic_algorithm->printInputPopulation());
-    genetic_algorithm->findBestSolution(function_id, result_file, range_low, range_high);
-    
+    Toutput best_solution = genetic_algorithm->findBestSolution(function_id, range_low, range_high);
+    std::cout<<"best solution: " << best_solution<<std::endl;
 
     delete genetic_algorithm; // this was deleted in the wrong place: destructor
 

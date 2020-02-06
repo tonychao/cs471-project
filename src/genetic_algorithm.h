@@ -123,7 +123,7 @@ class GeneticAlgorithm
 
     /// @brief Find the best individuo of the population
     /// @return pointer to the array of the best individuo (each element of the array represents each dimension)
-    Tinput* findBestSolution(int function_id, std::string result_file, Tinput range_low, Tinput range_high);
+    Toutput findBestSolution(int function_id, Tinput range_low, Tinput range_high);
 
     //bool operator() (int i,int j);
     template <class T>

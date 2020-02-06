@@ -161,7 +161,7 @@ void GeneticAlgorithm<Tinput, Toutput>::reduce(int elite_sn, Toutput& best_cost,
 }
 
 template <class Tinput, class Toutput>
-Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id, std::string result_file, Tinput range_low, Tinput range_high)
+Toutput GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id, Tinput range_low, Tinput range_high)
 {
     int elite_sn = (int) (parameters.er * parameters.ns);
     randomInit(range_low, range_high); // population random Init
@@ -176,12 +176,15 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id, std
     debug(std::cout<<"total fitness: " << total_fitness << std::endl);
 
     //allocate memory for new population
-   // allocateMemoryNewPopulation();
+    // allocateMemoryNewPopulation();
 
     // create parent1 and parent2
     Tinput parent1[parameters.dim];
     Tinput parent2[parameters.dim];
     
+
+    Toutput best_cost;
+    Tinput best_individuo[parameters.dim];
 
     for (int t=0; t<parameters.t_max; t++) // GA iteration
     {
@@ -207,13 +210,12 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id, std
         evaluateCost(function_id,new_population,new_population_cost);
         debug(printCost(new_population_cost));
         
-        Toutput best_cost;
-        Tinput best_individuo[parameters.dim];
+        
 
         // caution: the swap of address of population can cause memory leak and double free problem
         reduce(elite_sn, best_cost, best_individuo); //also can find the best  solution in constant time, the arrays are already sorted
 
-        saveResult(best_cost, best_individuo, result_file);
+        saveResult(best_cost, best_individuo, "ga_iterations.csv");
         debug(printInputPopulation());
 
         evaluateCost(function_id,population,cost);
@@ -225,7 +227,7 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id, std
     }
 
     //freeMemoryNewPopulation();
-    return population[0];
+    return best_cost;
 }
 
 template <class Tinput, class Toutput>
