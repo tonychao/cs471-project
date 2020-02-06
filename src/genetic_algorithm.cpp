@@ -6,12 +6,35 @@
 #include <fstream>  //file
 
 
+/* pass population by reference to avoid the problem of:
+ double free or corruption (fasttop)
+ Aborted (core dumped)
 
+this occurs because to increase the velocity of swap, we did copy the data, we just swap the address,
+the problem was the population in runner class still have the old address which cause the double delete and memory leak problem.
+*/
 
 template <class Tinput, class Toutput>
 GeneticAlgorithm<Tinput,Toutput>::GeneticAlgorithm(Tinput** population, GAInputParameter<Tinput> parameters)
 {
-    this->population = population;
+    // allocate memory for population
+    this->population = new Tinput*[parameters.ns];
+
+    for (int i = 0; i<parameters.ns; i++)
+    {
+        this->population[i] = new Tinput[parameters.dim];
+    }
+   
+    //this->population = population; // copy it to avoid memory problem because of swap...
+    
+    for (int i = 0; i<parameters.ns; i++)
+    {
+        for (int j = 0; j<parameters.dim; j++)
+        {
+            this->population[i][j] = population[i][j];
+        }
+    }
+    
     this->parameters = parameters;
 
     //allocate memory for array of cost
@@ -66,6 +89,18 @@ GeneticAlgorithm<Tinput,Toutput>::~GeneticAlgorithm()
     
     if(new_population_asc_index)
         delete[] new_population_asc_index;
+
+    // free memory for population
+    if(population)
+    {
+        for (int i = 0; i<parameters.ns; i++)
+        {
+            if(population[i])
+            delete [] population[i]; //delete array
+        }
+
+        delete [] population; // delete array of array
+    }
     
 }
 
@@ -167,6 +202,7 @@ Tinput* GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id)
         Toutput best_cost;
         Tinput best_individuo[parameters.dim];
 
+        // caution: the swap of address of population can cause memory leak and double free problem
         reduce(elite_sn, best_cost, best_individuo); //also can find the best  solution in constant time, the arrays are already sorted
 
         saveBest(best_cost, best_individuo);

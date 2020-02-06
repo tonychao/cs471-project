@@ -38,6 +38,7 @@ Runner<Tinput,Toutput>::Runner(int dimensions, int n_samples)
 template <class Tinput,class Toutput>
 Runner<Tinput,Toutput>::~Runner()
 {
+
     // free memory for the vectors
     if(vectors)
     {
@@ -53,11 +54,7 @@ Runner<Tinput,Toutput>::~Runner()
     delete [] solutions; // free memory for array of solutions
 
 
-    // free memory of different optimization algorithm
-    if(genetic_algorithm)
-    {
-        delete genetic_algorithm;
-    }
+ 
 
 }
 
@@ -153,13 +150,17 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
     ga_parameters.bounds.u = range_high;
     ga_parameters.dim = this->dimensions;
     ga_parameters.ns = this->n_samples;
+
+    
     genetic_algorithm = new GeneticAlgorithm<Tinput, Toutput>(vectors, ga_parameters);
     //printVectors();
 
     std::cout<<std::endl;
     debug(genetic_algorithm->printInputPopulation());
     genetic_algorithm->findBestSolution(function_id);
+    
 
+    delete genetic_algorithm; // this was deleted in the wrong place: destructor
 
 
 }
