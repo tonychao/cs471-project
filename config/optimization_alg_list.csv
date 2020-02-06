@@ -1,0 +1,2 @@
+Id, Algorithm name, config file
+1, Genetic Algorithm, optimization_algorithms_config/ga_config.csv
