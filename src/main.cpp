@@ -54,9 +54,10 @@ int main(int argc, char** argv)
 
 
     Runner <float,float> runner(dimensions,n_items); // <Tinput, Toutput>, dimensions, n_sample
-    //runner.run(function_id, range_min, range_max); //function_id, range_min, range_max
     runner.runOptimization(opt_alg_id, opt_conf_file, opt_result_file, function_id,range_min, range_max);
 
+
+    // in preparation
     PopulationBenchmark<float, float> actual_pop(n_items,dimensions);
     actual_pop.fillWithRandom(-10,10);
     debug(actual_pop.printPopulation());

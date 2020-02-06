@@ -1,4 +1,3 @@
-
 #include "runner.h"
 
 
@@ -8,73 +7,16 @@ Runner<Tinput,Toutput>::Runner(int dimensions, int n_samples)
     this->dimensions = dimensions;
     this->n_samples = n_samples;
 
-
-    // allocate memory for the vectors
-    vectors = new Tinput*[n_samples];
-
-    for (int i = 0; i<n_samples; i++)
-    {
-        vectors[i] = new Tinput[dimensions];
-    }
-
     // allocate memory for array of solutions
     solutions = new Toutput[n_samples];
 
-    // random generator seed
-    mersenne_twister.init_genrand(time(0));
 }
 
 template <class Tinput,class Toutput>
 Runner<Tinput,Toutput>::~Runner()
 {
 
-    // free memory for the vectors
-    if(vectors)
-    {
-        for (int i = 0; i<n_samples; i++)
-        {
-            if(vectors[i])
-            delete [] vectors[i]; //delete array
-        }
-
-        delete [] vectors; // delete array of array
-    }
-
     delete [] solutions; // free memory for array of solutions
-
-
- 
-
-}
-
-template <class Tinput,class Toutput>
-void Runner<Tinput,Toutput>::fillVectorsRandom(Tinput range_low, Tinput range_high)
-{
-    
-    for (int i = 0; i < n_samples; i++) 
-    {  
-        for (int j = 0; j < dimensions; j++) 
-        {
-
-            vectors[i][j] = mersenne_twister.genrand_real_range(range_low,range_high);
-           
-        }
-        
-    }
-
-}
-
-template <class Tinput,class Toutput>
-void Runner<Tinput,Toutput>::printVectors()
-{
-    for (int i = 0; i < n_samples; i++) 
-    {  
-        for (int j = 0; j < dimensions; j++) 
-        {
-            std::cout<< vectors[i][j] << " ";
-        }
-        std::cout<<std::endl;
-    }
 
 }
 
@@ -90,36 +32,6 @@ void Runner<Tinput,Toutput>::printSolutions()
 
 }
 
-template <class Tinput,class Toutput>
-void Runner<Tinput,Toutput>::run(int function_id,Tinput range_low, Tinput range_high)
-{
-    this->function_id = function_id;
-    this->range_low = range_low;
-    this->range_high = range_high;
-
-    fillVectorsRandom(range_low, range_high);
-
-    
-    clock_t start_c, stop_c;
-    start_c = clock();
-    for (int i = 0; i < n_samples; i++)
-    {
-        
-        //pointer to member function https://www.codeguru.com/cpp/cpp/article.php/c17401/C-Tutorial-PointertoMember-Function.htm
-        Functions1<Tinput,Toutput> x;
-        typename Functions1<Tinput,Toutput>::function_pointer fp = functions.getFunctionById(function_id);
-        solutions[i] = (x.*fp)(vectors[i], dimensions); 
-
-    }
-    stop_c = clock();
-    double clock_time;
-    clock_time = ((double)stop_c - (double)start_c)/CLOCKS_PER_SEC; // CLOCKS_PER_SEC=1000000 in linux   CLOCKS_PER_SEC=1000 in windows
-    clock_time *=1000.0; // convert to milisecond
-    
-    computeStatistic(clock_time); // compute all the statistical analysis beyond cpu time in ms
-    saveStatistic();
-
-}
 template <class Tinput,class Toutput>
 void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string config_file, std::string result_file, int function_id, Tinput range_low, Tinput range_high)
 {
