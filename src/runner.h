@@ -5,15 +5,16 @@
 #include <random>       //mt19937
 #include <iostream>
 #include <algorithm>    //std::sort
-#include <time.h>       //time
 #include "functions1.h"
 #include "genetic_algorithm.h"
+#include "differential_evolution.h"
 #include <string>
 #include "../lib/mt19937ar_class.h"
 #include "../lib/debug.h"
 #include <fstream>  //file
 #include <vector>    // working with csv file
 #include <sstream>   // to read csv file
+#include "util.h" //clock
 
 
 /// @brief  Template class which generates random sample of different dimensions and run a specific benchmark function
@@ -55,8 +56,9 @@ class Runner
 
     // to do: create instance of each optimization algorithm that will be run
     // create read configuration parameter for each optimization algorithm
-    GeneticAlgorithm<Tinput, Toutput>* genetic_algorithm;
+    
     void fillGAParameterFromFile(std::string config_filename, GAInputParameter<Tinput> &parameters); //param = address of the configuration struct
+    void fillDEParameterFromFile(std::string config_filename, DEInputParameter<Tinput> &parameters); //param = address of the configuration struct
 
     public:
     

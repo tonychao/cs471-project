@@ -5,6 +5,7 @@
 #include <time.h>       //time
 #include <iostream>
 #include "functions1.h"
+#include <algorithm> //sort
 
 
 template <class Tinput, class Toutput>

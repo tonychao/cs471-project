@@ -20,8 +20,6 @@ GeneticAlgorithm<Tinput,Toutput>::GeneticAlgorithm(GAInputParameter<Tinput> para
         this->population[i] = new Tinput[parameters.dim];
     }
    
-
-    
     
     this->parameters = parameters;
 

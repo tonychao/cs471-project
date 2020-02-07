@@ -39,40 +39,52 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
     this->range_low = range_low;
     this->range_high = range_high;
 
-  
-    // to do: identify the optimization algorithm by id
-    // read some of the optimization algorithm parameters from file
-    // fill the parameter struct from optimization algorithm class 
-    GAInputParameter<Tinput> ga_parameters;
-    fillGAParameterFromFile(config_file, ga_parameters); // pass by reference
-    ga_parameters.bounds.l = range_low; 
-    ga_parameters.bounds.u = range_high;
-    ga_parameters.dim = this->dimensions;
-    //ga_parameters.ns = this->n_runs;
+    Clock clk; 
 
-    
-    genetic_algorithm = new GeneticAlgorithm<Tinput, Toutput>(ga_parameters);
-   
-    debug(genetic_algorithm->printInputPopulation());
-    
-    clock_t start_c, stop_c;
-    start_c = clock();
-    for (int i = 0; i < n_runs; i++)
+    switch(algorithm_id)
     {
-        Toutput best_solution = genetic_algorithm->findBestSolution(function_id, range_low, range_high);
-        solutions[i] = best_solution;
-        //std::cout<<"best solution: " << best_solution<<std::endl;
-    }
-    
-    stop_c = clock();
-    double clock_time;
-    clock_time = ((double)stop_c - (double)start_c)/CLOCKS_PER_SEC; // CLOCKS_PER_SEC=1000000 in linux   CLOCKS_PER_SEC=1000 in windows
-    clock_time *=1000.0; // convert to milisecond
-    
-    computeStatistic(clock_time); // compute all the statistical analysis beyond cpu time in ms
-    saveStatistic();
+        case 0: // genetic algorithm
+        {//avoid cross initialization error
+            GAInputParameter<Tinput> ga_parameters;
+            fillGAParameterFromFile(config_file, ga_parameters); // pass by reference
+            ga_parameters.bounds.l = range_low; 
+            ga_parameters.bounds.u = range_high;
+            ga_parameters.dim = this->dimensions;
 
-    delete genetic_algorithm; // this was deleted in the wrong place: destructor
+            GeneticAlgorithm<Tinput, Toutput> genetic_algorithm(ga_parameters);
+        
+            debug(genetic_algorithm.printInputPopulation());
+            
+            clk.tic();
+            for (int i = 0; i < n_runs; i++)
+            {
+                Toutput best_solution = genetic_algorithm.findBestSolution(function_id, range_low, range_high);
+                solutions[i] = best_solution;
+                //std::cout<<"best solution: " << best_solution<<std::endl;
+            }
+            
+            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+            saveStatistic();
+        }   
+        break;
+        
+        case 1:
+        {
+            DEInputParameter<Tinput> de_parameters;
+            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
+            de_parameters.bounds.l = range_low; 
+            de_parameters.bounds.u = range_high;
+            de_parameters.dim = this->dimensions;
+
+            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
+
+            diff_evo.runS7_DE_rand_1_bin();
+            
+        }
+        break;
+    }
+
+
     debug(std::cout<<"solutions: " <<std::endl);
     debug(printSolutions());
     
@@ -84,14 +96,10 @@ void Runner<Tinput,Toutput>::fillGAParameterFromFile(std::string config_filename
 {
     // File pointer 
     std::fstream fin; 
-  
+
     // Open an existing file 
     fin.open(config_filename, std::ios::in); 
-  
-
     int count = 0; 
-
-
     // Read the Data from the file 
     // as String Vector 
     std::vector<std::string> row; 
@@ -100,7 +108,6 @@ void Runner<Tinput,Toutput>::fillGAParameterFromFile(std::string config_filename
     while (fin) { 
         count++;
         row.clear(); 
-         
         // read an entire row and 
         // store it in a string variable 'line' 
         std::getline(fin, line); 
@@ -112,18 +119,13 @@ void Runner<Tinput,Toutput>::fillGAParameterFromFile(std::string config_filename
         // store it in a string variable, 'word' 
         
         while (std::getline(s, word, ',')) { 
-  
             // add all the column data 
             // of a row to a vector 
             row.push_back(word); 
-           
         } 
-                
-  
-  
+        
         // Compare the roll number 
         if (count==2) { 
-  
             parameters.t_max = std::stoi(row[0]); 
             parameters.cr = std::stod(row[1]); 
             parameters.m.rate = std::stod(row[2]);
@@ -131,17 +133,68 @@ void Runner<Tinput,Toutput>::fillGAParameterFromFile(std::string config_filename
             parameters.m.precision = std::stod(row[4]);
             parameters.er = std::stod(row[5]);
             parameters.ns = std::stod(row[6]);
-            
             break; 
         } 
         
     } 
    
     if(count!=2)
-        std::cout << "config file not found\n"; 
+        std::cout << config_filename << "config file not found\n"; 
 
     fin.close();
     
+}
+
+
+template <class Tinput, class Toutput>
+void Runner<Tinput,Toutput>::fillDEParameterFromFile(std::string config_filename, DEInputParameter<Tinput> &parameters)
+{
+    // File pointer 
+    std::fstream fin; 
+
+    // Open an existing file 
+    fin.open(config_filename, std::ios::in); 
+    int count = 0; 
+    // Read the Data from the file 
+    // as String Vector 
+    std::vector<std::string> row; 
+    std::string line, word, temp; 
+
+    while (fin) { 
+        count++;
+        row.clear(); 
+        // read an entire row and 
+        // store it in a string variable 'line' 
+        std::getline(fin, line); 
+
+        // used for breaking words 
+        std::stringstream s(line); 
+        
+        // read every column data of a row and 
+        // store it in a string variable, 'word' 
+        
+        while (std::getline(s, word, ',')) { 
+            // add all the column data 
+            // of a row to a vector 
+            row.push_back(word); 
+        } 
+        
+        // Compare the roll number 
+        if (count==2) { 
+            parameters.t_max = std::stoi(row[0]); 
+            parameters.cr = std::stod(row[1]); 
+            parameters.scale_f = std::stod(row[2]);
+            parameters.scale_lambda= std::stod(row[3]); 
+            parameters.pop_size = std::stod(row[4]);
+            break; 
+        } 
+        
+    } 
+   
+    if(count!=2)
+        std::cout <<config_filename<< " config file not found\n"; 
+
+    fin.close();
     
 }
 

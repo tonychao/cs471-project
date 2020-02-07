@@ -1,18 +1,19 @@
 
 #include <iostream>
 #include <string> //stoi
-#include "functions1.h"
+//#include "functions1.h"
 #include "functions1.cpp"  //it contains template class
 
-#include "runner.h"
+//#include "runner.h"
 #include "runner.cpp" //it contains template class
 
-#include "genetic_algorithm.h"
+//#include "genetic_algorithm.h"
 #include "genetic_algorithm.cpp" // contains template class
 
 #include "population.h"
 #include "../lib/debug.h"
-
+//#include "differential_evolution.h"
+#include "differential_evolution.cpp"
 
 /// @brief  Run project 1, different benchmark functions 
 ///
@@ -53,18 +54,10 @@ int main(int argc, char** argv)
 
 
 
-    //Runner <float,float> runner(dimensions,n_runs); // <Tinput, Toutput>, dimensions, n_sample
-    //runner.runOptimization(opt_alg_id, opt_conf_file, opt_result_file, function_id,range_min, range_max);
+    Runner <float,float> runner(dimensions,n_runs); // <Tinput, Toutput>, dimensions, n_sample
+    runner.runOptimization(opt_alg_id, opt_conf_file, opt_result_file, function_id,range_min, range_max);
 
 
-    // in preparation
-    PopulationBenchmark<float, float> actual_pop(5,dimensions);
-    actual_pop.fillWithRandom(-10,10);
-    debug1(actual_pop.printPopulation());
-    actual_pop.evaluateCost(function_id);
-    debug1(actual_pop.printCost());
-    actual_pop.sortIndexByCostAsc();
-    debug1(actual_pop.printIndex());
 
     return 0;
 }
