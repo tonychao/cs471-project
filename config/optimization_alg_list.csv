@@ -1,2 +1,12 @@
 Id, Algorithm name, config file
-1, Genetic Algorithm, optimization_algorithms_config/ga_config.csv
+0,GA, optimization_algorithms_config/ga_config.csv
+1,DE_best_1_exp,
+2,DE_rand_1_exp,
+3,DE_randbest_1_exp,
+4,DE_best_2_exp,
+5,DE_rand_2_exp,
+6,DE_best_1_bin,
+7,DE_rand_1_bin,
+8,DE_randbest_1_bin,
+9,DE_best_2_bin,
+10,DE_rand_2_bin,
