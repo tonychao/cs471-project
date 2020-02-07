@@ -2,7 +2,7 @@
 #define _UTIL_H_
 
 #include <time.h>       //time
-
+#include <iostream>
 class Clock
 {
     private:
@@ -23,4 +23,15 @@ class Clock
     }
 };
 
+
+
+template <class T> 
+void printArray(T* array, int n, char separator)
+{
+    for (int i = 0; i < n; i++) 
+    {   
+        std::cout<< array[i] << separator;
+    }
+    std::cout <<std::endl;
+}
 #endif

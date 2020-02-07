@@ -110,7 +110,7 @@ class GeneticAlgorithm
     /// @brief Find the best individuo of the population
     /// @return pointer to the array of the best individuo (each element of the array represents each dimension)
     Toutput findBestSolution(int function_id, Tinput range_low, Tinput range_high);
-    template <class T> void printArray(T* array, int n, char separtor);
+    template <class T> void printArray(T* array, int n, char separator);
     void printInputPopulation();
     void printNewPopulation();
     void printCost(Toutput* cost);

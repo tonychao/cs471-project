@@ -3,6 +3,8 @@
 
 #include "population.h"
 #include "../lib/debug.h"
+#include "../lib/mt19937ar_class.h"
+#include "util.h"
 
 template <class Tinput>
 struct DEInputParameter
@@ -34,7 +36,9 @@ class DifferentialEvolution
     PopulationBenchmark<Tinput, Toutput> *actual_pop;
     PopulationBenchmark<Tinput, Toutput> *new_pop;
     DEInputParameter<Tinput> param;
-
+    MersenneTwister ms_random; ///< mersenne twister random generator
+    void randomR(int *r, int n, int current_i);
+  
     public:
     DifferentialEvolution(DEInputParameter<Tinput> param);
     ~DifferentialEvolution();

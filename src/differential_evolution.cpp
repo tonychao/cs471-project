@@ -35,11 +35,61 @@ DifferentialEvolution<Tinput, Toutput>::~DifferentialEvolution()
         delete new_pop;
     }
 }
+
+
+template <class Tinput, class Toutput>
+void DifferentialEvolution<Tinput, Toutput>::randomR(int *r, int n, int current_i)
+{
+    int a;
+    for (int i =0; i<n; i++)
+    {
+        while(true)
+        {
+            a = (int)ms_random.genrand_real_range_ex_high(0,param.dim);
+            if(i>0) // the vector r has some elements
+            {
+                bool unique = true;
+                for (int j =0; j<i; j++)
+                {
+                    if(a==r[j]||a==current_i)
+                    {
+                        unique = false;
+                        break;
+                    }
+
+                }
+                if(unique)
+                {
+                    r[i] = a;
+                    break;
+                }
+            }
+            else
+            {
+                if(a!=current_i)
+                {
+                    r[i] = a;
+                    break;
+                }
+            }
+            
+        }
+        
+        
+    }
+}
+
 template <class Tinput, class Toutput>
 void DifferentialEvolution<Tinput, Toutput>::runS7_DE_rand_1_bin()
 {
     
     actual_pop->fillWithRandom(param.bounds.l, param.bounds.u);
     debug1(actual_pop->printPopulation());
+    int nr = 10;
+    int r[nr];
 
+    randomR(r,nr,5);
+    std::cout<<"---random r---"<<std::endl;
+    printArray<int>(r,nr,'\n');
 }
+
