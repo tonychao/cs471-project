@@ -1,10 +1,14 @@
 #ifndef _DIFFERENTIALEVOLUTION_H_
 #define _DIFFERENTIALEVOLUTION_H_
 
+#include "functions1.h"
 #include "population.h"
 #include "../lib/debug.h"
 #include "../lib/mt19937ar_class.h"
 #include "util.h"
+#include <time.h> 
+#include <limits> //get max limit of type
+#include <fstream>  //file
 
 template <class Tinput>
 struct DEInputParameter
@@ -37,12 +41,14 @@ class DifferentialEvolution
     PopulationBenchmark<Tinput, Toutput> *new_pop;
     DEInputParameter<Tinput> param;
     MersenneTwister ms_random; ///< mersenne twister random generator
+    Toutput *best_cost;
     void randomR(int *r, int n, int current_i);
-  
+    void saveResult(Toutput best_cost, Tinput* best_vector, std::string result_file);
     public:
     DifferentialEvolution(DEInputParameter<Tinput> param);
     ~DifferentialEvolution();
-    void runS7_DE_rand_1_bin();
+    void runS7_DE_rand_1_bin(int function_id);
+    void runS10_DE_rand_2_bin(int function_id);
 };
 
 #endif

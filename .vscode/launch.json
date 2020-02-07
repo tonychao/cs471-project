@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}\\bin\\debug\\project.exe",
-            "args": ["1", "../../config/optimization_alg_conf/de_config.csv", "output.csv", "50", "1", "5", "-500", "500"],
+            "args": ["1", "config/optimization_alg_conf/de_config.csv", "output.csv", "50", "1", "5", "-500", "500"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

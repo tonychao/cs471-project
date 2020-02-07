@@ -78,7 +78,7 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
 
             DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
 
-            diff_evo.runS7_DE_rand_1_bin();
+            diff_evo.runS7_DE_rand_1_bin(function_id);
             
         }
         break;

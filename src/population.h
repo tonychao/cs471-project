@@ -6,6 +6,7 @@
 #include <iostream>
 #include "functions1.h"
 #include <algorithm> //sort
+#include "util.h"
 
 
 template <class Tinput, class Toutput>
@@ -77,6 +78,73 @@ class Population
         }
     };
 
+    Tinput getData(int i, int j)
+    {
+        return data[i][j];
+    };
+
+    Tinput* getData(int i)
+    {
+        return data[i];
+    };
+
+    void setData(Tinput *item, int i)
+    {
+        for(int j=0; j<dimension; j++)
+        {
+            data[i][j] = item[j];
+        }
+    }
+/*
+    int getDimension()
+    {
+        return dimension;
+    }
+    int getNItems()
+    {
+        return n_items;
+    }
+    Tinput** getDataPointer()
+    {
+        return data;
+    }
+
+    void setDimension(int dimension)
+    {
+        this->dimension =  dimension;
+    }
+    void setNItems(int n_items)
+    {
+        this->n_items = n_items;
+    }
+*/
+    static void swap(Population& A, Population& B)
+    {
+        if (A.n_items == B.n_items && A.dimension == B.dimension)
+        {
+            int temp_dim, temp_n;
+            Tinput** temp_pointer;
+            
+            temp_n = A.n_items;
+            temp_dim = A.dimension;
+            temp_pointer = A.data;
+
+            A.n_items = B.n_items;
+            A.dimension = B.dimension;
+            A.data = B.data;
+
+            B.n_items = temp_n;
+            B.dimension = temp_dim;
+            B.data = temp_pointer;
+        }
+        else
+        {
+            std::cout<<"Cannot Swap, data with diference size and dimension"<<std::endl;
+        }
+        
+
+
+    }
 
     
 
@@ -104,6 +172,7 @@ class PopulationBenchmark: public Population <Tinput,Toutput>
     };
 
     public:
+
     PopulationBenchmark(int n_items, int dimension) : Population<Tinput,Toutput>(n_items,dimension)
     {
         
@@ -131,6 +200,9 @@ class PopulationBenchmark: public Population <Tinput,Toutput>
             delete[] asc_index;
     
     };
+
+ 
+
     void evaluateCost(int function_id)
     {
         
@@ -143,6 +215,25 @@ class PopulationBenchmark: public Population <Tinput,Toutput>
     
     };
 
+    Toutput calcCost1Item(int function_id, int i)
+    {
+        
+        Functions1<Tinput,Toutput> functions;
+        typename Functions1<Tinput,Toutput>::function_pointer fp = functions.getFunctionById(function_id);
+
+        return  (functions.*fp)(this->data[i], this->dimension); //evaluate the selected benchmark function
+        
+    
+    };
+
+    static Toutput calcCostExt(int function_id, Tinput *item, int dim)
+    {
+        Functions1<Tinput,Toutput> functions;
+        typename Functions1<Tinput,Toutput>::function_pointer fp = functions.getFunctionById(function_id);
+
+        return  (functions.*fp)(item, dim); //evaluate the selected benchmark function
+    }
+    
 
 
     void sortIndexByCostAsc()
@@ -162,14 +253,6 @@ class PopulationBenchmark: public Population <Tinput,Toutput>
         printArray<int>(asc_index, this->n_items, '\n');
     };
 
-    template <class T> void printArray(T* array, int n, char separator)
-    {
-        for (int i = 0; i < n; i++) 
-        {   
-            std::cout<< array[i] << separator;
-        }
-        std::cout << std::endl;
-    };
  
 };
 #endif

@@ -5,6 +5,7 @@
 //comment this quit debug mode
 //#define DEBUGMODE 
 #define DEBUGMODE1
+#define DEBUGVAR
     
     //std::cout << x
     #ifdef DEBUGMODE
@@ -19,5 +20,14 @@
     #else
         #define debug1(x) 
     #endif 
+
+    #ifdef DEBUGVAR
+        #define debug_var(x) std::cout << #x << " = " << x << std::endl;
+    #else
+        #define debug_var(x)
+    #endif 
+
+
+      
 
 #endif
