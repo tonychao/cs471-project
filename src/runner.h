@@ -38,7 +38,7 @@ class Runner
     };
     statistics stat_analysis; ///< instance of struct #statistics [result of computeStatistic()]
     int dimensions; ///< size of the sample or size of the array pointed by each element of vectors [parameter from constructor Runner()]
-    int n_samples; ///< size of the array vectors [parameter from constructor Runner()]
+    int n_runs; ///< size of the array vectors [parameter from constructor Runner()]
     Tinput range_low; ///< lowest value that the random generator should produce for each element of the sample [parameter from run()]
     Tinput range_high; ///< highgest value that the random generator should produce  for each element of the sample [parameter from run()]
     Toutput* solutions; ///< pointer to the array of the result of the benchmark function
@@ -63,8 +63,8 @@ class Runner
     /// @brief constructor of the class Runner
     /// allocate memory for vectors (array of array) 
 	/// @param dimensions ///< size of the sample or size of the array pointed by each element of vectors
-	/// @param n_samples ///< size of the array vectors 
-    Runner(int dimensions, int n_samples); //constructorinput
+	/// @param n_runs ///< number of runs 
+    Runner(int dimensions, int n_runs); //constructorinput
 
     /// @brief destructor of the class Runner
     /// free memory for vectors (array of array) 

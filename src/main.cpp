@@ -23,7 +23,7 @@ int main(int argc, char** argv)
 {
     int counter;
     int function_id;
-    int n_items;
+    int n_runs;
     int dimensions;
     double range_min;
     double range_max;
@@ -32,7 +32,7 @@ int main(int argc, char** argv)
     //printf("Program Name Is: %s\n",argv[0]); 
     if(argc!=9) 
     {
-        printf("arguments: opt_alg_id opt_conf_file opt_result_file function_id number_of_items dimensions range_min range_max\n");
+        printf("arguments: opt_alg_id opt_conf_file opt_result_file n_runs function_id dimensions range_min range_max\n");
         return 1;
     }
     else
@@ -44,8 +44,8 @@ int main(int argc, char** argv)
         opt_alg_id = std::stoi(argv[1]);
         opt_conf_file = argv[2];
         opt_result_file = argv[3];
-        function_id = std::stoi(argv[4]);
-        n_items = std::stoi(argv[5]);
+        n_runs = std::stoi(argv[4]);
+        function_id = std::stoi(argv[5]);
         dimensions = std::stoi(argv[6]);
         range_min = std::stod(argv[7]);
         range_max = std::stod(argv[8]);
@@ -53,12 +53,12 @@ int main(int argc, char** argv)
 
 
 
-    Runner <float,float> runner(dimensions,n_items); // <Tinput, Toutput>, dimensions, n_sample
+    Runner <float,float> runner(dimensions,n_runs); // <Tinput, Toutput>, dimensions, n_sample
     runner.runOptimization(opt_alg_id, opt_conf_file, opt_result_file, function_id,range_min, range_max);
 
 
     // in preparation
-    PopulationBenchmark<float, float> actual_pop(n_items,dimensions);
+    PopulationBenchmark<float, float> actual_pop(10,dimensions);
     actual_pop.fillWithRandom(-10,10);
     debug(actual_pop.printPopulation());
 

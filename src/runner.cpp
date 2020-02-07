@@ -2,13 +2,13 @@
 
 
 template <class Tinput, class Toutput>
-Runner<Tinput,Toutput>::Runner(int dimensions, int n_samples)
+Runner<Tinput,Toutput>::Runner(int dimensions, int n_runs)
 {
     this->dimensions = dimensions;
-    this->n_samples = n_samples;
+    this->n_runs = n_runs;
 
     // allocate memory for array of solutions
-    solutions = new Toutput[n_samples];
+    solutions = new Toutput[n_runs];
 
 }
 
@@ -23,7 +23,7 @@ Runner<Tinput,Toutput>::~Runner()
 template <class Tinput,class Toutput>
 void Runner<Tinput,Toutput>::printSolutions()
 {
-    for (int i = 0; i < n_samples; i++) 
+    for (int i = 0; i < n_runs; i++) 
     {  
       
         std::cout<< solutions[i] <<std::endl;
@@ -48,7 +48,7 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
     ga_parameters.bounds.l = range_low; 
     ga_parameters.bounds.u = range_high;
     ga_parameters.dim = this->dimensions;
-    //ga_parameters.ns = this->n_samples;
+    //ga_parameters.ns = this->n_runs;
 
     
     genetic_algorithm = new GeneticAlgorithm<Tinput, Toutput>(ga_parameters);
@@ -57,7 +57,7 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
     
     clock_t start_c, stop_c;
     start_c = clock();
-    for (int i = 0; i < n_samples; i++)
+    for (int i = 0; i < n_runs; i++)
     {
         Toutput best_solution = genetic_algorithm->findBestSolution(function_id, range_low, range_high);
         solutions[i] = best_solution;
@@ -151,43 +151,43 @@ void Runner<Tinput,Toutput>::computeStatistic(double time_ms)
     stat_analysis.time_ms = time_ms;
     
     // First we sort the array 
-    std::sort(solutions, solutions + n_samples);
+    std::sort(solutions, solutions + n_runs);
     
     // -----------  find the median
     // check for even case 
-    if (n_samples % 2 != 0) 
+    if (n_runs % 2 != 0) 
     {
-        stat_analysis.median = solutions[n_samples / 2]; 
+        stat_analysis.median = solutions[n_runs / 2]; 
     }
     else
     {
-        stat_analysis.median = (solutions[(n_samples - 1) / 2] + solutions[n_samples / 2]) / 2.0;
+        stat_analysis.median = (solutions[(n_runs - 1) / 2] + solutions[n_runs / 2]) / 2.0;
     }
     
     
     // ----------- calculate range
-    stat_analysis.range_max = solutions[n_samples-1];
+    stat_analysis.range_max = solutions[n_runs-1];
     stat_analysis.range_min = solutions[0];
     stat_analysis.range = stat_analysis.range_max - stat_analysis.range_min;
     
 
     // ----------- calculate mean
     double mean = 0.0;
-    for(int i=0 ; i<n_samples; i++)
+    for(int i=0 ; i<n_runs; i++)
     {
         mean+=solutions[i];
     }
-    mean = mean/n_samples;
+    mean = mean/n_runs;
     stat_analysis.mean = mean;
     
 
     // ---------- calculate std
     double std_dev = 0.0;
-    for(int i=0 ; i<n_samples; i++)
+    for(int i=0 ; i<n_runs; i++)
     {
         std_dev += (solutions[i] - mean)*(solutions[i] - mean);
     }
-    std_dev /= n_samples;
+    std_dev /= n_runs;
     std_dev = sqrt(std_dev);
     stat_analysis.std_dev = std_dev;
     
@@ -209,14 +209,14 @@ void Runner<Tinput,Toutput>::saveStatistic()
     std::fstream fout; 
   
     // opens an existing csv file or creates a new file. 
-    std::string file_name = "f"+std::to_string(function_id)+"_"+std::to_string(n_samples)+"_"+std::to_string(dimensions)+".csv";
+    std::string file_name = "f"+std::to_string(function_id)+"_"+std::to_string(n_runs)+"_"+std::to_string(dimensions)+".csv";
   
    
     if(!std::ifstream(file_name)) // if file not exist, create new file with header
     {
         fout.open(file_name, std::fstream::in | std::fstream::out | std::fstream::app);
         fout << "function_id" << ","
-                << "n_samples" << ","
+                << "n_runs" << ","
                 << "dimensions" << ","
                 << "range_low" << ","
                 << "range_high" << ","
@@ -229,7 +229,7 @@ void Runner<Tinput,Toutput>::saveStatistic()
                 << "range_max" << ", " //new
                 << "\n"; 
         fout << function_id << ","
-                << n_samples << ","
+                << n_runs << ","
                 << dimensions << ","
                 << range_low << ","
                 << range_high << ","
@@ -248,7 +248,7 @@ void Runner<Tinput,Toutput>::saveStatistic()
     {
         fout.open(file_name, std::fstream::in | std::fstream::out | std::fstream::app);
         fout << function_id << ","
-                << n_samples << ","
+                << n_runs << ","
                 << dimensions << ","
                 << range_low << ","
                 << range_high << ","
