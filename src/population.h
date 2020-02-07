@@ -85,24 +85,34 @@ template <class Tinput, class Toutput>
 class PopulationBenchmark: public Population <Tinput,Toutput>
 {
     private:
-    int dimension;
-    int n_items; ///< total number of items in data
+
     Toutput* cost;  ///< array that contains the cost of each item
-    Toutput* fitness; ///< array that contains the fitness of each item
-    Toutput total_fitness; ///< total fitness of the population
     int* asc_index;
+        // ... for sort
+    
+    //https://stackoverflow.com/questions/1902311/problem-sorting-using-member-function-as-comparator
+    struct doCompare
+    { 
+        const PopulationBenchmark& m_info;
+        doCompare( const PopulationBenchmark& info ) : m_info(info) { } // only if you really need the object state
+        bool operator()( const int & i1, const int & i2  )
+        { 
+                // comparison code using m_info
+                return (m_info.cost[i1]<m_info.cost[i2]);
+        }
+    };
 
     public:
     PopulationBenchmark(int n_items, int dimension) : Population<Tinput,Toutput>(n_items,dimension)
     {
         
-        // allocate memory for array for cost and fitenss
-        cost = new Toutput[n_items];
-        fitness = new Toutput[n_items];
+        // allocate memory for array for cost
+        cost = new Toutput[this->n_items];
+
 
         // allocate memory and fill the population index for sorting
-        asc_index = new int[n_items];
-        for(int i=0; i<n_items; i++)
+        asc_index = new int[this->n_items];
+        for(int i=0; i<this->n_items; i++)
         {
             asc_index[i] = i;
         }
@@ -114,9 +124,7 @@ class PopulationBenchmark: public Population <Tinput,Toutput>
          // free array of cost
         if(cost)
             delete[] cost;
-        // free array of fitness
-        if(fitness)
-            delete[] fitness;
+
         // free array of index
         if(asc_index)
             delete[] asc_index;
@@ -124,21 +132,43 @@ class PopulationBenchmark: public Population <Tinput,Toutput>
     };
     void evaluateCost(int function_id)
     {
+        
         Functions1<Tinput,Toutput> functions;
         typename Functions1<Tinput,Toutput>::function_pointer fp = functions.getFunctionById(function_id);
-        for (int i = 0; i<n_items; i++)
+        for (int i = 0; i<this->n_items; i++)
         {
-            cost[i] = (functions.*fp)(this->data[i], dimension); //evaluate the selected benchmark function
+            cost[i] = (functions.*fp)(this->data[i], this->dimension); //evaluate the selected benchmark function
         }
     
     };
 
 
 
-    void sortIndexByCostAsc();
+    void sortIndexByCostAsc()
+    {
+        std::sort(asc_index, asc_index + this->n_items, doCompare(*this));
+    };
     
     void saveBest(Toutput best_cost, Tinput *best_individuo);
-    void printCost();
-    void printFitness();
+    void printCost()
+    {
+        std::cout<<"--- cost ---"<<std::endl;
+        printArray<Toutput>(cost, this->n_items, '\n');
+    };
+    void printIndex()
+    {
+        std::cout<<"--- index ---"<<std::endl;
+        printArray<int>(asc_index, this->n_items, '\n');
+    };
+
+    template <class T> void printArray(T* array, int n, char separator)
+    {
+        for (int i = 0; i < n; i++) 
+        {   
+            std::cout<< array[i] << separator;
+        }
+        std::cout << std::endl;
+    };
+ 
 };
 #endif

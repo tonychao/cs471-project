@@ -73,8 +73,8 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
     saveStatistic();
 
     delete genetic_algorithm; // this was deleted in the wrong place: destructor
-    std::cout<<"solutions: " <<std::endl;
-    printSolutions();
+    debug(std::cout<<"solutions: " <<std::endl);
+    debug(printSolutions());
     
 
 }

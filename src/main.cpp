@@ -53,14 +53,18 @@ int main(int argc, char** argv)
 
 
 
-    Runner <float,float> runner(dimensions,n_runs); // <Tinput, Toutput>, dimensions, n_sample
-    runner.runOptimization(opt_alg_id, opt_conf_file, opt_result_file, function_id,range_min, range_max);
+    //Runner <float,float> runner(dimensions,n_runs); // <Tinput, Toutput>, dimensions, n_sample
+    //runner.runOptimization(opt_alg_id, opt_conf_file, opt_result_file, function_id,range_min, range_max);
 
 
     // in preparation
-    PopulationBenchmark<float, float> actual_pop(10,dimensions);
+    PopulationBenchmark<float, float> actual_pop(5,dimensions);
     actual_pop.fillWithRandom(-10,10);
-    debug(actual_pop.printPopulation());
+    debug1(actual_pop.printPopulation());
+    actual_pop.evaluateCost(function_id);
+    debug1(actual_pop.printCost());
+    actual_pop.sortIndexByCostAsc();
+    debug1(actual_pop.printIndex());
 
     return 0;
 }
