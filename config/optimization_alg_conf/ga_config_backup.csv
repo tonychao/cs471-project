@@ -1,2 +1,2 @@
 iterations,crossover rate,mutation rate,mutation value range, mutation precision, elitism rate,number of inviduo
-100,0.9,0.05,0.1,1,0.3,200
+100,0.8,0.005,0.1,1,0.2,200
