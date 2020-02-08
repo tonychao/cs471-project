@@ -4,5 +4,10 @@
 
 ## Compiler in Windows
 g++ (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 8.1.0
-
+C++14
 ## Compiler in Linux
+
+## run python code
+the python code read all the config files and run the experiment, it will generate solutions.csv and many plots.
+option 1: open run_expriment.ipynb with jupyter notebook
+option 2: ipython run_experiment.ipynb (cannot visualize the plot)

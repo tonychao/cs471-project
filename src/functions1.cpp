@@ -1,7 +1,4 @@
 #include "functions1.h"
-#include <math.h>  
-#include <cstdlib>
-
 
 template <class Tinput, class Toutput>
 typename Functions1<Tinput,Toutput>::function_pointer Functions1<Tinput,Toutput>::getFunctionById(int id)

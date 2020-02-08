@@ -42,7 +42,13 @@ DifferentialEvolution<Tinput, Toutput>::~DifferentialEvolution()
         delete best_cost;
 }
 
-
+/// @brief generate random vector position r used to create trail vectors
+/// 
+/// the random vector positions r should satisfy the condition that they cannot repeat
+/// and they cannot be equal to the current vector i
+/// @param *r ///< pointer of array r
+/// @param n ///< size of array r
+/// @param current_i ///< current position of the vector i
 template <class Tinput, class Toutput>
 void DifferentialEvolution<Tinput, Toutput>::randomR(int *r, int n, int current_i)
 {
@@ -86,6 +92,20 @@ void DifferentialEvolution<Tinput, Toutput>::randomR(int *r, int n, int current_
 }
 
 template <class Tinput, class Toutput>
+void DifferentialEvolution<Tinput, Toutput>::keepInRange(Tinput& element)
+{
+    if (element > param.bounds.u)
+    {
+        element = param.bounds.u;
+    }
+    else if(element < param.bounds.l)
+    {
+        element = param.bounds.l;
+    }
+    
+}
+
+template <class Tinput, class Toutput>
 Toutput DifferentialEvolution<Tinput, Toutput>::runS7_DE_rand_1_bin(int function_id)
 {
     
@@ -114,6 +134,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS7_DE_rand_1_bin(int function
                 if(ms_random.genrand_real_range(0,1) < param.cr || j==j_rand ) //
                 {
                     vector_u[j] = actual_pop->getData(r[2],j) + param.scale_f*(actual_pop->getData(r[0],j) - actual_pop->getData(r[1],j));
+                    keepInRange(vector_u[j]);
                 }
                 else
                 {
@@ -191,6 +212,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS10_DE_rand_2_bin(int functio
                 {
                     Tinput diff = actual_pop->getData(r[0],j) + actual_pop->getData(r[1],j) - actual_pop->getData(r[2],j) - actual_pop->getData(r[3],j);
                     vector_u[j] = actual_pop->getData(r[4],j) + param.scale_f*diff;
+                    keepInRange(vector_u[j]);
                 }
                 else
                 {
@@ -273,6 +295,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS6_DE_best_1_bin(int function
                 {
                     
                     vector_u[j] = actual_pop->getMinCostData()[j] + param.scale_f*(actual_pop->getData(r[0],j) - actual_pop->getData(r[1],j));
+                    keepInRange(vector_u[j]);
                 }
                 else
                 {
@@ -356,6 +379,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS9_DE_best_2_bin(int function
                 {
                     Tinput diff = actual_pop->getData(r[0],j) + actual_pop->getData(r[1],j) - actual_pop->getData(r[2],j) - actual_pop->getData(r[3],j);
                     vector_u[j] = actual_pop->getMinCostData()[j] + param.scale_f*diff;
+                    keepInRange(vector_u[j]);
                 }
                 else
                 {
@@ -439,6 +463,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS8_DE_randbest_1_bin(int func
                     Tinput diff1 = actual_pop->getMinCostData()[j]  - actual_pop->getData(i,j) ;
                     Tinput diff2 = actual_pop->getData(r[0],j) - actual_pop->getData(r[1],j);
                     vector_u[j] = actual_pop->getData(i,j)   + param.scale_lambda*diff1 + param.scale_f*diff2;
+                    keepInRange(vector_u[j]);
                 }
                 else
                 {
@@ -555,6 +580,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS1_DE_best_1_exp(int function
                 {
                     
                     vector_u[new_j] = actual_pop->getMinCostData()[new_j] + param.scale_f*(actual_pop->getData(r[0],new_j) - actual_pop->getData(r[1],new_j));
+                    keepInRange(vector_u[new_j]);
                 }
                 else
                 {
@@ -649,6 +675,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS2_DE_rand_1_exp(int function
                 {
                     
                     vector_u[new_j] = actual_pop->getData(r[2],new_j) + param.scale_f*(actual_pop->getData(r[0],new_j) - actual_pop->getData(r[1],new_j));
+                    keepInRange(vector_u[new_j]);
                 }
                 else
                 {
@@ -744,6 +771,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS3_DE_randbest_1_exp(int func
                     Tinput diff1 = actual_pop->getMinCostData()[new_j]  - actual_pop->getData(i,new_j) ;
                     Tinput diff2 = actual_pop->getData(r[0],new_j) - actual_pop->getData(r[1],new_j);
                     vector_u[new_j] = actual_pop->getData(i,new_j)   + param.scale_lambda*diff1 + param.scale_f*diff2;
+                    keepInRange(vector_u[new_j]);
 
                 }
                 else
@@ -839,6 +867,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS4_DE_best_2_exp(int function
                     
                     Tinput diff = actual_pop->getData(r[0],new_j) + actual_pop->getData(r[1],new_j) - actual_pop->getData(r[2],new_j) - actual_pop->getData(r[3],new_j);
                     vector_u[new_j] = actual_pop->getMinCostData()[new_j] + param.scale_f*diff;
+                    keepInRange(vector_u[new_j]);
                 }
                 else
                 {
@@ -934,6 +963,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS5_DE_rand_2_exp(int function
 
                     Tinput diff = actual_pop->getData(r[0],new_j) + actual_pop->getData(r[1],new_j) - actual_pop->getData(r[2],new_j) - actual_pop->getData(r[3],new_j);
                     vector_u[new_j] = actual_pop->getData(r[4],new_j) + param.scale_f*diff;
+                    keepInRange(vector_u[new_j]);
                 
                 }
                 else

@@ -1,6 +1,9 @@
 #ifndef _FUNCTIONS1_H_
 #define _FUNCTIONS1_H_
 
+#include <math.h>  
+#include <cstdlib>
+
 /// @brief  Template class with 18 standard benchmark functions
 ///
 /// The main function of the class is getFunctionById(int id) which receive a function id,

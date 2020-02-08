@@ -8,7 +8,13 @@
 #include <time.h> 
 #include <algorithm>    //std::sort
 #include <fstream>  //file
+#include "util.h"
 
+/// @brief Template Genetic Algorithm Input parameter Struct
+///
+/// Struct to where all the GA parameters are stored
+/// @author Chao Huang Lin (chao.huanglin@cwu.edu)
+/// @date 2020-02-01
 template <class Tinput>
 struct GAInputParameter
 {
@@ -61,7 +67,8 @@ class GeneticAlgorithm
     //todo: create population class
     int* population_asc_index;
     int* new_population_asc_index;
-    //todo create a population class insted of these 2 functions
+   
+
     void sortPopulationByIndexAsc();
     void sortNewPopulationByIndexAsc();
     void saveResult(Toutput best_cost, Tinput *best_individuo, std::string result_file);
@@ -75,6 +82,7 @@ class GeneticAlgorithm
     void reduce(int elite_sn, Toutput& best_cost, Tinput* best_individuo);
     void mutate(Tinput* individuo); 
     void printPopulation(Tinput** pop);
+    void keepInRange(Tinput& element);
 
     // ... for sort
     //https://stackoverflow.com/questions/1902311/problem-sorting-using-member-function-as-comparator
@@ -103,14 +111,12 @@ class GeneticAlgorithm
 
     /// @brief constructor of the class GeneticAlgorithm
     /// 
-	/// @param population ///< get the population allocated in the runner
-	/// @param parameters ///< get the configuration parameters for GA
+	/// @param parameters configuration parameters for GA
     GeneticAlgorithm( GAInputParameter<Tinput> parameters);
     ~GeneticAlgorithm();
     /// @brief Find the best individuo of the population
-    /// @return pointer to the array of the best individuo (each element of the array represents each dimension)
+    /// @return return the best cost (evaluate the function)
     Toutput findBestSolution(int function_id, Tinput range_low, Tinput range_high);
-    template <class T> void printArray(T* array, int n, char separator);
     void printInputPopulation();
     void printNewPopulation();
     void printCost(Toutput* cost);

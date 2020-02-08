@@ -10,6 +10,12 @@
 #include <limits> //get max limit of type
 #include <fstream>  //file
 
+/// @brief Template Differential Evolution Input parameter Struct
+///
+/// Struct to where all the DE parameters are stored
+/// @author Chao Huang Lin (chao.huanglin@cwu.edu)
+/// @date 2020-02-08
+
 template <class Tinput>
 struct DEInputParameter
 {
@@ -27,23 +33,32 @@ struct DEInputParameter
     int t_max; ///< maximum number of iterations
     double cr; ///< crossover rate
 
-    double scale_f;
-    double scale_lambda;
+    double scale_f; ///< scale factor F
+    double scale_lambda; ///< scale factor lambda
     
 };
+
+/// @brief Template Differential Evolution class
+///
+/// Differential Evolution (DE) is based on the strategy that employs the difference of tow randomly
+/// selected parameter vectors as the source of random variations for a third parameter vector.  
+/// @author Chao Huang Lin (chao.huanglin@cwu.edu)
+/// @date 2020-02-08
 
 template <class Tinput, class Toutput>
 class DifferentialEvolution
 {
 
     private:
-    PopulationBenchmark<Tinput, Toutput> *actual_pop;
-    PopulationBenchmark<Tinput, Toutput> *new_pop;
-    DEInputParameter<Tinput> param;
+    PopulationBenchmark<Tinput, Toutput> *actual_pop; ///< actual population
+    PopulationBenchmark<Tinput, Toutput> *new_pop; ///< new population
+    DEInputParameter<Tinput> param; ///< DE parameters 
     MersenneTwister ms_random; ///< mersenne twister random generator
-    Toutput *best_cost;
+    Toutput *best_cost; ///< array with history of best cost during the generations
     void randomR(int *r, int n, int current_i);
     void saveResult(Toutput best_cost, Tinput* best_vector, std::string result_file);
+    void keepInRange(Tinput& element);
+
     public:
     DifferentialEvolution(DEInputParameter<Tinput> param);
     ~DifferentialEvolution();
@@ -57,7 +72,6 @@ class DifferentialEvolution
     Toutput runS3_DE_randbest_1_exp(int function_id);
     Toutput runS4_DE_best_2_exp(int function_id);
     Toutput runS5_DE_rand_2_exp(int function_id);
-    
     
     
 

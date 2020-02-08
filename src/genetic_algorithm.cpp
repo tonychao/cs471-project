@@ -289,6 +289,21 @@ void GeneticAlgorithm<Tinput, Toutput>::crossover(Tinput* parent1, Tinput* paren
 }
 
 template <class Tinput, class Toutput>
+void GeneticAlgorithm<Tinput, Toutput>::keepInRange(Tinput& element)
+{
+    if (element > parameters.bounds.u)
+    {
+        element = parameters.bounds.u;
+    }
+    else if(element < parameters.bounds.l)
+    {
+        element = parameters.bounds.l;
+    }
+    
+}
+
+
+template <class Tinput, class Toutput>
 void GeneticAlgorithm<Tinput, Toutput>::mutate(Tinput* individuo)
 {
     for (int i = 0; i<parameters.dim; i++)
@@ -297,7 +312,7 @@ void GeneticAlgorithm<Tinput, Toutput>::mutate(Tinput* individuo)
         {
             individuo[i] += ms_random_generator.genrand_real_range(-1,1)*(parameters.bounds.u - parameters.bounds.l)*\
                             parameters.m.range*pow(2, -1*ms_random_generator.genrand_real_range(0,1)*parameters.m.precision);
-                            
+            keepInRange(individuo[i]);                 
 
         }
 
@@ -429,16 +444,6 @@ void GeneticAlgorithm<Tinput,Toutput>::printFitness()
     }
 }
 
-template <class Tinput, class Toutput>
-template <class T>  
-void GeneticAlgorithm<Tinput,Toutput>::printArray(T* array, int n, char separator)
-{
-    for (int i = 0; i < n; i++) 
-    {   
-        std::cout<< array[i] << separator;
-    }
-    std::cout <<std::endl;
-}
 
 template <class Tinput, class Toutput>
 void GeneticAlgorithm<Tinput,Toutput>::randomInit(Tinput range_low, Tinput range_high)
