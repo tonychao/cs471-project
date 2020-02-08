@@ -86,7 +86,7 @@ void DifferentialEvolution<Tinput, Toutput>::randomR(int *r, int n, int current_
 }
 
 template <class Tinput, class Toutput>
-void DifferentialEvolution<Tinput, Toutput>::runS7_DE_rand_1_bin(int function_id)
+Toutput DifferentialEvolution<Tinput, Toutput>::runS7_DE_rand_1_bin(int function_id)
 {
     
     actual_pop->fillWithRandom(param.bounds.l, param.bounds.u);
@@ -158,11 +158,11 @@ void DifferentialEvolution<Tinput, Toutput>::runS7_DE_rand_1_bin(int function_id
     debug1(std::cout<<"---best cost---"<<std::endl);
     debug1(printArray<Toutput>(best_cost, param.t_max, '\n'));
  
-
+    return best_cost[param.t_max-1];
 }
 
 template <class Tinput, class Toutput>
-void DifferentialEvolution<Tinput, Toutput>::runS10_DE_rand_2_bin(int function_id)
+Toutput DifferentialEvolution<Tinput, Toutput>::runS10_DE_rand_2_bin(int function_id)
 {
     actual_pop->fillWithRandom(param.bounds.l, param.bounds.u);
     debug(actual_pop->printPopulation());
@@ -234,10 +234,12 @@ void DifferentialEvolution<Tinput, Toutput>::runS10_DE_rand_2_bin(int function_i
 
     debug1(std::cout<<"---best cost---"<<std::endl);
     debug1(printArray<Toutput>(best_cost, param.t_max, '\n'));
+
+    return best_cost[param.t_max-1];
 }
 
 template <class Tinput, class Toutput>
-void DifferentialEvolution<Tinput, Toutput>::runS6_DE_best_1_bin(int function_id)
+Toutput DifferentialEvolution<Tinput, Toutput>::runS6_DE_best_1_bin(int function_id)
 {
     
     actual_pop->fillWithRandom(param.bounds.l, param.bounds.u);
@@ -314,12 +316,13 @@ void DifferentialEvolution<Tinput, Toutput>::runS6_DE_best_1_bin(int function_id
 
     debug1(std::cout<<"---best cost---"<<std::endl);
     debug1(printArray<Toutput>(best_cost, param.t_max, '\n'));
- 
+    
+    return best_cost[param.t_max-1];
 }
 
 
 template <class Tinput, class Toutput>
-void DifferentialEvolution<Tinput, Toutput>::runS9_DE_best_2_bin(int function_id)
+Toutput DifferentialEvolution<Tinput, Toutput>::runS9_DE_best_2_bin(int function_id)
 {
     
     actual_pop->fillWithRandom(param.bounds.l, param.bounds.u);
@@ -396,11 +399,12 @@ void DifferentialEvolution<Tinput, Toutput>::runS9_DE_best_2_bin(int function_id
 
     debug1(std::cout<<"---best cost---"<<std::endl);
     debug1(printArray<Toutput>(best_cost, param.t_max, '\n'));
- 
+
+    return best_cost[param.t_max-1];
 }
 
 template <class Tinput, class Toutput>
-void DifferentialEvolution<Tinput, Toutput>::runS8_DE_randbest_1_bin(int function_id)
+Toutput DifferentialEvolution<Tinput, Toutput>::runS8_DE_randbest_1_bin(int function_id)
 {
     
     actual_pop->fillWithRandom(param.bounds.l, param.bounds.u);
@@ -478,6 +482,8 @@ void DifferentialEvolution<Tinput, Toutput>::runS8_DE_randbest_1_bin(int functio
 
     debug1(std::cout<<"---best cost---"<<std::endl);
     debug1(printArray<Toutput>(best_cost, param.t_max, '\n'));
+
+    return best_cost[param.t_max-1];
  
 }
 
@@ -506,7 +512,7 @@ void DifferentialEvolution<Tinput, Toutput>:: saveResult(Toutput best_cost, Tinp
 
 
 template <class Tinput, class Toutput>
-void DifferentialEvolution<Tinput, Toutput>::runS1_DE_best_1_exp(int function_id)
+Toutput DifferentialEvolution<Tinput, Toutput>::runS1_DE_best_1_exp(int function_id)
 {
     
     actual_pop->fillWithRandom(param.bounds.l, param.bounds.u);
@@ -592,14 +598,15 @@ void DifferentialEvolution<Tinput, Toutput>::runS1_DE_best_1_exp(int function_id
 
     debug1(std::cout<<"---best cost---"<<std::endl);
     debug1(printArray<Toutput>(best_cost, param.t_max, '\n'));
- 
+
+    return best_cost[param.t_max-1];
 }
 
 
 
 
 template <class Tinput, class Toutput>
-void DifferentialEvolution<Tinput, Toutput>::runS2_DE_rand_1_exp(int function_id)
+Toutput DifferentialEvolution<Tinput, Toutput>::runS2_DE_rand_1_exp(int function_id)
 {
     
     actual_pop->fillWithRandom(param.bounds.l, param.bounds.u);
@@ -686,13 +693,13 @@ void DifferentialEvolution<Tinput, Toutput>::runS2_DE_rand_1_exp(int function_id
     debug1(std::cout<<"---best cost---"<<std::endl);
     debug1(printArray<Toutput>(best_cost, param.t_max, '\n'));
  
-
+    return best_cost[param.t_max-1];
 }
 
 
 
 template <class Tinput, class Toutput>
-void DifferentialEvolution<Tinput, Toutput>::runS3_DE_randbest_1_exp(int function_id)
+Toutput DifferentialEvolution<Tinput, Toutput>::runS3_DE_randbest_1_exp(int function_id)
 {
     
     actual_pop->fillWithRandom(param.bounds.l, param.bounds.u);
@@ -782,13 +789,13 @@ void DifferentialEvolution<Tinput, Toutput>::runS3_DE_randbest_1_exp(int functio
     debug1(std::cout<<"---best cost---"<<std::endl);
     debug1(printArray<Toutput>(best_cost, param.t_max, '\n'));
  
-
+    return best_cost[param.t_max-1];
 }
 
 
 
 template <class Tinput, class Toutput>
-void DifferentialEvolution<Tinput, Toutput>::runS4_DE_best_2_exp(int function_id)
+Toutput DifferentialEvolution<Tinput, Toutput>::runS4_DE_best_2_exp(int function_id)
 {
     
     actual_pop->fillWithRandom(param.bounds.l, param.bounds.u);
@@ -875,14 +882,15 @@ void DifferentialEvolution<Tinput, Toutput>::runS4_DE_best_2_exp(int function_id
 
     debug1(std::cout<<"---best cost---"<<std::endl);
     debug1(printArray<Toutput>(best_cost, param.t_max, '\n'));
- 
+    
+    return best_cost[param.t_max-1];
 
 }
 
 
 
 template <class Tinput, class Toutput>
-void DifferentialEvolution<Tinput, Toutput>::runS5_DE_rand_2_exp(int function_id)
+Toutput DifferentialEvolution<Tinput, Toutput>::runS5_DE_rand_2_exp(int function_id)
 {
     
     actual_pop->fillWithRandom(param.bounds.l, param.bounds.u);
@@ -971,7 +979,7 @@ void DifferentialEvolution<Tinput, Toutput>::runS5_DE_rand_2_exp(int function_id
     debug1(std::cout<<"---best cost---"<<std::endl);
     debug1(printArray<Toutput>(best_cost, param.t_max, '\n'));
  
-
+    return best_cost[param.t_max-1];
 }
 
 

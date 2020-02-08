@@ -47,16 +47,16 @@ class DifferentialEvolution
     public:
     DifferentialEvolution(DEInputParameter<Tinput> param);
     ~DifferentialEvolution();
-    void runS7_DE_rand_1_bin(int function_id);
-    void runS10_DE_rand_2_bin(int function_id);
-    void runS6_DE_best_1_bin(int function_id);
-    void runS9_DE_best_2_bin(int function_id);
-    void runS8_DE_randbest_1_bin(int function_id);
-    void runS1_DE_best_1_exp(int function_id);
-    void runS2_DE_rand_1_exp(int function_id);
-    void runS3_DE_randbest_1_exp(int function_id);
-    void runS4_DE_best_2_exp(int function_id);
-    void runS5_DE_rand_2_exp(int function_id);
+    Toutput runS7_DE_rand_1_bin(int function_id);
+    Toutput runS10_DE_rand_2_bin(int function_id);
+    Toutput runS6_DE_best_1_bin(int function_id);
+    Toutput runS9_DE_best_2_bin(int function_id);
+    Toutput runS8_DE_randbest_1_bin(int function_id);
+    Toutput runS1_DE_best_1_exp(int function_id);
+    Toutput runS2_DE_rand_1_exp(int function_id);
+    Toutput runS3_DE_randbest_1_exp(int function_id);
+    Toutput runS4_DE_best_2_exp(int function_id);
+    Toutput runS5_DE_rand_2_exp(int function_id);
     
     
     

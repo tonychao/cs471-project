@@ -58,8 +58,7 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
             clk.tic();
             for (int i = 0; i < n_runs; i++)
             {
-                Toutput best_solution = genetic_algorithm.findBestSolution(function_id, range_low, range_high);
-                solutions[i] = best_solution;
+                solutions[i] = genetic_algorithm.findBestSolution(function_id, range_low, range_high);
                 //std::cout<<"best solution: " << best_solution<<std::endl;
             }
             
@@ -78,7 +77,14 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
 
             DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
 
-            diff_evo.runS1_DE_best_1_exp(function_id);
+            clk.tic();
+            for (int i = 0; i < n_runs; i++)
+            {
+                solutions[i] = diff_evo.runS1_DE_best_1_exp(function_id);
+            }
+            
+            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+            saveStatistic();
         }
         break;
 
@@ -89,10 +95,19 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
             de_parameters.bounds.l = range_low; 
             de_parameters.bounds.u = range_high;
             de_parameters.dim = this->dimensions;
-
+            
             DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
 
-            diff_evo.runS2_DE_rand_1_exp(function_id);
+            clk.tic();
+            for (int i = 0; i < n_runs; i++)
+            {
+                solutions[i] = diff_evo.runS2_DE_rand_1_exp(function_id);
+            }
+            
+            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+            saveStatistic();
+            
+            
         }
         break;
 
@@ -106,7 +121,14 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
 
             DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
 
-            diff_evo.runS3_DE_randbest_1_exp(function_id);
+            clk.tic();
+            for (int i = 0; i < n_runs; i++)
+            {
+                solutions[i] = diff_evo.runS3_DE_randbest_1_exp(function_id);
+            }
+            
+            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+            saveStatistic();
         }
         break;
 
@@ -119,8 +141,16 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
             de_parameters.dim = this->dimensions;
 
             DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
-
-            diff_evo.runS4_DE_best_2_exp(function_id);
+            
+            clk.tic();
+            for (int i = 0; i < n_runs; i++)
+            {
+                solutions[i] = diff_evo.runS4_DE_best_2_exp(function_id);
+            }
+            
+            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+            saveStatistic();
+            
         }
         break;
 
@@ -134,7 +164,16 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
 
             DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
 
-            diff_evo.runS5_DE_rand_2_exp(function_id);
+            clk.tic();
+            for (int i = 0; i < n_runs; i++)
+            {
+                solutions[i] = diff_evo.runS5_DE_rand_2_exp(function_id);
+            }
+            
+            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+            saveStatistic();
+
+            
         }
         break;
 
@@ -148,7 +187,16 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
 
             DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
 
-            diff_evo.runS6_DE_best_1_bin(function_id);
+            clk.tic();
+            for (int i = 0; i < n_runs; i++)
+            {
+                solutions[i] = diff_evo.runS6_DE_best_1_bin(function_id);
+            }
+            
+            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+            saveStatistic();
+
+            
         }
         break;
 
@@ -162,7 +210,16 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
 
             DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
 
-            diff_evo.runS7_DE_rand_1_bin(function_id);
+            clk.tic();
+            for (int i = 0; i < n_runs; i++)
+            {
+                solutions[i] = diff_evo.runS7_DE_rand_1_bin(function_id);
+            }
+            
+            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+            saveStatistic();
+
+            
         }
         break;
 
@@ -176,7 +233,16 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
 
             DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
 
-            diff_evo.runS8_DE_randbest_1_bin(function_id);
+            clk.tic();
+            for (int i = 0; i < n_runs; i++)
+            {
+                solutions[i] = diff_evo.runS8_DE_randbest_1_bin(function_id);
+            }
+            
+            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+            saveStatistic();
+
+            
         }
         break;
 
@@ -190,7 +256,16 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
 
             DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
 
-            diff_evo.runS9_DE_best_2_bin(function_id);
+            clk.tic();
+            for (int i = 0; i < n_runs; i++)
+            {
+                solutions[i] = diff_evo.runS9_DE_best_2_bin(function_id);
+            }
+            
+            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+            saveStatistic();
+
+           
         }
         break;
 
@@ -204,7 +279,16 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
 
             DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
 
-            diff_evo.runS10_DE_rand_2_bin(function_id);
+            clk.tic();
+            for (int i = 0; i < n_runs; i++)
+            {
+                solutions[i] = diff_evo.runS10_DE_rand_2_bin(function_id);
+            }
+            
+            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+            saveStatistic();
+
+            
         }
         break;
     }

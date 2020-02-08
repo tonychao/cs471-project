@@ -4,8 +4,8 @@
 
 //comment this quit debug mode
 //#define DEBUGMODE 
-#define DEBUGMODE1
-#define DEBUGVAR
+//#define DEBUGMODE1
+//#define DEBUGVAR
     
     //std::cout << x
     #ifdef DEBUGMODE
