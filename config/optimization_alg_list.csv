@@ -1,12 +1,12 @@
 Id, Algorithm name, config file
-0,GA, optimization_algorithms_config/ga_config.csv
-1,DE_best_1_exp, optimization_algorithms_config/de_config.csv
-2,DE_rand_1_exp, optimization_algorithms_config/de_config.csv
-3,DE_randbest_1_exp, optimization_algorithms_config/de_config.csv
-4,DE_best_2_exp, optimization_algorithms_config/de_config.csv
-5,DE_rand_2_exp, optimization_algorithms_config/de_config.csv
-6,DE_best_1_bin, optimization_algorithms_config/de_config.csv
-7,DE_rand_1_bin, optimization_algorithms_config/de_config.csv
-8,DE_randbest_1_bin, optimization_algorithms_config/de_config.csv
-9,DE_best_2_bin, optimization_algorithms_config/de_config.csv
-10,DE_rand_2_bin, optimization_algorithms_config/de_config.csv
+0,GA,../config/optimization_alg_conf/ga_config.csv
+1,DE_best_1_exp,../config/optimization_alg_conf/de_config.csv
+2,DE_rand_1_exp,../config/optimization_alg_conf/de_config.csv
+3,DE_randbest_1_exp,../config/optimization_alg_conf/de_config.csv
+4,DE_best_2_exp,../config/optimization_alg_conf/de_config.csv
+5,DE_rand_2_exp,../config/optimization_alg_conf/de_config.csv
+6,DE_best_1_bin,../config/optimization_alg_conf/de_config.csv
+7,DE_rand_1_bin,../config/optimization_alg_conf/de_config.csv
+8,DE_randbest_1_bin,../config/optimization_alg_conf/de_config.csv
+9,DE_best_2_bin,../config/optimization_alg_conf/de_config.csv
+10,DE_rand_2_bin,../config/optimization_alg_conf/de_config.csv

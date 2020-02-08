@@ -11,7 +11,7 @@ function_id,name,range_low,range_high,dimensions_vector
 10,Egg Holder,-500,500,30
 11,Rana,-500,500,30
 12,Pathological,-100,100,30
-13,Michalewicz,0,3.14159265359,30
+13,Michalewicz,0,3.141592654,30
 14,Masters' Cosine Wave,-30,30,30
 15,Quartic,-100,100,30
 16,Levy,-10,10,30

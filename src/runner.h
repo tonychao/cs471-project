@@ -46,7 +46,7 @@ class Runner
 
 
     int function_id; ///< id of the function that will be run [parameter from run()]
-    
+    int algorithm_id;
     /// @brief compute the statistical result of #solutions and save it in #stat_analysis
 	/// @param time_ms ///< running time in ms
     void computeStatistic(double time_ms);
@@ -66,13 +66,13 @@ class Runner
     /// allocate memory for vectors (array of array) 
 	/// @param dimensions ///< size of the sample or size of the array pointed by each element of vectors
 	/// @param n_runs ///< number of runs 
-    Runner(int dimensions, int n_runs); //constructorinput
+    Runner(int n_runs); //constructorinput
 
     /// @brief destructor of the class Runner
     /// free memory for vectors (array of array) 
     ~Runner(); //destructor
 
-    void runOptimization(int algorithm_id, std::string config_file,  std::string result_file, int function_id, Tinput range_low, Tinput range_high);
+    void runOptimization(int algorithm_id, std::string config_file,  int function_id, int dimensions, Tinput range_low, Tinput range_high);
     void printSolutions();
 
 };

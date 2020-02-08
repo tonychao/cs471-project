@@ -2,9 +2,9 @@
 
 
 template <class Tinput, class Toutput>
-Runner<Tinput,Toutput>::Runner(int dimensions, int n_runs)
+Runner<Tinput,Toutput>::Runner( int n_runs)
 {
-    this->dimensions = dimensions;
+    
     this->n_runs = n_runs;
 
     // allocate memory for array of solutions
@@ -33,11 +33,13 @@ void Runner<Tinput,Toutput>::printSolutions()
 }
 
 template <class Tinput,class Toutput>
-void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string config_file, std::string result_file, int function_id, Tinput range_low, Tinput range_high)
+void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string config_file,  int function_id, int dimensions, Tinput range_low, Tinput range_high)
 {
     this->function_id = function_id;
     this->range_low = range_low;
     this->range_high = range_high;
+    this->dimensions = dimensions;
+    this->algorithm_id = algorithm_id;
 
     Clock clk; 
 
@@ -452,15 +454,7 @@ void Runner<Tinput,Toutput>::computeStatistic(double time_ms)
     std_dev /= n_runs;
     std_dev = sqrt(std_dev);
     stat_analysis.std_dev = std_dev;
-    
 
-    /*
-    std::cout << "\ntime [ms] : " << stat_analysis.time_ms << "\n";
-    std::cout << "median: " << stat_analysis.median << "\n";
-    std::cout << "range : " << stat_analysis.range << "\n";
-    std::cout << "mean : " << stat_analysis.mean << "\n";
-    std::cout << "std dev : " << stat_analysis.std_dev << "\n";
-    */
 
 }
 
@@ -471,13 +465,14 @@ void Runner<Tinput,Toutput>::saveStatistic()
     std::fstream fout; 
   
     // opens an existing csv file or creates a new file. 
-    std::string file_name = "f"+std::to_string(function_id)+"_"+std::to_string(n_runs)+"_"+std::to_string(dimensions)+".csv";
+    std::string file_name = "a"+std::to_string(algorithm_id)+"_f"+std::to_string(function_id)+".csv";
   
    
     if(!std::ifstream(file_name)) // if file not exist, create new file with header
     {
         fout.open(file_name, std::fstream::in | std::fstream::out | std::fstream::app);
-        fout << "function_id" << ","
+        fout    << "algorithm_id" << ","
+                << "function_id" << ","
                 << "n_runs" << ","
                 << "dimensions" << ","
                 << "range_low" << ","
@@ -490,7 +485,8 @@ void Runner<Tinput,Toutput>::saveStatistic()
                 << "range_min" << ", " //new 
                 << "range_max" << ", " //new
                 << "\n"; 
-        fout << function_id << ","
+        fout    << algorithm_id << ","
+                << function_id << ","
                 << n_runs << ","
                 << dimensions << ","
                 << range_low << ","
@@ -509,7 +505,8 @@ void Runner<Tinput,Toutput>::saveStatistic()
     else
     {
         fout.open(file_name, std::fstream::in | std::fstream::out | std::fstream::app);
-        fout << function_id << ","
+        fout    << algorithm_id << ","
+                << function_id << ","
                 << n_runs << ","
                 << dimensions << ","
                 << range_low << ","
