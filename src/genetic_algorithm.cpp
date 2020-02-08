@@ -213,7 +213,7 @@ Toutput GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id, Tin
         // caution: the swap of address of population can cause memory leak and double free problem
         reduce(elite_sn, best_cost, best_individuo); //also can find the best  solution in constant time, the arrays are already sorted
 
-        debug1(saveResult(best_cost, best_individuo, "ga_iterations.csv"));
+        debugfile(saveResult(best_cost, best_individuo, "ga_f"+std::to_string(function_id)+"_iterations.csv"));
         debug(printInputPopulation());
 
         evaluateCost(function_id,population,cost);

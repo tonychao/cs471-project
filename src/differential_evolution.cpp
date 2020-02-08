@@ -167,7 +167,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS7_DE_rand_1_bin(int function
         }
         new_pop->calculateMinCost();
         best_cost[gen] = new_pop->getMinCost();
-        debug1(saveResult(best_cost[gen],new_pop->getMinCostData(), "diff_evo.csv"));
+        debugfile(saveResult(best_cost[gen],new_pop->getMinCostData(), "de7_f"+std::to_string(function_id)+"_iterations.csv"));
         //convert new_pop to actual_pop
         PopulationBenchmark<Tinput, Toutput>::swap(*actual_pop, *new_pop);
         debug(std::cout<<"---actual---"<<std::endl);
@@ -245,7 +245,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS10_DE_rand_2_bin(int functio
         }
         new_pop->calculateMinCost();
         best_cost[gen] = new_pop->getMinCost();
-        debug1(saveResult(best_cost[gen],new_pop->getMinCostData(), "diff_evo.csv"));
+        debugfile(saveResult(best_cost[gen],new_pop->getMinCostData(), "de10_f"+std::to_string(function_id)+"_iterations.csv"));
         //convert new_pop to actual_pop
         PopulationBenchmark<Tinput, Toutput>::swap(*actual_pop, *new_pop);
         debug(std::cout<<"---actual---"<<std::endl);
@@ -328,7 +328,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS6_DE_best_1_bin(int function
         }
         new_pop->calculateMinCost();
         best_cost[gen] = new_pop->getMinCost();
-        debug1(saveResult(best_cost[gen],new_pop->getMinCostData(), "diff_evo.csv"));
+        debugfile(saveResult(best_cost[gen],new_pop->getMinCostData(), "de6_f"+std::to_string(function_id)+"_iterations.csv"));
         //convert new_pop to actual_pop
         PopulationBenchmark<Tinput, Toutput>::swap(*actual_pop, *new_pop);
         debug(std::cout<<"---actual---"<<std::endl);
@@ -412,7 +412,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS9_DE_best_2_bin(int function
         }
         new_pop->calculateMinCost();
         best_cost[gen] = new_pop->getMinCost();
-        debug1(saveResult(best_cost[gen],new_pop->getMinCostData(), "diff_evo.csv"));
+        debugfile(saveResult(best_cost[gen],new_pop->getMinCostData(), "de9_f"+std::to_string(function_id)+"_iterations.csv"));
         //convert new_pop to actual_pop
         PopulationBenchmark<Tinput, Toutput>::swap(*actual_pop, *new_pop);
         debug(std::cout<<"---actual---"<<std::endl);
@@ -496,7 +496,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS8_DE_randbest_1_bin(int func
         }
         new_pop->calculateMinCost();
         best_cost[gen] = new_pop->getMinCost();
-        debug1(saveResult(best_cost[gen],new_pop->getMinCostData(), "diff_evo.csv"));
+        debugfile(saveResult(best_cost[gen],new_pop->getMinCostData(), "de8_f"+std::to_string(function_id)+"_iterations.csv"));
         //convert new_pop to actual_pop
         PopulationBenchmark<Tinput, Toutput>::swap(*actual_pop, *new_pop);
         debug(std::cout<<"---actual---"<<std::endl);
@@ -613,7 +613,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS1_DE_best_1_exp(int function
         }
         new_pop->calculateMinCost();
         best_cost[gen] = new_pop->getMinCost();
-        debug1(saveResult(best_cost[gen],new_pop->getMinCostData(), "diff_evo.csv"));
+        debugfile(saveResult(best_cost[gen],new_pop->getMinCostData(), "de1_f"+std::to_string(function_id)+"_iterations.csv"));
         //convert new_pop to actual_pop
         PopulationBenchmark<Tinput, Toutput>::swap(*actual_pop, *new_pop);
         debug(std::cout<<"---actual---"<<std::endl);
@@ -708,7 +708,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS2_DE_rand_1_exp(int function
         }
         new_pop->calculateMinCost();
         best_cost[gen] = new_pop->getMinCost();
-        debug1(saveResult(best_cost[gen],new_pop->getMinCostData(), "diff_evo.csv"));
+        debugfile(saveResult(best_cost[gen],new_pop->getMinCostData(), "de2_f"+std::to_string(function_id)+"_iterations.csv"));
         //convert new_pop to actual_pop
         PopulationBenchmark<Tinput, Toutput>::swap(*actual_pop, *new_pop);
         debug(std::cout<<"---actual---"<<std::endl);
@@ -805,7 +805,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS3_DE_randbest_1_exp(int func
         }
         new_pop->calculateMinCost();
         best_cost[gen] = new_pop->getMinCost();
-        debug1(saveResult(best_cost[gen],new_pop->getMinCostData(), "diff_evo.csv"));
+        debugfile(saveResult(best_cost[gen],new_pop->getMinCostData(), "de3_f"+std::to_string(function_id)+"_iterations.csv"));
         //convert new_pop to actual_pop
         PopulationBenchmark<Tinput, Toutput>::swap(*actual_pop, *new_pop);
         debug(std::cout<<"---actual---"<<std::endl);
@@ -900,7 +900,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS4_DE_best_2_exp(int function
         }
         new_pop->calculateMinCost();
         best_cost[gen] = new_pop->getMinCost();
-        debug1(saveResult(best_cost[gen],new_pop->getMinCostData(), "diff_evo.csv"));
+        debugfile(saveResult(best_cost[gen],new_pop->getMinCostData(), "de4_f"+std::to_string(function_id)+"_iterations.csv"));
         //convert new_pop to actual_pop
         PopulationBenchmark<Tinput, Toutput>::swap(*actual_pop, *new_pop);
         debug(std::cout<<"---actual---"<<std::endl);
@@ -997,7 +997,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS5_DE_rand_2_exp(int function
         }
         new_pop->calculateMinCost();
         best_cost[gen] = new_pop->getMinCost();
-        debug1(saveResult(best_cost[gen],new_pop->getMinCostData(), "diff_evo.csv"));
+        debugfile(saveResult(best_cost[gen],new_pop->getMinCostData(), "de5_f"+std::to_string(function_id)+"_iterations.csv"));
         //convert new_pop to actual_pop
         PopulationBenchmark<Tinput, Toutput>::swap(*actual_pop, *new_pop);
         debug(std::cout<<"---actual---"<<std::endl);

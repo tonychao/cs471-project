@@ -3,19 +3,19 @@
 
 
 //comment this quit debug mode
-//#define DEBUGMODE 
-//#define DEBUGMODE1
+//#define DEBUGLEVEL0 
+//#define DEBUGLEVEL1
 //#define DEBUGVAR
-    
+//#define DEBUGFILE    
     //std::cout << x
-    #ifdef DEBUGMODE
+    #ifdef DEBUGLEVEL0
         #define debug(x) x
     #else
         #define debug(x) 
     #endif 
 
     
-    #ifdef DEBUGMODE1
+    #ifdef DEBUGLEVEL1
         #define debug1(x) x
     #else
         #define debug1(x) 
@@ -26,6 +26,16 @@
     #else
         #define debug_var(x)
     #endif 
+
+    #ifdef DEBUGFILE
+        #define debugfile(x) x
+    #else
+        #define debugfile(x) 
+    #endif 
+
+
+
+
 
 
       
