@@ -140,9 +140,7 @@ class Population
         else
         {
             std::cout<<"Cannot Swap, data with diference size and dimension"<<std::endl;
-        }
-        
-
+        } 
 
     }
 
@@ -156,6 +154,8 @@ class PopulationBenchmark: public Population <Tinput,Toutput>
     private:
 
     Toutput* cost;  ///< array that contains the cost of each item
+    Toutput min_cost;
+    int min_cost_i;
     int* asc_index;
         // ... for sort
     
@@ -252,6 +252,89 @@ class PopulationBenchmark: public Population <Tinput,Toutput>
         std::cout<<"--- index ---"<<std::endl;
         printArray<int>(asc_index, this->n_items, '\n');
     };
+
+
+    void setDataAndCost(Tinput *item, int i, Toutput c)
+    {
+        for(int j=0; j<this->dimension; j++)
+        {
+            this->data[i][j] = item[j];
+        }
+        this->cost[i] = c;
+
+    }
+
+    void calculateMinCost()
+    {
+        
+        min_cost = this->cost[0];
+        min_cost_i=0;
+
+        for (int i=1; i<this->n_items; i++)
+        {
+            if(this->cost[i]<min_cost)
+            {
+                min_cost = this->cost[i];
+                min_cost_i = i;
+            }
+        }
+    }
+
+    Toutput getMinCost()
+    {
+        return min_cost;
+    }
+
+    Tinput* getMinCostData()
+    {
+        return this->data[min_cost_i];
+    }
+
+    static void swap(PopulationBenchmark& A, PopulationBenchmark& B)
+    {
+        if (A.n_items == B.n_items && A.dimension == B.dimension)
+        {
+            int temp_dim, temp_n;
+            Tinput** temp_pointer;
+
+            Toutput* temp_cost;  ///< array that contains the cost of each item
+            Toutput temp_min_cost;
+            int temp_min_cost_i;
+            int* temp_asc_index;
+                    
+            temp_n = A.n_items;
+            temp_dim = A.dimension;
+            temp_pointer = A.data;
+            temp_cost = A.cost;
+            temp_min_cost = A.min_cost;
+            temp_min_cost_i = A.min_cost_i;
+            temp_asc_index = A.asc_index;
+
+            A.n_items = B.n_items;
+            A.dimension = B.dimension;
+            A.data = B.data;
+            A.cost = B.cost;
+            A.min_cost =  B.min_cost;
+            A.min_cost_i = B.min_cost_i;
+            A.asc_index = B.asc_index;
+
+            B.n_items = temp_n;
+            B.dimension = temp_dim;
+            B.data = temp_pointer;
+            B.cost = temp_cost;
+            B.min_cost = temp_min_cost;
+            B.min_cost_i = temp_min_cost_i;
+            B.asc_index = temp_asc_index;
+
+
+
+        }
+        else
+        {
+            std::cout<<"Cannot Swap, data with diference size and dimension"<<std::endl;
+        } 
+
+    }
 
  
 };

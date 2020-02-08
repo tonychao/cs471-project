@@ -78,8 +78,133 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
 
             DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
 
+            diff_evo.runS1_DE_best_1_exp(function_id);
+        }
+        break;
+
+        case 2:
+        {
+            DEInputParameter<Tinput> de_parameters;
+            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
+            de_parameters.bounds.l = range_low; 
+            de_parameters.bounds.u = range_high;
+            de_parameters.dim = this->dimensions;
+
+            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
+
+            diff_evo.runS2_DE_rand_1_exp(function_id);
+        }
+        break;
+
+        case 3:
+        {
+            DEInputParameter<Tinput> de_parameters;
+            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
+            de_parameters.bounds.l = range_low; 
+            de_parameters.bounds.u = range_high;
+            de_parameters.dim = this->dimensions;
+
+            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
+
+            diff_evo.runS3_DE_randbest_1_exp(function_id);
+        }
+        break;
+
+        case 4:
+        {
+            DEInputParameter<Tinput> de_parameters;
+            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
+            de_parameters.bounds.l = range_low; 
+            de_parameters.bounds.u = range_high;
+            de_parameters.dim = this->dimensions;
+
+            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
+
+            diff_evo.runS4_DE_best_2_exp(function_id);
+        }
+        break;
+
+        case 5:
+        {
+            DEInputParameter<Tinput> de_parameters;
+            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
+            de_parameters.bounds.l = range_low; 
+            de_parameters.bounds.u = range_high;
+            de_parameters.dim = this->dimensions;
+
+            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
+
+            diff_evo.runS5_DE_rand_2_exp(function_id);
+        }
+        break;
+
+        case 6:
+        {
+            DEInputParameter<Tinput> de_parameters;
+            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
+            de_parameters.bounds.l = range_low; 
+            de_parameters.bounds.u = range_high;
+            de_parameters.dim = this->dimensions;
+
+            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
+
+            diff_evo.runS6_DE_best_1_bin(function_id);
+        }
+        break;
+
+        case 7:
+        {
+            DEInputParameter<Tinput> de_parameters;
+            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
+            de_parameters.bounds.l = range_low; 
+            de_parameters.bounds.u = range_high;
+            de_parameters.dim = this->dimensions;
+
+            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
+
             diff_evo.runS7_DE_rand_1_bin(function_id);
-            
+        }
+        break;
+
+        case 8:
+        {
+            DEInputParameter<Tinput> de_parameters;
+            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
+            de_parameters.bounds.l = range_low; 
+            de_parameters.bounds.u = range_high;
+            de_parameters.dim = this->dimensions;
+
+            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
+
+            diff_evo.runS8_DE_randbest_1_bin(function_id);
+        }
+        break;
+
+        case 9:
+        {
+            DEInputParameter<Tinput> de_parameters;
+            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
+            de_parameters.bounds.l = range_low; 
+            de_parameters.bounds.u = range_high;
+            de_parameters.dim = this->dimensions;
+
+            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
+
+            diff_evo.runS9_DE_best_2_bin(function_id);
+        }
+        break;
+
+        case 10:
+        {
+            DEInputParameter<Tinput> de_parameters;
+            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
+            de_parameters.bounds.l = range_low; 
+            de_parameters.bounds.u = range_high;
+            de_parameters.dim = this->dimensions;
+
+            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
+
+            diff_evo.runS10_DE_rand_2_bin(function_id);
         }
         break;
     }
