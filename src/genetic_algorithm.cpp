@@ -21,7 +21,6 @@ GeneticAlgorithm<Tinput,Toutput>::GeneticAlgorithm(GAInputParameter<Tinput> para
     this->new_population = new PopulationBenchmark<Tinput, Toutput>(parameters.ns, parameters.dim);
 
 
-
     
     std::cout << "bounds.lower: " << parameters.bounds.l << std::endl;
     std::cout << "bounds.uppper: " << parameters.bounds.u << std::endl;
@@ -42,13 +41,6 @@ GeneticAlgorithm<Tinput,Toutput>::GeneticAlgorithm(GAInputParameter<Tinput> para
 template <class Tinput, class Toutput>
 GeneticAlgorithm<Tinput,Toutput>::~GeneticAlgorithm()
 {
-    // free array
-    if(population_asc_index)
-        delete[] population_asc_index;
-    
-    if(new_population_asc_index)
-        delete[] new_population_asc_index;
-
     // free memory for population
     if(population)
     {

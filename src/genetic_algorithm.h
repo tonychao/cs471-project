@@ -59,13 +59,6 @@ class GeneticAlgorithm
     PopulationBenchmark<Tinput, Toutput> *population;
     PopulationBenchmark<Tinput, Toutput> *new_population;
     GAInputParameter<Tinput> parameters;
- 
-    
-    //todo: create population class
-    int* population_asc_index;
-    int* new_population_asc_index;
-   
-    //void sortPopulationByIndexAsc();
     void saveResult(Toutput best_cost, Tinput *best_individuo, std::string result_file);
     void select(Tinput* parent1, Tinput* parent2); ///< select 2 parents by roulette wheel selection
     void selectParent(Tinput* parent); ///< select 1 parent
@@ -73,7 +66,6 @@ class GeneticAlgorithm
     void crossover(Tinput* parent1, Tinput* parent2, double cr); ///< crossover
     void reduce(int elite_sn, Toutput& best_cost, Tinput* best_individuo);
     void mutate(Tinput* individuo); 
-    void printPopulation(Tinput** pop);
     void keepInRange(Tinput& element);
     
     public:
