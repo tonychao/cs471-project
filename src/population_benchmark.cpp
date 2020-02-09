@@ -6,6 +6,9 @@ PopulationBenchmark<Tinput, Toutput>::PopulationBenchmark(int n_items, int dimen
     // allocate memory for array for cost
     cost = new Toutput[this->n_items];
 
+    // allocate memory for array for fitness
+    fitness = new Toutput[this->n_items];
+
     // allocate memory and fill the population index for sorting
     asc_index = new int[this->n_items];
     for(int i=0; i<this->n_items; i++)
@@ -21,11 +24,37 @@ PopulationBenchmark<Tinput, Toutput>::~PopulationBenchmark()
     // free array of cost
     if(cost)
         delete[] cost;
+    // free array of fitness
+    if(fitness)
+        delete[] fitness;
     // free array of index
     if(asc_index)
         delete[] asc_index;
 
 }
+
+// objective max fitness
+template <class Tinput, class Toutput>
+void PopulationBenchmark<Tinput, Toutput>::evaluateFitness()
+{
+    total_fitness = 0.0;
+    
+    for (int i=0; i<this->n_items; i++)
+    {
+        if(cost[i]>=0.0)
+        {
+            fitness[i] = 1/(1+cost[i]); //normalized index
+        }
+        else
+        {
+            fitness[i] = 1+fabs(cost[i]); // positive
+        }
+        //calculate the total fitness
+        total_fitness+= fitness[i];
+    }
+
+}
+
 
 //https://stackoverflow.com/questions/1902311/problem-sorting-using-member-function-as-comparator
 template <class Tinput, class Toutput>
@@ -75,6 +104,10 @@ template <class Tinput, class Toutput>
 void PopulationBenchmark<Tinput, Toutput>::sortIndexByCostAsc()
 {
     std::sort(asc_index, asc_index + this->n_items, doCompare(*this));
+
+    //update the min_cost
+    min_cost_i = asc_index[0];
+    min_cost = cost[min_cost_i];
 }
 
 template <class Tinput, class Toutput>
