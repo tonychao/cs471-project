@@ -1,0 +1,220 @@
+\hypertarget{class_population_benchmark}{}\doxysection{Population\+Benchmark$<$ Tinput, Toutput $>$ Class Template Reference}
+\label{class_population_benchmark}\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+
+
+{\ttfamily \#include $<$population\+\_\+benchmark.\+h$>$}
+
+
+
+Inheritance diagram for Population\+Benchmark$<$ Tinput, Toutput $>$\+:
+% FIG 0
+
+
+Collaboration diagram for Population\+Benchmark$<$ Tinput, Toutput $>$\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_population_benchmark_1_1do_compare}{do\+Compare}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_population_benchmark_afb28e95bbf84e9bba5a823ec37fbc352}{Population\+Benchmark}} (int \mbox{\hyperlink{class_population_ac95c39cdb7d59a5fa72581f5d1453f40}{n\+\_\+items}}, int \mbox{\hyperlink{class_population_a8fb2ea50f13b2a56537a47a67af5eb00}{dimension}})
+\item 
+\mbox{\hyperlink{class_population_benchmark_aa0a4bb81d346df44a2040f03b61363b7}{$\sim$\+Population\+Benchmark}} ()
+\item 
+void \mbox{\hyperlink{class_population_benchmark_ac01cf96b86c7e6fc7b9225cb1d04cfae}{evaluate\+Cost}} (int function\+\_\+id)
+\item 
+Toutput \mbox{\hyperlink{class_population_benchmark_ae7c9053eadb138745848279e578911b3}{calc\+Cost1\+Item}} (int function\+\_\+id, int i)
+\item 
+void \mbox{\hyperlink{class_population_benchmark_a49909281594c9c250041a11d0d1c485b}{sort\+Index\+By\+Cost\+Asc}} ()
+\item 
+void \mbox{\hyperlink{class_population_benchmark_acb8b2a5fe45dcf8100845788db78fbd6}{save\+Best}} (Toutput best\+\_\+cost, Tinput $\ast$best\+\_\+individuo)
+\item 
+void \mbox{\hyperlink{class_population_benchmark_a278cf64a9aa99f6307a14fc2fce0dde0}{print\+Cost}} ()
+\item 
+void \mbox{\hyperlink{class_population_benchmark_acd0be8886072954e86419d7dd9464dc8}{print\+Index}} ()
+\item 
+void \mbox{\hyperlink{class_population_benchmark_aeebd9d85b3c40e04b5ba456ee2f428a7}{set\+Data\+And\+Cost}} (Tinput $\ast$item, int i, Toutput c)
+\item 
+void \mbox{\hyperlink{class_population_benchmark_aeecaf30441d5d307ae700ff3ffd5480f}{calculate\+Min\+Cost}} ()
+\item 
+Toutput \mbox{\hyperlink{class_population_benchmark_a72522900418ad49b76d78c749b1a1e33}{get\+Min\+Cost}} ()
+\item 
+Tinput $\ast$ \mbox{\hyperlink{class_population_benchmark_a424eaec3e74ade0421126e48fa06c665}{get\+Min\+Cost\+Data}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Toutput \mbox{\hyperlink{class_population_benchmark_ab3ba628a6ba770e4ee1aef3cd63443a3}{calc\+Cost\+Ext}} (int function\+\_\+id, Tinput $\ast$item, int dim)
+\item 
+static void \mbox{\hyperlink{class_population_benchmark_a38acafcb734d70b544ccf2ea9df4b10d}{swap}} (\mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}} \&A, \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}} \&B)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Toutput $\ast$ \mbox{\hyperlink{class_population_benchmark_ad2d1e2e7dca44a23a349659ba4776feb}{cost}}
+\begin{DoxyCompactList}\small\item\em array that contains the cost of each item \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_population_benchmark_ab29c7a4bcce2e1f2da0d284d7236a5f8}{min\+\_\+cost}}
+\item 
+int \mbox{\hyperlink{class_population_benchmark_a03be7ca6fd1d97e2ac07f27ebe71406e}{min\+\_\+cost\+\_\+i}}
+\item 
+int $\ast$ \mbox{\hyperlink{class_population_benchmark_a8c1db98640c88e2abcd950f00e7c1248}{asc\+\_\+index}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_population_benchmark_afb28e95bbf84e9bba5a823ec37fbc352}\label{class_population_benchmark_afb28e95bbf84e9bba5a823ec37fbc352}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!PopulationBenchmark@{PopulationBenchmark}}
+\index{PopulationBenchmark@{PopulationBenchmark}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{PopulationBenchmark()}{PopulationBenchmark()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::\mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}} (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+items,  }\item[{int}]{dimension }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_population_benchmark_aa0a4bb81d346df44a2040f03b61363b7}\label{class_population_benchmark_aa0a4bb81d346df44a2040f03b61363b7}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!````~PopulationBenchmark@{$\sim$PopulationBenchmark}}
+\index{````~PopulationBenchmark@{$\sim$PopulationBenchmark}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$PopulationBenchmark()}{~PopulationBenchmark()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::$\sim$\mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_population_benchmark_ae7c9053eadb138745848279e578911b3}\label{class_population_benchmark_ae7c9053eadb138745848279e578911b3}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!calcCost1Item@{calcCost1Item}}
+\index{calcCost1Item@{calcCost1Item}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{calcCost1Item()}{calcCost1Item()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::calc\+Cost1\+Item (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_population_benchmark_ab3ba628a6ba770e4ee1aef3cd63443a3}\label{class_population_benchmark_ab3ba628a6ba770e4ee1aef3cd63443a3}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!calcCostExt@{calcCostExt}}
+\index{calcCostExt@{calcCostExt}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{calcCostExt()}{calcCostExt()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::calc\+Cost\+Ext (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id,  }\item[{Tinput $\ast$}]{item,  }\item[{int}]{dim }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_population_benchmark_aeecaf30441d5d307ae700ff3ffd5480f}\label{class_population_benchmark_aeecaf30441d5d307ae700ff3ffd5480f}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!calculateMinCost@{calculateMinCost}}
+\index{calculateMinCost@{calculateMinCost}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{calculateMinCost()}{calculateMinCost()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::calculate\+Min\+Cost}
+
+\mbox{\Hypertarget{class_population_benchmark_ac01cf96b86c7e6fc7b9225cb1d04cfae}\label{class_population_benchmark_ac01cf96b86c7e6fc7b9225cb1d04cfae}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!evaluateCost@{evaluateCost}}
+\index{evaluateCost@{evaluateCost}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{evaluateCost()}{evaluateCost()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::evaluate\+Cost (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_population_benchmark_a72522900418ad49b76d78c749b1a1e33}\label{class_population_benchmark_a72522900418ad49b76d78c749b1a1e33}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!getMinCost@{getMinCost}}
+\index{getMinCost@{getMinCost}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{getMinCost()}{getMinCost()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::get\+Min\+Cost}
+
+\mbox{\Hypertarget{class_population_benchmark_a424eaec3e74ade0421126e48fa06c665}\label{class_population_benchmark_a424eaec3e74ade0421126e48fa06c665}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!getMinCostData@{getMinCostData}}
+\index{getMinCostData@{getMinCostData}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{getMinCostData()}{getMinCostData()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Tinput $\ast$ \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::get\+Min\+Cost\+Data}
+
+\mbox{\Hypertarget{class_population_benchmark_a278cf64a9aa99f6307a14fc2fce0dde0}\label{class_population_benchmark_a278cf64a9aa99f6307a14fc2fce0dde0}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!printCost@{printCost}}
+\index{printCost@{printCost}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{printCost()}{printCost()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::print\+Cost}
+
+\mbox{\Hypertarget{class_population_benchmark_acd0be8886072954e86419d7dd9464dc8}\label{class_population_benchmark_acd0be8886072954e86419d7dd9464dc8}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!printIndex@{printIndex}}
+\index{printIndex@{printIndex}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{printIndex()}{printIndex()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::print\+Index}
+
+\mbox{\Hypertarget{class_population_benchmark_acb8b2a5fe45dcf8100845788db78fbd6}\label{class_population_benchmark_acb8b2a5fe45dcf8100845788db78fbd6}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!saveBest@{saveBest}}
+\index{saveBest@{saveBest}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{saveBest()}{saveBest()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::save\+Best (\begin{DoxyParamCaption}\item[{Toutput}]{best\+\_\+cost,  }\item[{Tinput $\ast$}]{best\+\_\+individuo }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_population_benchmark_aeebd9d85b3c40e04b5ba456ee2f428a7}\label{class_population_benchmark_aeebd9d85b3c40e04b5ba456ee2f428a7}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!setDataAndCost@{setDataAndCost}}
+\index{setDataAndCost@{setDataAndCost}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{setDataAndCost()}{setDataAndCost()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::set\+Data\+And\+Cost (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{item,  }\item[{int}]{i,  }\item[{Toutput}]{c }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_population_benchmark_a49909281594c9c250041a11d0d1c485b}\label{class_population_benchmark_a49909281594c9c250041a11d0d1c485b}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!sortIndexByCostAsc@{sortIndexByCostAsc}}
+\index{sortIndexByCostAsc@{sortIndexByCostAsc}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{sortIndexByCostAsc()}{sortIndexByCostAsc()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::sort\+Index\+By\+Cost\+Asc}
+
+\mbox{\Hypertarget{class_population_benchmark_a38acafcb734d70b544ccf2ea9df4b10d}\label{class_population_benchmark_a38acafcb734d70b544ccf2ea9df4b10d}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!swap@{swap}}
+\index{swap@{swap}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::swap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$ \&}]{A,  }\item[{\mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$ \&}]{B }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+$<$ array that contains the cost of each itemHere is the caller graph for this function\+:
+% FIG 6
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_population_benchmark_a8c1db98640c88e2abcd950f00e7c1248}\label{class_population_benchmark_a8c1db98640c88e2abcd950f00e7c1248}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!asc\_index@{asc\_index}}
+\index{asc\_index@{asc\_index}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{asc\_index}{asc\_index}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+int$\ast$ \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::asc\+\_\+index\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_population_benchmark_ad2d1e2e7dca44a23a349659ba4776feb}\label{class_population_benchmark_ad2d1e2e7dca44a23a349659ba4776feb}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!cost@{cost}}
+\index{cost@{cost}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{cost}{cost}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput$\ast$ \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::cost\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+array that contains the cost of each item 
+
+\mbox{\Hypertarget{class_population_benchmark_ab29c7a4bcce2e1f2da0d284d7236a5f8}\label{class_population_benchmark_ab29c7a4bcce2e1f2da0d284d7236a5f8}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!min\_cost@{min\_cost}}
+\index{min\_cost@{min\_cost}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{min\_cost}{min\_cost}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::min\+\_\+cost\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_population_benchmark_a03be7ca6fd1d97e2ac07f27ebe71406e}\label{class_population_benchmark_a03be7ca6fd1d97e2ac07f27ebe71406e}} 
+\index{PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}!min\_cost\_i@{min\_cost\_i}}
+\index{min\_cost\_i@{min\_cost\_i}!PopulationBenchmark$<$ Tinput, Toutput $>$@{PopulationBenchmark$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{min\_cost\_i}{min\_cost\_i}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+int \mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$\+::min\+\_\+cost\+\_\+i\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{population__benchmark_8h}{population\+\_\+benchmark.\+h}}\item 
+\mbox{\hyperlink{population__benchmark_8cpp}{population\+\_\+benchmark.\+cpp}}\end{DoxyCompactItemize}

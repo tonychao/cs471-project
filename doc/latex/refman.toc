@@ -1,0 +1,251 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Hierarchical Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Class Documentation}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Input\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Parameter$<$ Tinput $>$\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Bounds Struct Reference}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{7}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Member Data Documentation}{7}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}l}{7}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}u}{8}{subsubsection.4.1.2.2}%
+\contentsline {section}{\numberline {4.2}G\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Input\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Parameter$<$ Tinput $>$\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Bounds Struct Reference}{8}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{8}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Member Data Documentation}{8}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}l}{8}{subsubsection.4.2.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2.2}u}{9}{subsubsection.4.2.2.2}%
+\contentsline {section}{\numberline {4.3}Clock Class Reference}{9}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Member Function Documentation}{9}{subsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.1}tac()}{9}{subsubsection.4.3.1.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.2}tic()}{9}{subsubsection.4.3.1.2}%
+\contentsline {subsection}{\numberline {4.3.2}Member Data Documentation}{9}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}start\_c}{10}{subsubsection.4.3.2.1}%
+\contentsline {subsubsection}{\numberline {4.3.2.2}stop\_c}{10}{subsubsection.4.3.2.2}%
+\contentsline {section}{\numberline {4.4}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Input\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Parameter$<$ Tinput $>$ Struct Template Reference}{10}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Detailed Description}{11}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Member Data Documentation}{11}{subsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}bounds}{11}{subsubsection.4.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}cr}{11}{subsubsection.4.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.3}dim}{11}{subsubsection.4.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.4.2.4}pop\_size}{12}{subsubsection.4.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.4.2.5}scale\_f}{12}{subsubsection.4.4.2.5}%
+\contentsline {subsubsection}{\numberline {4.4.2.6}scale\_lambda}{12}{subsubsection.4.4.2.6}%
+\contentsline {subsubsection}{\numberline {4.4.2.7}t\_max}{12}{subsubsection.4.4.2.7}%
+\contentsline {section}{\numberline {4.5}Differential\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Evolution$<$ Tinput, Toutput $>$ Class Template Reference}{12}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{13}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Constructor \& Destructor Documentation}{14}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}DifferentialEvolution()}{14}{subsubsection.4.5.2.1}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}$\sim $DifferentialEvolution()}{14}{subsubsection.4.5.2.2}%
+\contentsline {subsection}{\numberline {4.5.3}Member Function Documentation}{14}{subsection.4.5.3}%
+\contentsline {subsubsection}{\numberline {4.5.3.1}keepInRange()}{14}{subsubsection.4.5.3.1}%
+\contentsline {subsubsection}{\numberline {4.5.3.2}randomR()}{14}{subsubsection.4.5.3.2}%
+\contentsline {subsubsection}{\numberline {4.5.3.3}runS10\_DE\_rand\_2\_bin()}{15}{subsubsection.4.5.3.3}%
+\contentsline {subsubsection}{\numberline {4.5.3.4}runS1\_DE\_best\_1\_exp()}{15}{subsubsection.4.5.3.4}%
+\contentsline {subsubsection}{\numberline {4.5.3.5}runS2\_DE\_rand\_1\_exp()}{15}{subsubsection.4.5.3.5}%
+\contentsline {subsubsection}{\numberline {4.5.3.6}runS3\_DE\_randbest\_1\_exp()}{15}{subsubsection.4.5.3.6}%
+\contentsline {subsubsection}{\numberline {4.5.3.7}runS4\_DE\_best\_2\_exp()}{15}{subsubsection.4.5.3.7}%
+\contentsline {subsubsection}{\numberline {4.5.3.8}runS5\_DE\_rand\_2\_exp()}{16}{subsubsection.4.5.3.8}%
+\contentsline {subsubsection}{\numberline {4.5.3.9}runS6\_DE\_best\_1\_bin()}{16}{subsubsection.4.5.3.9}%
+\contentsline {subsubsection}{\numberline {4.5.3.10}runS7\_DE\_rand\_1\_bin()}{16}{subsubsection.4.5.3.10}%
+\contentsline {subsubsection}{\numberline {4.5.3.11}runS8\_DE\_randbest\_1\_bin()}{16}{subsubsection.4.5.3.11}%
+\contentsline {subsubsection}{\numberline {4.5.3.12}runS9\_DE\_best\_2\_bin()}{16}{subsubsection.4.5.3.12}%
+\contentsline {subsubsection}{\numberline {4.5.3.13}saveResult()}{16}{subsubsection.4.5.3.13}%
+\contentsline {subsection}{\numberline {4.5.4}Member Data Documentation}{17}{subsection.4.5.4}%
+\contentsline {subsubsection}{\numberline {4.5.4.1}actual\_pop}{17}{subsubsection.4.5.4.1}%
+\contentsline {subsubsection}{\numberline {4.5.4.2}best\_cost}{17}{subsubsection.4.5.4.2}%
+\contentsline {subsubsection}{\numberline {4.5.4.3}ms\_random}{17}{subsubsection.4.5.4.3}%
+\contentsline {subsubsection}{\numberline {4.5.4.4}new\_pop}{17}{subsubsection.4.5.4.4}%
+\contentsline {subsubsection}{\numberline {4.5.4.5}param}{18}{subsubsection.4.5.4.5}%
+\contentsline {section}{\numberline {4.6}Genetic\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Algorithm$<$ Tinput, Toutput $>$\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::do\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Compare Struct Reference}{18}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Constructor \& Destructor Documentation}{18}{subsection.4.6.1}%
+\contentsline {subsubsection}{\numberline {4.6.1.1}doCompare()}{18}{subsubsection.4.6.1.1}%
+\contentsline {subsection}{\numberline {4.6.2}Member Function Documentation}{18}{subsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.1}operator()()}{18}{subsubsection.4.6.2.1}%
+\contentsline {subsection}{\numberline {4.6.3}Member Data Documentation}{19}{subsection.4.6.3}%
+\contentsline {subsubsection}{\numberline {4.6.3.1}m\_info}{19}{subsubsection.4.6.3.1}%
+\contentsline {section}{\numberline {4.7}Population\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Benchmark$<$ Tinput, Toutput $>$\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::do\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Compare$<$ Tinput, Toutput $>$ Struct Template Reference}{19}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Constructor \& Destructor Documentation}{19}{subsection.4.7.1}%
+\contentsline {subsubsection}{\numberline {4.7.1.1}doCompare()}{19}{subsubsection.4.7.1.1}%
+\contentsline {subsection}{\numberline {4.7.2}Member Function Documentation}{19}{subsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.1}operator()()}{20}{subsubsection.4.7.2.1}%
+\contentsline {subsection}{\numberline {4.7.3}Member Data Documentation}{20}{subsection.4.7.3}%
+\contentsline {subsubsection}{\numberline {4.7.3.1}m\_info}{20}{subsubsection.4.7.3.1}%
+\contentsline {section}{\numberline {4.8}Genetic\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Algorithm$<$ Tinput, Toutput $>$\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::do\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Compare\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}New\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Pop Struct Reference}{20}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Constructor \& Destructor Documentation}{20}{subsection.4.8.1}%
+\contentsline {subsubsection}{\numberline {4.8.1.1}doCompareNewPop()}{20}{subsubsection.4.8.1.1}%
+\contentsline {subsection}{\numberline {4.8.2}Member Function Documentation}{21}{subsection.4.8.2}%
+\contentsline {subsubsection}{\numberline {4.8.2.1}operator()()}{21}{subsubsection.4.8.2.1}%
+\contentsline {subsection}{\numberline {4.8.3}Member Data Documentation}{21}{subsection.4.8.3}%
+\contentsline {subsubsection}{\numberline {4.8.3.1}m\_info}{21}{subsubsection.4.8.3.1}%
+\contentsline {section}{\numberline {4.9}Functions1$<$ Tinput, Toutput $>$ Class Template Reference}{21}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Detailed Description}{22}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Member Typedef Documentation}{23}{subsection.4.9.2}%
+\contentsline {subsubsection}{\numberline {4.9.2.1}function\_pointer}{23}{subsubsection.4.9.2.1}%
+\contentsline {subsection}{\numberline {4.9.3}Member Function Documentation}{23}{subsection.4.9.3}%
+\contentsline {subsubsection}{\numberline {4.9.3.1}f10EggHolder()}{23}{subsubsection.4.9.3.1}%
+\contentsline {subsubsection}{\numberline {4.9.3.2}f11Rana()}{23}{subsubsection.4.9.3.2}%
+\contentsline {subsubsection}{\numberline {4.9.3.3}f12Pathological()}{24}{subsubsection.4.9.3.3}%
+\contentsline {subsubsection}{\numberline {4.9.3.4}f13Michalewicz()}{24}{subsubsection.4.9.3.4}%
+\contentsline {subsubsection}{\numberline {4.9.3.5}f14MasterCosineWave()}{25}{subsubsection.4.9.3.5}%
+\contentsline {subsubsection}{\numberline {4.9.3.6}f15Quartic()}{25}{subsubsection.4.9.3.6}%
+\contentsline {subsubsection}{\numberline {4.9.3.7}f16Levy()}{25}{subsubsection.4.9.3.7}%
+\contentsline {subsubsection}{\numberline {4.9.3.8}f17Step()}{26}{subsubsection.4.9.3.8}%
+\contentsline {subsubsection}{\numberline {4.9.3.9}f18Alphine()}{26}{subsubsection.4.9.3.9}%
+\contentsline {subsubsection}{\numberline {4.9.3.10}f1Schwefels()}{27}{subsubsection.4.9.3.10}%
+\contentsline {subsubsection}{\numberline {4.9.3.11}f2DeJongs1()}{27}{subsubsection.4.9.3.11}%
+\contentsline {subsubsection}{\numberline {4.9.3.12}f3Rosenbrock()}{27}{subsubsection.4.9.3.12}%
+\contentsline {subsubsection}{\numberline {4.9.3.13}f4Rastrigin()}{28}{subsubsection.4.9.3.13}%
+\contentsline {subsubsection}{\numberline {4.9.3.14}f5Griewankgk()}{28}{subsubsection.4.9.3.14}%
+\contentsline {subsubsection}{\numberline {4.9.3.15}f6SineEnvelopeSineWave()}{29}{subsubsection.4.9.3.15}%
+\contentsline {subsubsection}{\numberline {4.9.3.16}f7StretchedVSineWave()}{29}{subsubsection.4.9.3.16}%
+\contentsline {subsubsection}{\numberline {4.9.3.17}f8AckleysOne()}{29}{subsubsection.4.9.3.17}%
+\contentsline {subsubsection}{\numberline {4.9.3.18}f9AckleysTwo()}{30}{subsubsection.4.9.3.18}%
+\contentsline {subsubsection}{\numberline {4.9.3.19}getFunctionById()}{30}{subsubsection.4.9.3.19}%
+\contentsline {section}{\numberline {4.10}G\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Input\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Parameter$<$ Tinput $>$ Struct Template Reference}{31}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Detailed Description}{31}{subsection.4.10.1}%
+\contentsline {subsection}{\numberline {4.10.2}Member Data Documentation}{32}{subsection.4.10.2}%
+\contentsline {subsubsection}{\numberline {4.10.2.1}bounds}{32}{subsubsection.4.10.2.1}%
+\contentsline {subsubsection}{\numberline {4.10.2.2}cr}{32}{subsubsection.4.10.2.2}%
+\contentsline {subsubsection}{\numberline {4.10.2.3}dim}{32}{subsubsection.4.10.2.3}%
+\contentsline {subsubsection}{\numberline {4.10.2.4}er}{32}{subsubsection.4.10.2.4}%
+\contentsline {subsubsection}{\numberline {4.10.2.5}m}{32}{subsubsection.4.10.2.5}%
+\contentsline {subsubsection}{\numberline {4.10.2.6}ns}{33}{subsubsection.4.10.2.6}%
+\contentsline {subsubsection}{\numberline {4.10.2.7}t\_max}{33}{subsubsection.4.10.2.7}%
+\contentsline {section}{\numberline {4.11}Genetic\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Algorithm$<$ Tinput, Toutput $>$ Class Template Reference}{33}{section.4.11}%
+\contentsline {subsection}{\numberline {4.11.1}Detailed Description}{34}{subsection.4.11.1}%
+\contentsline {subsection}{\numberline {4.11.2}Constructor \& Destructor Documentation}{35}{subsection.4.11.2}%
+\contentsline {subsubsection}{\numberline {4.11.2.1}GeneticAlgorithm()}{35}{subsubsection.4.11.2.1}%
+\contentsline {subsubsection}{\numberline {4.11.2.2}$\sim $GeneticAlgorithm()}{35}{subsubsection.4.11.2.2}%
+\contentsline {subsection}{\numberline {4.11.3}Member Function Documentation}{35}{subsection.4.11.3}%
+\contentsline {subsubsection}{\numberline {4.11.3.1}crossover()}{35}{subsubsection.4.11.3.1}%
+\contentsline {subsubsection}{\numberline {4.11.3.2}evaluateCost()}{35}{subsubsection.4.11.3.2}%
+\contentsline {subsubsection}{\numberline {4.11.3.3}findBestSolution()}{36}{subsubsection.4.11.3.3}%
+\contentsline {subsubsection}{\numberline {4.11.3.4}getFitness()}{36}{subsubsection.4.11.3.4}%
+\contentsline {subsubsection}{\numberline {4.11.3.5}keepInRange()}{36}{subsubsection.4.11.3.5}%
+\contentsline {subsubsection}{\numberline {4.11.3.6}mutate()}{36}{subsubsection.4.11.3.6}%
+\contentsline {subsubsection}{\numberline {4.11.3.7}printCost()}{36}{subsubsection.4.11.3.7}%
+\contentsline {subsubsection}{\numberline {4.11.3.8}printFitness()}{37}{subsubsection.4.11.3.8}%
+\contentsline {subsubsection}{\numberline {4.11.3.9}printInputPopulation()}{37}{subsubsection.4.11.3.9}%
+\contentsline {subsubsection}{\numberline {4.11.3.10}printNewPopulation()}{37}{subsubsection.4.11.3.10}%
+\contentsline {subsubsection}{\numberline {4.11.3.11}printPopulation()}{37}{subsubsection.4.11.3.11}%
+\contentsline {subsubsection}{\numberline {4.11.3.12}randomInit()}{37}{subsubsection.4.11.3.12}%
+\contentsline {subsubsection}{\numberline {4.11.3.13}reduce()}{37}{subsubsection.4.11.3.13}%
+\contentsline {subsubsection}{\numberline {4.11.3.14}saveResult()}{38}{subsubsection.4.11.3.14}%
+\contentsline {subsubsection}{\numberline {4.11.3.15}select()}{38}{subsubsection.4.11.3.15}%
+\contentsline {subsubsection}{\numberline {4.11.3.16}selectParent()}{38}{subsubsection.4.11.3.16}%
+\contentsline {subsubsection}{\numberline {4.11.3.17}sortNewPopulationByIndexAsc()}{38}{subsubsection.4.11.3.17}%
+\contentsline {subsubsection}{\numberline {4.11.3.18}sortPopulationByIndexAsc()}{38}{subsubsection.4.11.3.18}%
+\contentsline {subsection}{\numberline {4.11.4}Member Data Documentation}{38}{subsection.4.11.4}%
+\contentsline {subsubsection}{\numberline {4.11.4.1}cost}{39}{subsubsection.4.11.4.1}%
+\contentsline {subsubsection}{\numberline {4.11.4.2}fitness}{39}{subsubsection.4.11.4.2}%
+\contentsline {subsubsection}{\numberline {4.11.4.3}ms\_random\_generator}{39}{subsubsection.4.11.4.3}%
+\contentsline {subsubsection}{\numberline {4.11.4.4}new\_population}{39}{subsubsection.4.11.4.4}%
+\contentsline {subsubsection}{\numberline {4.11.4.5}new\_population\_asc\_index}{39}{subsubsection.4.11.4.5}%
+\contentsline {subsubsection}{\numberline {4.11.4.6}new\_population\_cost}{39}{subsubsection.4.11.4.6}%
+\contentsline {subsubsection}{\numberline {4.11.4.7}parameters}{40}{subsubsection.4.11.4.7}%
+\contentsline {subsubsection}{\numberline {4.11.4.8}population}{40}{subsubsection.4.11.4.8}%
+\contentsline {subsubsection}{\numberline {4.11.4.9}population\_asc\_index}{40}{subsubsection.4.11.4.9}%
+\contentsline {subsubsection}{\numberline {4.11.4.10}total\_fitness}{40}{subsubsection.4.11.4.10}%
+\contentsline {section}{\numberline {4.12}G\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Input\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Parameter$<$ Tinput $>$\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Mutation Struct Reference}{40}{section.4.12}%
+\contentsline {subsection}{\numberline {4.12.1}Detailed Description}{41}{subsection.4.12.1}%
+\contentsline {subsection}{\numberline {4.12.2}Member Data Documentation}{41}{subsection.4.12.2}%
+\contentsline {subsubsection}{\numberline {4.12.2.1}precision}{41}{subsubsection.4.12.2.1}%
+\contentsline {subsubsection}{\numberline {4.12.2.2}range}{41}{subsubsection.4.12.2.2}%
+\contentsline {subsubsection}{\numberline {4.12.2.3}rate}{41}{subsubsection.4.12.2.3}%
+\contentsline {section}{\numberline {4.13}Population$<$ Tinput, Toutput $>$ Class Template Reference}{41}{section.4.13}%
+\contentsline {subsection}{\numberline {4.13.1}Constructor \& Destructor Documentation}{42}{subsection.4.13.1}%
+\contentsline {subsubsection}{\numberline {4.13.1.1}Population()}{42}{subsubsection.4.13.1.1}%
+\contentsline {subsubsection}{\numberline {4.13.1.2}$\sim $Population()}{42}{subsubsection.4.13.1.2}%
+\contentsline {subsection}{\numberline {4.13.2}Member Function Documentation}{42}{subsection.4.13.2}%
+\contentsline {subsubsection}{\numberline {4.13.2.1}fillWithRandom()}{43}{subsubsection.4.13.2.1}%
+\contentsline {subsubsection}{\numberline {4.13.2.2}getData()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{43}{subsubsection.4.13.2.2}%
+\contentsline {subsubsection}{\numberline {4.13.2.3}getData()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{43}{subsubsection.4.13.2.3}%
+\contentsline {subsubsection}{\numberline {4.13.2.4}printPopulation()}{43}{subsubsection.4.13.2.4}%
+\contentsline {subsubsection}{\numberline {4.13.2.5}setData()}{43}{subsubsection.4.13.2.5}%
+\contentsline {subsubsection}{\numberline {4.13.2.6}swap()}{43}{subsubsection.4.13.2.6}%
+\contentsline {subsection}{\numberline {4.13.3}Member Data Documentation}{44}{subsection.4.13.3}%
+\contentsline {subsubsection}{\numberline {4.13.3.1}data}{44}{subsubsection.4.13.3.1}%
+\contentsline {subsubsection}{\numberline {4.13.3.2}dimension}{44}{subsubsection.4.13.3.2}%
+\contentsline {subsubsection}{\numberline {4.13.3.3}n\_items}{44}{subsubsection.4.13.3.3}%
+\contentsline {subsubsection}{\numberline {4.13.3.4}random\_ms}{44}{subsubsection.4.13.3.4}%
+\contentsline {section}{\numberline {4.14}Population\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Benchmark$<$ Tinput, Toutput $>$ Class Template Reference}{44}{section.4.14}%
+\contentsline {subsection}{\numberline {4.14.1}Constructor \& Destructor Documentation}{45}{subsection.4.14.1}%
+\contentsline {subsubsection}{\numberline {4.14.1.1}PopulationBenchmark()}{45}{subsubsection.4.14.1.1}%
+\contentsline {subsubsection}{\numberline {4.14.1.2}$\sim $PopulationBenchmark()}{46}{subsubsection.4.14.1.2}%
+\contentsline {subsection}{\numberline {4.14.2}Member Function Documentation}{46}{subsection.4.14.2}%
+\contentsline {subsubsection}{\numberline {4.14.2.1}calcCost1Item()}{46}{subsubsection.4.14.2.1}%
+\contentsline {subsubsection}{\numberline {4.14.2.2}calcCostExt()}{46}{subsubsection.4.14.2.2}%
+\contentsline {subsubsection}{\numberline {4.14.2.3}calculateMinCost()}{46}{subsubsection.4.14.2.3}%
+\contentsline {subsubsection}{\numberline {4.14.2.4}evaluateCost()}{46}{subsubsection.4.14.2.4}%
+\contentsline {subsubsection}{\numberline {4.14.2.5}getMinCost()}{46}{subsubsection.4.14.2.5}%
+\contentsline {subsubsection}{\numberline {4.14.2.6}getMinCostData()}{47}{subsubsection.4.14.2.6}%
+\contentsline {subsubsection}{\numberline {4.14.2.7}printCost()}{47}{subsubsection.4.14.2.7}%
+\contentsline {subsubsection}{\numberline {4.14.2.8}printIndex()}{47}{subsubsection.4.14.2.8}%
+\contentsline {subsubsection}{\numberline {4.14.2.9}saveBest()}{47}{subsubsection.4.14.2.9}%
+\contentsline {subsubsection}{\numberline {4.14.2.10}setDataAndCost()}{47}{subsubsection.4.14.2.10}%
+\contentsline {subsubsection}{\numberline {4.14.2.11}sortIndexByCostAsc()}{47}{subsubsection.4.14.2.11}%
+\contentsline {subsubsection}{\numberline {4.14.2.12}swap()}{48}{subsubsection.4.14.2.12}%
+\contentsline {subsection}{\numberline {4.14.3}Member Data Documentation}{48}{subsection.4.14.3}%
+\contentsline {subsubsection}{\numberline {4.14.3.1}asc\_index}{48}{subsubsection.4.14.3.1}%
+\contentsline {subsubsection}{\numberline {4.14.3.2}cost}{48}{subsubsection.4.14.3.2}%
+\contentsline {subsubsection}{\numberline {4.14.3.3}min\_cost}{48}{subsubsection.4.14.3.3}%
+\contentsline {subsubsection}{\numberline {4.14.3.4}min\_cost\_i}{48}{subsubsection.4.14.3.4}%
+\contentsline {section}{\numberline {4.15}Runner$<$ Tinput, Toutput $>$ Class Template Reference}{49}{section.4.15}%
+\contentsline {subsection}{\numberline {4.15.1}Detailed Description}{50}{subsection.4.15.1}%
+\contentsline {subsection}{\numberline {4.15.2}Constructor \& Destructor Documentation}{50}{subsection.4.15.2}%
+\contentsline {subsubsection}{\numberline {4.15.2.1}Runner()}{50}{subsubsection.4.15.2.1}%
+\contentsline {subsubsection}{\numberline {4.15.2.2}$\sim $Runner()}{50}{subsubsection.4.15.2.2}%
+\contentsline {subsection}{\numberline {4.15.3}Member Function Documentation}{50}{subsection.4.15.3}%
+\contentsline {subsubsection}{\numberline {4.15.3.1}computeStatistic()}{51}{subsubsection.4.15.3.1}%
+\contentsline {subsubsection}{\numberline {4.15.3.2}fillDEParameterFromFile()}{51}{subsubsection.4.15.3.2}%
+\contentsline {subsubsection}{\numberline {4.15.3.3}fillGAParameterFromFile()}{51}{subsubsection.4.15.3.3}%
+\contentsline {subsubsection}{\numberline {4.15.3.4}printSolutions()}{51}{subsubsection.4.15.3.4}%
+\contentsline {subsubsection}{\numberline {4.15.3.5}runOptimization()}{51}{subsubsection.4.15.3.5}%
+\contentsline {subsubsection}{\numberline {4.15.3.6}saveStatistic()}{52}{subsubsection.4.15.3.6}%
+\contentsline {subsection}{\numberline {4.15.4}Member Data Documentation}{52}{subsection.4.15.4}%
+\contentsline {subsubsection}{\numberline {4.15.4.1}algorithm\_id}{52}{subsubsection.4.15.4.1}%
+\contentsline {subsubsection}{\numberline {4.15.4.2}dimensions}{52}{subsubsection.4.15.4.2}%
+\contentsline {subsubsection}{\numberline {4.15.4.3}function\_id}{52}{subsubsection.4.15.4.3}%
+\contentsline {subsubsection}{\numberline {4.15.4.4}n\_runs}{52}{subsubsection.4.15.4.4}%
+\contentsline {subsubsection}{\numberline {4.15.4.5}range\_high}{53}{subsubsection.4.15.4.5}%
+\contentsline {subsubsection}{\numberline {4.15.4.6}range\_low}{53}{subsubsection.4.15.4.6}%
+\contentsline {subsubsection}{\numberline {4.15.4.7}solutions}{53}{subsubsection.4.15.4.7}%
+\contentsline {subsubsection}{\numberline {4.15.4.8}stat\_analysis}{53}{subsubsection.4.15.4.8}%
+\contentsline {section}{\numberline {4.16}Runner$<$ Tinput, Toutput $>$\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::statistics Struct Reference}{53}{section.4.16}%
+\contentsline {subsection}{\numberline {4.16.1}Detailed Description}{54}{subsection.4.16.1}%
+\contentsline {subsection}{\numberline {4.16.2}Member Data Documentation}{54}{subsection.4.16.2}%
+\contentsline {subsubsection}{\numberline {4.16.2.1}mean}{54}{subsubsection.4.16.2.1}%
+\contentsline {subsubsection}{\numberline {4.16.2.2}median}{54}{subsubsection.4.16.2.2}%
+\contentsline {subsubsection}{\numberline {4.16.2.3}range}{54}{subsubsection.4.16.2.3}%
+\contentsline {subsubsection}{\numberline {4.16.2.4}range\_max}{54}{subsubsection.4.16.2.4}%
+\contentsline {subsubsection}{\numberline {4.16.2.5}range\_min}{55}{subsubsection.4.16.2.5}%
+\contentsline {subsubsection}{\numberline {4.16.2.6}std\_dev}{55}{subsubsection.4.16.2.6}%
+\contentsline {subsubsection}{\numberline {4.16.2.7}time\_ms}{55}{subsubsection.4.16.2.7}%
+\contentsline {chapter}{\numberline {5}File Documentation}{57}{chapter.5}%
+\contentsline {section}{\numberline {5.1}debug.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{57}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Macro Definition Documentation}{57}{subsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1.1}debug}{57}{subsubsection.5.1.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1.2}debug1}{57}{subsubsection.5.1.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.1.3}debug\_var}{58}{subsubsection.5.1.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.1.4}debugfile}{58}{subsubsection.5.1.1.4}%
+\contentsline {section}{\numberline {5.2}differential\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}evolution.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{58}{section.5.2}%
+\contentsline {section}{\numberline {5.3}differential\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}evolution.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{58}{section.5.3}%
+\contentsline {section}{\numberline {5.4}functions1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{58}{section.5.4}%
+\contentsline {section}{\numberline {5.5}functions1.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{59}{section.5.5}%
+\contentsline {section}{\numberline {5.6}genetic\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}algorithm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{59}{section.5.6}%
+\contentsline {section}{\numberline {5.7}genetic\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}algorithm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{59}{section.5.7}%
+\contentsline {section}{\numberline {5.8}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{60}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Function Documentation}{60}{subsection.5.8.1}%
+\contentsline {subsubsection}{\numberline {5.8.1.1}main()}{60}{subsubsection.5.8.1.1}%
+\contentsline {section}{\numberline {5.9}population.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{60}{section.5.9}%
+\contentsline {section}{\numberline {5.10}population.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{61}{section.5.10}%
+\contentsline {section}{\numberline {5.11}population\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}benchmark.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{61}{section.5.11}%
+\contentsline {section}{\numberline {5.12}population\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}benchmark.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{61}{section.5.12}%
+\contentsline {section}{\numberline {5.13}runner.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{61}{section.5.13}%
+\contentsline {section}{\numberline {5.14}runner.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{62}{section.5.14}%
+\contentsline {section}{\numberline {5.15}util.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{62}{section.5.15}%
+\contentsline {subsection}{\numberline {5.15.1}Function Documentation}{62}{subsection.5.15.1}%
+\contentsline {subsubsection}{\numberline {5.15.1.1}printArray()}{62}{subsubsection.5.15.1.1}%
+\contentsline {chapter}{Index}{63}{section*.61}%

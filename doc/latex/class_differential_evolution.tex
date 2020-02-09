@@ -1,0 +1,329 @@
+\hypertarget{class_differential_evolution}{}\doxysection{Differential\+Evolution$<$ Tinput, Toutput $>$ Class Template Reference}
+\label{class_differential_evolution}\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+
+
+Template Differential Evolution class.  
+
+
+
+
+{\ttfamily \#include $<$differential\+\_\+evolution.\+h$>$}
+
+
+
+Collaboration diagram for Differential\+Evolution$<$ Tinput, Toutput $>$\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_differential_evolution_ac845a34e41ea236164c362580b79c2bd}{Differential\+Evolution}} (\mbox{\hyperlink{struct_d_e_input_parameter}{D\+E\+Input\+Parameter}}$<$ Tinput $>$ \mbox{\hyperlink{class_differential_evolution_ab1c4fccc01b6c7fd36e469b5aa27dbca}{param}})
+\item 
+\mbox{\hyperlink{class_differential_evolution_ac51c311f874464e7f8eb46fc844b9164}{$\sim$\+Differential\+Evolution}} ()
+\item 
+Toutput \mbox{\hyperlink{class_differential_evolution_aa602b3bc4d6c6c0086703a97fae3ae80}{run\+S7\+\_\+\+D\+E\+\_\+rand\+\_\+1\+\_\+bin}} (int function\+\_\+id)
+\item 
+Toutput \mbox{\hyperlink{class_differential_evolution_afc8f3c7c6b6e52f89bcb794419093c62}{run\+S10\+\_\+\+D\+E\+\_\+rand\+\_\+2\+\_\+bin}} (int function\+\_\+id)
+\item 
+Toutput \mbox{\hyperlink{class_differential_evolution_a9d6308d2adbf252d80efd73a575a0f1a}{run\+S6\+\_\+\+D\+E\+\_\+best\+\_\+1\+\_\+bin}} (int function\+\_\+id)
+\item 
+Toutput \mbox{\hyperlink{class_differential_evolution_acb6dc0862c03291b5919b37024719a18}{run\+S9\+\_\+\+D\+E\+\_\+best\+\_\+2\+\_\+bin}} (int function\+\_\+id)
+\item 
+Toutput \mbox{\hyperlink{class_differential_evolution_a63c04db3f8627ab4a5a8800262d133cb}{run\+S8\+\_\+\+D\+E\+\_\+randbest\+\_\+1\+\_\+bin}} (int function\+\_\+id)
+\item 
+Toutput \mbox{\hyperlink{class_differential_evolution_a8c3aee647018f7ad8203e16f58dbd788}{run\+S1\+\_\+\+D\+E\+\_\+best\+\_\+1\+\_\+exp}} (int function\+\_\+id)
+\item 
+Toutput \mbox{\hyperlink{class_differential_evolution_ad5393df0aaf913910967b93b0d83bdc5}{run\+S2\+\_\+\+D\+E\+\_\+rand\+\_\+1\+\_\+exp}} (int function\+\_\+id)
+\item 
+Toutput \mbox{\hyperlink{class_differential_evolution_ac7ae87c115303936398c744256dea9ca}{run\+S3\+\_\+\+D\+E\+\_\+randbest\+\_\+1\+\_\+exp}} (int function\+\_\+id)
+\item 
+Toutput \mbox{\hyperlink{class_differential_evolution_a47087e37dfd214cc3053590c592cd34c}{run\+S4\+\_\+\+D\+E\+\_\+best\+\_\+2\+\_\+exp}} (int function\+\_\+id)
+\item 
+Toutput \mbox{\hyperlink{class_differential_evolution_a16d44a6e676ddc805b1437e343e120aa}{run\+S5\+\_\+\+D\+E\+\_\+rand\+\_\+2\+\_\+exp}} (int function\+\_\+id)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_differential_evolution_a9a1675883b4ec1315865cb2df5c08ea6}{randomR}} (int $\ast$r, int n, int current\+\_\+i)
+\begin{DoxyCompactList}\small\item\em generate random vector position r used to create trail vectors \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_differential_evolution_a7ae6283023f601b757f6ed8a805c2537}{save\+Result}} (Toutput \mbox{\hyperlink{class_differential_evolution_ad900d54e8dfaddc48c35933f7c015d00}{best\+\_\+cost}}, Tinput $\ast$best\+\_\+vector, std\+::string result\+\_\+file)
+\begin{DoxyCompactList}\small\item\em save the indivuo with best cost in a file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_differential_evolution_a98d6a1f6af6a91f425c64b40137e659b}{keep\+In\+Range}} (Tinput \&element)
+\begin{DoxyCompactList}\small\item\em keep the element of the vector inside the search range \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$ $\ast$ \mbox{\hyperlink{class_differential_evolution_a59a3d1d69cc49620d46be8ce61ea9ca0}{actual\+\_\+pop}}
+\begin{DoxyCompactList}\small\item\em actual population \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$ Tinput, Toutput $>$ $\ast$ \mbox{\hyperlink{class_differential_evolution_ab6ebab155dc884e453a75b657b512624}{new\+\_\+pop}}
+\begin{DoxyCompactList}\small\item\em new population \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_d_e_input_parameter}{D\+E\+Input\+Parameter}}$<$ Tinput $>$ \mbox{\hyperlink{class_differential_evolution_ab1c4fccc01b6c7fd36e469b5aa27dbca}{param}}
+\begin{DoxyCompactList}\small\item\em DE parameters. \end{DoxyCompactList}\item 
+Mersenne\+Twister \mbox{\hyperlink{class_differential_evolution_a1232aa4db1a22748ab407458f20a1c86}{ms\+\_\+random}}
+\begin{DoxyCompactList}\small\item\em mersenne twister random generator \end{DoxyCompactList}\item 
+Toutput $\ast$ \mbox{\hyperlink{class_differential_evolution_ad900d54e8dfaddc48c35933f7c015d00}{best\+\_\+cost}}
+\begin{DoxyCompactList}\small\item\em array with history of best cost during the generations \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Tinput, class Toutput$>$\newline
+class Differential\+Evolution$<$ Tinput, Toutput $>$}
+
+Template Differential Evolution class. 
+
+Differential Evolution (DE) is based on the strategy that employs the difference of tow randomly selected parameter vectors as the source of random variations for a third parameter vector. ~\newline
+ \begin{DoxyAuthor}{Author}
+Chao Huang Lin (\href{mailto:chao.huanglin@cwu.edu}{\texttt{ chao.\+huanglin@cwu.\+edu}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2020-\/02-\/08 
+\end{DoxyDate}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_differential_evolution_ac845a34e41ea236164c362580b79c2bd}\label{class_differential_evolution_ac845a34e41ea236164c362580b79c2bd}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!DifferentialEvolution@{DifferentialEvolution}}
+\index{DifferentialEvolution@{DifferentialEvolution}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{DifferentialEvolution()}{DifferentialEvolution()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::\mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_e_input_parameter}{D\+E\+Input\+Parameter}}$<$ Tinput $>$}]{param }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_differential_evolution_ac51c311f874464e7f8eb46fc844b9164}\label{class_differential_evolution_ac51c311f874464e7f8eb46fc844b9164}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!````~DifferentialEvolution@{$\sim$DifferentialEvolution}}
+\index{````~DifferentialEvolution@{$\sim$DifferentialEvolution}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$DifferentialEvolution()}{~DifferentialEvolution()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::$\sim$\mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_differential_evolution_a98d6a1f6af6a91f425c64b40137e659b}\label{class_differential_evolution_a98d6a1f6af6a91f425c64b40137e659b}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!keepInRange@{keepInRange}}
+\index{keepInRange@{keepInRange}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{keepInRange()}{keepInRange()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::keep\+In\+Range (\begin{DoxyParamCaption}\item[{Tinput \&}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+keep the element of the vector inside the search range 
+
+the method trucante the element to the upper and lower bound of the range, when the element excess these limits. 
+\begin{DoxyParams}{Parameters}
+{\em \&element} & ///$<$ element of the vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_differential_evolution_a9a1675883b4ec1315865cb2df5c08ea6}\label{class_differential_evolution_a9a1675883b4ec1315865cb2df5c08ea6}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!randomR@{randomR}}
+\index{randomR@{randomR}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{randomR()}{randomR()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::randomR (\begin{DoxyParamCaption}\item[{int $\ast$}]{r,  }\item[{int}]{n,  }\item[{int}]{current\+\_\+i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+generate random vector position r used to create trail vectors 
+
+the random vector positions r should satisfy the condition that they cannot repeat and they cannot be equal to the current vector i 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$r} & ///$<$ pointer of array r \\
+\hline
+{\em n} & ///$<$ size of array r \\
+\hline
+{\em current\+\_\+i} & ///$<$ current position of the vector i \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_differential_evolution_afc8f3c7c6b6e52f89bcb794419093c62}\label{class_differential_evolution_afc8f3c7c6b6e52f89bcb794419093c62}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS10\_DE\_rand\_2\_bin@{runS10\_DE\_rand\_2\_bin}}
+\index{runS10\_DE\_rand\_2\_bin@{runS10\_DE\_rand\_2\_bin}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{runS10\_DE\_rand\_2\_bin()}{runS10\_DE\_rand\_2\_bin()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S10\+\_\+\+D\+E\+\_\+rand\+\_\+2\+\_\+bin (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_differential_evolution_a8c3aee647018f7ad8203e16f58dbd788}\label{class_differential_evolution_a8c3aee647018f7ad8203e16f58dbd788}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS1\_DE\_best\_1\_exp@{runS1\_DE\_best\_1\_exp}}
+\index{runS1\_DE\_best\_1\_exp@{runS1\_DE\_best\_1\_exp}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{runS1\_DE\_best\_1\_exp()}{runS1\_DE\_best\_1\_exp()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S1\+\_\+\+D\+E\+\_\+best\+\_\+1\+\_\+exp (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_differential_evolution_ad5393df0aaf913910967b93b0d83bdc5}\label{class_differential_evolution_ad5393df0aaf913910967b93b0d83bdc5}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS2\_DE\_rand\_1\_exp@{runS2\_DE\_rand\_1\_exp}}
+\index{runS2\_DE\_rand\_1\_exp@{runS2\_DE\_rand\_1\_exp}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{runS2\_DE\_rand\_1\_exp()}{runS2\_DE\_rand\_1\_exp()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S2\+\_\+\+D\+E\+\_\+rand\+\_\+1\+\_\+exp (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{class_differential_evolution_ac7ae87c115303936398c744256dea9ca}\label{class_differential_evolution_ac7ae87c115303936398c744256dea9ca}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS3\_DE\_randbest\_1\_exp@{runS3\_DE\_randbest\_1\_exp}}
+\index{runS3\_DE\_randbest\_1\_exp@{runS3\_DE\_randbest\_1\_exp}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{runS3\_DE\_randbest\_1\_exp()}{runS3\_DE\_randbest\_1\_exp()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S3\+\_\+\+D\+E\+\_\+randbest\+\_\+1\+\_\+exp (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 7
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{class_differential_evolution_a47087e37dfd214cc3053590c592cd34c}\label{class_differential_evolution_a47087e37dfd214cc3053590c592cd34c}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS4\_DE\_best\_2\_exp@{runS4\_DE\_best\_2\_exp}}
+\index{runS4\_DE\_best\_2\_exp@{runS4\_DE\_best\_2\_exp}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{runS4\_DE\_best\_2\_exp()}{runS4\_DE\_best\_2\_exp()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S4\+\_\+\+D\+E\+\_\+best\+\_\+2\+\_\+exp (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 9
+Here is the caller graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{class_differential_evolution_a16d44a6e676ddc805b1437e343e120aa}\label{class_differential_evolution_a16d44a6e676ddc805b1437e343e120aa}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS5\_DE\_rand\_2\_exp@{runS5\_DE\_rand\_2\_exp}}
+\index{runS5\_DE\_rand\_2\_exp@{runS5\_DE\_rand\_2\_exp}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{runS5\_DE\_rand\_2\_exp()}{runS5\_DE\_rand\_2\_exp()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S5\+\_\+\+D\+E\+\_\+rand\+\_\+2\+\_\+exp (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 11
+Here is the caller graph for this function\+:
+% FIG 12
+\mbox{\Hypertarget{class_differential_evolution_a9d6308d2adbf252d80efd73a575a0f1a}\label{class_differential_evolution_a9d6308d2adbf252d80efd73a575a0f1a}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS6\_DE\_best\_1\_bin@{runS6\_DE\_best\_1\_bin}}
+\index{runS6\_DE\_best\_1\_bin@{runS6\_DE\_best\_1\_bin}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{runS6\_DE\_best\_1\_bin()}{runS6\_DE\_best\_1\_bin()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S6\+\_\+\+D\+E\+\_\+best\+\_\+1\+\_\+bin (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 13
+Here is the caller graph for this function\+:
+% FIG 14
+\mbox{\Hypertarget{class_differential_evolution_aa602b3bc4d6c6c0086703a97fae3ae80}\label{class_differential_evolution_aa602b3bc4d6c6c0086703a97fae3ae80}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS7\_DE\_rand\_1\_bin@{runS7\_DE\_rand\_1\_bin}}
+\index{runS7\_DE\_rand\_1\_bin@{runS7\_DE\_rand\_1\_bin}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{runS7\_DE\_rand\_1\_bin()}{runS7\_DE\_rand\_1\_bin()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S7\+\_\+\+D\+E\+\_\+rand\+\_\+1\+\_\+bin (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 15
+Here is the caller graph for this function\+:
+% FIG 16
+\mbox{\Hypertarget{class_differential_evolution_a63c04db3f8627ab4a5a8800262d133cb}\label{class_differential_evolution_a63c04db3f8627ab4a5a8800262d133cb}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS8\_DE\_randbest\_1\_bin@{runS8\_DE\_randbest\_1\_bin}}
+\index{runS8\_DE\_randbest\_1\_bin@{runS8\_DE\_randbest\_1\_bin}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{runS8\_DE\_randbest\_1\_bin()}{runS8\_DE\_randbest\_1\_bin()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S8\+\_\+\+D\+E\+\_\+randbest\+\_\+1\+\_\+bin (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 17
+Here is the caller graph for this function\+:
+% FIG 18
+\mbox{\Hypertarget{class_differential_evolution_acb6dc0862c03291b5919b37024719a18}\label{class_differential_evolution_acb6dc0862c03291b5919b37024719a18}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS9\_DE\_best\_2\_bin@{runS9\_DE\_best\_2\_bin}}
+\index{runS9\_DE\_best\_2\_bin@{runS9\_DE\_best\_2\_bin}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{runS9\_DE\_best\_2\_bin()}{runS9\_DE\_best\_2\_bin()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S9\+\_\+\+D\+E\+\_\+best\+\_\+2\+\_\+bin (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 19
+Here is the caller graph for this function\+:
+% FIG 20
+\mbox{\Hypertarget{class_differential_evolution_a7ae6283023f601b757f6ed8a805c2537}\label{class_differential_evolution_a7ae6283023f601b757f6ed8a805c2537}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!saveResult@{saveResult}}
+\index{saveResult@{saveResult}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{saveResult()}{saveResult()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::save\+Result (\begin{DoxyParamCaption}\item[{Toutput}]{best\+\_\+cost,  }\item[{Tinput $\ast$}]{best\+\_\+vector,  }\item[{std\+::string}]{result\+\_\+file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+save the indivuo with best cost in a file 
+
+this method is used to save the best cost of each iteration, the saved data are\+: the cost and the n dimensions elements of the individuo. 
+\begin{DoxyParams}{Parameters}
+{\em best\+\_\+cost} & ///$<$ best cost \\
+\hline
+{\em $\ast$best\+\_\+vector} & ///$<$ pointer to the best individuo \\
+\hline
+{\em result\+\_\+file} & ///$<$ name of the file to be saved \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_differential_evolution_a59a3d1d69cc49620d46be8ce61ea9ca0}\label{class_differential_evolution_a59a3d1d69cc49620d46be8ce61ea9ca0}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!actual\_pop@{actual\_pop}}
+\index{actual\_pop@{actual\_pop}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{actual\_pop}{actual\_pop}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$Tinput, Toutput$>$$\ast$ \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::actual\+\_\+pop\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+actual population 
+
+\mbox{\Hypertarget{class_differential_evolution_ad900d54e8dfaddc48c35933f7c015d00}\label{class_differential_evolution_ad900d54e8dfaddc48c35933f7c015d00}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!best\_cost@{best\_cost}}
+\index{best\_cost@{best\_cost}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{best\_cost}{best\_cost}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput$\ast$ \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::best\+\_\+cost\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+array with history of best cost during the generations 
+
+\mbox{\Hypertarget{class_differential_evolution_a1232aa4db1a22748ab407458f20a1c86}\label{class_differential_evolution_a1232aa4db1a22748ab407458f20a1c86}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!ms\_random@{ms\_random}}
+\index{ms\_random@{ms\_random}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{ms\_random}{ms\_random}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Mersenne\+Twister \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::ms\+\_\+random\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+mersenne twister random generator 
+
+\mbox{\Hypertarget{class_differential_evolution_ab6ebab155dc884e453a75b657b512624}\label{class_differential_evolution_ab6ebab155dc884e453a75b657b512624}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!new\_pop@{new\_pop}}
+\index{new\_pop@{new\_pop}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{new\_pop}{new\_pop}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{class_population_benchmark}{Population\+Benchmark}}$<$Tinput, Toutput$>$$\ast$ \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::new\+\_\+pop\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+new population 
+
+\mbox{\Hypertarget{class_differential_evolution_ab1c4fccc01b6c7fd36e469b5aa27dbca}\label{class_differential_evolution_ab1c4fccc01b6c7fd36e469b5aa27dbca}} 
+\index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!param@{param}}
+\index{param@{param}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{param}{param}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{struct_d_e_input_parameter}{D\+E\+Input\+Parameter}}$<$Tinput$>$ \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::param\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+DE parameters. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{differential__evolution_8h}{differential\+\_\+evolution.\+h}}\item 
+\mbox{\hyperlink{differential__evolution_8cpp}{differential\+\_\+evolution.\+cpp}}\end{DoxyCompactItemize}

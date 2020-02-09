@@ -1,0 +1,503 @@
+\hypertarget{class_functions1}{}\doxysection{Functions1$<$ Tinput, Toutput $>$ Class Template Reference}
+\label{class_functions1}\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+
+
+Template class with 18 standard benchmark functions.  
+
+
+
+
+{\ttfamily \#include $<$functions1.\+h$>$}
+
+
+
+Collaboration diagram for Functions1$<$ Tinput, Toutput $>$\+:
+% FIG 0
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Toutput(Functions1\+::$\ast$ \mbox{\hyperlink{class_functions1_ac0681b44bcfbdc08562ba5104bc80baf}{function\+\_\+pointer}}) (Tinput $\ast$, int)
+\begin{DoxyCompactList}\small\item\em Type defenition of a function pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_functions1_ac0681b44bcfbdc08562ba5104bc80baf}{function\+\_\+pointer}} \mbox{\hyperlink{class_functions1_aa3acad339ed5c17c0ee63681f4f63597}{get\+Function\+By\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Get the function pointer by id of the benchmark function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Toutput \mbox{\hyperlink{class_functions1_aa94d6ad8a9ca18213fa8989ca96785c9}{f1\+Schwefels}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f1\+: Schwefel\textquotesingle{}s function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_a0d2aee4a4ca61439a5fa7001cab44a14}{f2\+De\+Jongs1}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f2\+: 1st De Jong\textquotesingle{}s function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_a87bee762c10aa11b167d2923b0772368}{f3\+Rosenbrock}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f3\+: Rosenbrock function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_a7c5eda080d8f24c91c4bdffb1c14cae5}{f4\+Rastrigin}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f4\+: Rastrigin function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_a3916af802dcb51bccc6e22aacc4c8859}{f5\+Griewankgk}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f5\+: Griewangk function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_ac122a9186352fdc326bdce92c37ecf85}{f6\+Sine\+Envelope\+Sine\+Wave}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f6\+: Sine Envelope Sine Wave function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_a6a1cc37041fb4d54b659a9db91e9b102}{f7\+Stretched\+V\+Sine\+Wave}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f7\+: Stretched V Sine Wave function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_a17d50124036bcd6559f3df04fba57016}{f8\+Ackleys\+One}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f8\+: Ackley\textquotesingle{}s One function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_a95dd4891ac183e796beb19decf5af083}{f9\+Ackleys\+Two}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f9\+: Ackley\textquotesingle{}s Two function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_a6702228f16372bfd34e9c8c09bcd219e}{f10\+Egg\+Holder}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f10\+: Egg Holder function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_a0240fbcba1389be18579cfc6e87b05c3}{f11\+Rana}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f11\+: Rana function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_a8f91e1985b85acc4183a3bb97cd776b2}{f12\+Pathological}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f12\+: Pathological function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_a1a4aebd4d2c8a9e29a6ca0dcbcd5605a}{f13\+Michalewicz}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f13\+: Michalewicz function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_ace7b8eb0ec3f9cb2ce0b5af13656558b}{f14\+Master\+Cosine\+Wave}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f14\+: Masters Cosine Wave function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_ac680ef3a2deb41c7c66ae7d0c41ac7e7}{f15\+Quartic}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f15\+: Quartic function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_a1340c6afb2fd8fd58398622bc3e53879}{f16\+Levy}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f16\+: Levy function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_af4869d27587ef044a63ae78fa60a1b27}{f17\+Step}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f17\+: Step function \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_functions1_a4332ca154fdfe28a623e723ff07ad919}{f18\+Alphine}} (Tinput $\ast$data, int dimension)
+\begin{DoxyCompactList}\small\item\em f18\+: Alpine function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Tinput, class Toutput$>$\newline
+class Functions1$<$ Tinput, Toutput $>$}
+
+Template class with 18 standard benchmark functions. 
+
+The main function of the class is \mbox{\hyperlink{class_functions1_aa3acad339ed5c17c0ee63681f4f63597}{get\+Function\+By\+Id(int id)}} which receive a function id, then it returns the function pointer of the selected function. \begin{DoxyAuthor}{Author}
+Chao Huang Lin (\href{mailto:chao.huanglin@cwu.edu}{\texttt{ chao.\+huanglin@cwu.\+edu}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2020-\/01-\/31 
+\end{DoxyDate}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_functions1_ac0681b44bcfbdc08562ba5104bc80baf}\label{class_functions1_ac0681b44bcfbdc08562ba5104bc80baf}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!function\_pointer@{function\_pointer}}
+\index{function\_pointer@{function\_pointer}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{function\_pointer}{function\_pointer}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+typedef Toutput(Functions1\+::$\ast$ \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::function\+\_\+pointer) (Tinput $\ast$, int)}
+
+
+
+Type defenition of a function pointer. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_functions1_a6702228f16372bfd34e9c8c09bcd219e}\label{class_functions1_a6702228f16372bfd34e9c8c09bcd219e}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f10EggHolder@{f10EggHolder}}
+\index{f10EggHolder@{f10EggHolder}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f10EggHolder()}{f10EggHolder()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f10\+Egg\+Holder (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f10\+: Egg Holder function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_a0240fbcba1389be18579cfc6e87b05c3}\label{class_functions1_a0240fbcba1389be18579cfc6e87b05c3}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f11Rana@{f11Rana}}
+\index{f11Rana@{f11Rana}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f11Rana()}{f11Rana()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f11\+Rana (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f11\+: Rana function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_a8f91e1985b85acc4183a3bb97cd776b2}\label{class_functions1_a8f91e1985b85acc4183a3bb97cd776b2}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f12Pathological@{f12Pathological}}
+\index{f12Pathological@{f12Pathological}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f12Pathological()}{f12Pathological()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f12\+Pathological (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f12\+: Pathological function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_a1a4aebd4d2c8a9e29a6ca0dcbcd5605a}\label{class_functions1_a1a4aebd4d2c8a9e29a6ca0dcbcd5605a}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f13Michalewicz@{f13Michalewicz}}
+\index{f13Michalewicz@{f13Michalewicz}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f13Michalewicz()}{f13Michalewicz()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f13\+Michalewicz (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f13\+: Michalewicz function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_ace7b8eb0ec3f9cb2ce0b5af13656558b}\label{class_functions1_ace7b8eb0ec3f9cb2ce0b5af13656558b}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f14MasterCosineWave@{f14MasterCosineWave}}
+\index{f14MasterCosineWave@{f14MasterCosineWave}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f14MasterCosineWave()}{f14MasterCosineWave()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f14\+Master\+Cosine\+Wave (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f14\+: Masters Cosine Wave function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_ac680ef3a2deb41c7c66ae7d0c41ac7e7}\label{class_functions1_ac680ef3a2deb41c7c66ae7d0c41ac7e7}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f15Quartic@{f15Quartic}}
+\index{f15Quartic@{f15Quartic}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f15Quartic()}{f15Quartic()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f15\+Quartic (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f15\+: Quartic function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_a1340c6afb2fd8fd58398622bc3e53879}\label{class_functions1_a1340c6afb2fd8fd58398622bc3e53879}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f16Levy@{f16Levy}}
+\index{f16Levy@{f16Levy}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f16Levy()}{f16Levy()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f16\+Levy (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f16\+: Levy function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_af4869d27587ef044a63ae78fa60a1b27}\label{class_functions1_af4869d27587ef044a63ae78fa60a1b27}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f17Step@{f17Step}}
+\index{f17Step@{f17Step}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f17Step()}{f17Step()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f17\+Step (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f17\+: Step function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_a4332ca154fdfe28a623e723ff07ad919}\label{class_functions1_a4332ca154fdfe28a623e723ff07ad919}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f18Alphine@{f18Alphine}}
+\index{f18Alphine@{f18Alphine}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f18Alphine()}{f18Alphine()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f18\+Alphine (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f18\+: Alpine function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_aa94d6ad8a9ca18213fa8989ca96785c9}\label{class_functions1_aa94d6ad8a9ca18213fa8989ca96785c9}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f1Schwefels@{f1Schwefels}}
+\index{f1Schwefels@{f1Schwefels}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f1Schwefels()}{f1Schwefels()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f1\+Schwefels (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f1\+: Schwefel\textquotesingle{}s function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_a0d2aee4a4ca61439a5fa7001cab44a14}\label{class_functions1_a0d2aee4a4ca61439a5fa7001cab44a14}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f2DeJongs1@{f2DeJongs1}}
+\index{f2DeJongs1@{f2DeJongs1}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f2DeJongs1()}{f2DeJongs1()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f2\+De\+Jongs1 (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f2\+: 1st De Jong\textquotesingle{}s function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_a87bee762c10aa11b167d2923b0772368}\label{class_functions1_a87bee762c10aa11b167d2923b0772368}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f3Rosenbrock@{f3Rosenbrock}}
+\index{f3Rosenbrock@{f3Rosenbrock}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f3Rosenbrock()}{f3Rosenbrock()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f3\+Rosenbrock (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f3\+: Rosenbrock function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_a7c5eda080d8f24c91c4bdffb1c14cae5}\label{class_functions1_a7c5eda080d8f24c91c4bdffb1c14cae5}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f4Rastrigin@{f4Rastrigin}}
+\index{f4Rastrigin@{f4Rastrigin}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f4Rastrigin()}{f4Rastrigin()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f4\+Rastrigin (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f4\+: Rastrigin function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_a3916af802dcb51bccc6e22aacc4c8859}\label{class_functions1_a3916af802dcb51bccc6e22aacc4c8859}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f5Griewankgk@{f5Griewankgk}}
+\index{f5Griewankgk@{f5Griewankgk}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f5Griewankgk()}{f5Griewankgk()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f5\+Griewankgk (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f5\+: Griewangk function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_ac122a9186352fdc326bdce92c37ecf85}\label{class_functions1_ac122a9186352fdc326bdce92c37ecf85}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f6SineEnvelopeSineWave@{f6SineEnvelopeSineWave}}
+\index{f6SineEnvelopeSineWave@{f6SineEnvelopeSineWave}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f6SineEnvelopeSineWave()}{f6SineEnvelopeSineWave()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f6\+Sine\+Envelope\+Sine\+Wave (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f6\+: Sine Envelope Sine Wave function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_a6a1cc37041fb4d54b659a9db91e9b102}\label{class_functions1_a6a1cc37041fb4d54b659a9db91e9b102}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f7StretchedVSineWave@{f7StretchedVSineWave}}
+\index{f7StretchedVSineWave@{f7StretchedVSineWave}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f7StretchedVSineWave()}{f7StretchedVSineWave()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f7\+Stretched\+V\+Sine\+Wave (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f7\+: Stretched V Sine Wave function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_a17d50124036bcd6559f3df04fba57016}\label{class_functions1_a17d50124036bcd6559f3df04fba57016}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f8AckleysOne@{f8AckleysOne}}
+\index{f8AckleysOne@{f8AckleysOne}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f8AckleysOne()}{f8AckleysOne()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f8\+Ackleys\+One (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f8\+: Ackley\textquotesingle{}s One function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_a95dd4891ac183e796beb19decf5af083}\label{class_functions1_a95dd4891ac183e796beb19decf5af083}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!f9AckleysTwo@{f9AckleysTwo}}
+\index{f9AckleysTwo@{f9AckleysTwo}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{f9AckleysTwo()}{f9AckleysTwo()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::f9\+Ackleys\+Two (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{data,  }\item[{int}]{dimension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+f9\+: Ackley\textquotesingle{}s Two function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer of a data array (datatype defined by the user) \\
+\hline
+{\em dimension} & Size of the data array, the size of the array also represents the number of dimensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the mathematical function 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_functions1_aa3acad339ed5c17c0ee63681f4f63597}\label{class_functions1_aa3acad339ed5c17c0ee63681f4f63597}} 
+\index{Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}!getFunctionById@{getFunctionById}}
+\index{getFunctionById@{getFunctionById}!Functions1$<$ Tinput, Toutput $>$@{Functions1$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{getFunctionById()}{getFunctionById()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::\mbox{\hyperlink{class_functions1_ac0681b44bcfbdc08562ba5104bc80baf}{function\+\_\+pointer}} \mbox{\hyperlink{class_functions1}{Functions1}}$<$ Tinput, Toutput $>$\+::get\+Function\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Get the function pointer by id of the benchmark function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & identification code of the benchmark function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Function pointer of the selected benchmark function ~\newline
+ 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 1
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{functions1_8h}{functions1.\+h}}\item 
+\mbox{\hyperlink{functions1_8cpp}{functions1.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,395 @@
+\hypertarget{class_genetic_algorithm}{}\doxysection{Genetic\+Algorithm$<$ Tinput, Toutput $>$ Class Template Reference}
+\label{class_genetic_algorithm}\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+
+
+Template Genetic Algorithm (GA) class.  
+
+
+
+
+{\ttfamily \#include $<$genetic\+\_\+algorithm.\+h$>$}
+
+
+
+Collaboration diagram for Genetic\+Algorithm$<$ Tinput, Toutput $>$\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_genetic_algorithm_1_1do_compare}{do\+Compare}}
+\item 
+struct \mbox{\hyperlink{struct_genetic_algorithm_1_1do_compare_new_pop}{do\+Compare\+New\+Pop}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_genetic_algorithm_aa3466863e0815eaa5957ad7797b54309}{Genetic\+Algorithm}} (\mbox{\hyperlink{struct_g_a_input_parameter}{G\+A\+Input\+Parameter}}$<$ Tinput $>$ \mbox{\hyperlink{class_genetic_algorithm_ab641b58764b156035a0456816fd7c61a}{parameters}})
+\begin{DoxyCompactList}\small\item\em constructor of the class \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_genetic_algorithm_a7fd932564ef456380b2edc50c87a9b7c}{$\sim$\+Genetic\+Algorithm}} ()
+\item 
+Toutput \mbox{\hyperlink{class_genetic_algorithm_a88cc145f86e5c8a38fa71707ce748f62}{find\+Best\+Solution}} (int function\+\_\+id, Tinput range\+\_\+low, Tinput range\+\_\+high)
+\begin{DoxyCompactList}\small\item\em Find the best individuo of the population. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_genetic_algorithm_aa32592f9fd7a387657db7b0e04f132e4}{print\+Input\+Population}} ()
+\item 
+void \mbox{\hyperlink{class_genetic_algorithm_a326c008c1d08cd07bdb6869c1a43d97f}{print\+New\+Population}} ()
+\item 
+void \mbox{\hyperlink{class_genetic_algorithm_accbf1df6bca898538aa2ce42fe7ab493}{print\+Cost}} (Toutput $\ast$\mbox{\hyperlink{class_genetic_algorithm_a0279ff759e3dffe7d1b7ea39789ba363}{cost}})
+\item 
+void \mbox{\hyperlink{class_genetic_algorithm_a3834976ab3b943e197bc74432730e2c3}{print\+Fitness}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_genetic_algorithm_ada051467047b287e7fe146b3fa0bd905}{sort\+Population\+By\+Index\+Asc}} ()
+\item 
+void \mbox{\hyperlink{class_genetic_algorithm_a61dcaebd45dc7cbe76260fbec79aae58}{sort\+New\+Population\+By\+Index\+Asc}} ()
+\item 
+void \mbox{\hyperlink{class_genetic_algorithm_ae11ac321d2f4d1b2f1eb6008dcbdeb54}{save\+Result}} (Toutput best\+\_\+cost, Tinput $\ast$best\+\_\+individuo, std\+::string result\+\_\+file)
+\item 
+void \mbox{\hyperlink{class_genetic_algorithm_a4561a55d000eee6df792bb50c44491c4}{random\+Init}} (Tinput range\+\_\+low, Tinput range\+\_\+high)
+\item 
+void \mbox{\hyperlink{class_genetic_algorithm_af2e5179d6ebe2a598ef192645a5583ce}{evaluate\+Cost}} (int function\+\_\+id, Tinput $\ast$$\ast$pop, Toutput $\ast$\mbox{\hyperlink{class_genetic_algorithm_a0279ff759e3dffe7d1b7ea39789ba363}{cost}})
+\begin{DoxyCompactList}\small\item\em calculate the cost \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_genetic_algorithm_a1d036f0ac8d58f6887ba10c952e5bb40}{get\+Fitness}} ()
+\begin{DoxyCompactList}\small\item\em calculate fitness \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_genetic_algorithm_a0834fd1bd2937b372b832eb61f70d33f}{select}} (Tinput $\ast$parent1, Tinput $\ast$parent2)
+\begin{DoxyCompactList}\small\item\em select 2 parents by roulette wheel selection \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_genetic_algorithm_ad7edee49e66d43f3ce0be8fd2a99e540}{select\+Parent}} (Tinput $\ast$parent)
+\begin{DoxyCompactList}\small\item\em select 1 parent \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_genetic_algorithm_a8112c52616f87bdc8ca7cbf8040ff197}{crossover}} (Tinput $\ast$parent1, Tinput $\ast$parent2, double cr)
+\begin{DoxyCompactList}\small\item\em crossover \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_genetic_algorithm_a8dd6fa2ff2938606e8744291cb76ada7}{reduce}} (int elite\+\_\+sn, Toutput \&best\+\_\+cost, Tinput $\ast$best\+\_\+individuo)
+\item 
+void \mbox{\hyperlink{class_genetic_algorithm_a1df745d6f64b018e219f70b5d2ccf594}{mutate}} (Tinput $\ast$individuo)
+\item 
+void \mbox{\hyperlink{class_genetic_algorithm_ae2b64c16fd77f851a432c6883238f853}{print\+Population}} (Tinput $\ast$$\ast$pop)
+\item 
+void \mbox{\hyperlink{class_genetic_algorithm_a372f605c37642e08811c23953065c22b}{keep\+In\+Range}} (Tinput \&element)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Tinput $\ast$$\ast$ \mbox{\hyperlink{class_genetic_algorithm_a9cd01d6db868e70ea2d32703147a1bfb}{population}}
+\begin{DoxyCompactList}\small\item\em pointer to arrray of pointers \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_g_a_input_parameter}{G\+A\+Input\+Parameter}}$<$ Tinput $>$ \mbox{\hyperlink{class_genetic_algorithm_ab641b58764b156035a0456816fd7c61a}{parameters}}
+\item 
+Toutput $\ast$ \mbox{\hyperlink{class_genetic_algorithm_a0279ff759e3dffe7d1b7ea39789ba363}{cost}}
+\begin{DoxyCompactList}\small\item\em array that contains the cost of each individuo \end{DoxyCompactList}\item 
+Toutput $\ast$ \mbox{\hyperlink{class_genetic_algorithm_af20967a70aa1cb8d7614d77b7b2b309c}{new\+\_\+population\+\_\+cost}}
+\begin{DoxyCompactList}\small\item\em cost of the new population \end{DoxyCompactList}\item 
+Toutput $\ast$ \mbox{\hyperlink{class_genetic_algorithm_a02c0f13788480e4f236b1a0e0556cab3}{fitness}}
+\begin{DoxyCompactList}\small\item\em array that contains the fitness of each individuo \end{DoxyCompactList}\item 
+Toutput \mbox{\hyperlink{class_genetic_algorithm_a740121708f032b14bbb0d29dd1b0c0fd}{total\+\_\+fitness}}
+\begin{DoxyCompactList}\small\item\em total fitness of the population \end{DoxyCompactList}\item 
+Tinput $\ast$$\ast$ \mbox{\hyperlink{class_genetic_algorithm_adbd57372a9de586dea5ce8041c66bd0f}{new\+\_\+population}}
+\item 
+int $\ast$ \mbox{\hyperlink{class_genetic_algorithm_ac6ac1fdaf87679f8998452c2873d5a5c}{population\+\_\+asc\+\_\+index}}
+\item 
+int $\ast$ \mbox{\hyperlink{class_genetic_algorithm_aeb02dd08fc00fe3448f9bf18399f1dc9}{new\+\_\+population\+\_\+asc\+\_\+index}}
+\item 
+Mersenne\+Twister \mbox{\hyperlink{class_genetic_algorithm_ac604ceadc9a634c7ea5e8f31557ef4a5}{ms\+\_\+random\+\_\+generator}}
+\begin{DoxyCompactList}\small\item\em mersenne twister random generator \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Tinput, class Toutput$>$\newline
+class Genetic\+Algorithm$<$ Tinput, Toutput $>$}
+
+Template Genetic Algorithm (GA) class. 
+
+Genetic Algorithms (GA) are the heuristic search and optimization techniques that mimic the process of natural evolution. ~\newline
+ \begin{DoxyAuthor}{Author}
+Chao Huang Lin (\href{mailto:chao.huanglin@cwu.edu}{\texttt{ chao.\+huanglin@cwu.\+edu}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2020-\/02-\/01 
+\end{DoxyDate}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_genetic_algorithm_aa3466863e0815eaa5957ad7797b54309}\label{class_genetic_algorithm_aa3466863e0815eaa5957ad7797b54309}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!GeneticAlgorithm@{GeneticAlgorithm}}
+\index{GeneticAlgorithm@{GeneticAlgorithm}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{GeneticAlgorithm()}{GeneticAlgorithm()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::\mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_g_a_input_parameter}{G\+A\+Input\+Parameter}}$<$ Tinput $>$}]{parameters }\end{DoxyParamCaption})}
+
+
+
+constructor of the class \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameters} & configuration parameters for GA \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_genetic_algorithm_a7fd932564ef456380b2edc50c87a9b7c}\label{class_genetic_algorithm_a7fd932564ef456380b2edc50c87a9b7c}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!````~GeneticAlgorithm@{$\sim$GeneticAlgorithm}}
+\index{````~GeneticAlgorithm@{$\sim$GeneticAlgorithm}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$GeneticAlgorithm()}{~GeneticAlgorithm()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::$\sim$\mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_genetic_algorithm_a8112c52616f87bdc8ca7cbf8040ff197}\label{class_genetic_algorithm_a8112c52616f87bdc8ca7cbf8040ff197}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!crossover@{crossover}}
+\index{crossover@{crossover}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{crossover()}{crossover()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::crossover (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{parent1,  }\item[{Tinput $\ast$}]{parent2,  }\item[{double}]{cr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+crossover 
+
+\mbox{\Hypertarget{class_genetic_algorithm_af2e5179d6ebe2a598ef192645a5583ce}\label{class_genetic_algorithm_af2e5179d6ebe2a598ef192645a5583ce}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!evaluateCost@{evaluateCost}}
+\index{evaluateCost@{evaluateCost}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{evaluateCost()}{evaluateCost()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::evaluate\+Cost (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id,  }\item[{Tinput $\ast$$\ast$}]{pop,  }\item[{Toutput $\ast$}]{cost }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+calculate the cost 
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{class_genetic_algorithm_a88cc145f86e5c8a38fa71707ce748f62}\label{class_genetic_algorithm_a88cc145f86e5c8a38fa71707ce748f62}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!findBestSolution@{findBestSolution}}
+\index{findBestSolution@{findBestSolution}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{findBestSolution()}{findBestSolution()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::find\+Best\+Solution (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id,  }\item[{Tinput}]{range\+\_\+low,  }\item[{Tinput}]{range\+\_\+high }\end{DoxyParamCaption})}
+
+
+
+Find the best individuo of the population. 
+
+\begin{DoxyReturn}{Returns}
+return the best cost (evaluate the function) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_genetic_algorithm_a1d036f0ac8d58f6887ba10c952e5bb40}\label{class_genetic_algorithm_a1d036f0ac8d58f6887ba10c952e5bb40}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!getFitness@{getFitness}}
+\index{getFitness@{getFitness}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{getFitness()}{getFitness()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::get\+Fitness\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+calculate fitness 
+
+\mbox{\Hypertarget{class_genetic_algorithm_a372f605c37642e08811c23953065c22b}\label{class_genetic_algorithm_a372f605c37642e08811c23953065c22b}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!keepInRange@{keepInRange}}
+\index{keepInRange@{keepInRange}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{keepInRange()}{keepInRange()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::keep\+In\+Range (\begin{DoxyParamCaption}\item[{Tinput \&}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_genetic_algorithm_a1df745d6f64b018e219f70b5d2ccf594}\label{class_genetic_algorithm_a1df745d6f64b018e219f70b5d2ccf594}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!mutate@{mutate}}
+\index{mutate@{mutate}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{mutate()}{mutate()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::mutate (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{individuo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_genetic_algorithm_accbf1df6bca898538aa2ce42fe7ab493}\label{class_genetic_algorithm_accbf1df6bca898538aa2ce42fe7ab493}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!printCost@{printCost}}
+\index{printCost@{printCost}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{printCost()}{printCost()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::print\+Cost (\begin{DoxyParamCaption}\item[{Toutput $\ast$}]{cost }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_genetic_algorithm_a3834976ab3b943e197bc74432730e2c3}\label{class_genetic_algorithm_a3834976ab3b943e197bc74432730e2c3}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!printFitness@{printFitness}}
+\index{printFitness@{printFitness}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{printFitness()}{printFitness()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::print\+Fitness}
+
+\mbox{\Hypertarget{class_genetic_algorithm_aa32592f9fd7a387657db7b0e04f132e4}\label{class_genetic_algorithm_aa32592f9fd7a387657db7b0e04f132e4}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!printInputPopulation@{printInputPopulation}}
+\index{printInputPopulation@{printInputPopulation}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{printInputPopulation()}{printInputPopulation()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::print\+Input\+Population}
+
+\mbox{\Hypertarget{class_genetic_algorithm_a326c008c1d08cd07bdb6869c1a43d97f}\label{class_genetic_algorithm_a326c008c1d08cd07bdb6869c1a43d97f}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!printNewPopulation@{printNewPopulation}}
+\index{printNewPopulation@{printNewPopulation}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{printNewPopulation()}{printNewPopulation()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::print\+New\+Population}
+
+\mbox{\Hypertarget{class_genetic_algorithm_ae2b64c16fd77f851a432c6883238f853}\label{class_genetic_algorithm_ae2b64c16fd77f851a432c6883238f853}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!printPopulation@{printPopulation}}
+\index{printPopulation@{printPopulation}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{printPopulation()}{printPopulation()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::print\+Population (\begin{DoxyParamCaption}\item[{Tinput $\ast$$\ast$}]{pop }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_genetic_algorithm_a4561a55d000eee6df792bb50c44491c4}\label{class_genetic_algorithm_a4561a55d000eee6df792bb50c44491c4}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!randomInit@{randomInit}}
+\index{randomInit@{randomInit}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{randomInit()}{randomInit()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::random\+Init (\begin{DoxyParamCaption}\item[{Tinput}]{range\+\_\+low,  }\item[{Tinput}]{range\+\_\+high }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_genetic_algorithm_a8dd6fa2ff2938606e8744291cb76ada7}\label{class_genetic_algorithm_a8dd6fa2ff2938606e8744291cb76ada7}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!reduce@{reduce}}
+\index{reduce@{reduce}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{reduce()}{reduce()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::reduce (\begin{DoxyParamCaption}\item[{int}]{elite\+\_\+sn,  }\item[{Toutput \&}]{best\+\_\+cost,  }\item[{Tinput $\ast$}]{best\+\_\+individuo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_genetic_algorithm_ae11ac321d2f4d1b2f1eb6008dcbdeb54}\label{class_genetic_algorithm_ae11ac321d2f4d1b2f1eb6008dcbdeb54}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!saveResult@{saveResult}}
+\index{saveResult@{saveResult}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{saveResult()}{saveResult()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::save\+Result (\begin{DoxyParamCaption}\item[{Toutput}]{best\+\_\+cost,  }\item[{Tinput $\ast$}]{best\+\_\+individuo,  }\item[{std\+::string}]{result\+\_\+file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_genetic_algorithm_a0834fd1bd2937b372b832eb61f70d33f}\label{class_genetic_algorithm_a0834fd1bd2937b372b832eb61f70d33f}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!select@{select}}
+\index{select@{select}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{select()}{select()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::select (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{parent1,  }\item[{Tinput $\ast$}]{parent2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+select 2 parents by roulette wheel selection 
+
+\mbox{\Hypertarget{class_genetic_algorithm_ad7edee49e66d43f3ce0be8fd2a99e540}\label{class_genetic_algorithm_ad7edee49e66d43f3ce0be8fd2a99e540}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!selectParent@{selectParent}}
+\index{selectParent@{selectParent}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{selectParent()}{selectParent()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::select\+Parent (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+select 1 parent 
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_genetic_algorithm_a61dcaebd45dc7cbe76260fbec79aae58}\label{class_genetic_algorithm_a61dcaebd45dc7cbe76260fbec79aae58}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!sortNewPopulationByIndexAsc@{sortNewPopulationByIndexAsc}}
+\index{sortNewPopulationByIndexAsc@{sortNewPopulationByIndexAsc}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{sortNewPopulationByIndexAsc()}{sortNewPopulationByIndexAsc()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::sort\+New\+Population\+By\+Index\+Asc\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_genetic_algorithm_ada051467047b287e7fe146b3fa0bd905}\label{class_genetic_algorithm_ada051467047b287e7fe146b3fa0bd905}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!sortPopulationByIndexAsc@{sortPopulationByIndexAsc}}
+\index{sortPopulationByIndexAsc@{sortPopulationByIndexAsc}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{sortPopulationByIndexAsc()}{sortPopulationByIndexAsc()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::sort\+Population\+By\+Index\+Asc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_genetic_algorithm_a0279ff759e3dffe7d1b7ea39789ba363}\label{class_genetic_algorithm_a0279ff759e3dffe7d1b7ea39789ba363}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!cost@{cost}}
+\index{cost@{cost}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{cost}{cost}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput$\ast$ \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::cost\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+array that contains the cost of each individuo 
+
+\mbox{\Hypertarget{class_genetic_algorithm_a02c0f13788480e4f236b1a0e0556cab3}\label{class_genetic_algorithm_a02c0f13788480e4f236b1a0e0556cab3}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!fitness@{fitness}}
+\index{fitness@{fitness}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{fitness}{fitness}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput$\ast$ \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::fitness\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+array that contains the fitness of each individuo 
+
+\mbox{\Hypertarget{class_genetic_algorithm_ac604ceadc9a634c7ea5e8f31557ef4a5}\label{class_genetic_algorithm_ac604ceadc9a634c7ea5e8f31557ef4a5}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!ms\_random\_generator@{ms\_random\_generator}}
+\index{ms\_random\_generator@{ms\_random\_generator}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{ms\_random\_generator}{ms\_random\_generator}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Mersenne\+Twister \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::ms\+\_\+random\+\_\+generator\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+mersenne twister random generator 
+
+\mbox{\Hypertarget{class_genetic_algorithm_adbd57372a9de586dea5ce8041c66bd0f}\label{class_genetic_algorithm_adbd57372a9de586dea5ce8041c66bd0f}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!new\_population@{new\_population}}
+\index{new\_population@{new\_population}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{new\_population}{new\_population}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Tinput$\ast$$\ast$ \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::new\+\_\+population\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_genetic_algorithm_aeb02dd08fc00fe3448f9bf18399f1dc9}\label{class_genetic_algorithm_aeb02dd08fc00fe3448f9bf18399f1dc9}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!new\_population\_asc\_index@{new\_population\_asc\_index}}
+\index{new\_population\_asc\_index@{new\_population\_asc\_index}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{new\_population\_asc\_index}{new\_population\_asc\_index}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+int$\ast$ \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::new\+\_\+population\+\_\+asc\+\_\+index\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_genetic_algorithm_af20967a70aa1cb8d7614d77b7b2b309c}\label{class_genetic_algorithm_af20967a70aa1cb8d7614d77b7b2b309c}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!new\_population\_cost@{new\_population\_cost}}
+\index{new\_population\_cost@{new\_population\_cost}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{new\_population\_cost}{new\_population\_cost}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput$\ast$ \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::new\+\_\+population\+\_\+cost\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+cost of the new population 
+
+\mbox{\Hypertarget{class_genetic_algorithm_ab641b58764b156035a0456816fd7c61a}\label{class_genetic_algorithm_ab641b58764b156035a0456816fd7c61a}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!parameters@{parameters}}
+\index{parameters@{parameters}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{parameters}{parameters}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{struct_g_a_input_parameter}{G\+A\+Input\+Parameter}}$<$Tinput$>$ \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::parameters\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_genetic_algorithm_a9cd01d6db868e70ea2d32703147a1bfb}\label{class_genetic_algorithm_a9cd01d6db868e70ea2d32703147a1bfb}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!population@{population}}
+\index{population@{population}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{population}{population}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Tinput$\ast$$\ast$ \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::population\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pointer to arrray of pointers 
+
+\mbox{\Hypertarget{class_genetic_algorithm_ac6ac1fdaf87679f8998452c2873d5a5c}\label{class_genetic_algorithm_ac6ac1fdaf87679f8998452c2873d5a5c}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!population\_asc\_index@{population\_asc\_index}}
+\index{population\_asc\_index@{population\_asc\_index}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{population\_asc\_index}{population\_asc\_index}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+int$\ast$ \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::population\+\_\+asc\+\_\+index\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_genetic_algorithm_a740121708f032b14bbb0d29dd1b0c0fd}\label{class_genetic_algorithm_a740121708f032b14bbb0d29dd1b0c0fd}} 
+\index{GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}!total\_fitness@{total\_fitness}}
+\index{total\_fitness@{total\_fitness}!GeneticAlgorithm$<$ Tinput, Toutput $>$@{GeneticAlgorithm$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{total\_fitness}{total\_fitness}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput \mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$\+::total\+\_\+fitness\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+total fitness of the population 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{genetic__algorithm_8h}{genetic\+\_\+algorithm.\+h}}\item 
+\mbox{\hyperlink{genetic__algorithm_8cpp}{genetic\+\_\+algorithm.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,283 @@
+\hypertarget{class_runner}{}\doxysection{Runner$<$ Tinput, Toutput $>$ Class Template Reference}
+\label{class_runner}\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+
+
+Template class which generates random sample of different dimensions and run a specific benchmark function.  
+
+
+
+
+{\ttfamily \#include $<$runner.\+h$>$}
+
+
+
+Collaboration diagram for Runner$<$ Tinput, Toutput $>$\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_runner_1_1statistics}{statistics}}
+\begin{DoxyCompactList}\small\item\em struct of statistical analysis \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_runner_a2c848d4a1d9146ec7bad21b21296f114}{Runner}} (int \mbox{\hyperlink{class_runner_a77a83ece825a3e6e599a5d92f002a671}{n\+\_\+runs}})
+\begin{DoxyCompactList}\small\item\em constructor of the class \mbox{\hyperlink{class_runner}{Runner}} allocate memory for vectors (array of array) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_runner_a359528fe24c70e7add4f827ba4bf9e8e}{$\sim$\+Runner}} ()
+\begin{DoxyCompactList}\small\item\em destructor of the class \mbox{\hyperlink{class_runner}{Runner}} free memory for vectors (array of array) ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_runner_a711a1c39fcfc98dfb1eeede031fc1f46}{run\+Optimization}} (int \mbox{\hyperlink{class_runner_a8fcb5f523fcf2a9db13a4ed5ba8c3951}{algorithm\+\_\+id}}, std\+::string config\+\_\+file, int \mbox{\hyperlink{class_runner_ad5b6ab9ee493eda67095eaeac723fcd9}{function\+\_\+id}}, int \mbox{\hyperlink{class_runner_a59c043d67290ec051a50e6077880da1b}{dimensions}}, Tinput \mbox{\hyperlink{class_runner_af6e6a15c8663d8e6d0a3a5decfbd3135}{range\+\_\+low}}, Tinput \mbox{\hyperlink{class_runner_a28923ae0d101e3f0ac2d759f7350b0e7}{range\+\_\+high}})
+\item 
+void \mbox{\hyperlink{class_runner_a51c306fc1dfe3db85dde405df9ce9bfa}{print\+Solutions}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_runner_a4fa0edfd3db63e94e6573447aedbec6b}{compute\+Statistic}} (double time\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em compute the statistical result of \mbox{\hyperlink{class_runner_a4ad58723eac0c5400f4465ea2f98ee7f}{solutions}} and save it in \mbox{\hyperlink{class_runner_a8aae032000525986b56187e71276d13d}{stat\+\_\+analysis}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_runner_a3914ebf76ce5aa0a9cb36276a29905a8}{save\+Statistic}} ()
+\begin{DoxyCompactList}\small\item\em save statistical result in csv file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_runner_a257c1e535b2f8411577e7d73eb0e9199}{fill\+G\+A\+Parameter\+From\+File}} (std\+::string config\+\_\+filename)
+\item 
+void \mbox{\hyperlink{class_runner_abb5ef930ccfc1ae847c433a7b3e6f4af}{fill\+D\+E\+Parameter\+From\+File}} (std\+::string config\+\_\+filename, \mbox{\hyperlink{struct_d_e_input_parameter}{D\+E\+Input\+Parameter}}$<$ Tinput $>$ \&parameters)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_runner_1_1statistics}{statistics}} \mbox{\hyperlink{class_runner_a8aae032000525986b56187e71276d13d}{stat\+\_\+analysis}}
+\begin{DoxyCompactList}\small\item\em instance of struct \#statistics \mbox{[}result of \mbox{\hyperlink{class_runner_a4fa0edfd3db63e94e6573447aedbec6b}{compute\+Statistic()}}\mbox{]} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_runner_a59c043d67290ec051a50e6077880da1b}{dimensions}}
+\begin{DoxyCompactList}\small\item\em size of the sample or size of the array pointed by each element of vectors \mbox{[}parameter from constructor \mbox{\hyperlink{class_runner_a2c848d4a1d9146ec7bad21b21296f114}{Runner()}}\mbox{]} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_runner_a77a83ece825a3e6e599a5d92f002a671}{n\+\_\+runs}}
+\begin{DoxyCompactList}\small\item\em size of the array vectors \mbox{[}parameter from constructor \mbox{\hyperlink{class_runner_a2c848d4a1d9146ec7bad21b21296f114}{Runner()}}\mbox{]} \end{DoxyCompactList}\item 
+Tinput \mbox{\hyperlink{class_runner_af6e6a15c8663d8e6d0a3a5decfbd3135}{range\+\_\+low}}
+\begin{DoxyCompactList}\small\item\em lowest value that the random generator should produce for each element of the sample \mbox{[}parameter from run()\mbox{]} \end{DoxyCompactList}\item 
+Tinput \mbox{\hyperlink{class_runner_a28923ae0d101e3f0ac2d759f7350b0e7}{range\+\_\+high}}
+\begin{DoxyCompactList}\small\item\em highgest value that the random generator should produce for each element of the sample \mbox{[}parameter from run()\mbox{]} \end{DoxyCompactList}\item 
+Toutput $\ast$ \mbox{\hyperlink{class_runner_a4ad58723eac0c5400f4465ea2f98ee7f}{solutions}}
+\begin{DoxyCompactList}\small\item\em pointer to the array of the result of the benchmark function \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_runner_ad5b6ab9ee493eda67095eaeac723fcd9}{function\+\_\+id}}
+\begin{DoxyCompactList}\small\item\em id of the function that will be run \mbox{[}parameter from run()\mbox{]} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_runner_a8fcb5f523fcf2a9db13a4ed5ba8c3951}{algorithm\+\_\+id}}
+\item 
+\mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$ \mbox{\hyperlink{class_runner_a00da51d1b2c626a695d6bafa6cc191c1}{genetic\+\_\+algorithm}}
+\item 
+\mbox{\hyperlink{struct_g_a_input_parameter}{G\+A\+Input\+Parameter}}$<$ Tinput $>$ \mbox{\hyperlink{class_runner_ac7f91c904d8fff57e199aafcdf5b064a}{ga\+\_\+parameters}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Tinput, class Toutput$>$\newline
+class Runner$<$ Tinput, Toutput $>$}
+
+Template class which generates random sample of different dimensions and run a specific benchmark function. 
+
+\begin{DoxyAuthor}{Author}
+Chao Huang Lin (\href{mailto:chao.huanglin@cwu.edu}{\texttt{ chao.\+huanglin@cwu.\+edu}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2020-\/01-\/31 
+\end{DoxyDate}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_runner_a2c848d4a1d9146ec7bad21b21296f114}\label{class_runner_a2c848d4a1d9146ec7bad21b21296f114}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!Runner@{Runner}}
+\index{Runner@{Runner}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{Runner()}{Runner()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::\mbox{\hyperlink{class_runner}{Runner}} (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+runs }\end{DoxyParamCaption})}
+
+
+
+constructor of the class \mbox{\hyperlink{class_runner}{Runner}} allocate memory for vectors (array of array) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dimensions} & ///$<$ size of the sample or size of the array pointed by each element of vectors \\
+\hline
+{\em n\+\_\+runs} & ///$<$ number of runs ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_runner_a359528fe24c70e7add4f827ba4bf9e8e}\label{class_runner_a359528fe24c70e7add4f827ba4bf9e8e}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!````~Runner@{$\sim$Runner}}
+\index{````~Runner@{$\sim$Runner}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$Runner()}{~Runner()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::$\sim$\mbox{\hyperlink{class_runner}{Runner}}}
+
+
+
+destructor of the class \mbox{\hyperlink{class_runner}{Runner}} free memory for vectors (array of array) ~\newline
+ 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_runner_a4fa0edfd3db63e94e6573447aedbec6b}\label{class_runner_a4fa0edfd3db63e94e6573447aedbec6b}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!computeStatistic@{computeStatistic}}
+\index{computeStatistic@{computeStatistic}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{computeStatistic()}{computeStatistic()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::compute\+Statistic (\begin{DoxyParamCaption}\item[{double}]{time\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+compute the statistical result of \mbox{\hyperlink{class_runner_a4ad58723eac0c5400f4465ea2f98ee7f}{solutions}} and save it in \mbox{\hyperlink{class_runner_a8aae032000525986b56187e71276d13d}{stat\+\_\+analysis}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\+\_\+ms} & ///$<$ running time in ms \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_runner_abb5ef930ccfc1ae847c433a7b3e6f4af}\label{class_runner_abb5ef930ccfc1ae847c433a7b3e6f4af}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!fillDEParameterFromFile@{fillDEParameterFromFile}}
+\index{fillDEParameterFromFile@{fillDEParameterFromFile}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{fillDEParameterFromFile()}{fillDEParameterFromFile()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::fill\+D\+E\+Parameter\+From\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{config\+\_\+filename,  }\item[{\mbox{\hyperlink{struct_d_e_input_parameter}{D\+E\+Input\+Parameter}}$<$ Tinput $>$ \&}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_runner_a257c1e535b2f8411577e7d73eb0e9199}\label{class_runner_a257c1e535b2f8411577e7d73eb0e9199}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!fillGAParameterFromFile@{fillGAParameterFromFile}}
+\index{fillGAParameterFromFile@{fillGAParameterFromFile}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{fillGAParameterFromFile()}{fillGAParameterFromFile()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::fill\+G\+A\+Parameter\+From\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{config\+\_\+filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_runner_a51c306fc1dfe3db85dde405df9ce9bfa}\label{class_runner_a51c306fc1dfe3db85dde405df9ce9bfa}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!printSolutions@{printSolutions}}
+\index{printSolutions@{printSolutions}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{printSolutions()}{printSolutions()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::print\+Solutions}
+
+\mbox{\Hypertarget{class_runner_a711a1c39fcfc98dfb1eeede031fc1f46}\label{class_runner_a711a1c39fcfc98dfb1eeede031fc1f46}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!runOptimization@{runOptimization}}
+\index{runOptimization@{runOptimization}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{runOptimization()}{runOptimization()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::run\+Optimization (\begin{DoxyParamCaption}\item[{int}]{algorithm\+\_\+id,  }\item[{std\+::string}]{config\+\_\+file,  }\item[{int}]{function\+\_\+id,  }\item[{int}]{dimensions,  }\item[{Tinput}]{range\+\_\+low,  }\item[{Tinput}]{range\+\_\+high }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_runner_a3914ebf76ce5aa0a9cb36276a29905a8}\label{class_runner_a3914ebf76ce5aa0a9cb36276a29905a8}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!saveStatistic@{saveStatistic}}
+\index{saveStatistic@{saveStatistic}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{saveStatistic()}{saveStatistic()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::save\+Statistic\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+save statistical result in csv file 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_runner_a8fcb5f523fcf2a9db13a4ed5ba8c3951}\label{class_runner_a8fcb5f523fcf2a9db13a4ed5ba8c3951}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!algorithm\_id@{algorithm\_id}}
+\index{algorithm\_id@{algorithm\_id}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{algorithm\_id}{algorithm\_id}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+int \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::algorithm\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_runner_a59c043d67290ec051a50e6077880da1b}\label{class_runner_a59c043d67290ec051a50e6077880da1b}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!dimensions@{dimensions}}
+\index{dimensions@{dimensions}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{dimensions}{dimensions}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+int \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::dimensions\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+size of the sample or size of the array pointed by each element of vectors \mbox{[}parameter from constructor \mbox{\hyperlink{class_runner_a2c848d4a1d9146ec7bad21b21296f114}{Runner()}}\mbox{]} 
+
+\mbox{\Hypertarget{class_runner_ad5b6ab9ee493eda67095eaeac723fcd9}\label{class_runner_ad5b6ab9ee493eda67095eaeac723fcd9}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!function\_id@{function\_id}}
+\index{function\_id@{function\_id}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{function\_id}{function\_id}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+int \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::function\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+id of the function that will be run \mbox{[}parameter from run()\mbox{]} 
+
+\mbox{\Hypertarget{class_runner_ac7f91c904d8fff57e199aafcdf5b064a}\label{class_runner_ac7f91c904d8fff57e199aafcdf5b064a}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!ga\_parameters@{ga\_parameters}}
+\index{ga\_parameters@{ga\_parameters}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{ga\_parameters}{ga\_parameters}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{struct_g_a_input_parameter}{G\+A\+Input\+Parameter}}$<$Tinput$>$ \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::ga\+\_\+parameters\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_runner_a00da51d1b2c626a695d6bafa6cc191c1}\label{class_runner_a00da51d1b2c626a695d6bafa6cc191c1}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!genetic\_algorithm@{genetic\_algorithm}}
+\index{genetic\_algorithm@{genetic\_algorithm}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{genetic\_algorithm}{genetic\_algorithm}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$Tinput, Toutput$>$ \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::genetic\+\_\+algorithm\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_runner_a77a83ece825a3e6e599a5d92f002a671}\label{class_runner_a77a83ece825a3e6e599a5d92f002a671}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!n\_runs@{n\_runs}}
+\index{n\_runs@{n\_runs}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{n\_runs}{n\_runs}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+int \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::n\+\_\+runs\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+size of the array vectors \mbox{[}parameter from constructor \mbox{\hyperlink{class_runner_a2c848d4a1d9146ec7bad21b21296f114}{Runner()}}\mbox{]} 
+
+\mbox{\Hypertarget{class_runner_a28923ae0d101e3f0ac2d759f7350b0e7}\label{class_runner_a28923ae0d101e3f0ac2d759f7350b0e7}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!range\_high@{range\_high}}
+\index{range\_high@{range\_high}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{range\_high}{range\_high}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Tinput \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::range\+\_\+high\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+highgest value that the random generator should produce for each element of the sample \mbox{[}parameter from run()\mbox{]} 
+
+\mbox{\Hypertarget{class_runner_af6e6a15c8663d8e6d0a3a5decfbd3135}\label{class_runner_af6e6a15c8663d8e6d0a3a5decfbd3135}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!range\_low@{range\_low}}
+\index{range\_low@{range\_low}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{range\_low}{range\_low}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Tinput \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::range\+\_\+low\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+lowest value that the random generator should produce for each element of the sample \mbox{[}parameter from run()\mbox{]} 
+
+\mbox{\Hypertarget{class_runner_a4ad58723eac0c5400f4465ea2f98ee7f}\label{class_runner_a4ad58723eac0c5400f4465ea2f98ee7f}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!solutions@{solutions}}
+\index{solutions@{solutions}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{solutions}{solutions}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Toutput$\ast$ \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::solutions\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pointer to the array of the result of the benchmark function 
+
+\mbox{\Hypertarget{class_runner_a8aae032000525986b56187e71276d13d}\label{class_runner_a8aae032000525986b56187e71276d13d}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!stat\_analysis@{stat\_analysis}}
+\index{stat\_analysis@{stat\_analysis}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{stat\_analysis}{stat\_analysis}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{struct_runner_1_1statistics}{statistics}} \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::stat\+\_\+analysis\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+instance of struct \#statistics \mbox{[}result of \mbox{\hyperlink{class_runner_a4fa0edfd3db63e94e6573447aedbec6b}{compute\+Statistic()}}\mbox{]} 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{runner_8h}{runner.\+h}}\item 
+\mbox{\hyperlink{runner_8cpp}{runner.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,157 @@
+\hypertarget{class_population}{}\doxysection{Population$<$ Tinput, Toutput $>$ Class Template Reference}
+\label{class_population}\index{Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}}
+
+
+{\ttfamily \#include $<$population.\+h$>$}
+
+
+
+Inheritance diagram for Population$<$ Tinput, Toutput $>$\+:
+% FIG 0
+
+
+Collaboration diagram for Population$<$ Tinput, Toutput $>$\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_population_a8362b90e3e6385424d3b3748c02225f9}{Population}} (int \mbox{\hyperlink{class_population_ac95c39cdb7d59a5fa72581f5d1453f40}{n\+\_\+items}}, int \mbox{\hyperlink{class_population_a8fb2ea50f13b2a56537a47a67af5eb00}{dimension}})
+\item 
+\mbox{\hyperlink{class_population_ab727ac91e87ee6e8b36d1f794c78c74a}{$\sim$\+Population}} ()
+\item 
+void \mbox{\hyperlink{class_population_a05086617baf6d3950c5880dd25f5d37a}{fill\+With\+Random}} (Tinput range\+\_\+low, Tinput range\+\_\+high)
+\item 
+void \mbox{\hyperlink{class_population_a1b3681423fb8eef9cb53f536cb2f9fed}{print\+Population}} ()
+\item 
+Tinput \mbox{\hyperlink{class_population_a1e0e22c6044255c4b853dcdacf55097b}{get\+Data}} (int i, int j)
+\item 
+Tinput $\ast$ \mbox{\hyperlink{class_population_a26bf7ae7028feaafdfd474a0ab7d7c5d}{get\+Data}} (int i)
+\item 
+void \mbox{\hyperlink{class_population_a0ca3f9850c6ca1f42305e584bfb9e91a}{set\+Data}} (Tinput $\ast$item, int i)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_population_a44a0e7eb28a51ab93a054670d2e9af93}{swap}} (\mbox{\hyperlink{class_population}{Population}} \&A, \mbox{\hyperlink{class_population}{Population}} \&B)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Tinput $\ast$$\ast$ \mbox{\hyperlink{class_population_af4b466ec3b98cbf1fa970d04e13741e3}{data}}
+\item 
+int \mbox{\hyperlink{class_population_a8fb2ea50f13b2a56537a47a67af5eb00}{dimension}}
+\item 
+int \mbox{\hyperlink{class_population_ac95c39cdb7d59a5fa72581f5d1453f40}{n\+\_\+items}}
+\begin{DoxyCompactList}\small\item\em total number of items in data \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Mersenne\+Twister \mbox{\hyperlink{class_population_ad82be1a5cf3625a6fc7385a3a64586d7}{random\+\_\+ms}}
+\begin{DoxyCompactList}\small\item\em mersenne twister random generator \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_population_a8362b90e3e6385424d3b3748c02225f9}\label{class_population_a8362b90e3e6385424d3b3748c02225f9}} 
+\index{Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}!Population@{Population}}
+\index{Population@{Population}!Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{Population()}{Population()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{class_population}{Population}}$<$ Tinput, Toutput $>$\+::\mbox{\hyperlink{class_population}{Population}} (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+items,  }\item[{int}]{dimension }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_population_ab727ac91e87ee6e8b36d1f794c78c74a}\label{class_population_ab727ac91e87ee6e8b36d1f794c78c74a}} 
+\index{Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}!````~Population@{$\sim$Population}}
+\index{````~Population@{$\sim$Population}!Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$Population()}{~Population()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{class_population}{Population}}$<$ Tinput, Toutput $>$\+::$\sim$\mbox{\hyperlink{class_population}{Population}}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_population_a05086617baf6d3950c5880dd25f5d37a}\label{class_population_a05086617baf6d3950c5880dd25f5d37a}} 
+\index{Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}!fillWithRandom@{fillWithRandom}}
+\index{fillWithRandom@{fillWithRandom}!Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{fillWithRandom()}{fillWithRandom()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_population}{Population}}$<$ Tinput, Toutput $>$\+::fill\+With\+Random (\begin{DoxyParamCaption}\item[{Tinput}]{range\+\_\+low,  }\item[{Tinput}]{range\+\_\+high }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_population_a26bf7ae7028feaafdfd474a0ab7d7c5d}\label{class_population_a26bf7ae7028feaafdfd474a0ab7d7c5d}} 
+\index{Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}!getData@{getData}}
+\index{getData@{getData}!Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Tinput $\ast$ \mbox{\hyperlink{class_population}{Population}}$<$ Tinput, Toutput $>$\+::get\+Data (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_population_a1e0e22c6044255c4b853dcdacf55097b}\label{class_population_a1e0e22c6044255c4b853dcdacf55097b}} 
+\index{Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}!getData@{getData}}
+\index{getData@{getData}!Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Tinput \mbox{\hyperlink{class_population}{Population}}$<$ Tinput, Toutput $>$\+::get\+Data (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_population_a1b3681423fb8eef9cb53f536cb2f9fed}\label{class_population_a1b3681423fb8eef9cb53f536cb2f9fed}} 
+\index{Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}!printPopulation@{printPopulation}}
+\index{printPopulation@{printPopulation}!Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{printPopulation()}{printPopulation()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_population}{Population}}$<$ Tinput, Toutput $>$\+::print\+Population}
+
+\mbox{\Hypertarget{class_population_a0ca3f9850c6ca1f42305e584bfb9e91a}\label{class_population_a0ca3f9850c6ca1f42305e584bfb9e91a}} 
+\index{Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}!setData@{setData}}
+\index{setData@{setData}!Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{setData()}{setData()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_population}{Population}}$<$ Tinput, Toutput $>$\+::set\+Data (\begin{DoxyParamCaption}\item[{Tinput $\ast$}]{item,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_population_a44a0e7eb28a51ab93a054670d2e9af93}\label{class_population_a44a0e7eb28a51ab93a054670d2e9af93}} 
+\index{Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}!swap@{swap}}
+\index{swap@{swap}!Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+void \mbox{\hyperlink{class_population}{Population}}$<$ Tinput, Toutput $>$\+::swap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_population}{Population}}$<$ Tinput, Toutput $>$ \&}]{A,  }\item[{\mbox{\hyperlink{class_population}{Population}}$<$ Tinput, Toutput $>$ \&}]{B }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_population_af4b466ec3b98cbf1fa970d04e13741e3}\label{class_population_af4b466ec3b98cbf1fa970d04e13741e3}} 
+\index{Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}!data@{data}}
+\index{data@{data}!Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Tinput$\ast$$\ast$ \mbox{\hyperlink{class_population}{Population}}$<$ Tinput, Toutput $>$\+::data\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_population_a8fb2ea50f13b2a56537a47a67af5eb00}\label{class_population_a8fb2ea50f13b2a56537a47a67af5eb00}} 
+\index{Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}!dimension@{dimension}}
+\index{dimension@{dimension}!Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{dimension}{dimension}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+int \mbox{\hyperlink{class_population}{Population}}$<$ Tinput, Toutput $>$\+::dimension\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_population_ac95c39cdb7d59a5fa72581f5d1453f40}\label{class_population_ac95c39cdb7d59a5fa72581f5d1453f40}} 
+\index{Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}!n\_items@{n\_items}}
+\index{n\_items@{n\_items}!Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{n\_items}{n\_items}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+int \mbox{\hyperlink{class_population}{Population}}$<$ Tinput, Toutput $>$\+::n\+\_\+items\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+total number of items in data 
+
+\mbox{\Hypertarget{class_population_ad82be1a5cf3625a6fc7385a3a64586d7}\label{class_population_ad82be1a5cf3625a6fc7385a3a64586d7}} 
+\index{Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}!random\_ms@{random\_ms}}
+\index{random\_ms@{random\_ms}!Population$<$ Tinput, Toutput $>$@{Population$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{random\_ms}{random\_ms}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+Mersenne\+Twister \mbox{\hyperlink{class_population}{Population}}$<$ Tinput, Toutput $>$\+::random\+\_\+ms\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+mersenne twister random generator 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{population_8h}{population.\+h}}\item 
+\mbox{\hyperlink{population_8cpp}{population.\+cpp}}\end{DoxyCompactItemize}

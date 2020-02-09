@@ -1,0 +1,5 @@
+<map id="GAInputParameter&lt; Tinput &gt;" name="GAInputParameter&lt; Tinput &gt;">
+<area shape="rect" id="node1" title="Template Genetic Algorithm Input parameter Struct." alt="" coords="99,189,287,325"/>
+<area shape="rect" id="node2" href="$struct_g_a_input_parameter_1_1_bounds.html" title="problem bounds" alt="" coords="5,13,181,119"/>
+<area shape="rect" id="node3" href="$struct_g_a_input_parameter_1_1_mutation.html" title="Mutation parameters." alt="" coords="205,5,381,127"/>
+</map>

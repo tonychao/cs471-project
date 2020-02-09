@@ -47,249 +47,214 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
     {
         case 0: // genetic algorithm
         {//avoid cross initialization error
-            GAInputParameter<Tinput> ga_parameters;
-            fillGAParameterFromFile(config_file, ga_parameters); // pass by reference
+            
+            fillGAParameterFromFile(config_file); 
             ga_parameters.bounds.l = range_low; 
             ga_parameters.bounds.u = range_high;
             ga_parameters.dim = this->dimensions;
 
-            GeneticAlgorithm<Tinput, Toutput> genetic_algorithm(ga_parameters);
+            genetic_algorithm = new GeneticAlgorithm<Tinput, Toutput>(ga_parameters);
         
-            debug(genetic_algorithm.printInputPopulation());
+            debug(genetic_algorithm->printInputPopulation());
             
             clk.tic();
             for (int i = 0; i < n_runs; i++)
             {
-                solutions[i] = genetic_algorithm.findBestSolution(function_id, range_low, range_high);
+                solutions[i] = genetic_algorithm->findBestSolution(function_id, range_low, range_high);
                 //std::cout<<"best solution: " << best_solution<<std::endl;
             }
             
             computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
             saveStatistic();
+
+            delete genetic_algorithm;
         }   
         break;
         
-        case 1:
+        case 1 ... 10:
         {
-            DEInputParameter<Tinput> de_parameters;
-            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
+            // commun initialization of DE
+            fillDEParameterFromFile(config_file); 
             de_parameters.bounds.l = range_low; 
             de_parameters.bounds.u = range_high;
             de_parameters.dim = this->dimensions;
 
-            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
-
-            clk.tic();
-            for (int i = 0; i < n_runs; i++)
+            switch(algorithm_id)
             {
-                solutions[i] = diff_evo.runS1_DE_best_1_exp(function_id);
+                case 1:
+                {
+                    diff_evo = new DifferentialEvolution<Tinput, Toutput>(de_parameters);
+
+                    clk.tic();
+                    for (int i = 0; i < n_runs; i++)
+                    {
+                        solutions[i] = diff_evo->runS1_DE_best_1_exp(function_id);
+                    }
+                    
+                    computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+                    saveStatistic();
+
+                    delete diff_evo;
+                }
+                break;
+
+                case 2:
+                {
+                    diff_evo = new DifferentialEvolution<Tinput, Toutput>(de_parameters);
+
+                    clk.tic();
+                    for (int i = 0; i < n_runs; i++)
+                    {
+                        solutions[i] = diff_evo->runS2_DE_rand_1_exp(function_id);
+                    }
+                    
+                    computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+                    saveStatistic();
+
+                    delete diff_evo;
+                    
+                }
+                break;
+
+                case 3:
+                {
+                    diff_evo = new DifferentialEvolution<Tinput, Toutput>(de_parameters);
+
+                    clk.tic();
+                    for (int i = 0; i < n_runs; i++)
+                    {
+                        solutions[i] = diff_evo->runS3_DE_randbest_1_exp(function_id);
+                    }
+                    
+                    computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+                    saveStatistic();
+
+                    delete diff_evo;
+                }
+                break;
+
+                case 4:
+                {
+                    diff_evo = new DifferentialEvolution<Tinput, Toutput>(de_parameters);
+                    
+                    clk.tic();
+                    for (int i = 0; i < n_runs; i++)
+                    {
+                        solutions[i] = diff_evo->runS4_DE_best_2_exp(function_id);
+                    }
+                    
+                    computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+                    saveStatistic();
+
+                    delete diff_evo;
+                    
+                }
+                break;
+
+                case 5:
+                {
+                    diff_evo = new DifferentialEvolution<Tinput, Toutput>(de_parameters);
+
+                    clk.tic();
+                    for (int i = 0; i < n_runs; i++)
+                    {
+                        solutions[i] = diff_evo->runS5_DE_rand_2_exp(function_id);
+                    }
+                    
+                    computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+                    saveStatistic();
+
+                    delete diff_evo;
+                }
+                break;
+
+                case 6:
+                {
+                    diff_evo = new DifferentialEvolution<Tinput, Toutput>(de_parameters);
+
+                    clk.tic();
+                    for (int i = 0; i < n_runs; i++)
+                    {
+                        solutions[i] = diff_evo->runS6_DE_best_1_bin(function_id);
+                    }
+                    
+                    computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+                    saveStatistic();
+
+                    delete diff_evo;
+                    
+                }
+                break;
+
+                case 7:
+                {
+                    diff_evo = new DifferentialEvolution<Tinput, Toutput>(de_parameters);
+
+                    clk.tic();
+                    for (int i = 0; i < n_runs; i++)
+                    {
+                        solutions[i] = diff_evo->runS7_DE_rand_1_bin(function_id);
+                    }
+                    
+                    computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+                    saveStatistic();
+
+                    delete diff_evo;
+                }
+                break;
+
+                case 8:
+                {
+                    diff_evo = new DifferentialEvolution<Tinput, Toutput>(de_parameters);
+
+                    clk.tic();
+                    for (int i = 0; i < n_runs; i++)
+                    {
+                        solutions[i] = diff_evo->runS8_DE_randbest_1_bin(function_id);
+                    }
+                    
+                    computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+                    saveStatistic();
+
+                    delete diff_evo;
+                    
+                }
+                break;
+
+                case 9:
+                {
+                    diff_evo = new DifferentialEvolution<Tinput, Toutput>(de_parameters);
+
+                    clk.tic();
+                    for (int i = 0; i < n_runs; i++)
+                    {
+                        solutions[i] = diff_evo->runS9_DE_best_2_bin(function_id);
+                    }
+                    
+                    computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+                    saveStatistic();
+                    
+                    delete diff_evo;
+                }
+                break;
+
+                case 10:
+                {
+                    diff_evo = new DifferentialEvolution<Tinput, Toutput>(de_parameters);
+                    
+                    clk.tic();
+                    for (int i = 0; i < n_runs; i++)
+                    {
+                        solutions[i] = diff_evo->runS10_DE_rand_2_bin(function_id);
+                    }
+                    
+                    computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+                    saveStatistic();
+
+                    delete diff_evo;
+                }
+                break;
             }
-            
-            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
-            saveStatistic();
-        }
-        break;
-
-        case 2:
-        {
-            DEInputParameter<Tinput> de_parameters;
-            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
-            de_parameters.bounds.l = range_low; 
-            de_parameters.bounds.u = range_high;
-            de_parameters.dim = this->dimensions;
-            
-            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
-
-            clk.tic();
-            for (int i = 0; i < n_runs; i++)
-            {
-                solutions[i] = diff_evo.runS2_DE_rand_1_exp(function_id);
-            }
-            
-            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
-            saveStatistic();
-            
-            
-        }
-        break;
-
-        case 3:
-        {
-            DEInputParameter<Tinput> de_parameters;
-            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
-            de_parameters.bounds.l = range_low; 
-            de_parameters.bounds.u = range_high;
-            de_parameters.dim = this->dimensions;
-
-            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
-
-            clk.tic();
-            for (int i = 0; i < n_runs; i++)
-            {
-                solutions[i] = diff_evo.runS3_DE_randbest_1_exp(function_id);
-            }
-            
-            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
-            saveStatistic();
-        }
-        break;
-
-        case 4:
-        {
-            DEInputParameter<Tinput> de_parameters;
-            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
-            de_parameters.bounds.l = range_low; 
-            de_parameters.bounds.u = range_high;
-            de_parameters.dim = this->dimensions;
-
-            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
-            
-            clk.tic();
-            for (int i = 0; i < n_runs; i++)
-            {
-                solutions[i] = diff_evo.runS4_DE_best_2_exp(function_id);
-            }
-            
-            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
-            saveStatistic();
-            
-        }
-        break;
-
-        case 5:
-        {
-            DEInputParameter<Tinput> de_parameters;
-            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
-            de_parameters.bounds.l = range_low; 
-            de_parameters.bounds.u = range_high;
-            de_parameters.dim = this->dimensions;
-
-            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
-
-            clk.tic();
-            for (int i = 0; i < n_runs; i++)
-            {
-                solutions[i] = diff_evo.runS5_DE_rand_2_exp(function_id);
-            }
-            
-            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
-            saveStatistic();
-
-            
-        }
-        break;
-
-        case 6:
-        {
-            DEInputParameter<Tinput> de_parameters;
-            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
-            de_parameters.bounds.l = range_low; 
-            de_parameters.bounds.u = range_high;
-            de_parameters.dim = this->dimensions;
-
-            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
-
-            clk.tic();
-            for (int i = 0; i < n_runs; i++)
-            {
-                solutions[i] = diff_evo.runS6_DE_best_1_bin(function_id);
-            }
-            
-            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
-            saveStatistic();
-
-            
-        }
-        break;
-
-        case 7:
-        {
-            DEInputParameter<Tinput> de_parameters;
-            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
-            de_parameters.bounds.l = range_low; 
-            de_parameters.bounds.u = range_high;
-            de_parameters.dim = this->dimensions;
-
-            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
-
-            clk.tic();
-            for (int i = 0; i < n_runs; i++)
-            {
-                solutions[i] = diff_evo.runS7_DE_rand_1_bin(function_id);
-            }
-            
-            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
-            saveStatistic();
-
-            
-        }
-        break;
-
-        case 8:
-        {
-            DEInputParameter<Tinput> de_parameters;
-            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
-            de_parameters.bounds.l = range_low; 
-            de_parameters.bounds.u = range_high;
-            de_parameters.dim = this->dimensions;
-
-            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
-
-            clk.tic();
-            for (int i = 0; i < n_runs; i++)
-            {
-                solutions[i] = diff_evo.runS8_DE_randbest_1_bin(function_id);
-            }
-            
-            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
-            saveStatistic();
-
-            
-        }
-        break;
-
-        case 9:
-        {
-            DEInputParameter<Tinput> de_parameters;
-            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
-            de_parameters.bounds.l = range_low; 
-            de_parameters.bounds.u = range_high;
-            de_parameters.dim = this->dimensions;
-
-            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
-
-            clk.tic();
-            for (int i = 0; i < n_runs; i++)
-            {
-                solutions[i] = diff_evo.runS9_DE_best_2_bin(function_id);
-            }
-            
-            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
-            saveStatistic();
-
-           
-        }
-        break;
-
-        case 10:
-        {
-            DEInputParameter<Tinput> de_parameters;
-            fillDEParameterFromFile(config_file, de_parameters); // pass by reference
-            de_parameters.bounds.l = range_low; 
-            de_parameters.bounds.u = range_high;
-            de_parameters.dim = this->dimensions;
-
-            DifferentialEvolution<Tinput, Toutput> diff_evo(de_parameters);
-
-            clk.tic();
-            for (int i = 0; i < n_runs; i++)
-            {
-                solutions[i] = diff_evo.runS10_DE_rand_2_bin(function_id);
-            }
-            
-            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
-            saveStatistic();
-
             
         }
         break;
@@ -303,7 +268,7 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
 }
 
 template <class Tinput, class Toutput>
-void Runner<Tinput,Toutput>::fillGAParameterFromFile(std::string config_filename, GAInputParameter<Tinput> &parameters)
+void Runner<Tinput,Toutput>::fillGAParameterFromFile(std::string config_filename)
 {
     // File pointer 
     std::fstream fin; 
@@ -337,13 +302,13 @@ void Runner<Tinput,Toutput>::fillGAParameterFromFile(std::string config_filename
         
         // Compare the roll number 
         if (count==2) { 
-            parameters.t_max = std::stoi(row[0]); 
-            parameters.cr = std::stod(row[1]); 
-            parameters.m.rate = std::stod(row[2]);
-            parameters.m.range = std::stod(row[3]); 
-            parameters.m.precision = std::stod(row[4]);
-            parameters.er = std::stod(row[5]);
-            parameters.ns = std::stod(row[6]);
+            ga_parameters.t_max = std::stoi(row[0]); 
+            ga_parameters.cr = std::stod(row[1]); 
+            ga_parameters.m.rate = std::stod(row[2]);
+            ga_parameters.m.range = std::stod(row[3]); 
+            ga_parameters.m.precision = std::stod(row[4]);
+            ga_parameters.er = std::stod(row[5]);
+            ga_parameters.ns = std::stod(row[6]);
             break; 
         } 
         
@@ -358,7 +323,7 @@ void Runner<Tinput,Toutput>::fillGAParameterFromFile(std::string config_filename
 
 
 template <class Tinput, class Toutput>
-void Runner<Tinput,Toutput>::fillDEParameterFromFile(std::string config_filename, DEInputParameter<Tinput> &parameters)
+void Runner<Tinput,Toutput>::fillDEParameterFromFile(std::string config_filename)
 {
     // File pointer 
     std::fstream fin; 
@@ -392,11 +357,11 @@ void Runner<Tinput,Toutput>::fillDEParameterFromFile(std::string config_filename
         
         // Compare the roll number 
         if (count==2) { 
-            parameters.t_max = std::stoi(row[0]); 
-            parameters.cr = std::stod(row[1]); 
-            parameters.scale_f = std::stod(row[2]);
-            parameters.scale_lambda= std::stod(row[3]); 
-            parameters.pop_size = std::stod(row[4]);
+            de_parameters.t_max = std::stoi(row[0]); 
+            de_parameters.cr = std::stod(row[1]); 
+            de_parameters.scale_f = std::stod(row[2]);
+            de_parameters.scale_lambda= std::stod(row[3]); 
+            de_parameters.pop_size = std::stod(row[4]);
             break; 
         } 
         

@@ -56,9 +56,12 @@ class Runner
 
     // to do: create instance of each optimization algorithm that will be run
     // create read configuration parameter for each optimization algorithm
-    
-    void fillGAParameterFromFile(std::string config_filename, GAInputParameter<Tinput> &parameters); //param = address of the configuration struct
-    void fillDEParameterFromFile(std::string config_filename, DEInputParameter<Tinput> &parameters); //param = address of the configuration struct
+    GeneticAlgorithm<Tinput, Toutput> *genetic_algorithm;
+    GAInputParameter<Tinput> ga_parameters;
+    DEInputParameter<Tinput> de_parameters;
+    DifferentialEvolution<Tinput, Toutput> *diff_evo;
+    void fillGAParameterFromFile(std::string config_filename); //param = address of the configuration struct
+    void fillDEParameterFromFile(std::string config_filename); //param = address of the configuration struct
 
     public:
     
