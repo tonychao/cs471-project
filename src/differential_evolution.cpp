@@ -91,6 +91,11 @@ void DifferentialEvolution<Tinput, Toutput>::randomR(int *r, int n, int current_
     }
 }
 
+/// @brief keep the element of the vector inside the search range 
+/// 
+/// the method trucante the element to the upper and lower bound of the range, when the element excess these limits.
+/// @param &element ///< element of the vector
+
 template <class Tinput, class Toutput>
 void DifferentialEvolution<Tinput, Toutput>::keepInRange(Tinput& element)
 {
@@ -512,7 +517,13 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS8_DE_randbest_1_bin(int func
  
 }
 
-
+/// @brief save the indivuo with best cost in a file 
+/// 
+/// this method is used to save the best cost of each iteration, the saved data are:
+/// the cost and the n dimensions elements of the individuo.
+/// @param best_cost ///< best cost
+/// @param *best_vector ///< pointer to the best individuo
+/// @param result_file ///< name of the file to be saved
 template <class Tinput, class Toutput>
 void DifferentialEvolution<Tinput, Toutput>:: saveResult(Toutput best_cost, Tinput* best_vector, std::string result_file)
 {

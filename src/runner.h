@@ -10,7 +10,7 @@
 #include "differential_evolution.h"
 #include <string>
 #include "../lib/mt19937ar_class.h"
-#include "../lib/debug.h"
+#include "debug.h"
 #include <fstream>  //file
 #include <vector>    // working with csv file
 #include <sstream>   // to read csv file

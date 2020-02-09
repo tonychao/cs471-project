@@ -2,7 +2,7 @@
 #define _GENETICALGORITHM_H_
 
 #include "../lib/mt19937ar_class.h"
-#include "../lib/debug.h"
+#include "debug.h"
 #include <iostream>
 #include "functions1.h"
 #include <time.h> 
@@ -50,11 +50,9 @@ struct GAInputParameter
 /// Genetic Algorithms (GA) are the heuristic search and optimization techniques that mimic the process of natural evolution.  
 /// @author Chao Huang Lin (chao.huanglin@cwu.edu)
 /// @date 2020-02-01
-
 template <class Tinput, class Toutput>
 class GeneticAlgorithm
 {
-
     private:
     Tinput** population; ///< pointer to arrray of pointers
     GAInputParameter<Tinput> parameters;
@@ -68,7 +66,6 @@ class GeneticAlgorithm
     int* population_asc_index;
     int* new_population_asc_index;
    
-
     void sortPopulationByIndexAsc();
     void sortNewPopulationByIndexAsc();
     void saveResult(Toutput best_cost, Tinput *best_individuo, std::string result_file);
@@ -113,7 +110,9 @@ class GeneticAlgorithm
     /// 
 	/// @param parameters configuration parameters for GA
     GeneticAlgorithm( GAInputParameter<Tinput> parameters);
+
     ~GeneticAlgorithm();
+    
     /// @brief Find the best individuo of the population
     /// @return return the best cost (evaluate the function)
     Toutput findBestSolution(int function_id, Tinput range_low, Tinput range_high);

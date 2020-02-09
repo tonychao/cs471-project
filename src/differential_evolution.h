@@ -2,12 +2,11 @@
 #define _DIFFERENTIALEVOLUTION_H_
 
 #include "functions1.h"
-#include "population.h"
-#include "../lib/debug.h"
+#include "population_benchmark.cpp" //template class
+#include "debug.h"
 #include "../lib/mt19937ar_class.h"
 #include "util.h"
 #include <time.h> 
-#include <limits> //get max limit of type
 #include <fstream>  //file
 
 /// @brief Template Differential Evolution Input parameter Struct

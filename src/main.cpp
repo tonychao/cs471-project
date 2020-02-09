@@ -11,7 +11,7 @@
 #include "genetic_algorithm.cpp" // contains template class
 
 #include "population.h"
-#include "../lib/debug.h"
+#include "debug.h"
 //#include "differential_evolution.h"
 #include "differential_evolution.cpp" // contains template class
 
@@ -74,6 +74,7 @@ int main(int argc, char** argv)
 
     Runner <float,float> runner(n_runs); // <Tinput, Toutput>
     runner.runOptimization(opt_alg_id, opt_conf_file, function_id, dimensions, range_min, range_max);
+
 
     return 0;
 }
