@@ -1,0 +1,2 @@
+this has been run using os.system ( + "&") and the algorithm 6 was changed to the top of the .csv file.
+this cause the problem that the algorithm 6 always look like that it runs faster
