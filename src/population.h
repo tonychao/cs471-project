@@ -6,7 +6,12 @@
 #include <iostream>
 #include "util.h"
 
-
+/// @brief Template Population Class
+///
+/// The population class in used to store the population which is useful for GA and DE
+/// @author Chao Huang Lin (chao.huanglin@cwu.edu)
+/// @date 2020-02-11
+///
 template <class Tinput, class Toutput>
 class Population
 {
@@ -14,9 +19,9 @@ class Population
     MersenneTwister random_ms; ///< mersenne twister random generator
     
     protected:
-    Tinput** data;
-    int dimension;
-    int n_items; ///< total number of items in data
+    Tinput** data; ///< pointer to the array of array
+    int dimension; ///< dimesion or size of the 2nd array
+    int n_items; ///< total number of items in data or size of the 1st array
 
     public:
     Population(int n_items, int dimension);

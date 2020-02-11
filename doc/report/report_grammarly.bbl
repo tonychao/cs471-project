@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem{python.time}
+Measure time in python – time.time() vs time.clock().
+\newblock
+  \url{https://www.pythoncentral.io/measure-time-in-python-time-time-vs-time-clock/}.
+\newblock Accessed: 2019-04-10.
+
+\bibitem{class.pointer}
+Classes with pointer data members.
+\newblock
+  \url{http://pages.cs.wisc.edu/~hasti/cs368/CppTutorial/NOTES/CLASSES-PTRS.html}.
+\newblock Accessed: 2019-04-08.
+
+\bibitem{numpy}
+Numpy.
+\newblock \url{https://introcs.cs.princeton.edu/python/appendix_numpy/}.
+\newblock Accessed: 2019-04-10.
+
+\end{thebibliography}

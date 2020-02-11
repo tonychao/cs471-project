@@ -1,5 +1,12 @@
 #include "population.h"
 
+/// @brief constructor of Population class
+///
+/// save information about number of items and the dimension
+/// memory allocation and random seed generation based on time
+/// @param n_items number of individuos
+/// @param dimension dimension or size of each individuo
+///
 template <class Tinput, class Toutput>
 Population<Tinput, Toutput>::Population(int n_items, int dimension)
 {
