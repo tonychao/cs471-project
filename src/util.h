@@ -1,23 +1,23 @@
 #ifndef _UTIL_H_
 #define _UTIL_H_
 
-#include <time.h>       //time
+#include <ctime>       //time
 #include <iostream>
 class Clock
 {
     private:
     
-    clock_t start_c, stop_c;
+    std::clock_t start_c, stop_c;
             
     public:
     void tic()
     {
-        start_c = clock();
+        start_c = std::clock();
     }
 
     double tac()
     {
-        stop_c = clock();
+        stop_c = std::clock();
          // CLOCKS_PER_SEC=1000000 in linux   CLOCKS_PER_SEC=1000 in windows
         return  ((double)stop_c - (double)start_c)/CLOCKS_PER_SEC*1000.0; // convert to milisecond
     }
