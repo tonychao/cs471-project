@@ -28,7 +28,7 @@
 /// range_max = range upper bound
 /// @author Chao Huang Lin (chao.huanglin@cwu.edu)
 /// @date 2020-01-31
-
+///
 int main(int argc, char** argv)
 {
     int counter;

@@ -12,7 +12,13 @@ Template class which generates random sample of different dimensions and run a s
 
 
 Collaboration diagram for Runner$<$ Tinput, Toutput $>$\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{class_runner__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,7 +45,7 @@ void \mbox{\hyperlink{class_runner_a3914ebf76ce5aa0a9cb36276a29905a8}{save\+Stat
 \begin{DoxyCompactList}\small\item\em save statistical result in csv file \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_runner_a257c1e535b2f8411577e7d73eb0e9199}{fill\+G\+A\+Parameter\+From\+File}} (std\+::string config\+\_\+filename)
 \item 
-void \mbox{\hyperlink{class_runner_abb5ef930ccfc1ae847c433a7b3e6f4af}{fill\+D\+E\+Parameter\+From\+File}} (std\+::string config\+\_\+filename, \mbox{\hyperlink{struct_d_e_input_parameter}{D\+E\+Input\+Parameter}}$<$ Tinput $>$ \&parameters)
+void \mbox{\hyperlink{class_runner_aaaf9f44d1cd8e04846e257926e8de288}{fill\+D\+E\+Parameter\+From\+File}} (std\+::string config\+\_\+filename)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -60,9 +66,13 @@ int \mbox{\hyperlink{class_runner_ad5b6ab9ee493eda67095eaeac723fcd9}{function\+\
 \begin{DoxyCompactList}\small\item\em id of the function that will be run \mbox{[}parameter from run()\mbox{]} \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_runner_a8fcb5f523fcf2a9db13a4ed5ba8c3951}{algorithm\+\_\+id}}
 \item 
-\mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$ \mbox{\hyperlink{class_runner_a00da51d1b2c626a695d6bafa6cc191c1}{genetic\+\_\+algorithm}}
+\mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$ Tinput, Toutput $>$ $\ast$ \mbox{\hyperlink{class_runner_af856440a511ad0ccb917b2744f827f94}{genetic\+\_\+algorithm}}
 \item 
 \mbox{\hyperlink{struct_g_a_input_parameter}{G\+A\+Input\+Parameter}}$<$ Tinput $>$ \mbox{\hyperlink{class_runner_ac7f91c904d8fff57e199aafcdf5b064a}{ga\+\_\+parameters}}
+\item 
+\mbox{\hyperlink{struct_d_e_input_parameter}{D\+E\+Input\+Parameter}}$<$ Tinput $>$ \mbox{\hyperlink{class_runner_a8506ec5c58a8009058a05cf8e2d72e6f}{de\+\_\+parameters}}
+\item 
+\mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$ $\ast$ \mbox{\hyperlink{class_runner_a1a162d14853c05fbb1b51296df83cb39}{diff\+\_\+evo}}
 \end{DoxyCompactItemize}
 
 
@@ -131,12 +141,12 @@ compute the statistical result of \mbox{\hyperlink{class_runner_a4ad58723eac0c54
 {\em time\+\_\+ms} & ///$<$ running time in ms \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_runner_abb5ef930ccfc1ae847c433a7b3e6f4af}\label{class_runner_abb5ef930ccfc1ae847c433a7b3e6f4af}} 
+\mbox{\Hypertarget{class_runner_aaaf9f44d1cd8e04846e257926e8de288}\label{class_runner_aaaf9f44d1cd8e04846e257926e8de288}} 
 \index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!fillDEParameterFromFile@{fillDEParameterFromFile}}
 \index{fillDEParameterFromFile@{fillDEParameterFromFile}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
 \doxysubsubsection{\texorpdfstring{fillDEParameterFromFile()}{fillDEParameterFromFile()}}
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
-void \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::fill\+D\+E\+Parameter\+From\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{config\+\_\+filename,  }\item[{\mbox{\hyperlink{struct_d_e_input_parameter}{D\+E\+Input\+Parameter}}$<$ Tinput $>$ \&}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+void \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::fill\+D\+E\+Parameter\+From\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{config\+\_\+filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{class_runner_a257c1e535b2f8411577e7d73eb0e9199}\label{class_runner_a257c1e535b2f8411577e7d73eb0e9199}} 
 \index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!fillGAParameterFromFile@{fillGAParameterFromFile}}
@@ -160,9 +170,20 @@ void \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::print\+So
 void \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::run\+Optimization (\begin{DoxyParamCaption}\item[{int}]{algorithm\+\_\+id,  }\item[{std\+::string}]{config\+\_\+file,  }\item[{int}]{function\+\_\+id,  }\item[{int}]{dimensions,  }\item[{Tinput}]{range\+\_\+low,  }\item[{Tinput}]{range\+\_\+high }\end{DoxyParamCaption})}
 
 Here is the call graph for this function\+:
-% FIG 1
-Here is the caller graph for this function\+:
-% FIG 2
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{class_runner_a711a1c39fcfc98dfb1eeede031fc1f46_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{class_runner_a711a1c39fcfc98dfb1eeede031fc1f46_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_runner_a3914ebf76ce5aa0a9cb36276a29905a8}\label{class_runner_a3914ebf76ce5aa0a9cb36276a29905a8}} 
 \index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!saveStatistic@{saveStatistic}}
 \index{saveStatistic@{saveStatistic}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
@@ -183,6 +204,20 @@ save statistical result in csv file
 \doxysubsubsection{\texorpdfstring{algorithm\_id}{algorithm\_id}}
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
 int \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::algorithm\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_runner_a8506ec5c58a8009058a05cf8e2d72e6f}\label{class_runner_a8506ec5c58a8009058a05cf8e2d72e6f}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!de\_parameters@{de\_parameters}}
+\index{de\_parameters@{de\_parameters}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{de\_parameters}{de\_parameters}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{struct_d_e_input_parameter}{D\+E\+Input\+Parameter}}$<$Tinput$>$ \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::de\+\_\+parameters\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_runner_a1a162d14853c05fbb1b51296df83cb39}\label{class_runner_a1a162d14853c05fbb1b51296df83cb39}} 
+\index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!diff\_evo@{diff\_evo}}
+\index{diff\_evo@{diff\_evo}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
+\doxysubsubsection{\texorpdfstring{diff\_evo}{diff\_evo}}
+{\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
+\mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$Tinput, Toutput$>$$\ast$ \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::diff\+\_\+evo\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{class_runner_a59c043d67290ec051a50e6077880da1b}\label{class_runner_a59c043d67290ec051a50e6077880da1b}} 
 \index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!dimensions@{dimensions}}
@@ -213,12 +248,12 @@ id of the function that will be run \mbox{[}parameter from run()\mbox{]}
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
 \mbox{\hyperlink{struct_g_a_input_parameter}{G\+A\+Input\+Parameter}}$<$Tinput$>$ \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::ga\+\_\+parameters\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{class_runner_a00da51d1b2c626a695d6bafa6cc191c1}\label{class_runner_a00da51d1b2c626a695d6bafa6cc191c1}} 
+\mbox{\Hypertarget{class_runner_af856440a511ad0ccb917b2744f827f94}\label{class_runner_af856440a511ad0ccb917b2744f827f94}} 
 \index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!genetic\_algorithm@{genetic\_algorithm}}
 \index{genetic\_algorithm@{genetic\_algorithm}!Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}}
 \doxysubsubsection{\texorpdfstring{genetic\_algorithm}{genetic\_algorithm}}
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
-\mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$Tinput, Toutput$>$ \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::genetic\+\_\+algorithm\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\hyperlink{class_genetic_algorithm}{Genetic\+Algorithm}}$<$Tinput, Toutput$>$$\ast$ \mbox{\hyperlink{class_runner}{Runner}}$<$ Tinput, Toutput $>$\+::genetic\+\_\+algorithm\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{class_runner_a77a83ece825a3e6e599a5d92f002a671}\label{class_runner_a77a83ece825a3e6e599a5d92f002a671}} 
 \index{Runner$<$ Tinput, Toutput $>$@{Runner$<$ Tinput, Toutput $>$}!n\_runs@{n\_runs}}

@@ -101,29 +101,40 @@ $(document).ready(function(){initNavTree('class_clock.html',''); initResizable()
 </div><!--header-->
 <div class="contents">
 
+<p>register the CPU processing time this class use the clock function to calculate the CPU processing time  
+ <a href="class_clock.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="util_8h_source.html">util.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Clock:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_clock__coll__graph.png" border="0" usemap="#_clock_coll__map" alt="Collaboration graph"/></div>
-<!-- MAP 0 -->
+<map name="_clock_coll__map" id="_clock_coll__map">
+<area shape="rect" title="register the CPU processing time this class use the clock function to calculate the CPU processing ti..." alt="" coords="5,5,76,112"/>
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa518ea82178d775ecfc8d900575a8917"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clock.html#aa518ea82178d775ecfc8d900575a8917">tic</a> ()</td></tr>
+<tr class="memdesc:aa518ea82178d775ecfc8d900575a8917"><td class="mdescLeft">&#160;</td><td class="mdescRight">register the clock when the code start  <a href="class_clock.html#aa518ea82178d775ecfc8d900575a8917">More...</a><br /></td></tr>
 <tr class="separator:aa518ea82178d775ecfc8d900575a8917"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf33ae08cf52146d58978037b6c644a0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clock.html#adf33ae08cf52146d58978037b6c644a0">tac</a> ()</td></tr>
+<tr class="memdesc:adf33ae08cf52146d58978037b6c644a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">register the clock when the code end, also return the elapsed cpu time  <a href="class_clock.html#adf33ae08cf52146d58978037b6c644a0">More...</a><br /></td></tr>
 <tr class="separator:adf33ae08cf52146d58978037b6c644a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a99be362badb8140b7b20367ca88a0a8d"><td class="memItemLeft" align="right" valign="top">clock_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clock.html#a99be362badb8140b7b20367ca88a0a8d">start_c</a></td></tr>
-<tr class="separator:a99be362badb8140b7b20367ca88a0a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2393cd042c4295641f70b9215a0da604"><td class="memItemLeft" align="right" valign="top">clock_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clock.html#a2393cd042c4295641f70b9215a0da604">stop_c</a></td></tr>
-<tr class="separator:a2393cd042c4295641f70b9215a0da604"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b12ca25f102864fbf068b45c5c9ec90"><td class="memItemLeft" align="right" valign="top">std::clock_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clock.html#a9b12ca25f102864fbf068b45c5c9ec90">start_c</a></td></tr>
+<tr class="separator:a9b12ca25f102864fbf068b45c5c9ec90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bd3df0a882d2c4f5988624d4a5509d5"><td class="memItemLeft" align="right" valign="top">std::clock_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clock.html#a4bd3df0a882d2c4f5988624d4a5509d5">stop_c</a></td></tr>
+<tr class="separator:a4bd3df0a882d2c4f5988624d4a5509d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>register the CPU processing time this class use the clock function to calculate the CPU processing time </p>
+<dl class="section author"><dt>Author</dt><dd>Chao Huang Lin (<a href="#" onclick="location.href='mai'+'lto:'+'cha'+'o.'+'hua'+'ng'+'lin'+'@c'+'wu.'+'ed'+'u'; return false;">chao.<span style="display: none;">.nosp@m.</span>huan<span style="display: none;">.nosp@m.</span>glin@<span style="display: none;">.nosp@m.</span>cwu.<span style="display: none;">.nosp@m.</span>edu</a>) </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2020-02-11 </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="adf33ae08cf52146d58978037b6c644a0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf33ae08cf52146d58978037b6c644a0">&#9670;&nbsp;</a></span>tac()</h2>
 
@@ -146,11 +157,18 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>register the clock when the code end, also return the elapsed cpu time </p>
+<dl class="section return"><dt>Returns</dt><dd>return the cpu elapsed time between <a class="el" href="class_clock.html#aa518ea82178d775ecfc8d900575a8917" title="register the clock when the code start">tic()</a> and <a class="el" href="class_clock.html#adf33ae08cf52146d58978037b6c644a0" title="register the clock when the code end, also return the elapsed cpu time">tac()</a> </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_clock_adf33ae08cf52146d58978037b6c644a0_icgraph.png" border="0" usemap="#class_clock_adf33ae08cf52146d58978037b6c644a0_icgraph" alt=""/></div>
-<!-- MAP 1 -->
+<map name="class_clock_adf33ae08cf52146d58978037b6c644a0_icgraph" id="class_clock_adf33ae08cf52146d58978037b6c644a0_icgraph">
+<area shape="rect" title="register the clock when the code end, also return the elapsed cpu time" alt="" coords="315,5,396,32"/>
+<area shape="rect" href="class_runner.html#a711a1c39fcfc98dfb1eeede031fc1f46" title=" " alt="" coords="104,5,267,32"/>
+<area shape="rect" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 3, Genetic Algorithm (GA) and Differential Evolution (DE)" alt="" coords="5,5,56,32"/>
+</map>
 </div>
 
 </div>
@@ -177,18 +195,24 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>register the clock when the code start </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_clock_aa518ea82178d775ecfc8d900575a8917_icgraph.png" border="0" usemap="#class_clock_aa518ea82178d775ecfc8d900575a8917_icgraph" alt=""/></div>
-<!-- MAP 2 -->
+<map name="class_clock_aa518ea82178d775ecfc8d900575a8917_icgraph" id="class_clock_aa518ea82178d775ecfc8d900575a8917_icgraph">
+<area shape="rect" title="register the clock when the code start" alt="" coords="315,5,392,32"/>
+<area shape="rect" href="class_runner.html#a711a1c39fcfc98dfb1eeede031fc1f46" title=" " alt="" coords="104,5,267,32"/>
+<area shape="rect" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 3, Genetic Algorithm (GA) and Differential Evolution (DE)" alt="" coords="5,5,56,32"/>
+</map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a99be362badb8140b7b20367ca88a0a8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99be362badb8140b7b20367ca88a0a8d">&#9670;&nbsp;</a></span>start_c</h2>
+<a id="a9b12ca25f102864fbf068b45c5c9ec90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b12ca25f102864fbf068b45c5c9ec90">&#9670;&nbsp;</a></span>start_c</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,7 +221,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">clock_t Clock::start_c</td>
+          <td class="memname">std::clock_t Clock::start_c</td>
         </tr>
       </table>
   </td>
@@ -209,8 +233,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a2393cd042c4295641f70b9215a0da604"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2393cd042c4295641f70b9215a0da604">&#9670;&nbsp;</a></span>stop_c</h2>
+<a id="a4bd3df0a882d2c4f5988624d4a5509d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bd3df0a882d2c4f5988624d4a5509d5">&#9670;&nbsp;</a></span>stop_c</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,7 +243,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">clock_t Clock::stop_c</td>
+          <td class="memname">std::clock_t Clock::stop_c</td>
         </tr>
       </table>
   </td>

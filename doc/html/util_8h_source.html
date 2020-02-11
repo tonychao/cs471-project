@@ -99,48 +99,51 @@ $(document).ready(function(){initNavTree('util_8h_source.html',''); initResizabl
 <a href="util_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _UTIL_H_</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _UTIL_H_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span>       <span class="comment">//time</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span>       <span class="comment">//time</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_clock.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_clock.html">Clock</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_clock.html#a2393cd042c4295641f70b9215a0da604">   10</a></span>&#160;    clock_t <a class="code" href="class_clock.html#a99be362badb8140b7b20367ca88a0a8d">start_c</a>, <a class="code" href="class_clock.html#a2393cd042c4295641f70b9215a0da604">stop_c</a>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;            </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_clock.html#aa518ea82178d775ecfc8d900575a8917">   13</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_clock.html#aa518ea82178d775ecfc8d900575a8917">tic</a>()</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="class_clock.html#a99be362badb8140b7b20367ca88a0a8d">start_c</a> = clock();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_clock.html#adf33ae08cf52146d58978037b6c644a0">   18</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_clock.html#adf33ae08cf52146d58978037b6c644a0">tac</a>()</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="class_clock.html#a2393cd042c4295641f70b9215a0da604">stop_c</a> = clock();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;         <span class="comment">// CLOCKS_PER_SEC=1000000 in linux   CLOCKS_PER_SEC=1000 in windows</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">return</span>  ((<span class="keywordtype">double</span>)<a class="code" href="class_clock.html#a2393cd042c4295641f70b9215a0da604">stop_c</a> - (<span class="keywordtype">double</span>)<a class="code" href="class_clock.html#a99be362badb8140b7b20367ca88a0a8d">start_c</a>)/CLOCKS_PER_SEC*1000.0; <span class="comment">// convert to milisecond</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_clock.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_clock.html">Clock</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_clock.html#a4bd3df0a882d2c4f5988624d4a5509d5">   16</a></span>&#160;    std::clock_t <a class="code" href="class_clock.html#a9b12ca25f102864fbf068b45c5c9ec90">start_c</a>, <a class="code" href="class_clock.html#a4bd3df0a882d2c4f5988624d4a5509d5">stop_c</a>; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_clock.html#aa518ea82178d775ecfc8d900575a8917">   21</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_clock.html#aa518ea82178d775ecfc8d900575a8917">tic</a>()</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="class_clock.html#a9b12ca25f102864fbf068b45c5c9ec90">start_c</a> = std::clock();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="util_8h.html#a9198decc51a9b6f5dce841bd629c53bb">   29</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="util_8h.html#a9198decc51a9b6f5dce841bd629c53bb">printArray</a>(T* array, <span class="keywordtype">int</span> n, <span class="keywordtype">char</span> separator)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++) </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {   </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        std::cout&lt;&lt; array[i] &lt;&lt; separator;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_clock.html#adf33ae08cf52146d58978037b6c644a0">   29</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_clock.html#adf33ae08cf52146d58978037b6c644a0">tac</a>()</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="class_clock.html#a4bd3df0a882d2c4f5988624d4a5509d5">stop_c</a> = std::clock();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;         <span class="comment">// CLOCKS_PER_SEC=1000000 in linux   CLOCKS_PER_SEC=1000 in windows</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">return</span>  ((<span class="keywordtype">double</span>)<a class="code" href="class_clock.html#a4bd3df0a882d2c4f5988624d4a5509d5">stop_c</a> - (<span class="keywordtype">double</span>)<a class="code" href="class_clock.html#a9b12ca25f102864fbf068b45c5c9ec90">start_c</a>)/CLOCKS_PER_SEC*1000.0; <span class="comment">// convert to milisecond</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::cout &lt;&lt;std::endl;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="util_8h.html#a9198decc51a9b6f5dce841bd629c53bb">   45</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="util_8h.html#a9198decc51a9b6f5dce841bd629c53bb">printArray</a>(T* array, <span class="keywordtype">int</span> n, <span class="keywordtype">char</span> separator)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++) </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {   </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        std::cout&lt;&lt; array[i] &lt;&lt; separator;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    std::cout &lt;&lt;std::endl;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_clock_html_aa518ea82178d775ecfc8d900575a8917"><div class="ttname"><a href="class_clock.html#aa518ea82178d775ecfc8d900575a8917">Clock::tic</a></div><div class="ttdeci">void tic()</div><div class="ttdef"><b>Definition:</b> util.h:13</div></div>
-<div class="ttc" id="aclass_clock_html_a2393cd042c4295641f70b9215a0da604"><div class="ttname"><a href="class_clock.html#a2393cd042c4295641f70b9215a0da604">Clock::stop_c</a></div><div class="ttdeci">clock_t stop_c</div><div class="ttdef"><b>Definition:</b> util.h:10</div></div>
-<div class="ttc" id="aclass_clock_html"><div class="ttname"><a href="class_clock.html">Clock</a></div><div class="ttdef"><b>Definition:</b> util.h:6</div></div>
-<div class="ttc" id="autil_8h_html_a9198decc51a9b6f5dce841bd629c53bb"><div class="ttname"><a href="util_8h.html#a9198decc51a9b6f5dce841bd629c53bb">printArray</a></div><div class="ttdeci">void printArray(T *array, int n, char separator)</div><div class="ttdef"><b>Definition:</b> util.h:29</div></div>
-<div class="ttc" id="aclass_clock_html_a99be362badb8140b7b20367ca88a0a8d"><div class="ttname"><a href="class_clock.html#a99be362badb8140b7b20367ca88a0a8d">Clock::start_c</a></div><div class="ttdeci">clock_t start_c</div><div class="ttdef"><b>Definition:</b> util.h:10</div></div>
-<div class="ttc" id="aclass_clock_html_adf33ae08cf52146d58978037b6c644a0"><div class="ttname"><a href="class_clock.html#adf33ae08cf52146d58978037b6c644a0">Clock::tac</a></div><div class="ttdeci">double tac()</div><div class="ttdef"><b>Definition:</b> util.h:18</div></div>
+<div class="ttc" id="aclass_clock_html_aa518ea82178d775ecfc8d900575a8917"><div class="ttname"><a href="class_clock.html#aa518ea82178d775ecfc8d900575a8917">Clock::tic</a></div><div class="ttdeci">void tic()</div><div class="ttdoc">register the clock when the code start</div><div class="ttdef"><b>Definition:</b> util.h:21</div></div>
+<div class="ttc" id="aclass_clock_html"><div class="ttname"><a href="class_clock.html">Clock</a></div><div class="ttdoc">register the CPU processing time this class use the clock function to calculate the CPU processing ti...</div><div class="ttdef"><b>Definition:</b> util.h:12</div></div>
+<div class="ttc" id="aclass_clock_html_a4bd3df0a882d2c4f5988624d4a5509d5"><div class="ttname"><a href="class_clock.html#a4bd3df0a882d2c4f5988624d4a5509d5">Clock::stop_c</a></div><div class="ttdeci">std::clock_t stop_c</div><div class="ttdef"><b>Definition:</b> util.h:16</div></div>
+<div class="ttc" id="autil_8h_html_a9198decc51a9b6f5dce841bd629c53bb"><div class="ttname"><a href="util_8h.html#a9198decc51a9b6f5dce841bd629c53bb">printArray</a></div><div class="ttdeci">void printArray(T *array, int n, char separator)</div><div class="ttdoc">template function to print array of any type</div><div class="ttdef"><b>Definition:</b> util.h:45</div></div>
+<div class="ttc" id="aclass_clock_html_a9b12ca25f102864fbf068b45c5c9ec90"><div class="ttname"><a href="class_clock.html#a9b12ca25f102864fbf068b45c5c9ec90">Clock::start_c</a></div><div class="ttdeci">std::clock_t start_c</div><div class="ttdef"><b>Definition:</b> util.h:16</div></div>
+<div class="ttc" id="aclass_clock_html_adf33ae08cf52146d58978037b6c644a0"><div class="ttname"><a href="class_clock.html#adf33ae08cf52146d58978037b6c644a0">Clock::tac</a></div><div class="ttdeci">double tac()</div><div class="ttdoc">register the clock when the code end, also return the elapsed cpu time</div><div class="ttdef"><b>Definition:</b> util.h:29</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

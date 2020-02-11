@@ -14,7 +14,7 @@
 /// Struct to where all the DE parameters are stored
 /// @author Chao Huang Lin (chao.huanglin@cwu.edu)
 /// @date 2020-02-08
-
+///
 template <class Tinput>
 struct DEInputParameter
 {
@@ -43,7 +43,7 @@ struct DEInputParameter
 /// selected parameter vectors as the source of random variations for a third parameter vector.  
 /// @author Chao Huang Lin (chao.huanglin@cwu.edu)
 /// @date 2020-02-08
-
+///
 template <class Tinput, class Toutput>
 class DifferentialEvolution
 {

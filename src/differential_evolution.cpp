@@ -1,12 +1,16 @@
 #include "differential_evolution.h"
 
-
+/// @brief constructor of differential evolution class
+/// 
+/// print the parameters, and allocate memories
+/// @param param ///< input parameter of the differential evolution 
+///
 template <class Tinput, class Toutput>
 DifferentialEvolution<Tinput, Toutput>::DifferentialEvolution(DEInputParameter<Tinput> param)
 {
     this->param = param;
-    //print parameters
 
+    //print parameters
     std::cout << "bounds.lower: " << param.bounds.l << std::endl;
     std::cout << "bounds.uppper: " << param.bounds.u << std::endl;
     std::cout << "crossover rate: " << param.cr << std::endl;
@@ -27,13 +31,14 @@ DifferentialEvolution<Tinput, Toutput>::DifferentialEvolution(DEInputParameter<T
     best_cost = new Toutput[param.t_max];
 }
 
+/// @brief destructor of differential evolution class
+/// 
 template <class Tinput, class Toutput>
 DifferentialEvolution<Tinput, Toutput>::~DifferentialEvolution()
 {
 
     if(actual_pop)
         delete actual_pop;
-    
 
     if(new_pop)
         delete new_pop;
@@ -49,6 +54,7 @@ DifferentialEvolution<Tinput, Toutput>::~DifferentialEvolution()
 /// @param *r ///< pointer of array r
 /// @param n ///< size of array r
 /// @param current_i ///< current position of the vector i
+///
 template <class Tinput, class Toutput>
 void DifferentialEvolution<Tinput, Toutput>::randomR(int *r, int n, int current_i)
 {
@@ -87,7 +93,6 @@ void DifferentialEvolution<Tinput, Toutput>::randomR(int *r, int n, int current_
             
         }
         
-        
     }
 }
 
@@ -95,7 +100,7 @@ void DifferentialEvolution<Tinput, Toutput>::randomR(int *r, int n, int current_
 /// 
 /// the method trucante the element to the upper and lower bound of the range, when the element excess these limits.
 /// @param &element ///< element of the vector
-
+///
 template <class Tinput, class Toutput>
 void DifferentialEvolution<Tinput, Toutput>::keepInRange(Tinput& element)
 {
@@ -110,6 +115,10 @@ void DifferentialEvolution<Tinput, Toutput>::keepInRange(Tinput& element)
     
 }
 
+/// @brief run the strategy 7 of differential evolution
+/// 
+/// @param function_id ///< id of the benchmarking function to be run
+///
 template <class Tinput, class Toutput>
 Toutput DifferentialEvolution<Tinput, Toutput>::runS7_DE_rand_1_bin(int function_id)
 {
@@ -187,6 +196,10 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS7_DE_rand_1_bin(int function
     return best_cost[param.t_max-1];
 }
 
+/// @brief run the strategy 10 of differential evolution
+/// 
+/// @param function_id ///< id of the benchmarking function to be run
+///
 template <class Tinput, class Toutput>
 Toutput DifferentialEvolution<Tinput, Toutput>::runS10_DE_rand_2_bin(int function_id)
 {
@@ -265,6 +278,11 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS10_DE_rand_2_bin(int functio
     return best_cost[param.t_max-1];
 }
 
+
+/// @brief run the strategy 6 of differential evolution
+/// 
+/// @param function_id ///< id of the benchmarking function to be run
+///
 template <class Tinput, class Toutput>
 Toutput DifferentialEvolution<Tinput, Toutput>::runS6_DE_best_1_bin(int function_id)
 {
@@ -349,6 +367,11 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS6_DE_best_1_bin(int function
 }
 
 
+
+/// @brief run the strategy 9 of differential evolution
+/// 
+/// @param function_id ///< id of the benchmarking function to be run
+///
 template <class Tinput, class Toutput>
 Toutput DifferentialEvolution<Tinput, Toutput>::runS9_DE_best_2_bin(int function_id)
 {
@@ -432,6 +455,12 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS9_DE_best_2_bin(int function
     return best_cost[param.t_max-1];
 }
 
+
+
+/// @brief run the strategy 8 of differential evolution
+/// 
+/// @param function_id ///< id of the benchmarking function to be run
+///
 template <class Tinput, class Toutput>
 Toutput DifferentialEvolution<Tinput, Toutput>::runS8_DE_randbest_1_bin(int function_id)
 {
@@ -524,6 +553,7 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS8_DE_randbest_1_bin(int func
 /// @param best_cost ///< best cost
 /// @param *best_vector ///< pointer to the best individuo
 /// @param result_file ///< name of the file to be saved
+///
 template <class Tinput, class Toutput>
 void DifferentialEvolution<Tinput, Toutput>:: saveResult(Toutput best_cost, Tinput* best_vector, std::string result_file)
 {
@@ -546,7 +576,10 @@ void DifferentialEvolution<Tinput, Toutput>:: saveResult(Toutput best_cost, Tinp
 }
 
 
-
+/// @brief run the strategy 1 of differential evolution
+/// 
+/// @param function_id ///< id of the benchmarking function to be run
+///
 template <class Tinput, class Toutput>
 Toutput DifferentialEvolution<Tinput, Toutput>::runS1_DE_best_1_exp(int function_id)
 {
@@ -641,7 +674,10 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS1_DE_best_1_exp(int function
 
 
 
-
+/// @brief run the strategy 2 of differential evolution
+/// 
+/// @param function_id ///< id of the benchmarking function to be run
+///
 template <class Tinput, class Toutput>
 Toutput DifferentialEvolution<Tinput, Toutput>::runS2_DE_rand_1_exp(int function_id)
 {
@@ -735,7 +771,10 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS2_DE_rand_1_exp(int function
 }
 
 
-
+/// @brief run the strategy 3 of differential evolution
+/// 
+/// @param function_id ///< id of the benchmarking function to be run
+///
 template <class Tinput, class Toutput>
 Toutput DifferentialEvolution<Tinput, Toutput>::runS3_DE_randbest_1_exp(int function_id)
 {
@@ -832,7 +871,10 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS3_DE_randbest_1_exp(int func
 }
 
 
-
+/// @brief run the strategy 4 of differential evolution
+/// 
+/// @param function_id ///< id of the benchmarking function to be run
+///
 template <class Tinput, class Toutput>
 Toutput DifferentialEvolution<Tinput, Toutput>::runS4_DE_best_2_exp(int function_id)
 {
@@ -928,7 +970,10 @@ Toutput DifferentialEvolution<Tinput, Toutput>::runS4_DE_best_2_exp(int function
 }
 
 
-
+/// @brief run the strategy 5 of differential evolution
+/// 
+/// @param function_id ///< id of the benchmarking function to be run
+///
 template <class Tinput, class Toutput>
 Toutput DifferentialEvolution<Tinput, Toutput>::runS5_DE_rand_2_exp(int function_id)
 {

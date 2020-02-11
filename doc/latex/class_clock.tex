@@ -2,26 +2,48 @@
 \label{class_clock}\index{Clock@{Clock}}
 
 
+register the C\+PU processing time this class use the clock function to calculate the C\+PU processing time  
+
+
+
+
 {\ttfamily \#include $<$util.\+h$>$}
 
 
 
 Collaboration diagram for Clock\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=133pt]{class_clock__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_clock_aa518ea82178d775ecfc8d900575a8917}{tic}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em register the clock when the code start \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_clock_adf33ae08cf52146d58978037b6c644a0}{tac}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em register the clock when the code end, also return the elapsed cpu time \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-clock\+\_\+t \mbox{\hyperlink{class_clock_a99be362badb8140b7b20367ca88a0a8d}{start\+\_\+c}}
+std\+::clock\+\_\+t \mbox{\hyperlink{class_clock_a9b12ca25f102864fbf068b45c5c9ec90}{start\+\_\+c}}
 \item 
-clock\+\_\+t \mbox{\hyperlink{class_clock_a2393cd042c4295641f70b9215a0da604}{stop\+\_\+c}}
+std\+::clock\+\_\+t \mbox{\hyperlink{class_clock_a4bd3df0a882d2c4f5988624d4a5509d5}{stop\+\_\+c}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+register the C\+PU processing time this class use the clock function to calculate the C\+PU processing time 
+
+\begin{DoxyAuthor}{Author}
+Chao Huang Lin (\href{mailto:chao.huanglin@cwu.edu}{\texttt{ chao.\+huanglin@cwu.\+edu}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2020-\/02-\/11 
+\end{DoxyDate}
 
 
 \doxysubsection{Member Function Documentation}
@@ -31,30 +53,53 @@ clock\+\_\+t \mbox{\hyperlink{class_clock_a2393cd042c4295641f70b9215a0da604}{sto
 \doxysubsubsection{\texorpdfstring{tac()}{tac()}}
 {\footnotesize\ttfamily double Clock\+::tac (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+register the clock when the code end, also return the elapsed cpu time 
+
+\begin{DoxyReturn}{Returns}
+return the cpu elapsed time between \mbox{\hyperlink{class_clock_aa518ea82178d775ecfc8d900575a8917}{tic()}} and \mbox{\hyperlink{class_clock_adf33ae08cf52146d58978037b6c644a0}{tac()}} 
+\end{DoxyReturn}
 Here is the caller graph for this function\+:
-% FIG 1
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_clock_adf33ae08cf52146d58978037b6c644a0_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_clock_aa518ea82178d775ecfc8d900575a8917}\label{class_clock_aa518ea82178d775ecfc8d900575a8917}} 
 \index{Clock@{Clock}!tic@{tic}}
 \index{tic@{tic}!Clock@{Clock}}
 \doxysubsubsection{\texorpdfstring{tic()}{tic()}}
 {\footnotesize\ttfamily void Clock\+::tic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+register the clock when the code start 
+
 Here is the caller graph for this function\+:
-% FIG 2
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_clock_aa518ea82178d775ecfc8d900575a8917_icgraph}
+\end{center}
+\end{figure}
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_clock_a99be362badb8140b7b20367ca88a0a8d}\label{class_clock_a99be362badb8140b7b20367ca88a0a8d}} 
+\mbox{\Hypertarget{class_clock_a9b12ca25f102864fbf068b45c5c9ec90}\label{class_clock_a9b12ca25f102864fbf068b45c5c9ec90}} 
 \index{Clock@{Clock}!start\_c@{start\_c}}
 \index{start\_c@{start\_c}!Clock@{Clock}}
 \doxysubsubsection{\texorpdfstring{start\_c}{start\_c}}
-{\footnotesize\ttfamily clock\+\_\+t Clock\+::start\+\_\+c\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily std\+::clock\+\_\+t Clock\+::start\+\_\+c\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{class_clock_a2393cd042c4295641f70b9215a0da604}\label{class_clock_a2393cd042c4295641f70b9215a0da604}} 
+\mbox{\Hypertarget{class_clock_a4bd3df0a882d2c4f5988624d4a5509d5}\label{class_clock_a4bd3df0a882d2c4f5988624d4a5509d5}} 
 \index{Clock@{Clock}!stop\_c@{stop\_c}}
 \index{stop\_c@{stop\_c}!Clock@{Clock}}
 \doxysubsubsection{\texorpdfstring{stop\_c}{stop\_c}}
-{\footnotesize\ttfamily clock\+\_\+t Clock\+::stop\+\_\+c\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily std\+::clock\+\_\+t Clock\+::stop\+\_\+c\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

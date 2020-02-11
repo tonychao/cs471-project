@@ -1,14 +1,11 @@
 #include "genetic_algorithm.h"
 
 
-/* pass population by reference to avoid the problem of:
- double free or corruption (fasttop)
- Aborted (core dumped)
-
-this occurs because to increase the velocity of swap, we did copy the data, we just swap the address,
-the problem was the population in runner class still have the old address which cause the double delete and memory leak problem.
-*/
-
+/// @brief constructor of the class GeneticAlgorithm
+/// 
+/// print the parameters and allocate memories
+/// @param parameters configuration parameters for GA
+///
 template <class Tinput, class Toutput>
 GeneticAlgorithm<Tinput,Toutput>::GeneticAlgorithm(GAInputParameter<Tinput> parameters)
 {
@@ -38,6 +35,8 @@ GeneticAlgorithm<Tinput,Toutput>::GeneticAlgorithm(GAInputParameter<Tinput> para
     
 }
 
+/// @brief desstructor of the class GeneticAlgorithm
+///
 template <class Tinput, class Toutput>
 GeneticAlgorithm<Tinput,Toutput>::~GeneticAlgorithm()
 {
@@ -55,6 +54,12 @@ GeneticAlgorithm<Tinput,Toutput>::~GeneticAlgorithm()
     
 }
 
+/// @brief ellistism part, select the best inviduos of the old population and put into the new population, at the end the population and new_population are swapped
+/// 
+/// in this method, also the best_cost and best_individuo is located
+/// @param elite_sn number of best inviduals which will be put into the new population
+/// @param &best_cost output by reference, to get the individuo with best cost of the new population and the old population
+/// @param *best_individuo pointer to best individuo which is an array
 template <class Tinput, class Toutput>
 void GeneticAlgorithm<Tinput, Toutput>::reduce(int elite_sn, Toutput& best_cost, Tinput* best_individuo)
 {
@@ -64,7 +69,6 @@ void GeneticAlgorithm<Tinput, Toutput>::reduce(int elite_sn, Toutput& best_cost,
 
         debug(population->printCost());
         debug(new_population->printCost());
-        
         
         //print sorted index
 
@@ -90,8 +94,6 @@ void GeneticAlgorithm<Tinput, Toutput>::reduce(int elite_sn, Toutput& best_cost,
         debug(std::cout<<"best: " << best_cost << std::endl);
         
 
-
-
         //replace first elite_sn worst solutions in new population by best solutions in population
         for (int i =0; i<elite_sn; i++)
         {
@@ -107,6 +109,13 @@ void GeneticAlgorithm<Tinput, Toutput>::reduce(int elite_sn, Toutput& best_cost,
 
 }
 
+/// @brief Find the best individuo of the population
+///
+/// @param function_id the cost will be calculated by on the benchmarking function id
+/// @param range_low lower bound value of the data
+/// @param range_high upper bound value of the data 
+/// @return return the best cost (evaluate the function)
+///
 template <class Tinput, class Toutput>
 Toutput GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id, Tinput range_low, Tinput range_high)
 {
@@ -178,6 +187,14 @@ Toutput GeneticAlgorithm<Tinput, Toutput>::findBestSolution(int function_id, Tin
     return best_cost;
 }
 
+/// @brief save the indivuo with best cost in a file 
+/// 
+/// this method is used to save the best cost of each iteration, the saved data are:
+/// the cost and the n dimensions elements of the individuo.
+/// @param best_cost ///< best cost
+/// @param *best_vector ///< pointer to the best individuo
+/// @param result_file ///< name of the file to be saved
+///
 template <class Tinput, class Toutput>
 void GeneticAlgorithm<Tinput, Toutput>:: saveResult(Toutput best_cost, Tinput* best_individuo, std::string result_file)
 {
@@ -201,7 +218,12 @@ void GeneticAlgorithm<Tinput, Toutput>:: saveResult(Toutput best_cost, Tinput* b
 
 
 
-
+/// @brief crossover between 2 parents
+/// 
+/// @param *parent1 ///< pointer to the parent1
+/// @param *parent2 ///< pointer to the parent2
+/// @param cr ///< cross over rate
+///
 template <class Tinput, class Toutput>
 void GeneticAlgorithm<Tinput, Toutput>::crossover(Tinput* parent1, Tinput* parent2, double cr)
 {
@@ -216,16 +238,18 @@ void GeneticAlgorithm<Tinput, Toutput>::crossover(Tinput* parent1, Tinput* paren
         std::copy(parent2+d, parent2+parameters.dim, parent1+d); // copy 2nd part of parent2 to parent1
         std::copy(temp1+d, temp1+parameters.dim, parent2+d); // copyt 2nd part of parent1 (stored in temp1) to parent2
         
-
         debug(std::cout << "---after crossover---" << std::endl);
         debug(printArray<Tinput>(parent1, parameters.dim, ' '));
         debug(printArray<Tinput>(parent2, parameters.dim, ' '));
-    
-
 
     }
 }
 
+/// @brief keep the element of the vector inside the search range 
+/// 
+/// the method trucante the element to the upper and lower bound of the range, when the element excess these limits.
+/// @param &element ///< element of the vector
+///
 template <class Tinput, class Toutput>
 void GeneticAlgorithm<Tinput, Toutput>::keepInRange(Tinput& element)
 {
@@ -240,7 +264,10 @@ void GeneticAlgorithm<Tinput, Toutput>::keepInRange(Tinput& element)
     
 }
 
-
+/// @brief mutation of an individuo
+/// 
+/// @param *individuo pointer of an individuo
+///
 template <class Tinput, class Toutput>
 void GeneticAlgorithm<Tinput, Toutput>::mutate(Tinput* individuo)
 {
@@ -263,6 +290,12 @@ void GeneticAlgorithm<Tinput, Toutput>::mutate(Tinput* individuo)
 
 }
 
+
+/// @brief select 2 parents by roulette wheel selection
+///
+/// @param *parent1 pointer to the parent1
+/// @param *parent2 pointer to the parent2
+///
 template <class Tinput, class Toutput>
 void GeneticAlgorithm<Tinput, Toutput>::select(Tinput *parent1, Tinput* parent2)
 {
@@ -270,6 +303,10 @@ void GeneticAlgorithm<Tinput, Toutput>::select(Tinput *parent1, Tinput* parent2)
     selectParent(parent2);
 }
 
+/// @brief select 1 parent
+///
+/// @param *pointer to the parent
+///
 template <class Tinput, class Toutput>
 void GeneticAlgorithm<Tinput, Toutput>::selectParent(Tinput* parent)
 {

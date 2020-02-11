@@ -10,7 +10,7 @@
 /// then it returns the function pointer of the selected function.
 /// @author Chao Huang Lin (chao.huanglin@cwu.edu)
 /// @date 2020-01-31
-
+///
 template <class Tinput, class Toutput>
 class Functions1
 { 

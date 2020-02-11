@@ -11,35 +11,40 @@ Template Differential Evolution class.
 
 
 
-Collaboration diagram for Differential\+Evolution$<$ Tinput, Toutput $>$\+:
-% FIG 0
+Collaboration diagram for Differential\+Evolution$<$ Tinput, Toutput $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{class_differential_evolution__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_differential_evolution_ac845a34e41ea236164c362580b79c2bd}{Differential\+Evolution}} (\mbox{\hyperlink{struct_d_e_input_parameter}{D\+E\+Input\+Parameter}}$<$ Tinput $>$ \mbox{\hyperlink{class_differential_evolution_ab1c4fccc01b6c7fd36e469b5aa27dbca}{param}})
-\item 
+\begin{DoxyCompactList}\small\item\em constructor of differential evolution class \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_differential_evolution_ac51c311f874464e7f8eb46fc844b9164}{$\sim$\+Differential\+Evolution}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em destructor of differential evolution class \end{DoxyCompactList}\item 
 Toutput \mbox{\hyperlink{class_differential_evolution_aa602b3bc4d6c6c0086703a97fae3ae80}{run\+S7\+\_\+\+D\+E\+\_\+rand\+\_\+1\+\_\+bin}} (int function\+\_\+id)
-\item 
+\begin{DoxyCompactList}\small\item\em run the strategy 7 of differential evolution \end{DoxyCompactList}\item 
 Toutput \mbox{\hyperlink{class_differential_evolution_afc8f3c7c6b6e52f89bcb794419093c62}{run\+S10\+\_\+\+D\+E\+\_\+rand\+\_\+2\+\_\+bin}} (int function\+\_\+id)
-\item 
+\begin{DoxyCompactList}\small\item\em run the strategy 10 of differential evolution \end{DoxyCompactList}\item 
 Toutput \mbox{\hyperlink{class_differential_evolution_a9d6308d2adbf252d80efd73a575a0f1a}{run\+S6\+\_\+\+D\+E\+\_\+best\+\_\+1\+\_\+bin}} (int function\+\_\+id)
-\item 
+\begin{DoxyCompactList}\small\item\em run the strategy 6 of differential evolution \end{DoxyCompactList}\item 
 Toutput \mbox{\hyperlink{class_differential_evolution_acb6dc0862c03291b5919b37024719a18}{run\+S9\+\_\+\+D\+E\+\_\+best\+\_\+2\+\_\+bin}} (int function\+\_\+id)
-\item 
+\begin{DoxyCompactList}\small\item\em run the strategy 9 of differential evolution \end{DoxyCompactList}\item 
 Toutput \mbox{\hyperlink{class_differential_evolution_a63c04db3f8627ab4a5a8800262d133cb}{run\+S8\+\_\+\+D\+E\+\_\+randbest\+\_\+1\+\_\+bin}} (int function\+\_\+id)
-\item 
+\begin{DoxyCompactList}\small\item\em run the strategy 8 of differential evolution \end{DoxyCompactList}\item 
 Toutput \mbox{\hyperlink{class_differential_evolution_a8c3aee647018f7ad8203e16f58dbd788}{run\+S1\+\_\+\+D\+E\+\_\+best\+\_\+1\+\_\+exp}} (int function\+\_\+id)
-\item 
+\begin{DoxyCompactList}\small\item\em run the strategy 1 of differential evolution \end{DoxyCompactList}\item 
 Toutput \mbox{\hyperlink{class_differential_evolution_ad5393df0aaf913910967b93b0d83bdc5}{run\+S2\+\_\+\+D\+E\+\_\+rand\+\_\+1\+\_\+exp}} (int function\+\_\+id)
-\item 
+\begin{DoxyCompactList}\small\item\em run the strategy 2 of differential evolution \end{DoxyCompactList}\item 
 Toutput \mbox{\hyperlink{class_differential_evolution_ac7ae87c115303936398c744256dea9ca}{run\+S3\+\_\+\+D\+E\+\_\+randbest\+\_\+1\+\_\+exp}} (int function\+\_\+id)
-\item 
+\begin{DoxyCompactList}\small\item\em run the strategy 3 of differential evolution \end{DoxyCompactList}\item 
 Toutput \mbox{\hyperlink{class_differential_evolution_a47087e37dfd214cc3053590c592cd34c}{run\+S4\+\_\+\+D\+E\+\_\+best\+\_\+2\+\_\+exp}} (int function\+\_\+id)
-\item 
+\begin{DoxyCompactList}\small\item\em run the strategy 4 of differential evolution \end{DoxyCompactList}\item 
 Toutput \mbox{\hyperlink{class_differential_evolution_a16d44a6e676ddc805b1437e343e120aa}{run\+S5\+\_\+\+D\+E\+\_\+rand\+\_\+2\+\_\+exp}} (int function\+\_\+id)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em run the strategy 5 of differential evolution \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -87,12 +92,25 @@ Chao Huang Lin (\href{mailto:chao.huanglin@cwu.edu}{\texttt{ chao.\+huanglin@cwu
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
 \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::\mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_e_input_parameter}{D\+E\+Input\+Parameter}}$<$ Tinput $>$}]{param }\end{DoxyParamCaption})}
 
+
+
+constructor of differential evolution class 
+
+print the parameters, and allocate memories 
+\begin{DoxyParams}{Parameters}
+{\em param} & ///$<$ input parameter of the differential evolution \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_differential_evolution_ac51c311f874464e7f8eb46fc844b9164}\label{class_differential_evolution_ac51c311f874464e7f8eb46fc844b9164}} 
 \index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!````~DifferentialEvolution@{$\sim$DifferentialEvolution}}
 \index{````~DifferentialEvolution@{$\sim$DifferentialEvolution}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
 \doxysubsubsection{\texorpdfstring{$\sim$DifferentialEvolution()}{~DifferentialEvolution()}}
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
 \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::$\sim$\mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}}
+
+
+
+destructor of differential evolution class 
 
 
 
@@ -140,10 +158,23 @@ the random vector positions r should satisfy the condition that they cannot repe
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
 Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S10\+\_\+\+D\+E\+\_\+rand\+\_\+2\+\_\+bin (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
 
+
+
+run the strategy 10 of differential evolution 
+
+
+\begin{DoxyParams}{Parameters}
+{\em function\+\_\+id} & ///$<$ id of the benchmarking function to be run \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
-% FIG 1
-Here is the caller graph for this function\+:
-% FIG 2
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_differential_evolution_afc8f3c7c6b6e52f89bcb794419093c62_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_differential_evolution_a8c3aee647018f7ad8203e16f58dbd788}\label{class_differential_evolution_a8c3aee647018f7ad8203e16f58dbd788}} 
 \index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS1\_DE\_best\_1\_exp@{runS1\_DE\_best\_1\_exp}}
 \index{runS1\_DE\_best\_1\_exp@{runS1\_DE\_best\_1\_exp}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
@@ -151,10 +182,23 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
 Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S1\+\_\+\+D\+E\+\_\+best\+\_\+1\+\_\+exp (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
 
+
+
+run the strategy 1 of differential evolution 
+
+
+\begin{DoxyParams}{Parameters}
+{\em function\+\_\+id} & ///$<$ id of the benchmarking function to be run \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
-% FIG 3
-Here is the caller graph for this function\+:
-% FIG 4
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_differential_evolution_a8c3aee647018f7ad8203e16f58dbd788_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_differential_evolution_ad5393df0aaf913910967b93b0d83bdc5}\label{class_differential_evolution_ad5393df0aaf913910967b93b0d83bdc5}} 
 \index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS2\_DE\_rand\_1\_exp@{runS2\_DE\_rand\_1\_exp}}
 \index{runS2\_DE\_rand\_1\_exp@{runS2\_DE\_rand\_1\_exp}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
@@ -162,10 +206,23 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
 Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S2\+\_\+\+D\+E\+\_\+rand\+\_\+1\+\_\+exp (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
 
+
+
+run the strategy 2 of differential evolution 
+
+
+\begin{DoxyParams}{Parameters}
+{\em function\+\_\+id} & ///$<$ id of the benchmarking function to be run \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
-% FIG 5
-Here is the caller graph for this function\+:
-% FIG 6
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_differential_evolution_ad5393df0aaf913910967b93b0d83bdc5_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_differential_evolution_ac7ae87c115303936398c744256dea9ca}\label{class_differential_evolution_ac7ae87c115303936398c744256dea9ca}} 
 \index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS3\_DE\_randbest\_1\_exp@{runS3\_DE\_randbest\_1\_exp}}
 \index{runS3\_DE\_randbest\_1\_exp@{runS3\_DE\_randbest\_1\_exp}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
@@ -173,10 +230,23 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
 Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S3\+\_\+\+D\+E\+\_\+randbest\+\_\+1\+\_\+exp (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
 
+
+
+run the strategy 3 of differential evolution 
+
+
+\begin{DoxyParams}{Parameters}
+{\em function\+\_\+id} & ///$<$ id of the benchmarking function to be run \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
-% FIG 7
-Here is the caller graph for this function\+:
-% FIG 8
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_differential_evolution_ac7ae87c115303936398c744256dea9ca_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_differential_evolution_a47087e37dfd214cc3053590c592cd34c}\label{class_differential_evolution_a47087e37dfd214cc3053590c592cd34c}} 
 \index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS4\_DE\_best\_2\_exp@{runS4\_DE\_best\_2\_exp}}
 \index{runS4\_DE\_best\_2\_exp@{runS4\_DE\_best\_2\_exp}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
@@ -184,10 +254,23 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
 Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S4\+\_\+\+D\+E\+\_\+best\+\_\+2\+\_\+exp (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
 
+
+
+run the strategy 4 of differential evolution 
+
+
+\begin{DoxyParams}{Parameters}
+{\em function\+\_\+id} & ///$<$ id of the benchmarking function to be run \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
-% FIG 9
-Here is the caller graph for this function\+:
-% FIG 10
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_differential_evolution_a47087e37dfd214cc3053590c592cd34c_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_differential_evolution_a16d44a6e676ddc805b1437e343e120aa}\label{class_differential_evolution_a16d44a6e676ddc805b1437e343e120aa}} 
 \index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS5\_DE\_rand\_2\_exp@{runS5\_DE\_rand\_2\_exp}}
 \index{runS5\_DE\_rand\_2\_exp@{runS5\_DE\_rand\_2\_exp}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
@@ -195,10 +278,23 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
 Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S5\+\_\+\+D\+E\+\_\+rand\+\_\+2\+\_\+exp (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
 
+
+
+run the strategy 5 of differential evolution 
+
+
+\begin{DoxyParams}{Parameters}
+{\em function\+\_\+id} & ///$<$ id of the benchmarking function to be run \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
-% FIG 11
-Here is the caller graph for this function\+:
-% FIG 12
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_differential_evolution_a16d44a6e676ddc805b1437e343e120aa_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_differential_evolution_a9d6308d2adbf252d80efd73a575a0f1a}\label{class_differential_evolution_a9d6308d2adbf252d80efd73a575a0f1a}} 
 \index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS6\_DE\_best\_1\_bin@{runS6\_DE\_best\_1\_bin}}
 \index{runS6\_DE\_best\_1\_bin@{runS6\_DE\_best\_1\_bin}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
@@ -206,10 +302,23 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
 Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S6\+\_\+\+D\+E\+\_\+best\+\_\+1\+\_\+bin (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
 
+
+
+run the strategy 6 of differential evolution 
+
+
+\begin{DoxyParams}{Parameters}
+{\em function\+\_\+id} & ///$<$ id of the benchmarking function to be run \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
-% FIG 13
-Here is the caller graph for this function\+:
-% FIG 14
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_differential_evolution_a9d6308d2adbf252d80efd73a575a0f1a_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_differential_evolution_aa602b3bc4d6c6c0086703a97fae3ae80}\label{class_differential_evolution_aa602b3bc4d6c6c0086703a97fae3ae80}} 
 \index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS7\_DE\_rand\_1\_bin@{runS7\_DE\_rand\_1\_bin}}
 \index{runS7\_DE\_rand\_1\_bin@{runS7\_DE\_rand\_1\_bin}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
@@ -217,10 +326,23 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
 Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S7\+\_\+\+D\+E\+\_\+rand\+\_\+1\+\_\+bin (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
 
+
+
+run the strategy 7 of differential evolution 
+
+
+\begin{DoxyParams}{Parameters}
+{\em function\+\_\+id} & ///$<$ id of the benchmarking function to be run \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
-% FIG 15
-Here is the caller graph for this function\+:
-% FIG 16
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_differential_evolution_aa602b3bc4d6c6c0086703a97fae3ae80_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_differential_evolution_a63c04db3f8627ab4a5a8800262d133cb}\label{class_differential_evolution_a63c04db3f8627ab4a5a8800262d133cb}} 
 \index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS8\_DE\_randbest\_1\_bin@{runS8\_DE\_randbest\_1\_bin}}
 \index{runS8\_DE\_randbest\_1\_bin@{runS8\_DE\_randbest\_1\_bin}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
@@ -228,10 +350,23 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
 Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S8\+\_\+\+D\+E\+\_\+randbest\+\_\+1\+\_\+bin (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
 
+
+
+run the strategy 8 of differential evolution 
+
+
+\begin{DoxyParams}{Parameters}
+{\em function\+\_\+id} & ///$<$ id of the benchmarking function to be run \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
-% FIG 17
-Here is the caller graph for this function\+:
-% FIG 18
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_differential_evolution_a63c04db3f8627ab4a5a8800262d133cb_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_differential_evolution_acb6dc0862c03291b5919b37024719a18}\label{class_differential_evolution_acb6dc0862c03291b5919b37024719a18}} 
 \index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!runS9\_DE\_best\_2\_bin@{runS9\_DE\_best\_2\_bin}}
 \index{runS9\_DE\_best\_2\_bin@{runS9\_DE\_best\_2\_bin}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}
@@ -239,10 +374,23 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily template$<$class Tinput , class Toutput $>$ \\
 Toutput \mbox{\hyperlink{class_differential_evolution}{Differential\+Evolution}}$<$ Tinput, Toutput $>$\+::run\+S9\+\_\+\+D\+E\+\_\+best\+\_\+2\+\_\+bin (\begin{DoxyParamCaption}\item[{int}]{function\+\_\+id }\end{DoxyParamCaption})}
 
+
+
+run the strategy 9 of differential evolution 
+
+
+\begin{DoxyParams}{Parameters}
+{\em function\+\_\+id} & ///$<$ id of the benchmarking function to be run \\
+\hline
+\end{DoxyParams}
 Here is the call graph for this function\+:
-% FIG 19
-Here is the caller graph for this function\+:
-% FIG 20
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_differential_evolution_acb6dc0862c03291b5919b37024719a18_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_differential_evolution_a7ae6283023f601b757f6ed8a805c2537}\label{class_differential_evolution_a7ae6283023f601b757f6ed8a805c2537}} 
 \index{DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}!saveResult@{saveResult}}
 \index{saveResult@{saveResult}!DifferentialEvolution$<$ Tinput, Toutput $>$@{DifferentialEvolution$<$ Tinput, Toutput $>$}}

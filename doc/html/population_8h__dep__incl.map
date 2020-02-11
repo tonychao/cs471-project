@@ -1,11 +1,13 @@
 <map id="population.h" name="population.h">
-<area shape="rect" id="node1" title=" " alt="" coords="213,5,305,32"/>
-<area shape="rect" id="node2" href="$population_8cpp.html" title=" " alt="" coords="152,80,259,107"/>
-<area shape="rect" id="node7" href="$main_8cpp.html" title=" " alt="" coords="196,528,271,555"/>
-<area shape="rect" id="node3" href="$population__benchmark_8h.html" title=" " alt="" coords="108,155,271,181"/>
-<area shape="rect" id="node4" href="$population__benchmark_8cpp.html" title=" " alt="" coords="97,229,274,256"/>
-<area shape="rect" id="node5" href="$differential__evolution_8h.html" title=" " alt="" coords="111,304,259,331"/>
+<area shape="rect" id="node1" title=" " alt="" coords="321,5,413,32"/>
+<area shape="rect" id="node2" href="$population_8cpp.html" title=" " alt="" coords="261,80,368,107"/>
+<area shape="rect" id="node7" href="$main_8cpp.html" title=" " alt="" coords="235,528,309,555"/>
+<area shape="rect" id="node3" href="$population__benchmark_8h.html" title=" " alt="" coords="219,155,381,181"/>
+<area shape="rect" id="node4" href="$population__benchmark_8cpp.html" title=" " alt="" coords="69,229,246,256"/>
+<area shape="rect" id="node10" href="$genetic__algorithm_8h.html" title=" " alt="" coords="237,304,371,331"/>
+<area shape="rect" id="node5" href="$differential__evolution_8h.html" title=" " alt="" coords="65,304,213,331"/>
 <area shape="rect" id="node6" href="$differential__evolution_8cpp.html" title=" " alt="" coords="5,453,168,480"/>
-<area shape="rect" id="node8" href="$runner_8h.html" title=" " alt="" coords="175,379,244,405"/>
+<area shape="rect" id="node8" href="$runner_8h.html" title=" " alt="" coords="139,379,208,405"/>
 <area shape="rect" id="node9" href="$runner_8cpp.html" title=" " alt="" coords="192,453,275,480"/>
+<area shape="rect" id="node11" href="$genetic__algorithm_8cpp.html" title=" " alt="" coords="232,379,381,405"/>
 </map>

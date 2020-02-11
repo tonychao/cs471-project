@@ -1,21 +1,33 @@
 \hypertarget{util_8h}{}\doxysection{util.\+h File Reference}
 \label{util_8h}\index{util.h@{util.h}}
-{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 Include dependency graph for util.\+h\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{util_8h__incl}
+\end{center}
+\end{figure}
 This graph shows which files directly or indirectly include this file\+:
-% FIG 1
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_clock}{Clock}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em register the C\+PU processing time this class use the clock function to calculate the C\+PU processing time \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{util_8h_a9198decc51a9b6f5dce841bd629c53bb}{print\+Array}} (T $\ast$array, int n, char separator)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em template function to print array of any type \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -26,5 +38,27 @@ class \mbox{\hyperlink{class_clock}{Clock}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 void print\+Array (\begin{DoxyParamCaption}\item[{T $\ast$}]{array,  }\item[{int}]{n,  }\item[{char}]{separator }\end{DoxyParamCaption})}
 
+
+
+template function to print array of any type 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & pointer of input array \\
+\hline
+{\em n} & size of the input array \\
+\hline
+{\em separator} & separator char between each element of the array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyDate}{Date}
+2020-\/02-\/11 
+\end{DoxyDate}
 Here is the caller graph for this function\+:
-% FIG 2
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{util_8h_a9198decc51a9b6f5dce841bd629c53bb_icgraph}
+\end{center}
+\end{figure}

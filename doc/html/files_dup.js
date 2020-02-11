@@ -16,9 +16,7 @@ var files_dup =
       [ "GAInputParameter", "struct_g_a_input_parameter.html", "struct_g_a_input_parameter" ],
       [ "Bounds", "struct_g_a_input_parameter_1_1_bounds.html", "struct_g_a_input_parameter_1_1_bounds" ],
       [ "Mutation", "struct_g_a_input_parameter_1_1_mutation.html", "struct_g_a_input_parameter_1_1_mutation" ],
-      [ "GeneticAlgorithm", "class_genetic_algorithm.html", "class_genetic_algorithm" ],
-      [ "doCompare", "struct_genetic_algorithm_1_1do_compare.html", "struct_genetic_algorithm_1_1do_compare" ],
-      [ "doCompareNewPop", "struct_genetic_algorithm_1_1do_compare_new_pop.html", "struct_genetic_algorithm_1_1do_compare_new_pop" ]
+      [ "GeneticAlgorithm", "class_genetic_algorithm.html", "class_genetic_algorithm" ]
     ] ],
     [ "main.cpp", "main_8cpp.html", "main_8cpp" ],
     [ "population.cpp", "population_8cpp.html", null ],

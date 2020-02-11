@@ -16,6 +16,7 @@
 /// Struct to where all the GA parameters are stored
 /// @author Chao Huang Lin (chao.huanglin@cwu.edu)
 /// @date 2020-02-01
+///
 template <class Tinput>
 struct GAInputParameter
 {
@@ -51,32 +52,29 @@ struct GAInputParameter
 /// Genetic Algorithms (GA) are the heuristic search and optimization techniques that mimic the process of natural evolution.  
 /// @author Chao Huang Lin (chao.huanglin@cwu.edu)
 /// @date 2020-02-01
+///
 template <class Tinput, class Toutput>
 class GeneticAlgorithm
 {
     private:
 
-    PopulationBenchmark<Tinput, Toutput> *population;
-    PopulationBenchmark<Tinput, Toutput> *new_population;
-    GAInputParameter<Tinput> parameters;
-    void saveResult(Toutput best_cost, Tinput *best_individuo, std::string result_file);
-    void select(Tinput* parent1, Tinput* parent2); ///< select 2 parents by roulette wheel selection
-    void selectParent(Tinput* parent); ///< select 1 parent
+    PopulationBenchmark<Tinput, Toutput> *population; ///< pointer of population
+    PopulationBenchmark<Tinput, Toutput> *new_population; ///< pointer of new population
+    GAInputParameter<Tinput> parameters; ///< parameters for genetic algorithm
     MersenneTwister ms_random_generator; ///< mersenne twister random generator
-    void crossover(Tinput* parent1, Tinput* parent2, double cr); ///< crossover
+
+    void saveResult(Toutput best_cost, Tinput *best_individuo, std::string result_file);
+    void select(Tinput* parent1, Tinput* parent2); 
+    void selectParent(Tinput* parent); 
+    void crossover(Tinput* parent1, Tinput* parent2, double cr); 
     void reduce(int elite_sn, Toutput& best_cost, Tinput* best_individuo);
     void mutate(Tinput* individuo); 
     void keepInRange(Tinput& element);
     
     public:
 
-    /// @brief constructor of the class GeneticAlgorithm
-    /// 
-	/// @param parameters configuration parameters for GA
     GeneticAlgorithm( GAInputParameter<Tinput> parameters);
     ~GeneticAlgorithm();
-    /// @brief Find the best individuo of the population
-    /// @return return the best cost (evaluate the function)
     Toutput findBestSolution(int function_id, Tinput range_low, Tinput range_high);
 
     
