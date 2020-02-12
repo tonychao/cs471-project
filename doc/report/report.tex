@@ -133,100 +133,20 @@
     There many strategies of DE, in this project 10 different strategies will be tested.
      
 
-    \section{Computer Specification}
-     
-    For this Lab, we used a Microsoft Surface Pro 3 which has the following specification: Core i7-4650U CPU 1.7GHz 2.3GHz with 8 GB of RAM.
-    
-    The C++ codes have been run on docker where 2 CPUs and 2GB of RAM was assigned. The Docker image was from professor Szilard "szilardvajda/ubuntu\_cs470"
-    
+
     
     \section{Method}
     
-    The GA and DE algorithms are coded using C++ object oriented programming, 
+    The GA and DE algorithms are coded using C++ object oriented programming. Additionally,
+    python script with jupyter notebook is implemented read the configuration parameters and call the C++ executable, then it collects the result and displays it in table and figures.
     
-    python code to run and display result in table and figures.
-    
-    
-    50 runs of each algorithms, the population size is 200, and the generations or iterations is 100, number of dimensions is 30.
-    \begin{lstlisting}[language=c++, caption={matrix\_double\_pointer class}, label={list:mdp}]
+    The obtained results are from 50 runs of each algorithms, the population size = 200, and the generations or iterations = 100, number of dimensions = 30.
 
-class matrix_double_pointer
-{
-int m; // mxm matrix
-long double **matrix;
+The computer used to run the project has the following specification: Intel Core i7-9750H 2.6GHZ with 16 GB of RAM
 
-public:
-matrix_double_pointer(int m); // constructor
-matrix_double_pointer(const matrix_double_pointer& a); // copy constructor for return
-~matrix_double_pointer(); //destructor
-void init_identity(); //init identity matrix
-void init(long double x); //init matrix all with x
-void init_rand(); //init matrix with pseudo random 
-void print_values();
-void print_memory_address();
-matrix_double_pointer operator* (const matrix_double_pointer& a);
-matrix_double_pointer operator^ (int n);
-matrix_double_pointer& operator= (const matrix_double_pointer& a); // assigment
-long double** get_matrix();
-};
-    
-    \end{lstlisting}
-    To implement classes that work with pointers, we must take some special consideration \cite{class.pointer}. These classes should have:
-    \begin{itemize}
-        \item a destructor (to delete the allocated memory).
-        \item a copy constructor (to copy the object when is returned, passed as parameter or initialization from another object of the same class). 
-        \item an overloaded operator = (to assign or copy the data to another object).  
-    \end{itemize}
-     
-From listing \ref{list:mdp} and \ref{list:mll} we can observe that all these 3 member functions are implemented. In addition, we have overload the operator $\wedge$ to get the matrix power in a more intuitive way. 
+  
       
     
-    %http://pages.cs.wisc.edu/~hasti/cs368/CppTutorial/NOTES/CLASSES-PTRS.html
-    \begin{lstlisting}[language=c++, caption={matrix\_linked\_list class}, label={list:mll}]    
-    struct node
-    {
-        long double data;
-        int j;
-        node *right;
-    };
-    struct head_node
-    {
-        long double data;
-        int i;
-        int j;
-        node *right;
-        head_node *down_head_node;
-    };
-    
-    class matrix_linked_list
-    {
-        int m; // mxm matrix
-        head_node *main_head_node;
-        head_node *current_head_node; //for get_value_loop_opt()
-        node *current_node; //for get_value_loop_opt()
-        head_node *current_head_node_add; // add_value_loop_opt()
-        node *current_node_add; // for add_value_loop_opt()
-        
-        void start_using_get_value_loop_opt();
-        long double get_value_loop_opt(int i, int j); // optimized version of get_value (make the loop faster using temp node address)
-        void add_value_loop_opt(long double value, int i, int j); // // optimized version of add_value (make the loop faster using temp node address)
-        
-        public:
-        matrix_linked_list(); // constructor 
-        matrix_linked_list(int m); // constructor 
-        matrix_linked_list(const matrix_linked_list& a); // copy constructor for return
-        ~matrix_linked_list(); //destructor
-        void load(long double **matrix, int m); // receive square matrix and size mxm
-        void delete_all_node();
-        void print_values();
-        void print_values_ij();  //print the data and also print i,j 
-        void set_main_head_node(head_node *main_head_node);
-        long double get_value(int i, int j);
-        void add_value(long double value, int i, int j); // add value to the existing i,j if not -> create new node
-        matrix_linked_list operator^ (int n);
-        matrix_linked_list& operator= (const matrix_linked_list& a); // assigment
-    };
-\end{lstlisting}    
 
 
 
@@ -239,16 +159,51 @@ During the development of this project there were many problems that need to be 
 	\item The project has been run in single processor mode and parallel multiprocessor mode. The results presented in this document are only from single processor mode since there was some problem with CPU clock time in parallel mode. According to \cite{clock} the clock() function in C++ measures the CPU time used by the entire program so other processes or threads that  are not part of the algorithm that need measurement also get counted. (This problem might be caused by Python subprocess package) 
 	\item Some DE algorithms did not converge, the cost was very high. This is caused by the parameters which are not calibrated, to solve this problem, the parameters of different algorithm of Differential Evolution had been calibrated manually one by one.
 	
-	the calibrated parameters are:
-	
+	The calibrated DE parameters are:
+\begin{table}[H]	
+\centering
+\small 
+\begin{tabular}{lccc}
+
+\hline
+DE strategies & crossover rate& scaling factor F& scaling factor lambda\\
+\hline 
+DE\_best\_1\_exp & 0.8 &	0.3&	- \\
+DE\_rand\_1\_exp& 0.9&	0.1&	- \\
+DE\_randbest\_1\_exp& 0.9&	0.4&	0.4 \\
+DE\_best\_2\_exp& 0.9&	0.25&	- \\
+DE\_rand\_2\_exp& 0.9&	0.05&	- \\
+DE\_best\_1\_bin& 0.6&	0.5&	- \\
+DE\_rand\_1\_bin& 0.8&	0.2&	- \\
+DE\_randbest\_1\_bin& 0.7&	0.5&	0.5\\
+DE\_best\_2\_bin& 0.8&	0.4&	- \\
+DE\_rand\_2\_bin& 0.7&	0.1&	- \\
+\hline 
+\end{tabular} 
+\caption{Configuration parameters of DE obtained by manual tuning} 
+\end{table}
+
+
+
+The calibrated GA parameters are:
+\begin{table}[H]	
+\centering
+\footnotesize
+\begin{tabular}{cccccc}
+
+\hline
+crossover rate&	mutation rate&	mutation value range&	 mutation precision&	 elitism rate\\
+\hline
+
+0.9&	0.05&	0.1&	1&	0.3&\\
+
+\hline 
+\end{tabular} 
+
+\caption{Configuration parameters of GA obtained by manual tuning} 
+\end{table}
 
 \end{enumerate}
-
-
-
-
-
-
 
 
 \section{Results}
@@ -1082,9 +1037,10 @@ The table \ref{tab:summary} shows a summary of the mean cost obtained by each al
 The previous results show that both GA and DE are good, almost half of the lowest cost are found by GA and another half by DE. Regarding to the running time it can be noticed that in general the GA are slower than DE since in GA it is necessary to do two sorting in each iteration that makes it more time consuming. Additionally the figures show that in general binomial crossover version of DE are slower than the exponential crossover.
 
     \section{Conclusion}
-    In this project two optimization algorithms have been implemented and tested, they are Genetic Algorithm and Differential Evolution Algorithm. From the testing results it can be observed there is not an absolute winner, GA are better with some functions, and DE with others. The CPU running time of both algorithms are similar. However, some versions of DE are faster than GA but those versions did not find the lowest cost.  Regarding to the testing, 
-   To be able to compare the performance between different algorithms we need to assume that tuning manually it has achieve the best parameters
-    the converge
+    In this project two optimization algorithms have been implemented and tested, they are Genetic Algorithm and Differential Evolution Algorithm. From the testing results it can be observed there is not an absolute winner, GA are better with some functions, and DE with others. The CPU running time of both algorithms are similar. However, some versions of DE are faster than GA but those versions did not find the lowest cost.  
+ 
+   To be able to compare the performance between different algorithms we assumed that the manual tuning of the configuration parameters of GA and DE achieved the its best value. Additionally, we believe that the comparison are only valid for the mentioned configuration, running the algorithm with another parameters might produce different result.
+  
     \bibliographystyle{unsrt}
     \bibliography{references}
     

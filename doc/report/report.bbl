@@ -1,11 +1,5 @@
 \begin{thebibliography}{1}
 
-\bibitem{class.pointer}
-Classes with pointer data members.
-\newblock
-  \url{http://pages.cs.wisc.edu/~hasti/cs368/CppTutorial/NOTES/CLASSES-PTRS.html}.
-\newblock Accessed: 2019-04-08.
-
 \bibitem{clock}
 Measuring cpi time in c.
 \newblock
