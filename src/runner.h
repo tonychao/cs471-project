@@ -8,6 +8,7 @@
 #include "functions1.h"
 #include "genetic_algorithm.h"
 #include "differential_evolution.h"
+#include "particle_swarm.h"
 #include <string>
 #include "../lib/mt19937ar_class.h"
 #include "debug.h"
@@ -17,11 +18,12 @@
 #include "util.h" //clock
 
 
-/// @brief  Template class which generates random sample of different dimensions and run a specific benchmark function
+/// @brief  Template class which runs different optimization algorithm, and save the statistics analysis in files
 ///
+/// this class is also incharge of reading parameters of different optimization algorithms
 /// @author Chao Huang Lin (chao.huanglin@cwu.edu)
 /// @date 2020-01-31
-
+///
 template <class Tinput, class Toutput>
 class Runner
 {
@@ -57,12 +59,15 @@ class Runner
     // to do: create instance of each optimization algorithm that will be run
     // create read configuration parameter for each optimization algorithm
     GeneticAlgorithm<Tinput, Toutput> *genetic_algorithm;
+    DifferentialEvolution<Tinput, Toutput> *diff_evo;
+    ParticleSwarm<Tinput, Toutput> *psa_algorithm;
     GAInputParameter<Tinput> ga_parameters;
     DEInputParameter<Tinput> de_parameters;
-    DifferentialEvolution<Tinput, Toutput> *diff_evo;
+    PSAInputParameter<Tinput> psa_parameters;
+    
     void fillGAParameterFromFile(std::string config_filename); //param = address of the configuration struct
     void fillDEParameterFromFile(std::string config_filename); //param = address of the configuration struct
-
+    void fillPSAParameterFromFile(std::string config_filename); //param = address of the configuration struct
     public:
     
     /// @brief constructor of the class Runner

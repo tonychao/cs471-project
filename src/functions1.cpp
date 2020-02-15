@@ -119,7 +119,7 @@ Toutput Functions1<Tinput,Toutput>::f4Rastrigin(Tinput* data, int dimension)
 		result += (data[i] * data[i] - 10.0 * cos(2.0 * M_PI * data[i]));
 	}
 
-	result = 10.0 * dimension * result;
+	result = 10.0 * dimension + result;
 
 	return result;
 }

@@ -44,7 +44,7 @@ DifferentialEvolution<Tinput, Toutput>::~DifferentialEvolution()
         delete new_pop;
 
     if(best_cost)
-        delete best_cost;
+        delete[] best_cost;
 }
 
 /// @brief generate random vector position r used to create trail vectors

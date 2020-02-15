@@ -1,19 +1,13 @@
 
 #include <iostream>
 #include <string> //stoi
-//#include "functions1.h"
 #include "functions1.cpp"  //it contains template class
-
-//#include "runner.h"
 #include "runner.cpp" //it contains template class
-
-//#include "genetic_algorithm.h"
 #include "genetic_algorithm.cpp" // contains template class
-
-#include "population.h"
+#include "population_benchmark.cpp" // contains template class
 #include "debug.h"
-//#include "differential_evolution.h"
 #include "differential_evolution.cpp" // contains template class
+#include "particle_swarm.cpp" //contains template class
 
 /// @brief  Project 3, Genetic Algorithm (GA) and Differential Evolution (DE) 
 ///

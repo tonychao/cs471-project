@@ -1,0 +1,44 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Introduction}{3}%
+\contentsline {section}{\numberline {2}Method}{3}%
+\contentsline {section}{\numberline {3}Important Notes}{3}%
+\contentsline {section}{\numberline {4}Results}{4}%
+\contentsline {subsection}{\numberline {4.1}Function 1: Schwefel}{5}%
+\contentsline {subsection}{\numberline {4.2}Function 2: De Jong 1}{6}%
+\contentsline {subsection}{\numberline {4.3}Function 3: Rosenbrok's Saddle}{7}%
+\contentsline {subsection}{\numberline {4.4}Function 4: Rastrigin}{8}%
+\contentsline {subsection}{\numberline {4.5}Function 5: Griewangk}{9}%
+\contentsline {subsection}{\numberline {4.6}Function 6: Sine Envelope Sine Wave}{10}%
+\contentsline {subsection}{\numberline {4.7}Function 7: Stretch V Sine Wave}{11}%
+\contentsline {subsection}{\numberline {4.8}Function 8: Ackley One}{12}%
+\contentsline {subsection}{\numberline {4.9}Function 9: Ackley Two}{13}%
+\contentsline {subsection}{\numberline {4.10}Function 10: Egg Holder}{14}%
+\contentsline {subsection}{\numberline {4.11}Function 11: Rana}{15}%
+\contentsline {subsection}{\numberline {4.12}Function 12: Pathological}{16}%
+\contentsline {subsection}{\numberline {4.13}Function 13: Michalewicz}{17}%
+\contentsline {subsection}{\numberline {4.14}Function 14: Masters' Cosine Wave}{18}%
+\contentsline {subsection}{\numberline {4.15}Function 15: Quartic}{19}%
+\contentsline {subsection}{\numberline {4.16}Function 16: Levy}{20}%
+\contentsline {subsection}{\numberline {4.17}Function 17: Step}{21}%
+\contentsline {subsection}{\numberline {4.18}Function 18: Alphine}{22}%
+\contentsline {subsection}{\numberline {4.19}Function 1: Schwefel}{23}%
+\contentsline {subsection}{\numberline {4.20}Function 2: De Jong 1}{24}%
+\contentsline {subsection}{\numberline {4.21}Function 3: Rosenbrock's Saddle}{25}%
+\contentsline {subsection}{\numberline {4.22}Function 4: Rastrigin}{26}%
+\contentsline {subsection}{\numberline {4.23}Function 5: Griewangk}{27}%
+\contentsline {subsection}{\numberline {4.24}Function 6: Sine Envelope Sine Wave}{28}%
+\contentsline {subsection}{\numberline {4.25}Function 7: Stretch V Sine Wave}{29}%
+\contentsline {subsection}{\numberline {4.26}Function 8: Ackley One}{30}%
+\contentsline {subsection}{\numberline {4.27}Function 9: Ackley Two}{31}%
+\contentsline {subsection}{\numberline {4.28}Function 10: Egg Holder}{32}%
+\contentsline {subsection}{\numberline {4.29}Function 11: Rana}{33}%
+\contentsline {subsection}{\numberline {4.30}Function 12: Pathological}{34}%
+\contentsline {subsection}{\numberline {4.31}Function 13: Michalewicz}{35}%
+\contentsline {subsection}{\numberline {4.32}Function 14: Masters' Cosine Wave}{36}%
+\contentsline {subsection}{\numberline {4.33}Function 15: Quartic}{37}%
+\contentsline {subsection}{\numberline {4.34}Function 16: Levy}{38}%
+\contentsline {subsection}{\numberline {4.35}Function 17: Step}{39}%
+\contentsline {subsection}{\numberline {4.36}Function 18: Alphine}{40}%
+\contentsline {subsection}{\numberline {4.37}Summary}{41}%
+\contentsline {section}{\numberline {5}Discussion}{42}%
+\contentsline {section}{\numberline {6}Conclusion}{42}%

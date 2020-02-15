@@ -210,3 +210,34 @@ void PopulationBenchmark<Tinput, Toutput>::swap(PopulationBenchmark& A, Populati
     } 
 
 }
+
+template <class Tinput, class Toutput>
+Toutput  PopulationBenchmark<Tinput, Toutput>::getTotalFitness()
+{
+    return total_fitness;
+}
+
+template <class Tinput, class Toutput>
+Toutput PopulationBenchmark<Tinput, Toutput>::getFitness(int i)
+{
+    return fitness[i];
+}
+
+template <class Tinput, class Toutput>
+int PopulationBenchmark<Tinput, Toutput>::getAscIndex(int i)
+{
+    return asc_index[i];
+}
+
+template <class Tinput, class Toutput>
+void PopulationBenchmark<Tinput, Toutput>::printFitness()
+{
+    std::cout<<"--- fitness ---"<<std::endl;
+    printArray<Toutput>(fitness, this->n_items, '\n');
+}
+
+template <class Tinput, class Toutput>
+Toutput PopulationBenchmark<Tinput, Toutput>::getCost(int i)
+{
+    return cost[i];
+}

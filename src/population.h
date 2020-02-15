@@ -8,7 +8,7 @@
 
 /// @brief Template Population Class
 ///
-/// The population class in used to store the population which is useful for GA and DE
+/// The population class in used to store the population which is for different population based optimization algorithms
 /// @author Chao Huang Lin (chao.huanglin@cwu.edu)
 /// @date 2020-02-11
 ///
