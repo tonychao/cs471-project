@@ -9,6 +9,7 @@
 #include "genetic_algorithm.h"
 #include "differential_evolution.h"
 #include "particle_swarm.h"
+#include "sine_cosine_algorithm.h"
 #include <string>
 #include "../lib/mt19937ar_class.h"
 #include "debug.h"
@@ -61,13 +62,17 @@ class Runner
     GeneticAlgorithm<Tinput, Toutput> *genetic_algorithm;
     DifferentialEvolution<Tinput, Toutput> *diff_evo;
     ParticleSwarm<Tinput, Toutput> *psa_algorithm;
+    SineCosineAlgorithm<Tinput, Toutput> *sca_algorithm;
     GAInputParameter<Tinput> ga_parameters;
     DEInputParameter<Tinput> de_parameters;
     PSAInputParameter<Tinput> psa_parameters;
+    SCAInputParameter<Tinput> sca_parameters;
+    
     
     void fillGAParameterFromFile(std::string config_filename); //param = address of the configuration struct
     void fillDEParameterFromFile(std::string config_filename); //param = address of the configuration struct
     void fillPSAParameterFromFile(std::string config_filename); //param = address of the configuration struct
+    void fillSCAParameterFromFile(std::string config_filename); //param = address of the configuration struct
     public:
     
     /// @brief constructor of the class Runner

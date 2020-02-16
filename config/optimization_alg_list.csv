@@ -11,3 +11,4 @@ Id, Algorithm name, config file
 4,DE_best_2_exp,../config/optimization_alg_conf/de4_config.csv
 5,DE_rand_2_exp,../config/optimization_alg_conf/de5_config.csv
 11,PSA,../config/optimization_alg_conf/psa_config.csv
+12,SCA,../config/optimization_alg_conf/sca_config.csv

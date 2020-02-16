@@ -283,6 +283,32 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
             delete psa_algorithm;
         }
         break;
+
+        case 12:
+        {
+            fillSCAParameterFromFile(config_file); 
+            sca_parameters.bounds.l = range_low; 
+            sca_parameters.bounds.u = range_high;
+            sca_parameters.dim = this->dimensions;
+
+            sca_algorithm = new SineCosineAlgorithm<Tinput, Toutput>(sca_parameters);
+        
+            debug(sca_algorithm->printInputPopulation());
+            
+            clk.tic();
+            for (int i = 0; i < n_runs; i++)
+            {
+                solutions[i] = sca_algorithm->run(function_id);
+                //std::cout<<"best solution: " << best_solution<<std::endl;
+            }
+            
+            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+            saveStatistic();
+
+            delete sca_algorithm;
+        }
+        break;
+
     }
 
 
@@ -440,6 +466,58 @@ void Runner<Tinput,Toutput>::fillPSAParameterFromFile(std::string config_filenam
             psa_parameters.c2 = std::stod(row[2]);
             psa_parameters.w = std::stod(row[3]);
             psa_parameters.pop_size = std::stod(row[4]);
+            break; 
+        } 
+        
+    } 
+   
+    if(count!=2)
+        std::cout <<config_filename<< " config file not found\n"; 
+
+    fin.close();
+    
+}
+
+
+template <class Tinput, class Toutput>
+void Runner<Tinput,Toutput>::fillSCAParameterFromFile(std::string config_filename)
+{
+    // File pointer 
+    std::fstream fin; 
+
+    // Open an existing file 
+    fin.open(config_filename, std::ios::in); 
+    int count = 0; 
+    // Read the Data from the file 
+    // as String Vector 
+    std::vector<std::string> row; 
+    std::string line, word, temp; 
+
+    while (fin) { 
+        count++;
+        row.clear(); 
+        // read an entire row and 
+        // store it in a string variable 'line' 
+        std::getline(fin, line); 
+
+        // used for breaking words 
+        std::stringstream s(line); 
+        
+        // read every column data of a row and 
+        // store it in a string variable, 'word' 
+        
+        while (std::getline(s, word, ',')) { 
+            // add all the column data 
+            // of a row to a vector 
+            row.push_back(word); 
+        } 
+        
+        // Compare the roll number 
+        if (count==2) { 
+            sca_parameters.t_max = std::stoi(row[0]); 
+            sca_parameters.a = std::stod(row[1]); 
+            sca_parameters.r3 = std::stod(row[2]);
+            sca_parameters.pop_size = std::stod(row[3]);
             break; 
         } 
         

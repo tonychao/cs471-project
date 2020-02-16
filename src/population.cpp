@@ -90,6 +90,17 @@ void Population<Tinput, Toutput>::setData(Tinput *item, int i)
     }
 }
 
+
+template <class Tinput, class Toutput>
+void Population<Tinput, Toutput>::setData(Tinput data_j, int i, int j)
+{
+
+    data[i][j] = data_j;
+    
+}
+
+
+
 template <class Tinput, class Toutput>
 void Population<Tinput, Toutput>::swap(Population& A, Population& B)
 {

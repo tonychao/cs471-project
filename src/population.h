@@ -31,6 +31,7 @@ class Population
     Tinput getData(int i, int j);
     Tinput* getData(int i);
     void setData(Tinput *item, int i);
+    void setData(Tinput data_j, int i, int j);
     static void swap(Population& A, Population& B);
 
 };
