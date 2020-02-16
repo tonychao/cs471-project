@@ -438,7 +438,8 @@ void Runner<Tinput,Toutput>::fillPSAParameterFromFile(std::string config_filenam
             psa_parameters.t_max = std::stoi(row[0]); 
             psa_parameters.c1 = std::stod(row[1]); 
             psa_parameters.c2 = std::stod(row[2]);
-            psa_parameters.pop_size = std::stod(row[3]);
+            psa_parameters.w = std::stod(row[3]);
+            psa_parameters.pop_size = std::stod(row[4]);
             break; 
         } 
         

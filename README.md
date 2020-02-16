@@ -6,10 +6,10 @@
 g++ (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 8.1.0
 C++14
 
-compile release version
+compile release version: 
 g++ .\src\*.cpp .\lib\*.cpp -o .\bin\release\project.exe
 
-compile debug version
+compile debug version: 
 g++ -g .\src\*.cpp .\lib\*.cpp -o .\bin\release\project.exe
 
 ## Compiler in Linux

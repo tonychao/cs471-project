@@ -24,6 +24,7 @@ struct PSAInputParameter
 
     double c1; ///< config parameter c1
     double c2; ///< config parameter c2
+    double w; ///< config parameter weight for vel
     
 };
 
@@ -81,7 +82,7 @@ class ParticleSwarm
             Tinput pj = population->getData(i,j);
             Tinput p_best = param.c1*ms_random.genrand_real_range(0,1)*(particle_best_data[i][j] - pj);
             Tinput g_best = param.c2*ms_random.genrand_real_range(0,1)*(global_best_data[j] - pj);
-            particle_vel[i][j] += p_best + g_best;
+            particle_vel[i][j] = param.w*particle_vel[i][j] + p_best + g_best;
 
             new_particle[j] = pj + particle_vel[i][j]; 
             keepInRange(new_particle[j]);
@@ -150,6 +151,8 @@ class ParticleSwarm
         std::cout << "dimension: " << param.dim << std::endl;
         std::cout << "c1: " << param.c1 << std::endl;
         std::cout << "c2: " << param.c2 << std::endl;
+        std::cout << "w: " << param.w << std::endl;
+        
 
         //allocate memory for population
         population = new PopulationBenchmark<Tinput, Toutput>(param.pop_size, param.dim);
