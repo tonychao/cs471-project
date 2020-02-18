@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.12.2)  14 FEB 2020 20:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.12.2)  17 FEB 2020 15:45
 entering extended mode
 **./report.tex
 (report.tex
@@ -840,59 +840,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen287
 \Gm@dimlist=\toks49
 
-("C:\Program Files\MiKTeX 2.9\tex/latex/geometry\geometry.cfg")) (report.aux
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-
-LaTeX Warning: Label `fig:opt' multiply defined.
-
-)
+("C:\Program Files\MiKTeX 2.9\tex/latex/geometry\geometry.cfg")) (report.aux)
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
@@ -909,7 +857,8 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
 LaTeX Font Info:    ... okay on input line 52.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 5
 2.
- ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ot1lmr.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/ucs\ucsencs.def"
@@ -1006,12 +955,12 @@ Package pdftex.def Info: CWU-Logo.png  used on input line 113.
  [1
 
 {C:/Users/chao_/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./CWU-Logo.
-png>] (report.toc
-[1])
+png>] (report.toc)
 \tf@toc=\write4
 \openout4 = `report.toc'.
 
- [2] [3]
+
+[1] [2]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 166.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1020,440 +969,290 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 192.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 192.
- [4]
-<figures/figures - linux 1 cpu/f1.png, id=51, 844.15375pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f1.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f1.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f1.png  used on input li
-ne 217.
+ [3]
+<figures/figures-linux-1cpu-500-500/f1.png, id=48, 844.15375pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f1.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f1.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f1.png  used on inp
+ut line 229.
 (pdftex.def)             Requested size: 440.84746pt x 187.66519pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--255
+Underfull \hbox (badness 10000) in paragraph at lines 260--262
 
  []
 
-<figures/figures - linux 1 cpu/f2.png, id=53, 838.13126pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f2.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f2.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f2.png  used on input li
-ne 261.
+[4 <./figures/figures-linux-1cpu-500-500/f1.png>]
+<figures/figures-linux-1cpu-500-500/f2.png, id=54, 848.16875pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f2.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f2.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f2.png  used on inp
+ut line 268.
+(pdftex.def)             Requested size: 440.84746pt x 186.77144pt.
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 299--309
+ []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 299--309
+
+ []
+
+[5 <./figures/figures-linux-1cpu-500-500/f2.png>]
+<figures/figures-linux-1cpu-500-500/f3.png, id=59, 865.2325pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f3.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f3.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f3.png  used on inp
+ut line 315.
+(pdftex.def)             Requested size: 440.84746pt x 183.08678pt.
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 346--358
+ []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 346--358
+
+ []
+
+[6 <./figures/figures-linux-1cpu-500-500/f3.png>]
+<figures/figures-linux-1cpu-500-500/f4.png, id=65, 838.13126pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f4.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f4.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f4.png  used on inp
+ut line 364.
 (pdftex.def)             Requested size: 440.84746pt x 189.00854pt.
-[5 <./figures/figures - linux 1 cpu/f1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 290--299
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--397
 
  []
 
-<figures/figures - linux 1 cpu/f3.png, id=58, 863.225pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f3.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f3.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f3.png  used on input li
-ne 305.
-(pdftex.def)             Requested size: 440.84746pt x 183.51447pt.
+[7 <./figures/figures-linux-1cpu-500-500/f4.png>]
+<figures/figures-linux-1cpu-500-500/f5.png, id=70, 835.12pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f5.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f5.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f5.png  used on inp
+ut line 403.
+(pdftex.def)             Requested size: 440.84746pt x 189.69394pt.
 
-Overfull \hbox (8.48064pt too wide) in paragraph at lines 313--330
- [][] 
- []
-
-[6 <./figures/figures - linux 1 cpu/f2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 333--342
+Underfull \hbox (badness 10000) in paragraph at lines 434--436
 
  []
 
-<figures/figures - linux 1 cpu/f4.png, id=64, 859.21pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f4.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f4.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f4.png  used on input li
-ne 348.
-(pdftex.def)             Requested size: 440.84746pt x 184.37532pt.
-[7 <./figures/figures - linux 1 cpu/f3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 376--385
-
- []
-
-<figures/figures - linux 1 cpu/f5.png, id=69, 841.1425pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f5.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f5.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f5.png  used on input li
-ne 391.
-(pdftex.def)             Requested size: 440.84746pt x 188.33412pt.
-[8 <./figures/figures - linux 1 cpu/f4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 419--428
-
- []
-
-<figures/figures - linux 1 cpu/f6.png, id=74, 840.13875pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f6.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f6.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f6.png  used on input li
-ne 434.
+[8 <./figures/figures-linux-1cpu-500-500/f5.png>]
+<figures/figures-linux-1cpu-500-500/f6.png, id=75, 840.13875pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f6.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f6.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f6.png  used on inp
+ut line 442.
 (pdftex.def)             Requested size: 440.84746pt x 188.55893pt.
-[9 <./figures/figures - linux 1 cpu/f5.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 462--471
+
+Underfull \hbox (badness 10000) in paragraph at lines 473--475
 
  []
 
-<figures/figures - linux 1 cpu/f7.png, id=79, 832.10875pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f7.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f7.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f7.png  used on input li
-ne 476.
+[9 <./figures/figures-linux-1cpu-500-500/f6.png>]
+<figures/figures-linux-1cpu-500-500/f7.png, id=80, 832.10875pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f7.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f7.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f7.png  used on inp
+ut line 481.
 (pdftex.def)             Requested size: 440.84746pt x 190.37933pt.
-[10 <./figures/figures - linux 1 cpu/f6.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 505--514
+
+Underfull \hbox (badness 10000) in paragraph at lines 512--514
 
  []
 
-<figures/figures - linux 1 cpu/f8.png, id=84, 840.13875pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f8.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f8.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f8.png  used on input li
-ne 521.
+[10 <./figures/figures-linux-1cpu-500-500/f7.png>]
+<figures/figures-linux-1cpu-500-500/f8.png, id=85, 840.13875pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f8.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f8.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f8.png  used on inp
+ut line 520.
 (pdftex.def)             Requested size: 440.84746pt x 188.55893pt.
-[11 <./figures/figures - linux 1 cpu/f7.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 551--560
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 551--563
+ []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 551--563
 
  []
 
-<figures/figures - linux 1 cpu/f9.png, id=89, 838.13126pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f9.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f9.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f9.png  used on input li
-ne 566.
+[11 <./figures/figures-linux-1cpu-500-500/f8.png>]
+<figures/figures-linux-1cpu-500-500/f9.png, id=90, 838.13126pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f9.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f9.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f9.png  used on inp
+ut line 569.
 (pdftex.def)             Requested size: 440.84746pt x 189.00854pt.
-[12 <./figures/figures - linux 1 cpu/f8.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 596--605
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 600--612
+ []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 600--612
 
  []
 
-<figures/figures - linux 1 cpu/f10.png, id=95, 859.21pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f10.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f10.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f10.png  used on input l
-ine 611.
+[12 <./figures/figures-linux-1cpu-500-500/f9.png>]
+<figures/figures-linux-1cpu-500-500/f10.png, id=96, 859.21pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f10.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f10.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f10.png  used on in
+put line 618.
 (pdftex.def)             Requested size: 440.84746pt x 184.37532pt.
-[13 <./figures/figures - linux 1 cpu/f9.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 640--649
+
+Underfull \hbox (badness 10000) in paragraph at lines 649--651
 
  []
 
-<figures/figures - linux 1 cpu/f11.png, id=100, 859.21pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f11.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f11.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f11.png  used on input l
-ine 655.
+[13 <./figures/figures-linux-1cpu-500-500/f10.png>]
+<figures/figures-linux-1cpu-500-500/f11.png, id=101, 859.21pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f11.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f11.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f11.png  used on in
+put line 657.
 (pdftex.def)             Requested size: 440.84746pt x 184.37532pt.
-[14 <./figures/figures - linux 1 cpu/f10.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 685--694
+
+Underfull \hbox (badness 10000) in paragraph at lines 688--690
 
  []
 
-<figures/figures - linux 1 cpu/f12.png, id=105, 832.10875pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f12.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f12.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f12.png  used on input l
-ine 699.
+[14 <./figures/figures-linux-1cpu-500-500/f11.png>]
+<figures/figures-linux-1cpu-500-500/f12.png, id=106, 832.10875pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f12.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f12.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f12.png  used on in
+put line 696.
 (pdftex.def)             Requested size: 440.84746pt x 190.37933pt.
-[15 <./figures/figures - linux 1 cpu/f11.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 728--737
+
+Underfull \hbox (badness 10000) in paragraph at lines 727--729
 
  []
 
-<figures/figures - linux 1 cpu/f13.png, id=110, 850.17625pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f13.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f13.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f13.png  used on input l
-ine 744.
-(pdftex.def)             Requested size: 440.84746pt x 186.3328pt.
-[16 <./figures/figures - linux 1 cpu/f12.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 774--783
-
- []
-
-<figures/figures - linux 1 cpu/f14.png, id=115, 840.13875pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f14.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f14.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f14.png  used on input l
-ine 788.
+[15 <./figures/figures-linux-1cpu-500-500/f12.png>]
+<figures/figures-linux-1cpu-500-500/f13.png, id=111, 840.13875pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f13.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f13.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f13.png  used on in
+put line 735.
 (pdftex.def)             Requested size: 440.84746pt x 188.55893pt.
-[17 <./figures/figures - linux 1 cpu/f13.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 817--826
+
+Underfull \hbox (badness 10000) in paragraph at lines 766--768
 
  []
 
-<figures/figures - linux 1 cpu/f15.png, id=120, 863.225pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f15.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f15.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f15.png  used on input l
-ine 832.
-(pdftex.def)             Requested size: 440.84746pt x 183.51447pt.
-[18 <./figures/figures - linux 1 cpu/f14.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 861--870
-
- []
-
-<figures/figures - linux 1 cpu/f16.png, id=126, 832.10875pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f16.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f16.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f16.png  used on input l
-ine 876.
-(pdftex.def)             Requested size: 440.84746pt x 190.37933pt.
-[19 <./figures/figures - linux 1 cpu/f15.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 905--914
-
- []
-
-<figures/figures - linux 1 cpu/f17.png, id=131, 838.13126pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f17.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f17.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f17.png  used on input l
-ine 919.
-(pdftex.def)             Requested size: 440.84746pt x 189.00854pt.
-[20 <./figures/figures - linux 1 cpu/f16.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 946--955
-
- []
-
-<figures/figures - linux 1 cpu/f18.png, id=136, 838.13126pt x 359.3425pt>
-File: figures/figures - linux 1 cpu/f18.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f18.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f18.png  used on input l
-ine 960.
-(pdftex.def)             Requested size: 440.84746pt x 189.00854pt.
-[21 <./figures/figures - linux 1 cpu/f17.png>]
-File: figures/figures - linux 1 cpu/f1.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f1.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f1.png  used on input li
-ne 1006.
-(pdftex.def)             Requested size: 440.84746pt x 187.66519pt.
- [22 <./figures/figures - linux 1 cpu/f18.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1035--1037
-
- []
-
-File: figures/figures - linux 1 cpu/f2.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f2.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f2.png  used on input li
-ne 1042.
-(pdftex.def)             Requested size: 440.84746pt x 189.00854pt.
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 1071--1073
-
- []
-
-File: figures/figures - linux 1 cpu/f3.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f3.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f3.png  used on input li
-ne 1078.
-(pdftex.def)             Requested size: 440.84746pt x 183.51447pt.
-[24]
-Overfull \hbox (8.48064pt too wide) in paragraph at lines 1087--1104
- [][] 
- []
-
-
-Overfull \hbox (70.53778pt too wide) in paragraph at lines 1107--1118
-\OT1/lmr/bx/n/12 DE[]randbest[]1[]bin\OT1/lmr/m/n/12 , Cost (mean): 562.328000 
-P value: 0.894600 \OT1/lmr/bx/n/12 the cost of DE[]randbest[]1[]bin
- []
-
-
-Overfull \hbox (22.25978pt too wide) in paragraph at lines 1107--1118
-\OT1/lmr/bx/n/12 DE[]best[]2[]bin\OT1/lmr/m/n/12 , Cost (mean): 1048.130000 P v
-alue: 0.174800 \OT1/lmr/bx/n/12 the cost of DE[]best[]2[]bin
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1107--1118
-
- []
-
-File: figures/figures - linux 1 cpu/f4.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f4.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f4.png  used on input li
-ne 1123.
-(pdftex.def)             Requested size: 440.84746pt x 184.37532pt.
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 1152--1154
-
- []
-
-File: figures/figures - linux 1 cpu/f5.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f5.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f5.png  used on input li
-ne 1159.
-(pdftex.def)             Requested size: 440.84746pt x 188.33412pt.
-[26]
-Overfull \hbox (4.63483pt too wide) in paragraph at lines 1188--1196
-\OT1/lmr/bx/n/12 DE[]best[]1[]bin\OT1/lmr/m/n/12 , Cost (mean): 0.015211 P valu
-e: 0.121100 \OT1/lmr/bx/n/12 the cost of DE[]best[]1[]bin
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1188--1196
-
- []
-
-File: figures/figures - linux 1 cpu/f6.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f6.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f6.png  used on input li
-ne 1201.
+[16 <./figures/figures-linux-1cpu-500-500/f13.png>]
+<figures/figures-linux-1cpu-500-500/f14.png, id=116, 840.13875pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f14.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f14.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f14.png  used on in
+put line 774.
 (pdftex.def)             Requested size: 440.84746pt x 188.55893pt.
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 1230--1232
+
+Underfull \hbox (badness 10000) in paragraph at lines 805--807
 
  []
 
-File: figures/figures - linux 1 cpu/f7.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f7.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f7.png  used on input li
-ne 1237.
-(pdftex.def)             Requested size: 440.84746pt x 190.37933pt.
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 1266--1268
-
- []
-
-File: figures/figures - linux 1 cpu/f8.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f8.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f8.png  used on input li
-ne 1273.
+[17 <./figures/figures-linux-1cpu-500-500/f14.png>]
+<figures/figures-linux-1cpu-500-500/f15.png, id=121, 840.13875pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f15.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f15.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f15.png  used on in
+put line 813.
 (pdftex.def)             Requested size: 440.84746pt x 188.55893pt.
-[29]
-Overfull \hbox (23.4295pt too wide) in paragraph at lines 1302--1313
-\OT1/lmr/bx/n/12 DE[]rand[]2[]exp\OT1/lmr/m/n/12 , Cost (mean): -68.521700 P va
-lue: 0.866900 \OT1/lmr/bx/n/12 the cost of DE[]rand[]2[]exp
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 844--862
+ []
  []
 
 
-Overfull \hbox (14.42648pt too wide) in paragraph at lines 1302--1313
-\OT1/lmr/bx/n/12 DE[]best[]1[]bin\OT1/lmr/m/n/12 , Cost (mean): -66.035300 P va
-lue: 0.059700 \OT1/lmr/bx/n/12 the cost of DE[]best[]1[]bin
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1302--1313
+Underfull \hbox (badness 10000) in paragraph at lines 844--862
 
  []
 
-File: figures/figures - linux 1 cpu/f9.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f9.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f9.png  used on input li
-ne 1318.
-(pdftex.def)             Requested size: 440.84746pt x 189.00854pt.
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 1347--1349
-
- []
-
-File: figures/figures - linux 1 cpu/f10.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f10.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f10.png  used on input l
-ine 1354.
-(pdftex.def)             Requested size: 440.84746pt x 184.37532pt.
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 1383--1385
-
- []
-
-File: figures/figures - linux 1 cpu/f11.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f11.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f11.png  used on input l
-ine 1390.
-(pdftex.def)             Requested size: 440.84746pt x 184.37532pt.
-[32]
-Underfull \hbox (badness 10000) in paragraph at lines 1419--1421
-
- []
-
-File: figures/figures - linux 1 cpu/f12.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f12.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f12.png  used on input l
-ine 1426.
+[18 <./figures/figures-linux-1cpu-500-500/f15.png>] [19]
+<figures/figures-linux-1cpu-500-500/f16.png, id=130, 832.10875pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f16.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f16.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f16.png  used on in
+put line 868.
 (pdftex.def)             Requested size: 440.84746pt x 190.37933pt.
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 1455--1457
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 899--911
+ []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 899--911
 
  []
 
-File: figures/figures - linux 1 cpu/f13.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f13.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f13.png  used on input l
-ine 1462.
-(pdftex.def)             Requested size: 440.84746pt x 186.3328pt.
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 1491--1493
+[20 <./figures/figures-linux-1cpu-500-500/f16.png>]
+<figures/figures-linux-1cpu-500-500/f17.png, id=135, 835.12pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f17.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f17.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f17.png  used on in
+put line 917.
+(pdftex.def)             Requested size: 440.84746pt x 189.69394pt.
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 948--972
+ []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 948--972
 
  []
 
-File: figures/figures - linux 1 cpu/f14.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f14.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f14.png  used on input l
-ine 1498.
+[21 <./figures/figures-linux-1cpu-500-500/f17.png>] [22]
+<figures/figures-linux-1cpu-500-500/f18.png, id=143, 840.13875pt x 359.3425pt>
+File: figures/figures-linux-1cpu-500-500/f18.png Graphic file (type png)
+<use figures/figures-linux-1cpu-500-500/f18.png>
+Package pdftex.def Info: figures/figures-linux-1cpu-500-500/f18.png  used on in
+put line 978.
 (pdftex.def)             Requested size: 440.84746pt x 188.55893pt.
-[35]
-Underfull \hbox (badness 10000) in paragraph at lines 1527--1529
 
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 1009--1023
  []
-
-File: figures/figures - linux 1 cpu/f15.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f15.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f15.png  used on input l
-ine 1534.
-(pdftex.def)             Requested size: 440.84746pt x 183.51447pt.
-[36]
-Overfull \hbox (4.63483pt too wide) in paragraph at lines 1563--1577
-\OT1/lmr/bx/n/12 DE[]best[]1[]bin\OT1/lmr/m/n/12 , Cost (mean): 0.104807 P valu
-e: 0.100300 \OT1/lmr/bx/n/12 the cost of DE[]best[]1[]bin
  []
 
 
-Overfull \hbox (33.06781pt too wide) in paragraph at lines 1563--1577
-\OT1/lmr/bx/n/12 DE[]rand[]1[]bin\OT1/lmr/m/n/12 , Cost (mean): 28785.100000 P 
-value: 0.147100 \OT1/lmr/bx/n/12 the cost of DE[]rand[]1[]bin
- []
-
-
-Overfull \hbox (58.78781pt too wide) in paragraph at lines 1563--1577
-\OT1/lmr/bx/n/12 DE[]randbest[]1[]bin\OT1/lmr/m/n/12 , Cost (mean): 3.999430 P 
-value: 0.090300 \OT1/lmr/bx/n/12 the cost of DE[]randbest[]1[]bin
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1563--1577
+Underfull \hbox (badness 10000) in paragraph at lines 1009--1023
 
  []
 
-File: figures/figures - linux 1 cpu/f16.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f16.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f16.png  used on input l
-ine 1582.
-(pdftex.def)             Requested size: 440.84746pt x 190.37933pt.
-[37]
-Underfull \hbox (badness 10000) in paragraph at lines 1611--1613
+[23 <./figures/figures-linux-1cpu-500-500/f18.png>]
 
+LaTeX Warning: Reference `tab:summary' on page 24 undefined on input line 1043.
+
+
+[24
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1072--1073
+[]|\OT1/lmr/m/n/10 DE[]best[]1[]exp, DE[]randbest[]1[]exp,
  []
 
-File: figures/figures - linux 1 cpu/f17.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f17.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f17.png  used on input l
-ine 1618.
-(pdftex.def)             Requested size: 440.84746pt x 189.00854pt.
-[38]
-Underfull \hbox (badness 10000) in paragraph at lines 1647--1649
 
+Underfull \hbox (badness 10000) in paragraph at lines 1072--1073
+\OT1/lmr/m/n/10 DE[]best[]2[]exp, DE[]rand[]2[]exp,
  []
 
-File: figures/figures - linux 1 cpu/f18.png Graphic file (type png)
-<use figures/figures - linux 1 cpu/f18.png>
-Package pdftex.def Info: figures/figures - linux 1 cpu/f18.png  used on input l
-ine 1654.
-(pdftex.def)             Requested size: 440.84746pt x 189.00854pt.
-[39]
-Underfull \hbox (badness 10000) in paragraph at lines 1683--1685
 
+Underfull \hbox (badness 10000) in paragraph at lines 1074--1075
+[]|\OT1/lmr/m/n/10 DE[]rand[]1[]exp, DE[]randbest[]1[]exp,
  []
 
-[40] [41
+
+Underfull \hbox (badness 3375) in paragraph at lines 1074--1075
+\OT1/lmr/m/n/10 DE[]rand[]2[]exp, DE[]best[]1[]bin, DE[]rand[]1[]bin,
+ []
+
+[25
 
 ] (report.bbl
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
@@ -1461,105 +1260,29 @@ LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line
  ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ot1lmtt.fd"
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
-[42
+[26] (report.aux)
 
-]
-<figures/iterations/ga_f2_iterations.png, id=211, 403.5075pt x 224.84pt>
-File: figures/iterations/ga_f2_iterations.png Graphic file (type png)
-<use figures/iterations/ga_f2_iterations.png>
-Package pdftex.def Info: figures/iterations/ga_f2_iterations.png  used on input
- line 1762.
-(pdftex.def)             Requested size: 207.19884pt x 115.45253pt.
-<figures/iterations/de1_f2_iterations.png, id=212, 403.5075pt x 224.84pt>
-File: figures/iterations/de1_f2_iterations.png Graphic file (type png)
-<use figures/iterations/de1_f2_iterations.png>
-Package pdftex.def Info: figures/iterations/de1_f2_iterations.png  used on inpu
-t line 1775.
-(pdftex.def)             Requested size: 207.19884pt x 115.45253pt.
-<figures/iterations/de2_f2_iterations.png, id=213, 403.5075pt x 224.84pt>
-File: figures/iterations/de2_f2_iterations.png Graphic file (type png)
-<use figures/iterations/de2_f2_iterations.png>
-Package pdftex.def Info: figures/iterations/de2_f2_iterations.png  used on inpu
-t line 1776.
-(pdftex.def)             Requested size: 207.19884pt x 115.45253pt.
-<figures/iterations/de3_f2_iterations.png, id=214, 403.5075pt x 224.84pt>
-File: figures/iterations/de3_f2_iterations.png Graphic file (type png)
-<use figures/iterations/de3_f2_iterations.png>
-Package pdftex.def Info: figures/iterations/de3_f2_iterations.png  used on inpu
-t line 1778.
-(pdftex.def)             Requested size: 207.19884pt x 115.45253pt.
-<figures/iterations/de4_f2_iterations.png, id=215, 403.5075pt x 224.84pt>
-File: figures/iterations/de4_f2_iterations.png Graphic file (type png)
-<use figures/iterations/de4_f2_iterations.png>
-Package pdftex.def Info: figures/iterations/de4_f2_iterations.png  used on inpu
-t line 1779.
-(pdftex.def)             Requested size: 207.19884pt x 115.45253pt.
-<figures/iterations/de5_f2_iterations.png, id=216, 403.5075pt x 224.84pt>
-File: figures/iterations/de5_f2_iterations.png Graphic file (type png)
-<use figures/iterations/de5_f2_iterations.png>
-Package pdftex.def Info: figures/iterations/de5_f2_iterations.png  used on inpu
-t line 1781.
-(pdftex.def)             Requested size: 207.19884pt x 115.45253pt.
-<figures/iterations/de6_f2_iterations.png, id=217, 403.5075pt x 224.84pt>
-File: figures/iterations/de6_f2_iterations.png Graphic file (type png)
-<use figures/iterations/de6_f2_iterations.png>
-Package pdftex.def Info: figures/iterations/de6_f2_iterations.png  used on inpu
-t line 1782.
-(pdftex.def)             Requested size: 207.19884pt x 115.45253pt.
-<figures/iterations/de7_f2_iterations.png, id=218, 403.5075pt x 224.84pt>
-File: figures/iterations/de7_f2_iterations.png Graphic file (type png)
-<use figures/iterations/de7_f2_iterations.png>
-Package pdftex.def Info: figures/iterations/de7_f2_iterations.png  used on inpu
-t line 1784.
-(pdftex.def)             Requested size: 207.19884pt x 115.45253pt.
-<figures/iterations/de8_f2_iterations.png, id=219, 403.5075pt x 224.84pt>
-File: figures/iterations/de8_f2_iterations.png Graphic file (type png)
-<use figures/iterations/de8_f2_iterations.png>
-Package pdftex.def Info: figures/iterations/de8_f2_iterations.png  used on inpu
-t line 1785.
-(pdftex.def)             Requested size: 207.19884pt x 115.45253pt.
-<figures/iterations/de9_f2_iterations.png, id=220, 403.5075pt x 224.84pt>
-File: figures/iterations/de9_f2_iterations.png Graphic file (type png)
-<use figures/iterations/de9_f2_iterations.png>
-Package pdftex.def Info: figures/iterations/de9_f2_iterations.png  used on inpu
-t line 1787.
-(pdftex.def)             Requested size: 207.19884pt x 115.45253pt.
-<figures/iterations/de10_f2_iterations.png, id=221, 403.5075pt x 224.84pt>
-File: figures/iterations/de10_f2_iterations.png Graphic file (type png)
-<use figures/iterations/de10_f2_iterations.png>
-Package pdftex.def Info: figures/iterations/de10_f2_iterations.png  used on inp
-ut line 1788.
-(pdftex.def)             Requested size: 207.19884pt x 115.45253pt.
- [43 <./figures/iterations/ga_f2_iterations.png>] [44 <./figures/iterations/de1
-_f2_iterations.png> <./figures/iterations/de2_f2_iterations.png> <./figures/ite
-rations/de3_f2_iterations.png> <./figures/iterations/de4_f2_iterations.png> <./
-figures/iterations/de5_f2_iterations.png> <./figures/iterations/de6_f2_iteratio
-ns.png> <./figures/iterations/de7_f2_iterations.png> <./figures/iterations/de8_
-f2_iterations.png> <./figures/iterations/de9_f2_iterations.png> <./figures/iter
-ations/de10_f2_iterations.png>] (report.aux)
-
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 26695 strings out of 492484
- 518097 string characters out of 3131051
- 742436 words of memory out of 3000000
- 30619 multiletter control sequences out of 15000+200000
+ 26613 strings out of 492484
+ 515490 string characters out of 3131051
+ 738436 words of memory out of 3000000
+ 30549 multiletter control sequences out of 15000+200000
  594543 words of font info for 61 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,11n,83p,529b,346s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 68i,11n,83p,529b,324s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rmtt.enc}{C:/Program Files
 /MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc
 /dvips/lm/lm-rmsc.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx12
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb>
-Output written on report.pdf (45 pages, 1204926 bytes).
+/lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb>
+Output written on report.pdf (27 pages, 1013005 bytes).
 PDF statistics:
- 267 PDF objects out of 1000 (max. 8388607)
+ 182 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 259 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 204 words of extra memory for PDF output out of 10000 (max. 10000000)
 
