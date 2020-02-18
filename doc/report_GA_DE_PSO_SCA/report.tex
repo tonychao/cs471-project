@@ -70,7 +70,7 @@
         %----------------------------------------------------------------------------------------
         
         \HRule \\[0.4cm]
-        { \huge \bfseries Genetic Algorithm, Differential Evolution, Particle Swarm Algorithm, Sine Cosine Algorithm}\\[0.2cm] % Title of your document
+        { \huge \bfseries Genetic Algorithm, Differential Evolution, Particle Swarm Optimization, Sine Cosine Algorithm}\\[0.2cm] % Title of your document
         \HRule \\[1cm]
         
         %----------------------------------------------------------------------------------------
@@ -125,22 +125,27 @@
     
     \section{Introduction}
     
-    For this project, two optimization algorithms will be tested. These are Genetic Algorithm (GA) and Differential Evolution Algorithm (DE).
+    For this project, four optimization algorithms will be tested. These are Genetic Algorithm (GA) and Differential Evolution Algorithm (DE), Particle Swarm Optimization (PSO) and Sine Cosine Algorithm (SCA).
     
     The GA is a heuristic search and optimization technique that simulates the process of natural evolution. The main operations of GA are Selection, Crossover, Mutation, and Elitism.
     
     The DE algorithm employs the difference of two randomly selected parameter vectors as the source fo random variations for a third parameter vector. Some advantages of DE are: few numbers of control parameters which make it easier to calibrate or tune, it is inherently parallel, and it has a faster convergence. 
     There are many strategies of DE, in this project 10 different strategies will be tested.
+    
+    
+    The PSO is inspired by the flocking and schooling patterns of birds and fish, they key point of PSO is that it keeps tracking the personal best and global best variables, and make the particles move toward those best values.
+    
+    The SCA created in 2015 is actually very similar to PSO. However, it only keeps track only the global optimal value, and in each iteration it introduces sine and cosine formula which multiply with a decreasing range value.
      
 
 
     
     \section{Method}
     
-    The GA and DE algorithms are coded using C++ object-oriented programming. The implemented classes are Population, PopulationBenchmark,  Functions, Runner, GeneticAlgorithm, DifferentialEvolution and mt19937ar. Additionally,
-    python script with jupyter notebook is implemented read the configuration parameters and call the C++ executable, then it collects the result and displays it in table and figures.
+    The GA, DE, PSO, SCA algorithms are coded using C++ object-oriented programming. The implemented classes are Population, PopulationBenchmark,  Functions, Runner, GeneticAlgorithm, DifferentialEvolution, ParticleSwarm, SineCosine and mt19937ar. Additionally,
+    python script with jupyter notebook is implemented read the configuration parameters and call the C++ executable, then it collects the result, displays it in table and figures, and print the output in latex format.
     
-    The obtained results are from 50 runs of each algorithm, the population size = \textbf{500}, and the generations or iterations = \textbf{500}, number of dimensions = 30.
+    The obtained results are from 50 runs of each algorithm, comparing to the previous project the population size has increased to \textbf{500}, and the generations or iterations increased to \textbf{500}, number of dimensions = 30.
 
 The computer used to run the project has the following specification: Intel Core i7-9750H 2.6GHZ with 16 GB of RAM
 
@@ -207,7 +212,7 @@ crossover rate&    mutation rate&    mutation value range&     mutation precisio
 
 
 \section{Results}
-The results of applying GA and DE optimization algorithms with 18 benchmarking functions are displayed in the following pages: 
+The results of applying different optimization algorithms with 18 benchmarking functions are displayed in the following pages: 
 \newpage
 
 
@@ -1084,13 +1089,21 @@ The table \ref{tab:summary} shows a summary of the mean cost obtained by each al
 
 The previous results show that both GA and DE are good, almost half of the lowest cost is found by GA and another half by DE. Regarding the running time, it can be noticed that in general the GA are slower than DE since in GA it is necessary to do two sorting in each iteration that makes it more time-consuming. Additionally, the figures show that in general, the binomial crossover version of DE is slower than the exponential crossover.
 
+
+
+Changing inertial weight during the iteration, will balance exploration and explotation. 
+
     \section{Conclusion}
     In this project two optimization algorithms have been implemented and tested, they are Genetic Algorithm and Differential Evolution Algorithm. From the testing results, it can be observed there is not an absolute winner, GA is better with some functions, and DE with others. The CPU running time of both algorithms is similar. However, some versions of DE are faster than GA but those versions did not find the lowest cost.  
  
    To be able to compare the performance between different algorithms we assumed that the manual tuning of the configuration parameters of GA and DE achieved its best value. Additionally, we believe that the comparison is only valid for the mentioned configuration, running the algorithm with other parameters might produce a different result.
 
-For future work, the comparison between different algorithms can be done in another way. As we can see from the ANNEX the time that each algorithm took to converge is different, so we can set a target cost and test which algorithm achieves the target cost first, in this way we can get a better comparison about which algorithm converges faster.
+For future work, the comparison between different algorithms can be done in many other ways: 
+
+We can set a target cost and test which algorithm achieves the target cost first, in this way we can get a better comparison about which algorithm converges faster.
   
+We can give each optimization algorithm a specific time constrain and stop the iterations when the algorithm reach the constrain, then we can compare the cost between different algorithms and find the best one.
+
     \bibliographystyle{unsrt}
     \bibliography{references}
 
