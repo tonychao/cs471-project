@@ -273,7 +273,7 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
             clk.tic();
             for (int i = 0; i < n_runs; i++)
             {
-                solutions[i] = psa_algorithm->run(function_id);
+                solutions[i] = psa_algorithm->run(function_id,false); // variable_weight = false
                 //std::cout<<"best solution: " << best_solution<<std::endl;
             }
             
@@ -306,6 +306,31 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
             saveStatistic();
 
             delete sca_algorithm;
+        }
+        break;
+
+        case 13:
+        {
+            fillPSAParameterFromFile(config_file); 
+            psa_parameters.bounds.l = range_low; 
+            psa_parameters.bounds.u = range_high;
+            psa_parameters.dim = this->dimensions;
+
+            psa_algorithm = new ParticleSwarm<Tinput, Toutput>(psa_parameters);
+        
+            debug(psa_algorithm->printInputPopulation());
+            
+            clk.tic();
+            for (int i = 0; i < n_runs; i++)
+            {
+                solutions[i] = psa_algorithm->run(function_id,true); // variable_weight = true
+                //std::cout<<"best solution: " << best_solution<<std::endl;
+            }
+            
+            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+            saveStatistic();
+
+            delete psa_algorithm;
         }
         break;
 
@@ -465,7 +490,8 @@ void Runner<Tinput,Toutput>::fillPSAParameterFromFile(std::string config_filenam
             psa_parameters.c1 = std::stod(row[1]); 
             psa_parameters.c2 = std::stod(row[2]);
             psa_parameters.w = std::stod(row[3]);
-            psa_parameters.pop_size = std::stod(row[4]);
+            psa_parameters.w_min = std::stod(row[4]);
+            psa_parameters.pop_size = std::stod(row[5]);
             break; 
         } 
         

@@ -1,0 +1,3 @@
+Id, Algorithm name, config file
+11,PSO,../config/optimization_alg_conf/psa_config.csv
+13,PSO Var Weight,../config/optimization_alg_conf/psa_config_vw.csv

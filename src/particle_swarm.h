@@ -25,6 +25,7 @@ struct PSAInputParameter
     double c1; ///< config parameter c1
     double c2; ///< config parameter c2
     double w; ///< config parameter weight for vel
+    double w_min; ///< config parameter for variable inertial weight
     
 };
 
@@ -74,7 +75,7 @@ class ParticleSwarm
         }
     }
 
-    void particleUpdateVelAndPar(int i, int function_id)
+    void particleUpdateVelAndPar(int i, int function_id, bool variable_weight, int iteration)
     {
         Tinput new_particle[param.dim];
         for(int j =0; j<param.dim; j++)
@@ -82,7 +83,17 @@ class ParticleSwarm
             Tinput pj = population->getData(i,j);
             Tinput p_best = param.c1*ms_random.genrand_real_range(0,1)*(particle_best_data[i][j] - pj);
             Tinput g_best = param.c2*ms_random.genrand_real_range(0,1)*(global_best_data[j] - pj);
-            particle_vel[i][j] = param.w*particle_vel[i][j] + p_best + g_best;
+            if (variable_weight)
+            {
+                Tinput variable_w = param.w - (param.w-param.w_min)/param.t_max*iteration;
+                particle_vel[i][j] = variable_w*particle_vel[i][j] + p_best + g_best;
+            }
+            else
+            {
+                particle_vel[i][j] = param.w*particle_vel[i][j] + p_best + g_best;
+            }
+                
+            
 
             new_particle[j] = pj + particle_vel[i][j]; 
             keepInRange(new_particle[j]);
@@ -152,6 +163,7 @@ class ParticleSwarm
         std::cout << "c1: " << param.c1 << std::endl;
         std::cout << "c2: " << param.c2 << std::endl;
         std::cout << "w: " << param.w << std::endl;
+        std::cout << "w_min: " << param.w_min << std::endl;
         
 
         //allocate memory for population
@@ -216,7 +228,7 @@ class ParticleSwarm
 
     }
 
-    Toutput run(int function_id)
+    Toutput run(int function_id, bool variable_weight)
     {
         population->fillWithRandom(param.bounds.l, param.bounds.u);
         debug(population->printPopulation());
@@ -243,7 +255,7 @@ class ParticleSwarm
             for (int i = 0; i<param.pop_size; i++)
             {
                 // calculate new velocity for each particle
-                particleUpdateVelAndPar(i,function_id); 
+                particleUpdateVelAndPar(i,function_id, variable_weight, t); 
             }
             
             debugfile(saveResult(global_best_cost,global_best_data, "psa_f"+std::to_string(function_id)+"_iterations.csv"));
@@ -253,6 +265,8 @@ class ParticleSwarm
         //debug_var(global_best_cost);
         return global_best_cost;
     }
+
+    
 
 
 };

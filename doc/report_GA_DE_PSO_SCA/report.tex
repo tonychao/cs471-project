@@ -133,17 +133,16 @@
     There are many strategies of DE, in this project 10 different strategies will be tested.
     
     
-    The PSO is inspired by the flocking and schooling patterns of birds and fish, they key point of PSO is that it keeps tracking the personal best and global best variables, and make the particles move toward those best values.
+    The PSO is inspired by the flocking and schooling patterns of birds and fish, the key point of PSO is that it keeps tracking the personal best and global best variables, and make the particles move toward those best values.
     
-    The SCA created in 2015 is actually very similar to PSO. However, it only keeps track only the global optimal value, and in each iteration it introduces sine and cosine formula which multiply with a decreasing range value.
+    The SCA created in 2015 is very similar to PSO. However, it only keeps track of only the global optimal value, and in each iteration, it introduces sine and cosine formula which multiply with a decreasing range value.
      
 
 
     
     \section{Method}
     
-    The GA, DE, PSO, SCA algorithms are coded using C++ object-oriented programming. The implemented classes are Population, PopulationBenchmark,  Functions, Runner, GeneticAlgorithm, DifferentialEvolution, ParticleSwarm, SineCosine and mt19937ar. Additionally,
-    python script with jupyter notebook is implemented read the configuration parameters and call the C++ executable, then it collects the result, displays it in table and figures, and print the output in latex format.
+The GA, DE, PSO, SCA algorithms are coded using C++ object-oriented programming. The implemented classes are Population, PopulationBenchmark,  Functions, Runner, GeneticAlgorithm, DifferentialEvolution, ParticleSwarm, SineCosine class. Additionally, python script with jupyter notebook is implemented to read the configuration parameters and call the C++ executable, then it collects the result, displays it in table and figures, and prints the output in latex format.
     
     The obtained results are from 50 runs of each algorithm, comparing to the previous project the population size has increased to \textbf{500}, and the generations or iterations increased to \textbf{500}, number of dimensions = 30.
 
@@ -151,20 +150,37 @@ The computer used to run the project has the following specification: Intel Core
 
   
       
-    
+\subsection{Configuration Parameters}
+All evolution-based algorithms are very defendant of its parameters. To ensure that the optimization algorithm works correctly,  the parameters had to be calibrated manually,
+the following tables show the result of the calibration:
 
 
 
-\section{Important Notes}
 
-During the development of this project there were many problems that need to be fixed in order to get optimal results:
 
-    \begin{enumerate}[label=\arabic*)]
-    \item The mutation of GA and the trial of DE can make the data go outside of the range, to solve this problem a function is coded to truncate the values in the range.
-    \item The project has been run in single processor mode and parallel multiprocessor mode. The results presented in this document are only from a single processor mode since there was some problem with CPU clock time in parallel mode. According to \cite{clock} the clock() function in C++ measures the CPU time used by the entire program so other processes or threads that are not part of the algorithm that need measurement also get counted. (This problem might be caused by Python subprocess package) 
-    \item Some DE algorithms did not converge, the cost was very high. This is caused by the parameters which are not calibrated, to solve this problem, the parameters of different algorithms of Differential Evolution had been calibrated manually one by one.
-    
-    The calibrated DE parameters are:
+
+The calibrated GA parameters are:
+\begin{table}[H]    
+\centering
+\footnotesize
+\begin{tabular}{cccccc}
+
+\hline
+crossover rate&    mutation rate&    mutation value range&     mutation precision&     elitism rate\\
+\hline
+
+0.9&    0.05&    0.1&    1&    0.3&\\
+
+\hline 
+\end{tabular} 
+
+\caption{Configuration parameters of GA obtained by manual tuning} 
+\end{table}
+
+
+
+The calibrated DE parameters are:
+
 \begin{table}[H]    
 \centering
 \small 
@@ -188,32 +204,48 @@ DE\_rand\_2\_bin& 0.7&    0.1&    - \\
 \caption{Configuration parameters of DE obtained by manual tuning} 
 \end{table}
 
-
-
-The calibrated GA parameters are:
+The calibrated PSO parameters are:
 \begin{table}[H]    
 \centering
 \footnotesize
-\begin{tabular}{cccccc}
+\begin{tabular}{ccc}
 
 \hline
-crossover rate&    mutation rate&    mutation value range&     mutation precision&     elitism rate\\
+c1&    c2&    w \\
 \hline
 
-0.9&    0.05&    0.1&    1&    0.3&\\
+1&    1&    0.7\\
 
 \hline 
 \end{tabular} 
 
-\caption{Configuration parameters of GA obtained by manual tuning} 
+\caption{Configuration parameters of PSO obtained by manual tuning} 
 \end{table}
 
-\end{enumerate}
+
+SCA parameters from the research paper are:
+\begin{table}[H]    
+\centering
+\footnotesize
+\begin{tabular}{cc}
+
+\hline
+a&    r3 \\
+\hline
+
+2&    2 \\
+
+\hline 
+\end{tabular} 
+
+\caption{Configuration parameters of SCA from the research paper} 
+\end{table}
 
 
 \section{Results}
 The results of applying different optimization algorithms with 18 benchmarking functions are displayed in the following pages: 
 \newpage
+
 
 
 
@@ -255,7 +287,7 @@ The results of applying different optimization algorithms with 18 benchmarking f
  DE\_randbest\_1\_bin & 2124.900 & 1093.450 & 1840.380 &   1066.570 &   6128.350 & 26134.600 \\
      DE\_best\_2\_bin & 1824.540 &  364.970 & 1789.090 &    821.697 &   2535.630 & 24220.600 \\
      DE\_rand\_2\_bin & 4551.430 &  324.357 & 4607.150 &   3705.000 &   5131.590 & 27823.400 \\
-               PSA & 3271.220 &  239.150 & 3327.850 &   2528.260 &   3633.530 & 20219.000 \\
+               PSO & 3271.220 &  239.150 & 3327.850 &   2528.260 &   3633.530 & 20219.000 \\
                SCA & 6546.260 &  276.539 & 6560.930 &   5767.570 &   7283.020 & 31801.900 \\
 \bottomrule
 \end{tabular}
@@ -294,7 +326,7 @@ Best Algorithm: \\
  DE\_randbest\_1\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 14820.700 \\
      DE\_best\_2\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 15413.000 \\
      DE\_rand\_2\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 15693.300 \\
-               PSA & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 18522.800 \\
+               PSO & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 18522.800 \\
                SCA & 0.012 &    0.024 &   0.004 &      0.000 &      0.156 & 25287.200 \\
 \bottomrule
 \end{tabular}
@@ -302,7 +334,7 @@ Best Algorithm: \\
 \caption{Function 2: Statistical Analysis of the Cost} 
     \end{table}
 Best Algorithm: \\
-\textbf{PSA}, Cost (mean): 0.000000\\
+\textbf{PSO}, Cost (mean): 0.000000\\
 \noindent
 \textbf{Two-Sample Z-Test Hypothesis Testing: }
 confidence interval = 95\%\\
@@ -341,7 +373,7 @@ Null hypothesis: The best algorithm and the tested one are equal\\
  DE\_randbest\_1\_bin &    29.792 &     15.341 &  25.500 &     19.739 &      83.236 & 15900.600 \\
      DE\_best\_2\_bin &     6.766 &     10.657 &   4.102 &      0.013 &      67.366 & 16253.500 \\
      DE\_rand\_2\_bin &    50.293 &     29.508 &  27.080 &     24.573 &      93.474 & 16764.200 \\
-               PSA & 40247.300 & 195919.000 &  13.081 &      0.019 & 1000030.000 & 16938.100 \\
+               PSO & 40247.300 & 195919.000 &  13.081 &      0.019 & 1000030.000 & 16938.100 \\
                SCA &   665.449 &   1900.780 & 125.559 &     28.431 &   13094.800 & 26018.600 \\
 \bottomrule
 \end{tabular}
@@ -358,7 +390,7 @@ confidence interval = 95\%\\
 Null hypothesis: The best algorithm and the tested one are equal\\
 \textbf{DE\_best\_2\_exp}, Cost (mean): 46.666800
 , P value: 0.059100\\
-\textbf{PSA}, Cost (mean): 40247.300000
+\textbf{PSO}, Cost (mean): 40247.300000
 , P value: 0.146400\\
 \newpage
 \subsection{Function 4: Rastrigin}
@@ -390,7 +422,7 @@ Null hypothesis: The best algorithm and the tested one are equal\\
  DE\_randbest\_1\_bin & 134.128 &    8.118 & 134.180 &    114.881 &    151.079 & 28967.100 \\
      DE\_best\_2\_bin & 116.669 &   51.123 & 138.424 &     13.387 &    177.584 & 28977.000 \\
      DE\_rand\_2\_bin &  47.581 &    6.281 &  48.055 &     33.423 &     59.602 & 29219.600 \\
-               PSA &  89.168 &   23.481 &  86.064 &     42.783 &    164.167 & 20958.900 \\
+               PSO &  89.168 &   23.481 &  86.064 &     42.783 &    164.167 & 20958.900 \\
                SCA &  29.896 &   35.064 &  14.473 &      0.010 &    157.073 & 32111.200 \\
 \bottomrule
 \end{tabular}
@@ -429,7 +461,7 @@ Best Algorithm: \\
  DE\_randbest\_1\_bin & 0.003 &    0.005 &   0.000 &      0.000 &      0.020 & 33060.300 \\
      DE\_best\_2\_bin & 0.009 &    0.010 &   0.010 &      0.000 &      0.054 & 33329.300 \\
      DE\_rand\_2\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 35011.700 \\
-               PSA & 0.014 &    0.015 &   0.010 &      0.000 &      0.056 & 25597.000 \\
+               PSO & 0.014 &    0.015 &   0.010 &      0.000 &      0.056 & 25597.000 \\
                SCA & 0.164 &    0.174 &   0.112 &      0.000 &      0.614 & 36150.800 \\
 \bottomrule
 \end{tabular}
@@ -468,7 +500,7 @@ Best Algorithm: \\
  DE\_randbest\_1\_bin & -35.355 &    0.563 & -35.371 &    -36.942 &    -34.248 & 31422.700 \\
      DE\_best\_2\_bin & -33.936 &    0.787 & -33.869 &    -35.732 &    -32.125 & 31695.000 \\
      DE\_rand\_2\_bin & -35.725 &    0.398 & -35.674 &    -36.723 &    -34.923 & 32239.700 \\
-               PSA & -37.483 &    1.398 & -37.318 &    -40.360 &    -34.475 & 24531.600 \\
+               PSO & -37.483 &    1.398 & -37.318 &    -40.360 &    -34.475 & 24531.600 \\
                SCA & -34.012 &    0.783 & -33.959 &    -35.791 &    -32.551 & 34082.600 \\
 \bottomrule
 \end{tabular}
@@ -507,7 +539,7 @@ Best Algorithm: \\
  DE\_randbest\_1\_bin & 43.853 &    1.795 &  43.885 &     39.957 &     48.346 & 57920.100 \\
      DE\_best\_2\_bin & 49.218 &    2.446 &  48.907 &     44.553 &     58.865 & 58456.700 \\
      DE\_rand\_2\_bin & 36.816 &    0.816 &  36.787 &     34.763 &     38.847 & 58792.800 \\
-               PSA & 29.904 &    1.089 &  29.672 &     29.012 &     35.035 & 35531.000 \\
+               PSO & 29.904 &    1.089 &  29.672 &     29.012 &     35.035 & 35531.000 \\
                SCA & 42.062 &    4.549 &  40.917 &     34.831 &     55.327 & 46592.500 \\
 \bottomrule
 \end{tabular}
@@ -546,7 +578,7 @@ Best Algorithm: \\
  DE\_randbest\_1\_bin & -79.442 &    2.535 & -79.319 &    -85.310 &    -74.594 & 34828.200 \\
      DE\_best\_2\_bin & -69.564 &    8.844 & -71.231 &    -82.242 &    -37.979 & 35161.900 \\
      DE\_rand\_2\_bin & -86.333 &    0.000 & -86.333 &    -86.333 &    -86.333 & 34678.400 \\
-               PSA & -29.518 &   21.770 & -33.060 &    -70.787 &     19.922 & 26057.900 \\
+               PSO & -29.518 &   21.770 & -33.060 &    -70.787 &     19.922 & 26057.900 \\
                SCA &   0.245 &    7.895 &   0.761 &    -19.518 &     19.742 & 37620.600 \\
 \bottomrule
 \end{tabular}
@@ -595,7 +627,7 @@ Null hypothesis: The best algorithm and the tested one are equal\\
  DE\_randbest\_1\_bin &   0.754 &    2.977 &  -0.000 &     -0.000 &     19.619 & 44871.500 \\
      DE\_best\_2\_bin &  33.966 &   32.589 &  39.382 &     -0.000 &    141.211 & 51346.500 \\
      DE\_rand\_2\_bin &   0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 52310.300 \\
-               PSA & 157.429 &   60.556 & 155.498 &     50.832 &    315.254 & 36144.900 \\
+               PSO & 157.429 &   60.556 & 155.498 &     50.832 &    315.254 & 36144.900 \\
                SCA &   0.004 &    0.005 &   0.002 &      0.000 &      0.023 & 45406.100 \\
 \bottomrule
 \end{tabular}
@@ -644,7 +676,7 @@ Null hypothesis: The best algorithm and the tested one are equal\\
  DE\_randbest\_1\_bin & -13595.400 & 2855.480 & -12616.600 & -20674.600 &  -9698.160 & 52734.700 \\
      DE\_best\_2\_bin & -18519.800 & 1170.740 & -18593.700 & -20805.000 & -16163.400 & 44617.500 \\
      DE\_rand\_2\_bin & -14551.900 & 1436.600 & -14407.000 & -18627.400 & -11949.200 & 53400.700 \\
-               PSA & -16045.600 & 1266.160 & -16259.200 & -18560.300 & -12521.900 & 29364.100 \\
+               PSO & -16045.600 & 1266.160 & -16259.200 & -18560.300 & -12521.900 & 29364.100 \\
                SCA &  -8083.420 &  590.408 &  -8123.710 &  -9308.710 &  -6919.080 & 44986.800 \\
 \bottomrule
 \end{tabular}
@@ -683,7 +715,7 @@ Best Algorithm: \\
  DE\_randbest\_1\_bin &  -8208.210 & 1846.680 &  -7811.030 & -12849.300 &  -5659.630 & 62671.900 \\
      DE\_best\_2\_bin & -12201.200 & 1082.510 & -12431.400 & -13825.600 &  -7361.840 & 54636.900 \\
      DE\_rand\_2\_bin &  -6322.750 &  375.721 &  -6358.950 &  -7282.700 &  -5673.070 & 64566.400 \\
-               PSA &  -9866.510 &  817.497 &  -9789.080 & -11597.300 &  -8104.920 & 33922.900 \\
+               PSO &  -9866.510 &  817.497 &  -9789.080 & -11597.300 &  -8104.920 & 33922.900 \\
                SCA &  -7329.940 &  609.371 &  -7289.290 &  -9373.180 &  -6363.650 & 49554.300 \\
 \bottomrule
 \end{tabular}
@@ -722,7 +754,7 @@ Best Algorithm: \\
  DE\_randbest\_1\_bin & 7.039 &    1.562 &   6.868 &      4.428 &     11.489 & 37140.300 \\
      DE\_best\_2\_bin & 6.062 &    0.942 &   5.999 &      4.238 &      8.265 & 37383.600 \\
      DE\_rand\_2\_bin & 4.100 &    0.676 &   4.207 &      2.780 &      5.231 & 39404.200 \\
-               PSA & 2.671 &    0.135 &   2.640 &      2.540 &      3.505 & 25825.900 \\
+               PSO & 2.671 &    0.135 &   2.640 &      2.540 &      3.505 & 25825.900 \\
                SCA & 8.454 &    0.389 &   8.504 &      7.703 &      9.290 & 38143.100 \\
 \bottomrule
 \end{tabular}
@@ -761,7 +793,7 @@ Best Algorithm: \\
  DE\_randbest\_1\_bin & -15.499 &    0.775 & -15.552 &    -17.374 &    -13.642 & 55181.200 \\
      DE\_best\_2\_bin & -13.846 &    0.942 & -13.992 &    -15.830 &    -11.258 & 55514.100 \\
      DE\_rand\_2\_bin & -17.223 &    0.443 & -17.198 &    -18.332 &    -16.489 & 55639.700 \\
-               PSA & -21.507 &    1.535 & -21.648 &    -24.590 &    -18.205 & 35007.700 \\
+               PSO & -21.507 &    1.535 & -21.648 &    -24.590 &    -18.205 & 35007.700 \\
                SCA &  -8.777 &    0.678 &  -8.701 &    -11.205 &     -7.584 & 44852.500 \\
 \bottomrule
 \end{tabular}
@@ -800,7 +832,7 @@ Best Algorithm: \\
  DE\_randbest\_1\_bin &  -5.366 &    0.469 &  -5.251 &     -6.670 &     -4.589 & 35714.600 \\
      DE\_best\_2\_bin &  -5.745 &    1.145 &  -5.571 &     -8.340 &     -3.810 & 36286.100 \\
      DE\_rand\_2\_bin &  -6.434 &    0.592 &  -6.383 &     -7.735 &     -5.338 & 36647.900 \\
-               PSA &  -6.088 &    1.328 &  -6.084 &    -10.232 &     -3.476 & 24629.300 \\
+               PSO &  -6.088 &    1.328 &  -6.084 &    -10.232 &     -3.476 & 24629.300 \\
                SCA & -27.556 &    2.529 & -28.695 &    -29.000 &    -17.345 & 34416.300 \\
 \bottomrule
 \end{tabular}
@@ -839,7 +871,7 @@ Best Algorithm: \\
  DE\_randbest\_1\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 16738.400 \\
      DE\_best\_2\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 17181.300 \\
      DE\_rand\_2\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 17731.700 \\
-               PSA & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 17367.900 \\
+               PSO & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 17367.900 \\
                SCA & 7.731 &   24.212 &   0.136 &      0.000 &    156.060 & 26450.100 \\
 \bottomrule
 \end{tabular}
@@ -894,7 +926,7 @@ Null hypothesis: The best algorithm and the tested one are equal\\
  DE\_randbest\_1\_bin & 0.041 &    0.103 &   0.000 &      0.000 &      0.544 & 47283.200 \\
      DE\_best\_2\_bin & 1.332 &    1.564 &   0.589 &      0.000 &      6.544 & 48122.700 \\
      DE\_rand\_2\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 49301.700 \\
-               PSA & 4.303 &    3.234 &   3.472 &      0.454 &     14.906 & 32961.200 \\
+               PSO & 4.303 &    3.234 &   3.472 &      0.454 &     14.906 & 32961.200 \\
                SCA & 2.042 &    0.183 &   2.028 &      1.780 &      2.978 & 45821.000 \\
 \bottomrule
 \end{tabular}
@@ -943,7 +975,7 @@ Null hypothesis: The best algorithm and the tested one are equal\\
  DE\_randbest\_1\_bin & 7.500 &    0.000 &   7.500 &      7.500 &      7.500 & 16562.200 \\
      DE\_best\_2\_bin & 7.500 &    0.000 &   7.500 &      7.500 &      7.500 & 16949.400 \\
      DE\_rand\_2\_bin & 7.500 &    0.000 &   7.500 &      7.500 &      7.500 & 17527.800 \\
-               PSA & 7.500 &    0.000 &   7.500 &      7.500 &      7.501 & 17268.900 \\
+               PSO & 7.500 &    0.000 &   7.500 &      7.500 &      7.501 & 17268.900 \\
                SCA & 7.627 &    0.223 &   7.564 &      7.505 &      8.649 & 26166.300 \\
 \bottomrule
 \end{tabular}
@@ -1004,7 +1036,7 @@ Null hypothesis: The best algorithm and the tested one are equal\\
  DE\_randbest\_1\_bin &  0.089 &    0.626 &   0.000 &      0.000 &      4.472 & 20124.500 \\
      DE\_best\_2\_bin & 10.504 &   25.786 &   0.000 &      0.000 &    124.525 & 22391.200 \\
      DE\_rand\_2\_bin &  0.012 &    0.001 &   0.012 &      0.010 &      0.013 & 20807.300 \\
-               PSA & 10.733 &   24.130 &   0.001 &      0.000 &    121.910 & 19501.300 \\
+               PSO & 10.733 &   24.130 &   0.001 &      0.000 &    121.910 & 19501.300 \\
                SCA &  6.166 &    8.912 &   2.738 &      0.015 &     42.774 & 29122.300 \\
 \bottomrule
 \end{tabular}
@@ -1039,18 +1071,16 @@ Null hypothesis: The best algorithm and the tested one are equal\\
 
 
 
-
-
-\begin{landscape}
+%\begin{landscape}
     \subsection{Summary}
     
 
-The table \ref{tab:summary} shows a summary of the mean cost obtained by each algorithm, the lowest cost of each function is highlighted in yellow. It can be observed that the Genetic Algorithm found the minimum values in 10 functions, in some way Differential Algorithms are pretty good, they found the lowest cost in 9 functions. In function 8 both algorithms found the lowest cost. 
+The table \ref{tab:summary_best} shows a summary of the best mean cost obtained for each function. It can be observed that the Differential Evolution Algorithm found the minimum cost most of the time. The GA took second place,  and PSO the third place. DE seems to be the absolute winner. However, the result is a little unfair because DE is participating with ten different versions, and there is only one version of GA and DE.
 
 
 
 
-\end{landscape}
+%\end{landscape}
 
 
 \begin{table}[H]
@@ -1061,8 +1091,8 @@ The table \ref{tab:summary} shows a summary of the mean cost obtained by each al
  function\_id & best\_algorithm &  best\_cost &                                                                                                                  similar\_result obtained by hypothesis testing \\
 \midrule
  1 &  DE\_rand\_2\_exp & -0.002 &   \\
- 2 &  PSA & 0.000 &  DE\_best\_2\_exp \\
- 3 &  DE\_best\_2\_bin & 6.766 &  DE\_best\_2\_exp, PSA \\
+ 2 &  PSO & 0.000 &  DE\_best\_2\_exp \\
+ 3 &  DE\_best\_2\_bin & 6.766 &  DE\_best\_2\_exp, PSO \\
  4 &  DE\_rand\_2\_exp & 0.000 &   \\
  5 &  DE\_rand\_2\_bin & 0.000 &   \\
  6 &  GA & -43.097 &   \\
@@ -1080,32 +1110,42 @@ The table \ref{tab:summary} shows a summary of the mean cost obtained by each al
  18 &  DE\_best\_1\_exp & 0.000 &  DE\_best\_2\_exp, DE\_best\_1\_bin, DE\_randbest\_1\_bin \\
 \bottomrule
 \end{tabular}
-\caption{Summary: mean cost of each optimization algorithm with different bench-mark functions, the best cost of each function is highlighted.} 
+\caption{Summary: best mean cost of each optimization algorithm with different bench-mark functions} 
     \label{tab:summary_best}
 \end{table}
 
 
 \section{Discussion}
 
-The previous results show that both GA and DE are good, almost half of the lowest cost is found by GA and another half by DE. Regarding the running time, it can be noticed that in general the GA are slower than DE since in GA it is necessary to do two sorting in each iteration that makes it more time-consuming. Additionally, the figures show that in general, the binomial crossover version of DE is slower than the exponential crossover.
 
+Comparing the summary table \ref{tab:summary_best}  with the previous report, it can be noticed that the results are very different since for this project we increased the population to 500 and the number of iterations also 500. 
 
+Despite the PSO only found the best cost twice, it can be observed from the CPU total running time figures that many times the PSO runs much faster than other algorithms. 
+Additionally, numerous Cost figures show that PSO has a big standard deviation and it also presents outliers, this behavior might be caused that PSO needs more iterations to converge.
 
-Changing inertial weight during the iteration, will balance exploration and explotation. 
+For the p-value calculation, Two-sample Z-test has been used. However, It can be noticed from the statistical analysis tables and figures that in the sample data there are many outliers. As a consequence, we should find another better method for hypothesis testing or run the algorithms with more iterations or get better configuration parameters to make the algorithms converge and avoid the outliers.
 
-    \section{Conclusion}
-    In this project two optimization algorithms have been implemented and tested, they are Genetic Algorithm and Differential Evolution Algorithm. From the testing results, it can be observed there is not an absolute winner, GA is better with some functions, and DE with others. The CPU running time of both algorithms is similar. However, some versions of DE are faster than GA but those versions did not find the lowest cost.  
- 
-   To be able to compare the performance between different algorithms we assumed that the manual tuning of the configuration parameters of GA and DE achieved its best value. Additionally, we believe that the comparison is only valid for the mentioned configuration, running the algorithm with other parameters might produce a different result.
+%Changing inertial weight during the iteration will balance exploration and exploitation. 
 
 For future work, the comparison between different algorithms can be done in many other ways: 
 
-We can set a target cost and test which algorithm achieves the target cost first, in this way we can get a better comparison about which algorithm converges faster.
+   \begin{enumerate}[label=\arabic*)]
+\item We can set a target cost and test which algorithm achieves the target cost first, in this way we can get a better comparison about which algorithm converges faster.
   
-We can give each optimization algorithm a specific time constrain and stop the iterations when the algorithm reach the constrain, then we can compare the cost between different algorithms and find the best one.
+\item We can give each optimization algorithm a specific time constraint and stop the iterations when the algorithm reaches the constraint, then we can compare the cost between different algorithms and find the best one.
+\end{enumerate}
 
-    \bibliographystyle{unsrt}
-    \bibliography{references}
+
+    \section{Conclusion}
+
+
+
+    In this project many optimization algorithms have been implemented and tested, they are Genetic Algorithm, Differential Evolution Algorithm, Particle Swarm Optimization, and Sine Cosine Algorithm. From the testing results, it can be observed that DE won most of the time, but we cannot confirm DE is better than other algorithms since it is a little bit unfair to compare 10 versions of DE with only one version of other algorithms.  Furthermore, it can also be noticed that PSO runs much faster than other algorithms in numerous times. In summary, we can conclude that all of the studied algorithms are pretty good since after 500 iterations with a population size of 500 in most of the time almost all of them could find results that are very close to the optimal value. Despite this, one inconvenient of the evolutionary-based optimization algorithm is that the calibration of its parameters requires very tedious work.
+
+
+
+  %  \bibliographystyle{unsrt}
+  %  \bibliography{references}
 
 
 
