@@ -12,4 +12,5 @@ Id, Algorithm name, config file
 5,DE_rand_2_exp,../config/optimization_alg_conf/de5_config.csv
 11,PSO,../config/optimization_alg_conf/psa_config.csv
 12,SCA,../config/optimization_alg_conf/sca_config.csv
-13,PSO Var Weight,../config/optimization_alg_conf/psa_config_vw.csv
+13,BA,../config/optimization_alg_conf/ba_config.csv
+14,DBA,../config/optimization_alg_conf/dba_config.csv

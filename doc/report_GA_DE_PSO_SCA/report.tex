@@ -70,7 +70,7 @@
         %----------------------------------------------------------------------------------------
         
         \HRule \\[0.4cm]
-        { \huge \bfseries Genetic Algorithm, Differential Evolution, Particle Swarm Optimization, Sine Cosine Algorithm}\\[0.2cm] % Title of your document
+        { \huge \bfseries Genetic Algorithm, Differential Evolution, Particle Swarm Optimization, Sine Cosine Algorithm, Bat Algorithm, Directional Bat Algorithm, Ant Lion Optimizer}\\[0.2cm] % Title of your document
         \HRule \\[1cm]
         
         %----------------------------------------------------------------------------------------
@@ -125,18 +125,30 @@
     
     \section{Introduction}
     
-    For this project, four optimization algorithms will be tested. These are Genetic Algorithm (GA) and Differential Evolution Algorithm (DE), Particle Swarm Optimization (PSO) and Sine Cosine Algorithm (SCA).
+    For this project, many population based optimization algorithms will be tested. These are Genetic Algorithm (GA) and Differential Evolution Algorithm (DE), Particle Swarm Optimization (PSO) and Sine Cosine Algorithm (SCA), Bat Algorithm(BA), Directional Bat Algorithm (DBA) and the Ant Lion Optimizer (ALO).
+
+	\subsection{Genetic Algorithm}
     
     The GA is a heuristic search and optimization technique that simulates the process of natural evolution. The main operations of GA are Selection, Crossover, Mutation, and Elitism.
     
+    \subsection{Differential Evolution}
     The DE algorithm employs the difference of two randomly selected parameter vectors as the source fo random variations for a third parameter vector. Some advantages of DE are: few numbers of control parameters which make it easier to calibrate or tune, it is inherently parallel, and it has a faster convergence. 
     There are many strategies of DE, in this project 10 different strategies will be tested.
     
-    
+    \subsection{Particle Swarm Optimization}
     The PSO is inspired by the flocking and schooling patterns of birds and fish, the key point of PSO is that it keeps tracking the personal best and global best variables, and make the particles move toward those best values.
     
+	\subsection{Sine Cosine Algorithm}
     The SCA created in 2015 is very similar to PSO. However, it only keeps track of only the global optimal value, and in each iteration, it introduces sine and cosine formula which multiply with a decreasing range value.
-     
+    
+	\subsection{Bat Algorithm}
+	The BA proposed by Yang in 2010 is based on swarm intelligence algorithm, it is inspired by the echolocation behavior of micro bats, as all the population based algorithms the BA tries to find the optimal value by exploration and explotation. At the beginning of the iterations the algorithm focus more in exploration by selecting in each iteration one of the best solutions (local minimums) randomly, then it add a random walk step, if the new solution is better than the global best it will be accepted. At the end part of the iteration the algorithm focus more in exploitation by moving the bats toward the best global best.
+	\subsection{Directional Bat Algorithm}
+	The DBA proposed by Chakri in 2016 is based on BA, it claims to be a improved version of BA adding 4 modifications which enhance theh exploitation and exploration. The 1st modification consists in directional echolocation which make the bat move in 2 combined directions (global best and random selected) instead of only one direction to the global best. The 2nd modification consists in decrease the search space through the iterations. The 3rd modification changed the formula about how the pulse rate increase and loudness increase.The 4 modification make the algorithm to accept the new solution more often (increase exploration) and update the global best whenever the bat's random walk produces a better solution than the global optimal value.
+
+\subsection{Ant Lion Optimizer}
+
+The ALO algorithm simulates the population of antlion and the population of ant together, it mimics interaction between antlions and ants in the trap. First the antlion population is initialized randomly, then the elite antlion is located based on the fitness (cost), then each ant select an antlion using roulette wheel and random walk around it, also the same ant random walk around the elite ant, after that the new position of ant is calculated based on the two random walks, at the end the antlions will update their positions to the best fitness ants position, and the elite antlion is also updated. 
 
 
     
@@ -1082,6 +1094,7 @@ The table \ref{tab:summary_best} shows a summary of the best mean cost obtained 
 
 %\end{landscape}
 
+mean value of cost, 
 
 \begin{table}[H]
     \centering

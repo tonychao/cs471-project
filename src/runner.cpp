@@ -311,26 +311,51 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
 
         case 13:
         {
-            fillPSAParameterFromFile(config_file); 
-            psa_parameters.bounds.l = range_low; 
-            psa_parameters.bounds.u = range_high;
-            psa_parameters.dim = this->dimensions;
+            fillBAParameterFromFile(config_file); 
+            ba_parameters.bounds.l = range_low; 
+            ba_parameters.bounds.u = range_high;
+            ba_parameters.dim = this->dimensions;
 
-            psa_algorithm = new ParticleSwarm<Tinput, Toutput>(psa_parameters);
+            ba_algorithm = new BatAlgortihm<Tinput, Toutput>(ba_parameters);
         
-            debug(psa_algorithm->printInputPopulation());
+            debug(ba_algorithm->printInputPopulation());
             
             clk.tic();
             for (int i = 0; i < n_runs; i++)
             {
-                solutions[i] = psa_algorithm->run(function_id,true); // variable_weight = true
+                solutions[i] = ba_algorithm->run(function_id); 
                 //std::cout<<"best solution: " << best_solution<<std::endl;
             }
             
             computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
             saveStatistic();
 
-            delete psa_algorithm;
+            delete ba_algorithm;
+        }
+        break;
+
+        case 14:
+        {
+            fillDBAParameterFromFile(config_file); 
+            dba_parameters.bounds.l = range_low; 
+            dba_parameters.bounds.u = range_high;
+            dba_parameters.dim = this->dimensions;
+
+            dba_algorithm = new DirectionalBatAlgortihm<Tinput, Toutput>(dba_parameters);
+        
+            debug(dba_algorithm->printInputPopulation());
+            
+            clk.tic();
+            for (int i = 0; i < n_runs; i++)
+            {
+                solutions[i] = dba_algorithm->run(function_id); 
+                //std::cout<<"best solution: " << best_solution<<std::endl;
+            }
+            
+            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+            saveStatistic();
+
+            delete dba_algorithm;
         }
         break;
 
@@ -384,7 +409,7 @@ void Runner<Tinput,Toutput>::fillGAParameterFromFile(std::string config_filename
             ga_parameters.m.range = std::stod(row[3]); 
             ga_parameters.m.precision = std::stod(row[4]);
             ga_parameters.er = std::stod(row[5]);
-            ga_parameters.ns = std::stod(row[6]);
+            ga_parameters.ns = std::stoi(row[6]);
             break; 
         } 
         
@@ -437,7 +462,7 @@ void Runner<Tinput,Toutput>::fillDEParameterFromFile(std::string config_filename
             de_parameters.cr = std::stod(row[1]); 
             de_parameters.scale_f = std::stod(row[2]);
             de_parameters.scale_lambda= std::stod(row[3]); 
-            de_parameters.pop_size = std::stod(row[4]);
+            de_parameters.pop_size = std::stoi(row[4]);
             break; 
         } 
         
@@ -491,7 +516,7 @@ void Runner<Tinput,Toutput>::fillPSAParameterFromFile(std::string config_filenam
             psa_parameters.c2 = std::stod(row[2]);
             psa_parameters.w = std::stod(row[3]);
             psa_parameters.w_min = std::stod(row[4]);
-            psa_parameters.pop_size = std::stod(row[5]);
+            psa_parameters.pop_size = std::stoi(row[5]);
             break; 
         } 
         
@@ -503,6 +528,123 @@ void Runner<Tinput,Toutput>::fillPSAParameterFromFile(std::string config_filenam
     fin.close();
     
 }
+
+
+
+template <class Tinput, class Toutput>
+void Runner<Tinput,Toutput>::fillBAParameterFromFile(std::string config_filename)
+{
+    // File pointer 
+    std::fstream fin; 
+
+    // Open an existing file 
+    fin.open(config_filename, std::ios::in); 
+    int count = 0; 
+    // Read the Data from the file 
+    // as String Vector 
+    std::vector<std::string> row; 
+    std::string line, word, temp; 
+
+    while (fin) { 
+        count++;
+        row.clear(); 
+        // read an entire row and 
+        // store it in a string variable 'line' 
+        std::getline(fin, line); 
+
+        // used for breaking words 
+        std::stringstream s(line); 
+        
+        // read every column data of a row and 
+        // store it in a string variable, 'word' 
+        
+        while (std::getline(s, word, ',')) { 
+            // add all the column data 
+            // of a row to a vector 
+            row.push_back(word); 
+        } 
+        
+        // Compare the roll number 
+        if (count==2) { 
+            ba_parameters.t_max = std::stoi(row[0]); 
+            ba_parameters.r0 = std::stod(row[1]); 
+            ba_parameters.A0_min = std::stod(row[2]);
+            ba_parameters.A0_max = std::stod(row[3]);
+            ba_parameters.alfa = std::stod(row[4]);
+            ba_parameters.gamma = std::stod(row[5]);
+            ba_parameters.f_min = std::stod(row[6]);
+            ba_parameters.f_max = std::stod(row[7]);
+            ba_parameters.ratio_best = std::stod(row[8]);
+            ba_parameters.pop_size = std::stoi(row[9]);
+            break; 
+        } 
+        
+    } 
+   
+    if(count!=2)
+        std::cout <<config_filename<< " config file not found\n"; 
+
+    fin.close();
+    
+}
+
+
+
+template <class Tinput, class Toutput>
+void Runner<Tinput,Toutput>::fillDBAParameterFromFile(std::string config_filename)
+{
+    // File pointer 
+    std::fstream fin; 
+
+    // Open an existing file 
+    fin.open(config_filename, std::ios::in); 
+    int count = 0; 
+    // Read the Data from the file 
+    // as String Vector 
+    std::vector<std::string> row; 
+    std::string line, word, temp; 
+
+    while (fin) { 
+        count++;
+        row.clear(); 
+        // read an entire row and 
+        // store it in a string variable 'line' 
+        std::getline(fin, line); 
+
+        // used for breaking words 
+        std::stringstream s(line); 
+        
+        // read every column data of a row and 
+        // store it in a string variable, 'word' 
+        
+        while (std::getline(s, word, ',')) { 
+            // add all the column data 
+            // of a row to a vector 
+            row.push_back(word); 
+        } 
+        
+        // Compare the roll number 
+        if (count==2) { 
+            dba_parameters.t_max = std::stoi(row[0]); 
+            dba_parameters.r0 = std::stod(row[1]); 
+            dba_parameters.rinf = std::stod(row[2]);
+            dba_parameters.A0 = std::stod(row[3]);
+            dba_parameters.Ainf = std::stod(row[4]);
+            dba_parameters.f_min = std::stod(row[5]);
+            dba_parameters.f_max = std::stod(row[6]);
+            dba_parameters.pop_size = std::stoi(row[7]);
+            break; 
+        } 
+        
+    } 
+   
+    if(count!=2)
+        std::cout <<config_filename<< " config file not found\n"; 
+
+    fin.close();
+    
+}
+
 
 
 template <class Tinput, class Toutput>

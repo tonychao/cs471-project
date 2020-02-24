@@ -17,6 +17,8 @@
 #include <vector>    // working with csv file
 #include <sstream>   // to read csv file
 #include "util.h" //clock
+#include "bat_algorithm.h"
+#include "directional_bat_algorithm.h"
 
 
 /// @brief  Template class which runs different optimization algorithm, and save the statistics analysis in files
@@ -63,16 +65,23 @@ class Runner
     DifferentialEvolution<Tinput, Toutput> *diff_evo;
     ParticleSwarm<Tinput, Toutput> *psa_algorithm;
     SineCosineAlgorithm<Tinput, Toutput> *sca_algorithm;
+    BatAlgortihm<Tinput, Toutput> *ba_algorithm;
+    DirectionalBatAlgortihm<Tinput, Toutput> *dba_algorithm;
+
     GAInputParameter<Tinput> ga_parameters;
     DEInputParameter<Tinput> de_parameters;
     PSAInputParameter<Tinput> psa_parameters;
     SCAInputParameter<Tinput> sca_parameters;
-    
+    BAInputParameter<Tinput> ba_parameters;
+    DBAInputParameter<Tinput> dba_parameters;
     
     void fillGAParameterFromFile(std::string config_filename); //param = address of the configuration struct
     void fillDEParameterFromFile(std::string config_filename); //param = address of the configuration struct
     void fillPSAParameterFromFile(std::string config_filename); //param = address of the configuration struct
     void fillSCAParameterFromFile(std::string config_filename); //param = address of the configuration struct
+    void fillBAParameterFromFile(std::string config_filename); //param = address of the configuration struct
+    void fillDBAParameterFromFile(std::string config_filename); //param = address of the configuration struct
+
     public:
     
     /// @brief constructor of the class Runner

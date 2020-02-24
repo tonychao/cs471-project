@@ -1,2 +1,2 @@
 iterations,crossover rate,scaling factor F,scaling factor lambda,population size
-500,0.9,0.05,0.5,500
+100,0.9,0.05,0.5,200

@@ -1,0 +1,2 @@
+iterations,r0,rinf,A0,Ainf,fmin,fmax, population size
+100,0.1,0.7,0.9,0.6,0,2,200
