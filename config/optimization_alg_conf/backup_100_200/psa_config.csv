@@ -1,2 +1,2 @@
-iterations, c1, c2,w, population size
-100,1,1,0.7,200
+iterations, c1, c2,w,w_min,population size
+100,1,1,0.7,0,200
