@@ -1,0 +1,2 @@
+iterations,r0,A0 min,A0 max (exploration),alfa,gamma,f min,f max (explotation),ratio best, population size
+200,0.1,1,11,0.7,0.9,0,2,0.2,200

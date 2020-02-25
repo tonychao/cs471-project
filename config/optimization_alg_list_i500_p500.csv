@@ -1,0 +1,17 @@
+Id, Algorithm name, config file
+6,DE_best_1_bin,../config/optimization_alg_conf/i500_p500/de6_config.csv
+7,DE_rand_1_bin,../config/optimization_alg_conf/i500_p500/de7_config.csv
+8,DE_randbest_1_bin,../config/optimization_alg_conf/i500_p500/de8_config.csv
+9,DE_best_2_bin,../config/optimization_alg_conf/i500_p500/de9_config.csv
+10,DE_rand_2_bin,../config/optimization_alg_conf/i500_p500/de10_config.csv
+0,GA,../config/optimization_alg_conf/i500_p500/ga_config.csv
+1,DE_best_1_exp,../config/optimization_alg_conf/i500_p500/de1_config.csv
+2,DE_rand_1_exp,../config/optimization_alg_conf/i500_p500/de2_config.csv
+3,DE_randbest_1_exp,../config/optimization_alg_conf/i500_p500/de3_config.csv
+4,DE_best_2_exp,../config/optimization_alg_conf/i500_p500/de4_config.csv
+5,DE_rand_2_exp,../config/optimization_alg_conf/i500_p500/de5_config.csv
+11,PSO,../config/optimization_alg_conf/i500_p500/psa_config.csv
+12,SCA,../config/optimization_alg_conf/i500_p500/sca_config.csv
+13,BA,../config/optimization_alg_conf/i500_p500/ba_config.csv
+14,DBA,../config/optimization_alg_conf/i500_p500/dba_config.csv
+15,ALO,../config/optimization_alg_conf/i500_p500/alo_config.csv
