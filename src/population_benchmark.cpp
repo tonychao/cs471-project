@@ -158,6 +158,12 @@ Toutput PopulationBenchmark<Tinput, Toutput>::getMinCost()
     return min_cost;
 }
 
+template <class Tinput, class Toutput>
+int PopulationBenchmark<Tinput, Toutput>::getMinCostIndex()
+{
+    return min_cost_i;
+}
+
 
 template <class Tinput, class Toutput>
 Tinput* PopulationBenchmark<Tinput, Toutput>::getMinCostData()

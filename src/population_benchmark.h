@@ -48,6 +48,7 @@ class PopulationBenchmark: public Population <Tinput,Toutput>
     Tinput* getMinCostData();
     static void swap(PopulationBenchmark& A, PopulationBenchmark& B);
     Toutput getCost(int i);
+    int getMinCostIndex();
      
  
 };
