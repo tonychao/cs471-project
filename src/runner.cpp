@@ -359,6 +359,31 @@ void Runner<Tinput,Toutput>::runOptimization(int algorithm_id, std::string confi
         }
         break;
 
+        case 15:
+        {
+            fillALOParameterFromFile(config_file); 
+            alo_parameters.bounds.l = range_low; 
+            alo_parameters.bounds.u = range_high;
+            alo_parameters.dim = this->dimensions;
+
+            alo_algorithm = new AntLionOptimizer<Tinput, Toutput>(alo_parameters);
+        
+            debug(alo_algorithm->printInputPopulation());
+            
+            clk.tic();
+            for (int i = 0; i < n_runs; i++)
+            {
+                solutions[i] = alo_algorithm->run(function_id); 
+                //std::cout<<"best solution: " << best_solution<<std::endl;
+            }
+            
+            computeStatistic(clk.tac()); // compute all the statistical analysis beyond cpu time in ms
+            saveStatistic();
+
+            delete alo_algorithm;
+        }
+        break;
+
     }
 
 
@@ -633,6 +658,56 @@ void Runner<Tinput,Toutput>::fillDBAParameterFromFile(std::string config_filenam
             dba_parameters.f_min = std::stod(row[5]);
             dba_parameters.f_max = std::stod(row[6]);
             dba_parameters.pop_size = std::stoi(row[7]);
+            break; 
+        } 
+        
+    } 
+   
+    if(count!=2)
+        std::cout <<config_filename<< " config file not found\n"; 
+
+    fin.close();
+    
+}
+
+
+template <class Tinput, class Toutput>
+void Runner<Tinput,Toutput>::fillALOParameterFromFile(std::string config_filename)
+{
+    // File pointer 
+    std::fstream fin; 
+
+    // Open an existing file 
+    fin.open(config_filename, std::ios::in); 
+    int count = 0; 
+    // Read the Data from the file 
+    // as String Vector 
+    std::vector<std::string> row; 
+    std::string line, word, temp; 
+
+    while (fin) { 
+        count++;
+        row.clear(); 
+        // read an entire row and 
+        // store it in a string variable 'line' 
+        std::getline(fin, line); 
+
+        // used for breaking words 
+        std::stringstream s(line); 
+        
+        // read every column data of a row and 
+        // store it in a string variable, 'word' 
+        
+        while (std::getline(s, word, ',')) { 
+            // add all the column data 
+            // of a row to a vector 
+            row.push_back(word); 
+        } 
+        
+        // Compare the roll number 
+        if (count==2) { 
+            alo_parameters.t_max = std::stoi(row[0]);
+            alo_parameters.pop_size = std::stoi(row[1]);
             break; 
         } 
         

@@ -21,14 +21,7 @@ struct ALOInputParameter
     Bounds bounds; ///< instance of struct #Bounds
     
     int t_max; ///< maximum number of iterations
- 
 
-    double r0; ///< initial pulse rate
-    double rinf;
-    double A0; ///< initial loundness min
-    double Ainf; ///< initial loundness max
-    double f_min;
-    double f_max;
 
 };
 
@@ -39,125 +32,12 @@ class AntLionOptimizer
     private:
     PopulationBenchmark<Tinput, Toutput> *ants_pop; ///< population
     PopulationBenchmark<Tinput, Toutput> *antlions_pop; ///< population
-    PopulationBenchmark<Tinput, Toutput> *combined_pop; ///< population
-    
+
     ALOInputParameter <Tinput> param; ///< PSA parameters
     MersenneTwister ms_random; ///< mersenne twister random generator
     Toutput global_best_cost; ///<  global best cost
     Tinput* global_best_data; ///< global best data
-    Tinput** velocity; ///< array of array which keep the velocity (second array contains dimensions)
 
-    Tinput* w;
-    Tinput w_0;
-    Tinput w_inf;
-    Tinput* pulse_rate;
-    Tinput* loundness; 
-
-
-    int selectRandomBat(int i)
-    {
-        int rand;
-        while (true)
-        {
-            rand = (int)ms_random.genrand_real_range_ex_high(0.0, param.pop_size);
-            if (rand !=i)
-            {
-                break;
-            }
-        }
-        return rand;
-
-    }
-
-    Tinput calculateAvgLoundness()
-    {
-        Tinput avg = 0.0;
-        for (int i=0; i<param.pop_size; i++)
-        {
-            avg +=loundness[i];
-        }
-        return avg/param.pop_size;
-    }
-
-    void updateLocation(Tinput* new_location, int i, Tinput f1, Tinput f2, int random_bat, int function_id)
-    {
-
-
-        if(population->calcCost1Item(function_id, random_bat) < population->calcCost1Item(function_id, i))
-        {
-            for (int j=0; j<param.dim; j++)
-            {
-                Tinput location =  population->getData(i,j);
-                Tinput random_bat_loc = population->getData(random_bat,j);
-                new_location[j] = location + (global_best_data[j] - location)*f1 + (random_bat_loc-location)*f2;
-                keepInRange(new_location[j]);
-            }
-        }
-        else
-        {
-            for (int j=0; j<param.dim; j++)
-            {
-                Tinput location =  population->getData(i,j);
-                new_location[j] = location + (global_best_data[j] - location)*f1;
-                keepInRange(new_location[j]);
-            }
-        }
-        
-
-
-    }
-    void getNewLocation(int i, Tinput* new_location)
-    {
-        for (int j=0; j<param.dim; j++)
-        {
-            new_location[j] = population->getData(i,j) + velocity[i][j];
-            //keep new location in range
-            keepInRange(new_location[j]);
-        }
-    }
-
-    void getNewLocationAround(const Tinput* old, Tinput* new_location, Tinput average_loundness, int i)
-    {
-        for (int j=0; j<param.dim; j++)
-        {
-            new_location[j] = old[j] + ms_random.genrand_real_range(-1.0,1.0) * average_loundness * w[i];
-            //keep new location in range
-            keepInRange(new_location[j]);
-        }
-    }
-   
-    void initW(Tinput x)
-    {
-        for (int i =0; i<param.pop_size; i++)
-        {
-            w[i] = x;
-        }
-    }
-    void initVelocity(Tinput x)
-    {
-        for (int i =0; i<param.pop_size; i++)
-        {
-            for(int j = 0; j<param.dim; j++)
-            {
-                velocity[i][j] = x;
-            }
-        }
-    }
-    void initPulseRate(Tinput x)
-    {
-        for (int i =0; i<param.pop_size; i++)
-        {
-            pulse_rate[i] = x;
-        }
-    }
-    
-    void initLoundness(Tinput x)
-    {
-        for (int i =0; i<param.pop_size; i++)
-        {
-            loundness[i] = x;
-        }
-    }
 
     void saveResult(Toutput best_cost, Tinput* best_vector, std::string result_file)
     {
@@ -206,7 +86,7 @@ class AntLionOptimizer
     int rouletteWheelSelect(PopulationBenchmark<Tinput, Toutput>* population)
     {
         // changed to 0, because the total fitness can be less than 1, from the document (1,total_fitness)
-        Toutput random_number = ms_random_generator.genrand_real_range(0,population->getTotalFitness()); 
+        Toutput random_number = ms_random.genrand_real_range(0,population->getTotalFitness()); 
         debug(std::cout << "random fitness: " << random_number << std::endl);
         int s=0;
         while (s < param.pop_size && random_number > 0)
@@ -220,7 +100,7 @@ class AntLionOptimizer
         return s-1;
     }
 
-    Tinput getI(int t)
+    Tinput getI(Tinput t)
     {
         Tinput I = 1.0;
         if (t > param.t_max*0.95)
@@ -309,6 +189,7 @@ class AntLionOptimizer
     {
         Tinput lb, ub;
         Tinput I =  getI(t);
+        //debug_var(I);
         lb = param.bounds.l / I; // equation (2.10) in the paper
         ub = param.bounds.u / I; // equation (2.11) in the paper
 
@@ -342,11 +223,16 @@ class AntLionOptimizer
         Tinput X[param.t_max]; // storage for random walk
         //Tinput X_norm[param.t_max]; // normalized random walk
         //Tinput RWs[param.dim]; // normalized randomwalk for return
+
+
+        // in the author matlab code this was inside the next for loop which make it  very slow and bad
+        randomWalkCumSum(X, param.t_max); // fill X with random walk...
+        Tinput a = getMin(X,param.t_max);
+        Tinput b = getMax(X,param.t_max);
+        
+
         for (int j =0; j < param.dim; j++)
         {
-            randomWalkCumSum(X, param.t_max); // fill X with random walk
-            Tinput a = getMin(X);
-            Tinput b = getMax(X);
             Tinput c = lb_c[j];
             Tinput d = ub_d[j];
             RWs[j] = (X[t] - a)*(d-c)/(b-a) + c; // equation (2.7) in the paper
@@ -357,7 +243,7 @@ class AntLionOptimizer
     }
     
     public:
-    AntLionOptimizer(DBAInputParameter<Tinput> param)
+    AntLionOptimizer(ALOInputParameter<Tinput> param)
     {
 
         this->param = param;
@@ -367,20 +253,13 @@ class AntLionOptimizer
         std::cout << "population size: " << param.pop_size<< std::endl;
         std::cout << "maximum number of iterations: " << param.t_max << std::endl;
         std::cout << "dimension: " << param.dim << std::endl;
-        std::cout << "r0: " << param.r0 << std::endl;
-        std::cout << "rinf: " << param.rinf << std::endl;
-        std::cout << "A0: " << param.A0 << std::endl;
-        std::cout << "Ainf: " << param.Ainf << std::endl;
-        std::cout << "f_min: " << param.f_min << std::endl;
-        std::cout << "f_max: " << param.f_max << std::endl;
-        
         
         
 
         //allocate memory for population
         ants_pop = new PopulationBenchmark<Tinput, Toutput>(param.pop_size, param.dim);
         antlions_pop = new PopulationBenchmark<Tinput, Toutput>(param.pop_size, param.dim);
-        combined_pop = new PopulationBenchmark<Tinput, Toutput>(2*param.pop_size, param.dim);
+
 
         //init seed random generator
         ms_random.init_genrand(time(0));
@@ -389,48 +268,19 @@ class AntLionOptimizer
         //data: allocate memory for data
         global_best_data = new Tinput[param.dim];
 
-
-        //allocate memory 
-        pulse_rate = new Tinput[param.pop_size];
-        loundness = new Tinput[param.pop_size];
-        velocity =  new Tinput*[param.pop_size];
-        w = new Tinput[param.pop_size];
-
-        for (int i =0; i< param.pop_size; i++)
-        {
-            velocity[i] = new Tinput[param.dim];
-        }
-        
         
     }
 
     ~AntLionOptimizer()
     {
-        if (population)
-            delete population;
+        if (ants_pop)
+            delete ants_pop;
+        if (antlions_pop)
+            delete antlions_pop;
         
-        if (pulse_rate)
-            delete[] pulse_rate;
-            
-        if (w)
-            delete[] w;
-
-        if (loundness)
-            delete[] loundness;
         
         if (global_best_data)
             delete[] global_best_data;
-
-        // free array of array
-        if (velocity)
-        {
-            for (int i =0; i< param.pop_size; i++)
-            {
-                if(velocity[i])
-                    delete [] velocity[i];
-            }
-            delete [] velocity;
-        }
 
     }
 
@@ -456,11 +306,10 @@ class AntLionOptimizer
         int elite = antlions_pop->getMinCostIndex();
         global_best_cost = antlions_pop->getMinCost();
         globalBestSetData(antlions_pop->getMinCostData());
-
+        debug(antlions_pop->printCost());
+        //debug_var(elite);
         // store the selected antlions by each ant
         int selected_antlions[param.pop_size];
-
-
         
         for (int t =0; t<param.t_max; t++)
         {
@@ -470,11 +319,14 @@ class AntLionOptimizer
                 
                 // for each ant select an antlion by roulette wheel
                 int antlion = rouletteWheelSelect(antlions_pop);
+                //debug_var(antlion);
                 selected_antlions[i] = antlion;  
                 // RA = location around selected antlion by roulette wheel
                 Tinput RA[param.dim]; // normalized randomwalk pass by reference
                 randomWalkAroundAntlion(antlion,t, RA);
-
+                debug(printArray<Tinput>(antlions_pop->getData(antlion), param.dim, ' '));
+                debug(printArray<Tinput>(RA, param.dim, ' '));
+                debug(std::cout<<"------"<<std::endl;)
                 // RE = location around elite antlion
                 Tinput RE[param.dim];
                 randomWalkAroundAntlion(elite,t,RE);
@@ -487,6 +339,7 @@ class AntLionOptimizer
                 for (int j = 0; j< param.dim; j++)
                 {
                     new_ant[j] = (RA[j] + RE[j])/2.0;
+                    keepInRange(new_ant[j]);
                 }
 
                 ants_pop->setData(new_ant, i);
