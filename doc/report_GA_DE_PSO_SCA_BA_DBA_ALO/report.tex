@@ -23,6 +23,7 @@
 \usepackage{graphicx} % http://ctan.org/pkg/graphicx
 \usepackage{booktabs} % http://ctan.org/pkg/booktabs
 \usepackage{xparse}   % http://ctan.org/pkg/xparse
+\usepackage{adjustbox}
 \NewDocumentCommand{\rot}{O{45} O{1em} m}{\makebox[#2][l]{\rotatebox{#1}{#3}}}%
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -70,7 +71,7 @@
         %----------------------------------------------------------------------------------------
         
         \HRule \\[0.4cm]
-        { \huge \bfseries Genetic Algorithm, Differential Evolution, Particle Swarm Optimization, Sine Cosine Algorithm}\\[0.2cm] % Title of your document
+        { \huge \bfseries Genetic Algorithm, Differential Evolution, Particle Swarm Optimization, Sine Cosine Algorithm, Bat Algorithm, Directional Bat Algorithm, Ant Lion Optimizer}\\[0.2cm] % Title of your document
         \HRule \\[1cm]
         
         %----------------------------------------------------------------------------------------
@@ -123,30 +124,47 @@
     
     
     
-    \section{Introduction}
-    
-    For this project, four optimization algorithms will be tested. These are Genetic Algorithm (GA) and Differential Evolution Algorithm (DE), Particle Swarm Optimization (PSO) and Sine Cosine Algorithm (SCA).
-    
-    The GA is a heuristic search and optimization technique that simulates the process of natural evolution. The main operations of GA are Selection, Crossover, Mutation, and Elitism.
-    
-    The DE algorithm employs the difference of two randomly selected parameter vectors as the source fo random variations for a third parameter vector. Some advantages of DE are: few numbers of control parameters which make it easier to calibrate or tune, it is inherently parallel, and it has a faster convergence. 
-    There are many strategies of DE, in this project 10 different strategies will be tested.
-    
-    
-    The PSO is inspired by the flocking and schooling patterns of birds and fish, the key point of PSO is that it keeps tracking the personal best and global best variables, and make the particles move toward those best values.
-    
-    The SCA created in 2015 is very similar to PSO. However, it only keeps track of only the global optimal value, and in each iteration, it introduces sine and cosine formula which multiply with a decreasing range value.
+
+
+\section{Introduction}
+
+For this project, many population-based optimization algorithms will be tested. These are Genetic Algorithm (GA) and Differential Evolution Algorithm (DE), Particle Swarm Optimization (PSO) and Sine Cosine Algorithm (SCA), Bat Algorithm(BA), Directional Bat Algorithm (DBA) and the Ant Lion Optimizer (ALO).
+
+\subsection{Genetic Algorithm}
+
+The GA is a heuristic search and optimization technique that simulates the process of natural evolution. The main operations of GA are Selection, Crossover, Mutation, and Elitism.
+
+\subsection{Differential Evolution}
+The DE algorithm employs the difference of two randomly selected parameter vectors as the source fo random variations for a third parameter vector. Some advantages of DE are: few numbers of control parameters which make it easier to calibrate or tune, it is inherently parallel, and it has a faster convergence. 
+There are many strategies of DE, in this project 10 different strategies will be tested.
+
+\subsection{Particle Swarm Optimization}
+The PSO is inspired by the flocking and schooling patterns of birds and fish, the key point of PSO is that it keeps tracking the personal best and global best variables, and make the particles move toward those best values.
+
+\subsection{Sine Cosine Algorithm}
+The SCA created in 2015 is very similar to PSO. However, it only keeps track of only the global optimal value, and in each iteration, it introduces sine and cosine formula which multiply with a decreasing range value.
+
+\subsection{Bat Algorithm}
+The BA proposed by Yang in 2010 is based on swarm intelligence algorithm, it is inspired by the echolocation behavior of microbats, as all the population-based algorithms the BA tries to find the optimal value by exploration and exploitation. At the beginning of the iterations, the algorithm focuses more on exploration by selecting in each iteration one of the best solutions (local minimums) randomly, then it adds a random walk step to it when this is better than the global best it will be accepted as a new solution. At the end part of the iteration the algorithm focus more in exploitation by moving the bats toward the best global best.
+\subsection{Directional Bat Algorithm}
+The DBA proposed by Chakri in 2016 is based on BA, it claims to be an improved version of BA adding 4 modifications that enhance the exploitation and exploration. The 1st modification consists of directional echolocation which makes the bat move in 2 combined directions (global best and random selected) instead of only one direction to the global best. The 2nd modification consists in decrease the search space through the iterations. The 3rd modification changed the formula about how the pulse rate and loudness increase and increase respectively. The 4th modification makes the algorithm to accept the new solution more often (increase exploration) and update the global best whenever the bat's random walk produces a better solution than the global optimal value.
+
+\subsection{Ant Lion Optimizer}
+
+The ALO algorithm simulates the population of antlions and the population of ants together, it mimics the interaction between antlions and ants in the trap. First, the antlion population is initialized randomly, then the elite antlion is located based on the fitness (cost), then each ant select an antlion using roulette wheel and random walk around it, also the same ant random walk around the elite ant, after that the new position of ant is calculated based on the two random walks, at the end, the antlions will update their positions to the best fitness ants position, and the elite antlion is also updated. 
+
+
      
 
 
     
     \section{Method}
     
-The GA, DE, PSO, SCA algorithms are coded using C++ object-oriented programming. The implemented classes are Population, PopulationBenchmark,  Functions, Runner, GeneticAlgorithm, DifferentialEvolution, ParticleSwarm, SineCosine class. Additionally, python script with jupyter notebook is implemented to read the configuration parameters and call the C++ executable, then it collects the result, displays it in table and figures, and prints the output in latex format.
+The GA, DE, PSO, SCA, BA, DBA, ALO algorithms are coded using C++ object-oriented programming. The implemented classes are Population, PopulationBenchmark,  Functions, Runner, GeneticAlgorithm, DifferentialEvolution, ParticleSwarm, SineCosine, BatAlgorithm, DirectionalBatAlgorithm, AntLionOptimizer class. Additionally, python script with jupyter notebook is implemented to read the configuration parameters and call the C++ executable, then it collects the result, displays it in table and figures, and prints the output in latex format.
     
-    The obtained results are from 50 runs of each algorithm, comparing to the previous project the population size has increased to \textbf{500}, and the generations or iterations increased to \textbf{500}, number of dimensions = 30.
+    The obtained results are from \textbf{50} runs of each algorithm with the population size equal to \textbf{500}, and the generations or iterations equal to \textbf{500}, the number of dimensions is set to 30.
 
-The computer used to run the project has the following specification: Intel Core i7-9750H 2.6GHZ with 16 GB of RAM
+The computer used to run the project has the following specification: Intel Core i7-9750H 2.6GHZ up to 4.5GHZ with 16 GB of RAM
 
   
       
@@ -159,7 +177,7 @@ the following tables show the result of the calibration:
 
 
 
-The calibrated GA parameters are:
+\textbf{The calibrated GA parameters are:}
 \begin{table}[H]    
 \centering
 \footnotesize
@@ -179,7 +197,7 @@ crossover rate&    mutation rate&    mutation value range&     mutation precisio
 
 
 
-The calibrated DE parameters are:
+\textbf{The calibrated DE parameters are:}
 
 \begin{table}[H]    
 \centering
@@ -204,7 +222,7 @@ DE\_rand\_2\_bin& 0.7&    0.1&    - \\
 \caption{Configuration parameters of DE obtained by manual tuning} 
 \end{table}
 
-The calibrated PSO parameters are:
+\textbf{The calibrated PSO parameters are:}
 \begin{table}[H]    
 \centering
 \footnotesize
@@ -223,7 +241,7 @@ c1&    c2&    w \\
 \end{table}
 
 
-SCA parameters from the research paper are:
+\textbf{SCA parameters from the research paper are:}
 \begin{table}[H]    
 \centering
 \footnotesize
@@ -242,6 +260,52 @@ a&    r3 \\
 \end{table}
 
 
+
+\textbf{The calibrated BA parameters are:}
+\begin{table}[H]    
+    \centering
+    \footnotesize
+    \begin{tabular}{cccccccc}
+        
+        \hline
+        r0&    A0 min&    A0 max (exploration)&    alfa&    gamma&    f min&    f max (exploitation)&    ratio best\\
+        
+        \hline
+        0.1&    1&    11&    0.7&    0.9&    0&    2&    0.2\\
+        
+
+        
+        \hline 
+    \end{tabular} 
+    
+    \caption{Configuration parameters of BA obtained by manual tuning, the A0 Max was increased to enhance the exploration} 
+\end{table}
+
+
+
+\textbf{The calibrated DBA parameters are:}
+\begin{table}[H]    
+    \centering
+    \footnotesize
+    \begin{tabular}{cccccc}
+        
+        \hline
+        r0&    rinf&    A0&    Ainf&    fmin&    fmax\\
+        
+        \hline
+        0.1&    0.7&    0.9&    0.6&    0&    2\\
+        
+        
+        
+        \hline 
+    \end{tabular} 
+    
+    \caption{Configuration parameters of DBA obtained by manual tuning} 
+\end{table}
+
+
+\textbf{The ALO algorithm does not have any configuration parameter.}
+
 \section{Results}
 The results of applying different optimization algorithms with 18 benchmarking functions are displayed in the following pages: 
 \newpage
@@ -257,806 +321,876 @@ The results of applying different optimization algorithms with 18 benchmarking f
 
 
 
+
+
+
+
 \newpage
 \subsection{Function 1: Schwefel}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f1"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f1"}.png}
     
     \caption{Cost and CPU total running time of Function 1: Schwefel} 
     \label{fig:f1}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &     mean &  std\_dev &   median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA &  291.715 &  252.889 &  233.445 &      0.065 &   1342.860 & 30556.100 \\
-     DE\_best\_1\_exp &  413.589 &  204.703 &  462.697 &     -0.001 &    846.203 & 21489.300 \\
-     DE\_rand\_1\_exp &    0.001 &    0.001 &    0.001 &     -0.000 &      0.003 & 21405.800 \\
- DE\_randbest\_1\_exp & 3542.440 &  305.624 & 3618.260 &   2698.730 &   4127.590 & 23376.400 \\
-     DE\_best\_2\_exp &  987.060 &  321.703 &  925.399 &    462.703 &   1849.480 & 22160.100 \\
-     DE\_rand\_2\_exp &   -0.002 &    0.000 &   -0.002 &     -0.003 &     -0.001 & 21582.000 \\
-     DE\_best\_1\_bin & 1757.670 &  359.702 & 1728.670 &   1147.530 &   2503.530 & 22986.300 \\
-     DE\_rand\_1\_bin & 5261.550 &  396.785 & 5335.010 &   4231.200 &   5961.440 & 25214.300 \\
- DE\_randbest\_1\_bin & 2124.900 & 1093.450 & 1840.380 &   1066.570 &   6128.350 & 26134.600 \\
-     DE\_best\_2\_bin & 1824.540 &  364.970 & 1789.090 &    821.697 &   2535.630 & 24220.600 \\
-     DE\_rand\_2\_bin & 4551.430 &  324.357 & 4607.150 &   3705.000 &   5131.590 & 27823.400 \\
-               PSO & 3271.220 &  239.150 & 3327.850 &   2528.260 &   3633.530 & 20219.000 \\
-               SCA & 6546.260 &  276.539 & 6560.930 &   5767.570 &   7283.020 & 31801.900 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 1: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &     mean &  std\_dev &   median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & 1227.950 & 376.908 & 1193.970 & 349.859 & 2415.230 & 2072.570 \\
+            DE\_best\_1\_exp & 2594.260 & 506.957 & 2644.100 & 1266.590 & 3732.340 & 1790.220 \\
+            DE\_rand\_1\_exp & 3176.050 & 273.965 & 3175.680 & 2189.160 & 3947.180 & 1815.360 \\
+            DE\_randbest\_1\_exp & 6421.590 & 300.963 & 6427.380 & 5696.810 & 6941.060 & 1847.510 \\
+            DE\_best\_2\_exp & 3698.620 & 785.839 & 3736.930 & 1918.250 & 5127.440 & 1897.470 \\
+            DE\_rand\_2\_exp & 1861.060 & 262.467 & 1831.280 & 1188.600 & 2691.680 & 1861.120 \\
+            DE\_best\_1\_bin & 2061.100 & 395.574 & 2047.320 & 1380.740 & 3321.640 & 1970.680 \\
+            DE\_rand\_1\_bin & 6891.470 & 427.318 & 6922.800 & 5294.120 & 7537.300 & 2026.100 \\
+            DE\_randbest\_1\_bin & 6841.440 & 652.654 & 6970.580 & 5078.730 & 7899.160 & 2133.580 \\
+            DE\_best\_2\_bin & 2294.620 & 751.674 & 2123.900 & 1274.250 & 5827.550 & 2022.660 \\
+            DE\_rand\_2\_bin & 6191.390 & 308.229 & 6226.270 & 5379.710 & 6725.530 & 2151.730 \\
+            PSO & 3266.090 & 284.030 & 3331.530 & 2320.860 & 3771.680 & 1629.050 \\
+            SCA & 7207.630 & 500.074 & 7175.650 & 5709.280 & 8434.870 & 2478.020 \\
+            BA & 4858.750 & 777.198 & 4775.090 & 3320.900 & 6432.790 & 2025.140 \\
+            DBA & 3800.850 & 897.100 & 3716.040 & 2578.980 & 5579.770 & 2527.020 \\
+            ALO & 0.044 & 0.099 & 0.009 & 0.000 & 0.547 & 6652.570 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 1: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{DE\_rand\_2\_exp}, Cost (mean): -0.001977\\
+\textbf{ALO}, Cost (mean): 0.043685\\
 \newpage
 \subsection{Function 2: De Jong 1}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f2"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f2"}.png}
     
     \caption{Cost and CPU total running time of Function 2: De Jong 1} 
     \label{fig:f2}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &  mean &  std\_dev &  median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA & 0.027 &    0.007 &   0.027 &      0.012 &      0.041 & 22121.200 \\
-     DE\_best\_1\_exp & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 11523.900 \\
-     DE\_rand\_1\_exp & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 11695.500 \\
- DE\_randbest\_1\_exp & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 11908.100 \\
-     DE\_best\_2\_exp & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 12454.800 \\
-     DE\_rand\_2\_exp & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 12882.300 \\
-     DE\_best\_1\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 14231.100 \\
-     DE\_rand\_1\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 13186.400 \\
- DE\_randbest\_1\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 14820.700 \\
-     DE\_best\_2\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 15413.000 \\
-     DE\_rand\_2\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 15693.300 \\
-               PSO & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 18522.800 \\
-               SCA & 0.012 &    0.024 &   0.004 &      0.000 &      0.156 & 25287.200 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 2: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &     mean &  std\_dev &   median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & 76.080 & 15.059 & 73.447 & 40.136 & 108.911 & 1328.930 \\
+            DE\_best\_1\_exp & 3.423 & 1.641 & 2.907 & 1.441 & 11.133 & 900.488 \\
+            DE\_rand\_1\_exp & 73.259 & 15.934 & 75.316 & 40.990 & 102.826 & 917.260 \\
+            DE\_randbest\_1\_exp & 2.555 & 0.998 & 2.322 & 1.046 & 5.322 & 929.018 \\
+            DE\_best\_2\_exp & 0.452 & 0.562 & 0.245 & 0.016 & 2.981 & 967.223 \\
+            DE\_rand\_2\_exp & 83.211 & 20.792 & 80.720 & 33.725 & 126.054 & 989.034 \\
+            DE\_best\_1\_bin & 0.003 & 0.002 & 0.002 & 0.001 & 0.009 & 1075.570 \\
+            DE\_rand\_1\_bin & 19.215 & 3.416 & 19.479 & 12.869 & 27.767 & 1061.240 \\
+            DE\_randbest\_1\_bin & 0.002 & 0.001 & 0.001 & 0.001 & 0.005 & 1143.720 \\
+            DE\_best\_2\_bin & 0.007 & 0.004 & 0.007 & 0.002 & 0.019 & 1190.380 \\
+            DE\_rand\_2\_bin & 8.040 & 1.648 & 7.548 & 5.268 & 13.677 & 1213.190 \\
+            PSO & 0.001 & 0.001 & 0.000 & 0.000 & 0.004 & 1332.550 \\
+            SCA & 1495.250 & 923.455 & 1369.840 & 121.011 & 4229.320 & 1984.370 \\
+            BA & 196.477 & 59.316 & 182.925 & 82.012 & 326.640 & 1281.490 \\
+            DBA & 36.711 & 11.181 & 38.088 & 16.488 & 64.476 & 949.907 \\
+            ALO & 0.008 & 0.018 & 0.003 & 0.000 & 0.120 & 6326.930 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 2: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{PSO}, Cost (mean): 0.000000\\
-\noindent
-\textbf{Two-Sample Z-Test Hypothesis Testing: }
-confidence interval = 95\%\\
-\vspace{-3mm}
-\rule[3mm]{\linewidth}{0.2pt}
-Null hypothesis: The best algorithm and the tested one are equal\\
-\textbf{DE\_best\_2\_exp}, Cost (mean): 0.000000
-, P value: 0.312300\\
+\textbf{PSO}, Cost (mean): 0.000594\\
 \newpage
 \subsection{Function 3: Rosenbrock's Saddle}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f3"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f3"}.png}
     
     \caption{Cost and CPU total running time of Function 3: Rosenbrock's Saddle} 
     \label{fig:f3}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &      mean &    std\_dev &  median &  range\_min &   range\_max &   time\_ms \\
-\midrule
-                GA &   257.352 &    884.297 & 137.786 &     22.558 &    6438.970 & 23371.600 \\
-     DE\_best\_1\_exp &    27.969 &     27.609 &  19.983 &      6.134 &     181.193 & 12714.700 \\
-     DE\_rand\_1\_exp &    27.116 &     14.129 &  24.682 &      0.254 &      82.130 & 12963.200 \\
- DE\_randbest\_1\_exp &    30.528 &     18.844 &  24.980 &     20.086 &      98.873 & 13060.400 \\
-     DE\_best\_2\_exp &    46.667 &    149.105 &  21.051 &      6.904 &    1084.970 & 13590.900 \\
-     DE\_rand\_2\_exp &    42.242 &     29.691 &  26.229 &      7.938 &     113.534 & 14069.100 \\
-     DE\_best\_1\_bin &    30.677 &     33.944 &  17.140 &      9.213 &     204.623 & 15112.100 \\
-     DE\_rand\_1\_bin &    31.228 &     16.637 &  26.366 &     24.792 &      90.204 & 14232.800 \\
- DE\_randbest\_1\_bin &    29.792 &     15.341 &  25.500 &     19.739 &      83.236 & 15900.600 \\
-     DE\_best\_2\_bin &     6.766 &     10.657 &   4.102 &      0.013 &      67.366 & 16253.500 \\
-     DE\_rand\_2\_bin &    50.293 &     29.508 &  27.080 &     24.573 &      93.474 & 16764.200 \\
-               PSO & 40247.300 & 195919.000 &  13.081 &      0.019 & 1000030.000 & 16938.100 \\
-               SCA &   665.449 &   1900.780 & 125.559 &     28.431 &   13094.800 & 26018.600 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 3: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &          mean &       std\_dev &        median &   range\_min &      range\_max &  time\_ms \\
+            \midrule
+            GA & 327876.000 & 193268.000 & 273707.000 & 39384.100 & 826084.000 & 1394.160 \\
+            DE\_best\_1\_exp & 13272.100 & 18675.300 & 6240.760 & 812.307 & 105860.000 & 1038.630 \\
+            DE\_rand\_1\_exp & 587827.000 & 244150.000 & 577216.000 & 193550.000 & 1213960.000 & 998.366 \\
+            DE\_randbest\_1\_exp & 1902.470 & 1779.390 & 1192.520 & 311.325 & 7486.780 & 1023.540 \\
+            DE\_best\_2\_exp & 3945.820 & 5922.150 & 1148.390 & 229.942 & 28348.400 & 1060.810 \\
+            DE\_rand\_2\_exp & 838744.000 & 464531.000 & 809726.000 & 160200.000 & 3414370.000 & 1078.390 \\
+            DE\_best\_1\_bin & 608.995 & 1877.080 & 145.437 & 29.976 & 10137.500 & 1171.100 \\
+            DE\_rand\_1\_bin & 72522.400 & 45622.200 & 64170.500 & 32422.700 & 343226.000 & 1184.670 \\
+            DE\_randbest\_1\_bin & 625.385 & 2338.530 & 102.556 & 23.043 & 16303.700 & 1261.130 \\
+            DE\_best\_2\_bin & 751.848 & 1690.870 & 156.577 & 30.614 & 8310.250 & 1318.590 \\
+            DE\_rand\_2\_bin & 34467.400 & 13728.600 & 35458.700 & 12362.800 & 64474.200 & 1298.300 \\
+            PSO & 20887.400 & 139901.000 & 85.231 & 24.667 & 1000030.000 & 1368.990 \\
+            SCA & 284742000.000 & 297691000.000 & 174375000.000 & 5325270.000 & 1185420000.000 & 2042.450 \\
+            BA & 1168380.000 & 695395.000 & 915598.000 & 334772.000 & 3431950.000 & 1370.260 \\
+            DBA & 48239.000 & 68139.000 & 26502.000 & 1280.890 & 400122.000 & 1134.390 \\
+            ALO & 2.579 & 3.368 & 1.530 & 0.000 & 14.067 & 6349.710 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 3: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{DE\_best\_2\_bin}, Cost (mean): 6.765720\\
+\textbf{ALO}, Cost (mean): 2.579130\\
 \noindent
 \textbf{Two-Sample Z-Test Hypothesis Testing: }
 confidence interval = 95\%\\
 \vspace{-3mm}
 \rule[3mm]{\linewidth}{0.2pt}
 Null hypothesis: The best algorithm and the tested one are equal\\
-\textbf{DE\_best\_2\_exp}, Cost (mean): 46.666800
-, P value: 0.059100\\
-\textbf{PSO}, Cost (mean): 40247.300000
-, P value: 0.146400\\
+\textbf{DE\_randbest\_1\_bin}, Cost (mean): 625.385000
+, P value: 0.059700\\
+\textbf{PSO}, Cost (mean): 20887.400000
+, P value: 0.291200\\
 \newpage
 \subsection{Function 4: Rastrigin}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f4"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f4"}.png}
     
     \caption{Cost and CPU total running time of Function 4: Rastrigin} 
     \label{fig:f4}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &    mean &  std\_dev &  median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA &   0.326 &    0.093 &   0.329 &      0.160 &      0.602 & 30677.700 \\
-     DE\_best\_1\_exp &   7.144 &    3.316 &   6.965 &      0.995 &     15.919 & 21918.600 \\
-     DE\_rand\_1\_exp &   0.001 &    0.001 &   0.001 &      0.000 &      0.005 & 22068.400 \\
- DE\_randbest\_1\_exp &  49.952 &    3.926 &  50.451 &     41.164 &     59.406 & 25030.400 \\
-     DE\_best\_2\_exp &  22.547 &   11.553 &  19.003 &      7.222 &     65.667 & 23028.400 \\
-     DE\_rand\_2\_exp &   0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 22090.700 \\
-     DE\_best\_1\_bin &  27.855 &    9.024 &  26.864 &     13.930 &     53.728 & 25710.100 \\
-     DE\_rand\_1\_bin & 114.483 &    9.400 & 113.420 &     87.475 &    133.161 & 27490.800 \\
- DE\_randbest\_1\_bin & 134.128 &    8.118 & 134.180 &    114.881 &    151.079 & 28967.100 \\
-     DE\_best\_2\_bin & 116.669 &   51.123 & 138.424 &     13.387 &    177.584 & 28977.000 \\
-     DE\_rand\_2\_bin &  47.581 &    6.281 &  48.055 &     33.423 &     59.602 & 29219.600 \\
-               PSO &  89.168 &   23.481 &  86.064 &     42.783 &    164.167 & 20958.900 \\
-               SCA &  29.896 &   35.064 &  14.473 &      0.010 &    157.073 & 32111.200 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 4: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &    mean &  std\_dev &  median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & 78.319 & 12.938 & 77.636 & 58.474 & 126.663 & 2240.370 \\
+            DE\_best\_1\_exp & 136.788 & 12.600 & 135.141 & 116.298 & 176.007 & 1994.340 \\
+            DE\_rand\_1\_exp & 160.392 & 12.252 & 159.635 & 133.816 & 186.928 & 2011.130 \\
+            DE\_randbest\_1\_exp & 157.514 & 13.193 & 156.599 & 132.396 & 189.072 & 2026.750 \\
+            DE\_best\_2\_exp & 141.617 & 22.523 & 143.871 & 81.862 & 202.623 & 2044.490 \\
+            DE\_rand\_2\_exp & 138.059 & 13.107 & 137.958 & 109.360 & 162.163 & 2078.800 \\
+            DE\_best\_1\_bin & 177.708 & 19.888 & 177.356 & 132.649 & 239.429 & 2193.280 \\
+            DE\_rand\_1\_bin & 201.957 & 11.553 & 202.602 & 168.646 & 223.115 & 2288.740 \\
+            DE\_randbest\_1\_bin & 188.274 & 12.445 & 189.753 & 155.486 & 215.544 & 2345.570 \\
+            DE\_best\_2\_bin & 223.900 & 20.874 & 224.576 & 164.271 & 258.584 & 2390.460 \\
+            DE\_rand\_2\_bin & 166.760 & 10.923 & 166.589 & 138.901 & 191.543 & 2328.860 \\
+            PSO & 116.462 & 26.355 & 118.929 & 47.772 & 192.216 & 1768.780 \\
+            SCA & 345.389 & 108.363 & 316.188 & 155.007 & 622.249 & 2531.900 \\
+            BA & 624.340 & 63.733 & 623.268 & 506.487 & 845.286 & 2430.460 \\
+            DBA & 337.212 & 81.701 & 334.151 & 169.461 & 542.711 & 2768.970 \\
+            ALO & 5.612 & 12.956 & 0.006 & 0.000 & 60.127 & 6693.500 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 4: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{DE\_rand\_2\_exp}, Cost (mean): 0.000000\\
+\textbf{ALO}, Cost (mean): 5.612020\\
 \newpage
 \subsection{Function 5: Griewangk}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f5"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f5"}.png}
     
     \caption{Cost and CPU total running time of Function 5: Griewangk} 
     \label{fig:f5}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &  mean &  std\_dev &  median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA & 0.148 &    0.049 &   0.134 &      0.075 &      0.347 & 42468.000 \\
-     DE\_best\_1\_exp & 0.008 &    0.009 &   0.007 &      0.000 &      0.044 & 30718.300 \\
-     DE\_rand\_1\_exp & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 31162.500 \\
- DE\_randbest\_1\_exp & 0.002 &    0.005 &   0.000 &      0.000 &      0.027 & 31148.500 \\
-     DE\_best\_2\_exp & 0.013 &    0.018 &   0.007 &      0.000 &      0.083 & 31178.600 \\
-     DE\_rand\_2\_exp & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 32401.500 \\
-     DE\_best\_1\_bin & 0.007 &    0.007 &   0.007 &      0.000 &      0.025 & 32465.700 \\
-     DE\_rand\_1\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 32529.500 \\
- DE\_randbest\_1\_bin & 0.003 &    0.005 &   0.000 &      0.000 &      0.020 & 33060.300 \\
-     DE\_best\_2\_bin & 0.009 &    0.010 &   0.010 &      0.000 &      0.054 & 33329.300 \\
-     DE\_rand\_2\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 35011.700 \\
-               PSO & 0.014 &    0.015 &   0.010 &      0.000 &      0.056 & 25597.000 \\
-               SCA & 0.164 &    0.174 &   0.112 &      0.000 &      0.614 & 36150.800 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 5: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &    mean &  std\_dev &  median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & 1.597 & 0.148 & 1.581 & 1.336 & 1.995 & 3101.980 \\
+            DE\_best\_1\_exp & 0.993 & 0.036 & 1.003 & 0.894 & 1.042 & 2760.570 \\
+            DE\_rand\_1\_exp & 1.471 & 0.115 & 1.459 & 1.243 & 1.896 & 2822.620 \\
+            DE\_randbest\_1\_exp & 0.963 & 0.064 & 0.975 & 0.761 & 1.054 & 2785.770 \\
+            DE\_best\_2\_exp & 0.243 & 0.178 & 0.213 & 0.033 & 0.849 & 2687.190 \\
+            DE\_rand\_2\_exp & 1.496 & 0.137 & 1.497 & 1.226 & 1.911 & 2888.700 \\
+            DE\_best\_1\_bin & 0.014 & 0.014 & 0.011 & 0.001 & 0.060 & 2753.980 \\
+            DE\_rand\_1\_bin & 1.120 & 0.028 & 1.119 & 1.047 & 1.191 & 3038.580 \\
+            DE\_randbest\_1\_bin & 0.016 & 0.018 & 0.012 & 0.001 & 0.109 & 2910.310 \\
+            DE\_best\_2\_bin & 0.028 & 0.020 & 0.022 & 0.004 & 0.088 & 2941.890 \\
+            DE\_rand\_2\_bin & 1.049 & 0.011 & 1.045 & 1.029 & 1.079 & 3107.410 \\
+            PSO & 1.283 & 8.874 & 0.011 & 0.000 & 63.397 & 2136.850 \\
+            SCA & 10.016 & 6.436 & 8.308 & 1.873 & 27.210 & 2934.730 \\
+            BA & 140.993 & 54.319 & 133.177 & 46.431 & 252.059 & 3167.760 \\
+            DBA & 1.216 & 0.078 & 1.210 & 1.091 & 1.380 & 4431.220 \\
+            ALO & 0.037 & 0.082 & 0.001 & 0.000 & 0.436 & 7133.400 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 5: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{DE\_rand\_2\_bin}, Cost (mean): 0.000000\\
+\textbf{DE\_best\_1\_bin}, Cost (mean): 0.014306\\
+\noindent
+\textbf{Two-Sample Z-Test Hypothesis Testing: }
+confidence interval = 95\%\\
+\vspace{-3mm}
+\rule[3mm]{\linewidth}{0.2pt}
+Null hypothesis: The best algorithm and the tested one are equal\\
+\textbf{DE\_randbest\_1\_bin}, Cost (mean): 0.015799
+, P value: 0.649800\\
+\textbf{PSO}, Cost (mean): 1.282560
+, P value: 0.312200\\
+\textbf{ALO}, Cost (mean): 0.036574
+, P value: 0.058700\\
 \newpage
 \subsection{Function 6: Sine Envelope Sine Wave}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f6"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f6"}.png}
     
     \caption{Cost and CPU total running time of Function 6: Sine Envelope Sine Wave} 
     \label{fig:f6}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &    mean &  std\_dev &  median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA & -43.097 &    0.166 & -43.116 &    -43.326 &    -42.596 & 34769.500 \\
-     DE\_best\_1\_exp & -40.954 &    0.231 & -40.913 &    -41.379 &    -40.340 & 26519.000 \\
-     DE\_rand\_1\_exp & -40.193 &    0.246 & -40.136 &    -41.014 &    -39.743 & 27109.600 \\
- DE\_randbest\_1\_exp & -39.959 &    0.260 & -39.932 &    -40.593 &    -39.316 & 27170.500 \\
-     DE\_best\_2\_exp & -40.188 &    0.299 & -40.194 &    -40.794 &    -39.559 & 27772.300 \\
-     DE\_rand\_2\_exp & -40.172 &    0.256 & -40.115 &    -40.952 &    -39.727 & 28010.000 \\
-     DE\_best\_1\_bin & -35.180 &    0.707 & -35.226 &    -37.162 &    -33.483 & 30593.200 \\
-     DE\_rand\_1\_bin & -35.246 &    0.469 & -35.211 &    -36.346 &    -34.213 & 29964.500 \\
- DE\_randbest\_1\_bin & -35.355 &    0.563 & -35.371 &    -36.942 &    -34.248 & 31422.700 \\
-     DE\_best\_2\_bin & -33.936 &    0.787 & -33.869 &    -35.732 &    -32.125 & 31695.000 \\
-     DE\_rand\_2\_bin & -35.725 &    0.398 & -35.674 &    -36.723 &    -34.923 & 32239.700 \\
-               PSO & -37.483 &    1.398 & -37.318 &    -40.360 &    -34.475 & 24531.600 \\
-               SCA & -34.012 &    0.783 & -33.959 &    -35.791 &    -32.551 & 34082.600 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 6: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &    mean &  std\_dev &  median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & -40.040 & 0.632 & -40.134 & -41.591 & -38.404 & 2414.860 \\
+            DE\_best\_1\_exp & -36.360 & 0.470 & -36.356 & -37.427 & -35.285 & 2127.630 \\
+            DE\_rand\_1\_exp & -35.411 & 0.411 & -35.423 & -36.217 & -34.466 & 2155.490 \\
+            DE\_randbest\_1\_exp & -35.890 & 0.521 & -35.816 & -37.136 & -34.934 & 2176.320 \\
+            DE\_best\_2\_exp & -35.896 & 0.628 & -35.873 & -37.051 & -34.218 & 2216.660 \\
+            DE\_rand\_2\_exp & -35.393 & 0.441 & -35.268 & -36.656 & -34.665 & 2233.480 \\
+            DE\_best\_1\_bin & -32.782 & 0.754 & -32.722 & -34.297 & -31.074 & 2390.570 \\
+            DE\_rand\_1\_bin & -32.770 & 0.508 & -32.780 & -33.986 & -31.659 & 2417.020 \\
+            DE\_randbest\_1\_bin & -33.406 & 0.749 & -33.138 & -35.723 & -32.257 & 2532.230 \\
+            DE\_best\_2\_bin & -31.684 & 1.004 & -31.743 & -33.778 & -29.277 & 2539.310 \\
+            DE\_rand\_2\_bin & -33.105 & 0.463 & -33.044 & -34.285 & -32.331 & 2518.100 \\
+            PSO & -33.175 & 1.747 & -33.173 & -37.954 & -29.456 & 1945.080 \\
+            SCA & -31.745 & 0.716 & -31.855 & -33.273 & -29.159 & 2696.900 \\
+            BA & -27.969 & 0.697 & -27.873 & -29.657 & -26.713 & 2688.380 \\
+            DBA & -35.407 & 1.316 & -35.426 & -38.460 & -32.202 & 3342.620 \\
+            ALO & -40.692 & 2.889 & -42.007 & -43.378 & -33.381 & 6934.210 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 6: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{GA}, Cost (mean): -43.097400\\
+\textbf{ALO}, Cost (mean): -40.692200\\
+\noindent
+\textbf{Two-Sample Z-Test Hypothesis Testing: }
+confidence interval = 95\%\\
+\vspace{-3mm}
+\rule[3mm]{\linewidth}{0.2pt}
+Null hypothesis: The best algorithm and the tested one are equal\\
+\textbf{GA}, Cost (mean): -40.040300
+, P value: 0.119100\\
 \newpage
 \subsection{Function 7: Stretch V Sine Wave}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f7"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f7"}.png}
     
     \caption{Cost and CPU total running time of Function 7: Stretch V Sine Wave} 
     \label{fig:f7}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &   mean &  std\_dev &  median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA & 29.109 &    0.084 &  29.082 &     29.014 &     29.420 & 60843.000 \\
-     DE\_best\_1\_exp & 32.202 &    0.579 &  32.163 &     31.270 &     33.704 & 54717.000 \\
-     DE\_rand\_1\_exp & 32.902 &    0.504 &  32.941 &     31.626 &     34.050 & 54750.900 \\
- DE\_randbest\_1\_exp & 33.166 &    0.475 &  33.292 &     32.112 &     33.962 & 54867.100 \\
-     DE\_best\_2\_exp & 33.636 &    0.769 &  33.649 &     31.232 &     35.076 & 55881.600 \\
-     DE\_rand\_2\_exp & 32.756 &    0.521 &  32.815 &     31.547 &     33.759 & 56013.500 \\
-     DE\_best\_1\_bin & 45.657 &    2.905 &  45.990 &     37.101 &     52.233 & 57204.400 \\
-     DE\_rand\_1\_bin & 39.051 &    1.164 &  38.931 &     36.996 &     41.978 & 56431.900 \\
- DE\_randbest\_1\_bin & 43.853 &    1.795 &  43.885 &     39.957 &     48.346 & 57920.100 \\
-     DE\_best\_2\_bin & 49.218 &    2.446 &  48.907 &     44.553 &     58.865 & 58456.700 \\
-     DE\_rand\_2\_bin & 36.816 &    0.816 &  36.787 &     34.763 &     38.847 & 58792.800 \\
-               PSO & 29.904 &    1.089 &  29.672 &     29.012 &     35.035 & 35531.000 \\
-               SCA & 42.062 &    4.549 &  40.917 &     34.831 &     55.327 & 46592.500 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 7: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &   mean &  std\_dev &  median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & 30.725 & 0.480 & 30.732 & 29.672 & 31.823 & 4445.970 \\
+            DE\_best\_1\_exp & 40.988 & 1.459 & 41.054 & 37.850 & 44.852 & 4246.020 \\
+            DE\_rand\_1\_exp & 42.010 & 1.621 & 42.124 & 38.145 & 44.662 & 4249.330 \\
+            DE\_randbest\_1\_exp & 41.171 & 1.217 & 41.167 & 37.871 & 43.679 & 4268.700 \\
+            DE\_best\_2\_exp & 43.031 & 1.491 & 43.035 & 40.008 & 45.454 & 4352.520 \\
+            DE\_rand\_2\_exp & 41.704 & 1.596 & 41.722 & 37.668 & 44.371 & 4305.120 \\
+            DE\_best\_1\_bin & 53.395 & 3.311 & 52.803 & 46.592 & 61.756 & 4450.770 \\
+            DE\_rand\_1\_bin & 51.687 & 2.404 & 51.818 & 45.803 & 56.073 & 4481.830 \\
+            DE\_randbest\_1\_bin & 50.244 & 2.544 & 50.535 & 42.806 & 55.193 & 4609.430 \\
+            DE\_best\_2\_bin & 54.359 & 2.894 & 53.953 & 49.449 & 61.945 & 4779.410 \\
+            DE\_rand\_2\_bin & 50.529 & 2.501 & 50.428 & 44.736 & 56.592 & 4544.370 \\
+            PSO & 31.156 & 1.613 & 30.718 & 29.252 & 36.986 & 2886.280 \\
+            SCA & 54.498 & 5.046 & 54.564 & 45.505 & 65.696 & 3640.540 \\
+            BA & 59.303 & 1.982 & 59.181 & 53.928 & 63.024 & 4628.420 \\
+            DBA & 36.421 & 2.899 & 36.396 & 31.316 & 41.690 & 7174.750 \\
+            ALO & 29.001 & 0.003 & 29.000 & 29.000 & 29.014 & 7853.840 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 7: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{GA}, Cost (mean): 29.108600\\
+\textbf{ALO}, Cost (mean): 29.001000\\
 \newpage
 \subsection{Function 8: Ackley One}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f8"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f8"}.png}
     
     \caption{Cost and CPU total running time of Function 8: Ackley One} 
     \label{fig:f8}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &    mean &  std\_dev &  median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA & -86.227 &    0.034 & -86.232 &    -86.288 &    -86.172 & 40844.100 \\
-     DE\_best\_1\_exp & -82.798 &    2.124 & -83.265 &    -86.333 &    -77.374 & 30825.100 \\
-     DE\_rand\_1\_exp & -86.333 &    0.000 & -86.333 &    -86.333 &    -86.333 & 30550.000 \\
- DE\_randbest\_1\_exp & -74.903 &    2.393 & -74.975 &    -82.121 &    -69.043 & 35223.000 \\
-     DE\_best\_2\_exp & -70.404 &    6.608 & -71.073 &    -79.485 &    -45.173 & 31906.100 \\
-     DE\_rand\_2\_exp & -86.333 &    0.000 & -86.333 &    -86.333 &    -86.333 & 31392.400 \\
-     DE\_best\_1\_bin & -73.816 &    5.568 & -73.725 &    -82.242 &    -46.386 & 33833.200 \\
-     DE\_rand\_1\_bin & -86.333 &    0.000 & -86.333 &    -86.333 &    -86.332 & 34094.200 \\
- DE\_randbest\_1\_bin & -79.442 &    2.535 & -79.319 &    -85.310 &    -74.594 & 34828.200 \\
-     DE\_best\_2\_bin & -69.564 &    8.844 & -71.231 &    -82.242 &    -37.979 & 35161.900 \\
-     DE\_rand\_2\_bin & -86.333 &    0.000 & -86.333 &    -86.333 &    -86.333 & 34678.400 \\
-               PSO & -29.518 &   21.770 & -33.060 &    -70.787 &     19.922 & 26057.900 \\
-               SCA &   0.245 &    7.895 &   0.761 &    -19.518 &     19.742 & 37620.600 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 8: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &    mean &  std\_dev &  median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & -68.310 & 2.866 & -68.841 & -73.409 & -59.809 & 3023.300 \\
+            DE\_best\_1\_exp & -63.738 & 6.795 & -64.212 & -79.510 & -45.220 & 2864.830 \\
+            DE\_rand\_1\_exp & -60.805 & 3.664 & -61.318 & -67.539 & -51.961 & 2840.750 \\
+            DE\_randbest\_1\_exp & -22.559 & 5.518 & -22.506 & -32.439 & -7.954 & 2892.530 \\
+            DE\_best\_2\_exp & -61.269 & 11.156 & -62.670 & -77.042 & -15.970 & 2837.860 \\
+            DE\_rand\_2\_exp & -67.769 & 2.943 & -67.742 & -74.377 & -61.532 & 2907.380 \\
+            DE\_best\_1\_bin & -68.010 & 7.053 & -68.962 & -80.134 & -49.972 & 2961.000 \\
+            DE\_rand\_1\_bin & -32.317 & 6.338 & -31.277 & -50.263 & -19.241 & 3098.500 \\
+            DE\_randbest\_1\_bin & -35.068 & 11.964 & -33.732 & -63.685 & -7.987 & 3187.070 \\
+            DE\_best\_2\_bin & -47.107 & 20.246 & -53.419 & -71.912 & 3.193 & 3157.750 \\
+            DE\_rand\_2\_bin & -60.806 & 3.521 & -60.985 & -69.328 & -51.036 & 3166.910 \\
+            PSO & -9.022 & 23.102 & -11.826 & -50.599 & 56.589 & 2163.080 \\
+            SCA & 43.560 & 16.424 & 44.209 & 8.777 & 82.984 & 3018.800 \\
+            BA & 157.836 & 39.611 & 147.827 & 88.467 & 243.619 & 3336.570 \\
+            DBA & 31.779 & 25.138 & 27.697 & -12.694 & 102.399 & 4377.200 \\
+            ALO & -83.278 & 2.285 & -84.013 & -85.032 & -70.118 & 7044.210 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 8: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{DE\_rand\_1\_exp}, Cost (mean): -86.332800\\
-\noindent
-\textbf{Two-Sample Z-Test Hypothesis Testing: }
-confidence interval = 95\%\\
-\vspace{-3mm}
-\rule[3mm]{\linewidth}{0.2pt}
-Null hypothesis: The best algorithm and the tested one are equal\\
-\textbf{DE\_rand\_2\_exp}, Cost (mean): -86.332800
-, P value: 1.000000\\
-\textbf{DE\_rand\_2\_bin}, Cost (mean): -86.332800
-, P value: 1.000000\\
+\textbf{ALO}, Cost (mean): -83.277600\\
 \newpage
 \subsection{Function 9: Ackley Two}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f9"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f9"}.png}
     
     \caption{Cost and CPU total running time of Function 9: Ackley Two} 
     \label{fig:f9}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &    mean &  std\_dev &  median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA &   0.912 &    0.188 &   0.853 &      0.624 &      1.349 & 60715.900 \\
-     DE\_best\_1\_exp &   0.155 &    0.801 &   0.000 &      0.000 &      5.160 & 45983.300 \\
-     DE\_rand\_1\_exp &   0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 50407.800 \\
- DE\_randbest\_1\_exp &   0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 49035.300 \\
-     DE\_best\_2\_exp &  31.279 &   30.109 &  19.829 &      0.000 &    128.971 & 50212.800 \\
-     DE\_rand\_2\_exp &   0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 51302.700 \\
-     DE\_best\_1\_bin &  26.216 &   28.915 &  16.697 &     -0.000 &    114.839 & 49268.600 \\
-     DE\_rand\_1\_bin &   0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 51982.400 \\
- DE\_randbest\_1\_bin &   0.754 &    2.977 &  -0.000 &     -0.000 &     19.619 & 44871.500 \\
-     DE\_best\_2\_bin &  33.966 &   32.589 &  39.382 &     -0.000 &    141.211 & 51346.500 \\
-     DE\_rand\_2\_bin &   0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 52310.300 \\
-               PSO & 157.429 &   60.556 & 155.498 &     50.832 &    315.254 & 36144.900 \\
-               SCA &   0.004 &    0.005 &   0.002 &      0.000 &      0.023 & 45406.100 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 9: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &    mean &  std\_dev &  median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & 60.544 & 10.325 & 58.879 & 42.370 & 98.786 & 4854.400 \\
+            DE\_best\_1\_exp & 22.074 & 7.606 & 20.809 & 9.750 & 42.903 & 4561.730 \\
+            DE\_rand\_1\_exp & 39.602 & 4.888 & 39.607 & 26.848 & 49.058 & 4660.250 \\
+            DE\_randbest\_1\_exp & 47.446 & 7.534 & 46.223 & 33.274 & 70.883 & 4703.410 \\
+            DE\_best\_2\_exp & 58.112 & 35.814 & 51.937 & 11.665 & 156.192 & 4493.600 \\
+            DE\_rand\_2\_exp & 31.213 & 4.138 & 30.978 & 23.721 & 39.898 & 4718.220 \\
+            DE\_best\_1\_bin & 37.730 & 33.429 & 40.066 & 0.514 & 139.746 & 4541.870 \\
+            DE\_rand\_1\_bin & 50.575 & 4.836 & 50.998 & 39.607 & 59.232 & 4861.140 \\
+            DE\_randbest\_1\_bin & 6.924 & 11.481 & 1.560 & 0.470 & 59.343 & 4809.270 \\
+            DE\_best\_2\_bin & 74.527 & 44.138 & 71.563 & 6.883 & 221.156 & 4710.260 \\
+            DE\_rand\_2\_bin & 15.052 & 2.129 & 15.461 & 11.166 & 19.563 & 4906.100 \\
+            PSO & 194.587 & 66.520 & 186.522 & 66.782 & 367.321 & 3028.180 \\
+            SCA & 41.552 & 20.662 & 38.865 & 1.321 & 89.197 & 3773.180 \\
+            BA & 402.363 & 26.340 & 399.424 & 347.437 & 461.734 & 5152.000 \\
+            DBA & 220.732 & 31.440 & 220.125 & 171.381 & 312.239 & 7848.350 \\
+            ALO & 2.561 & 4.434 & 0.633 & -0.000 & 26.558 & 7918.470 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 9: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{DE\_rand\_2\_bin}, Cost (mean): 0.000000\\
-\noindent
-\textbf{Two-Sample Z-Test Hypothesis Testing: }
-confidence interval = 95\%\\
-\vspace{-3mm}
-\rule[3mm]{\linewidth}{0.2pt}
-Null hypothesis: The best algorithm and the tested one are equal\\
-\textbf{DE\_best\_1\_exp}, Cost (mean): 0.154796
-, P value: 0.171800\\
-\textbf{DE\_randbest\_1\_bin}, Cost (mean): 0.753563
-, P value: 0.073400\\
+\textbf{ALO}, Cost (mean): 2.561230\\
 \newpage
 \subsection{Function 10: Egg Holder}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f10"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f10"}.png}
     
     \caption{Cost and CPU total running time of Function 10: Egg Holder} 
     \label{fig:f10}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &       mean &  std\_dev &     median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA & -21442.100 & 1077.700 & -21521.800 & -24575.000 & -18595.000 & 50363.000 \\
-     DE\_best\_1\_exp & -22349.800 &  829.100 & -22353.400 & -23881.700 & -20088.400 & 42564.800 \\
-     DE\_rand\_1\_exp & -19745.600 &  628.453 & -19704.700 & -21273.100 & -18377.500 & 46912.700 \\
- DE\_randbest\_1\_exp & -13548.600 &  677.148 & -13613.500 & -14794.500 & -12138.900 & 47699.000 \\
-     DE\_best\_2\_exp & -20752.800 & 1215.090 & -20762.100 & -22999.400 & -17762.300 & 43939.800 \\
-     DE\_rand\_2\_exp & -20505.900 &  484.229 & -20537.600 & -21822.700 & -19599.100 & 47585.600 \\
-     DE\_best\_1\_bin & -18974.300 & 1418.170 & -18853.100 & -21829.800 & -16071.300 & 43342.700 \\
-     DE\_rand\_1\_bin & -14504.400 & 1476.430 & -14568.700 & -17193.800 & -11148.500 & 51096.600 \\
- DE\_randbest\_1\_bin & -13595.400 & 2855.480 & -12616.600 & -20674.600 &  -9698.160 & 52734.700 \\
-     DE\_best\_2\_bin & -18519.800 & 1170.740 & -18593.700 & -20805.000 & -16163.400 & 44617.500 \\
-     DE\_rand\_2\_bin & -14551.900 & 1436.600 & -14407.000 & -18627.400 & -11949.200 & 53400.700 \\
-               PSO & -16045.600 & 1266.160 & -16259.200 & -18560.300 & -12521.900 & 29364.100 \\
-               SCA &  -8083.420 &  590.408 &  -8123.710 &  -9308.710 &  -6919.080 & 44986.800 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 10: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &       mean &  std\_dev &     median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & -18289.500 & 1065.430 & -18252.300 & -21763.400 & -15602.600 & 3629.530 \\
+            DE\_best\_1\_exp & -13753.900 & 1036.030 & -13685.700 & -16680.900 & -11893.400 & 3659.750 \\
+            DE\_rand\_1\_exp & -12855.500 & 667.577 & -12794.400 & -14880.200 & -11341.000 & 3700.050 \\
+            DE\_randbest\_1\_exp & -9134.640 & 502.491 & -9077.200 & -10320.300 & -8387.130 & 3750.190 \\
+            DE\_best\_2\_exp & -13381.200 & 1482.760 & -13318.400 & -17129.000 & -10961.900 & 3831.990 \\
+            DE\_rand\_2\_exp & -13802.800 & 536.610 & -13684.100 & -14828.600 & -12812.300 & 3766.820 \\
+            DE\_best\_1\_bin & -14247.100 & 3019.220 & -14004.900 & -19783.300 & -9040.200 & 4115.300 \\
+            DE\_rand\_1\_bin & -8399.290 & 678.009 & -8331.020 & -10394.700 & -7231.850 & 4142.880 \\
+            DE\_randbest\_1\_bin & -8037.240 & 1061.310 & -7909.960 & -10781.700 & -5557.910 & 4269.810 \\
+            DE\_best\_2\_bin & -13237.800 & 3458.150 & -13231.700 & -19690.000 & -6848.170 & 4102.850 \\
+            DE\_rand\_2\_bin & -8796.180 & 638.176 & -8686.570 & -10312.000 & -7672.990 & 4170.560 \\
+            PSO & -15308.800 & 1469.980 & -15401.800 & -18721.100 & -11522.900 & 2431.640 \\
+            SCA & -6927.370 & 703.404 & -6738.400 & -8701.610 & -5841.150 & 3497.470 \\
+            BA & -10675.600 & 1102.080 & -10322.900 & -13246.100 & -8750.400 & 3863.150 \\
+            DBA & -13664.000 & 1345.500 & -13634.000 & -17024.600 & -11046.600 & 5929.030 \\
+            ALO & -14414.900 & 5595.070 & -12056.100 & -21364.700 & -5242.670 & 7570.600 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 10: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{DE\_best\_1\_exp}, Cost (mean): -22349.800000\\
+\textbf{GA}, Cost (mean): -18289.500000\\
 \newpage
 \subsection{Function 11: Rana}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f11"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f11"}.png}
     
     \caption{Cost and CPU total running time of Function 11: Rana} 
     \label{fig:f11}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &       mean &  std\_dev &     median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA & -12236.900 &  374.758 & -12200.900 & -13271.800 & -11435.200 & 59400.100 \\
-     DE\_best\_1\_exp & -13371.700 &  639.893 & -13574.200 & -14111.400 & -11234.000 & 53082.800 \\
-     DE\_rand\_1\_exp & -10222.100 &  271.100 & -10219.400 & -10770.600 &  -9757.920 & 58152.900 \\
- DE\_randbest\_1\_exp &  -8572.630 &  394.680 &  -8491.470 &  -9382.320 &  -7657.640 & 58772.300 \\
-     DE\_best\_2\_exp & -12390.600 &  889.330 & -12467.100 & -13963.500 & -10403.000 & 55544.300 \\
-     DE\_rand\_2\_exp & -10131.400 &  294.876 & -10049.800 & -10844.600 &  -9713.110 & 59465.100 \\
-     DE\_best\_1\_bin & -12138.000 &  818.864 & -12310.200 & -13368.100 &  -8328.620 & 51507.700 \\
-     DE\_rand\_1\_bin &  -8161.230 & 1616.130 &  -7489.140 & -13320.300 &  -6226.960 & 61581.800 \\
- DE\_randbest\_1\_bin &  -8208.210 & 1846.680 &  -7811.030 & -12849.300 &  -5659.630 & 62671.900 \\
-     DE\_best\_2\_bin & -12201.200 & 1082.510 & -12431.400 & -13825.600 &  -7361.840 & 54636.900 \\
-     DE\_rand\_2\_bin &  -6322.750 &  375.721 &  -6358.950 &  -7282.700 &  -5673.070 & 64566.400 \\
-               PSO &  -9866.510 &  817.497 &  -9789.080 & -11597.300 &  -8104.920 & 33922.900 \\
-               SCA &  -7329.940 &  609.371 &  -7289.290 &  -9373.180 &  -6363.650 & 49554.300 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 11: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &       mean &  std\_dev &     median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & -10569.000 & 393.232 & -10513.100 & -11543.200 & -9561.400 & 4430.570 \\
+            DE\_best\_1\_exp & -8245.300 & 487.518 & -8255.980 & -9322.990 & -7311.790 & 4637.610 \\
+            DE\_rand\_1\_exp & -7134.590 & 332.694 & -7101.360 & -8217.160 & -6500.540 & 4552.570 \\
+            DE\_randbest\_1\_exp & -6094.790 & 337.200 & -6048.610 & -7060.660 & -5391.770 & 4639.810 \\
+            DE\_best\_2\_exp & -8221.190 & 803.864 & -8054.260 & -10599.000 & -6998.940 & 4562.220 \\
+            DE\_rand\_2\_exp & -7264.640 & 378.668 & -7143.100 & -8363.740 & -6723.810 & 4622.370 \\
+            DE\_best\_1\_bin & -8791.590 & 2030.280 & -8547.050 & -12827.700 & -5564.650 & 4897.740 \\
+            DE\_rand\_1\_bin & -5116.550 & 408.855 & -5134.810 & -6031.840 & -4374.390 & 4847.640 \\
+            DE\_randbest\_1\_bin & -5649.690 & 1023.720 & -5431.090 & -8490.210 & -4169.940 & 5063.420 \\
+            DE\_best\_2\_bin & -8247.990 & 1911.010 & -7936.330 & -13136.300 & -4755.360 & 4827.680 \\
+            DE\_rand\_2\_bin & -5045.660 & 348.447 & -4996.840 & -6130.120 & -4554.520 & 5001.290 \\
+            PSO & -9438.670 & 872.168 & -9330.130 & -11272.400 & -7684.170 & 2941.300 \\
+            SCA & -6228.130 & 673.403 & -6109.160 & -8801.870 & -4840.150 & 3883.000 \\
+            BA & -7652.450 & 1392.080 & -7310.310 & -10741.600 & -4921.700 & 4847.390 \\
+            DBA & -9698.780 & 939.215 & -9736.200 & -11599.800 & -7627.440 & 7062.840 \\
+            ALO & -13111.900 & 1733.270 & -13463.900 & -13480.000 & -4020.970 & 7580.100 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 11: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{DE\_best\_1\_exp}, Cost (mean): -13371.700000\\
+\textbf{ALO}, Cost (mean): -13111.900000\\
 \newpage
 \subsection{Function 12: Pathological}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f12"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f12"}.png}
     
     \caption{Cost and CPU total running time of Function 12: Pathological} 
     \label{fig:f12}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &  mean &  std\_dev &  median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA & 3.771 &    0.687 &   3.631 &      2.130 &      5.055 & 41120.800 \\
-     DE\_best\_1\_exp & 4.645 &    0.785 &   4.598 &      2.320 &      6.081 & 33212.900 \\
-     DE\_rand\_1\_exp & 1.880 &    0.363 &   1.852 &      1.178 &      2.933 & 34544.000 \\
- DE\_randbest\_1\_exp & 7.959 &    0.489 &   8.117 &      6.049 &      8.634 & 35967.700 \\
-     DE\_best\_2\_exp & 5.754 &    0.913 &   5.800 &      2.916 &      7.506 & 35129.100 \\
-     DE\_rand\_2\_exp & 4.000 &    1.316 &   3.926 &      1.460 &      7.377 & 36458.400 \\
-     DE\_best\_1\_bin & 5.045 &    0.925 &   4.978 &      3.360 &      7.922 & 33782.000 \\
-     DE\_rand\_1\_bin & 3.153 &    0.457 &   3.161 &      2.214 &      4.366 & 35590.700 \\
- DE\_randbest\_1\_bin & 7.039 &    1.562 &   6.868 &      4.428 &     11.489 & 37140.300 \\
-     DE\_best\_2\_bin & 6.062 &    0.942 &   5.999 &      4.238 &      8.265 & 37383.600 \\
-     DE\_rand\_2\_bin & 4.100 &    0.676 &   4.207 &      2.780 &      5.231 & 39404.200 \\
-               PSO & 2.671 &    0.135 &   2.640 &      2.540 &      3.505 & 25825.900 \\
-               SCA & 8.454 &    0.389 &   8.504 &      7.703 &      9.290 & 38143.100 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 12: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &   mean &  std\_dev &  median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & 6.217 & 0.586 & 6.230 & 4.848 & 8.322 & 2945.800 \\
+            DE\_best\_1\_exp & 8.163 & 1.329 & 8.131 & 5.090 & 10.654 & 2712.270 \\
+            DE\_rand\_1\_exp & 10.313 & 0.344 & 10.333 & 9.358 & 10.842 & 2774.290 \\
+            DE\_randbest\_1\_exp & 10.602 & 0.307 & 10.628 & 9.849 & 11.247 & 2782.110 \\
+            DE\_best\_2\_exp & 7.937 & 1.221 & 7.819 & 5.091 & 10.707 & 2766.020 \\
+            DE\_rand\_2\_exp & 10.471 & 0.271 & 10.515 & 9.812 & 10.945 & 2843.880 \\
+            DE\_best\_1\_bin & 6.244 & 0.913 & 6.180 & 4.642 & 8.942 & 2771.420 \\
+            DE\_rand\_1\_bin & 8.309 & 0.656 & 8.315 & 7.006 & 9.855 & 2942.740 \\
+            DE\_randbest\_1\_bin & 8.266 & 1.994 & 7.522 & 5.329 & 12.265 & 3089.480 \\
+            DE\_best\_2\_bin & 7.006 & 0.980 & 7.106 & 5.069 & 8.920 & 2961.390 \\
+            DE\_rand\_2\_bin & 11.206 & 0.546 & 11.346 & 9.491 & 11.911 & 3101.850 \\
+            PSO & 2.887 & 0.414 & 2.773 & 2.640 & 5.004 & 2036.560 \\
+            SCA & 9.168 & 0.418 & 9.200 & 8.410 & 10.031 & 2974.950 \\
+            BA & 8.020 & 1.479 & 7.903 & 5.704 & 12.505 & 3099.120 \\
+            DBA & 7.507 & 0.951 & 7.662 & 5.305 & 10.102 & 4175.760 \\
+            ALO & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 7063.580 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 12: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{DE\_rand\_1\_exp}, Cost (mean): 1.879540\\
+\textbf{ALO}, Cost (mean): 0.000000\\
 \newpage
 \subsection{Function 13: Michalewicz}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f13"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f13"}.png}
     
     \caption{Cost and CPU total running time of Function 13: Michalewicz} 
     \label{fig:f13}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &    mean &  std\_dev &  median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA & -29.162 &    0.255 & -29.195 &    -29.564 &    -28.219 & 60472.400 \\
-     DE\_best\_1\_exp & -27.954 &    0.429 & -28.006 &    -28.884 &    -26.527 & 50495.800 \\
-     DE\_rand\_1\_exp & -25.040 &    0.352 & -25.009 &    -26.044 &    -24.271 & 51158.600 \\
- DE\_randbest\_1\_exp & -23.112 &    0.466 & -23.093 &    -24.224 &    -22.219 & 51474.400 \\
-     DE\_best\_2\_exp & -24.164 &    0.614 & -24.153 &    -25.556 &    -22.651 & 51863.100 \\
-     DE\_rand\_2\_exp & -26.136 &    0.353 & -26.191 &    -27.116 &    -25.490 & 51958.700 \\
-     DE\_best\_1\_bin & -18.750 &    1.902 & -18.374 &    -26.962 &    -16.173 & 53912.300 \\
-     DE\_rand\_1\_bin & -15.550 &    0.411 & -15.537 &    -16.745 &    -14.469 & 53545.000 \\
- DE\_randbest\_1\_bin & -15.499 &    0.775 & -15.552 &    -17.374 &    -13.642 & 55181.200 \\
-     DE\_best\_2\_bin & -13.846 &    0.942 & -13.992 &    -15.830 &    -11.258 & 55514.100 \\
-     DE\_rand\_2\_bin & -17.223 &    0.443 & -17.198 &    -18.332 &    -16.489 & 55639.700 \\
-               PSO & -21.507 &    1.535 & -21.648 &    -24.590 &    -18.205 & 35007.700 \\
-               SCA &  -8.777 &    0.678 &  -8.701 &    -11.205 &     -7.584 & 44852.500 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 13: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &    mean &  std\_dev &  median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & -25.973 & 0.550 & -25.951 & -27.184 & -24.584 & 4315.810 \\
+            DE\_best\_1\_exp & -17.900 & 0.897 & -17.857 & -19.866 & -15.982 & 4009.570 \\
+            DE\_rand\_1\_exp & -17.257 & 0.639 & -17.148 & -18.853 & -16.269 & 4023.420 \\
+            DE\_randbest\_1\_exp & -16.258 & 0.561 & -16.291 & -17.758 & -15.084 & 4074.420 \\
+            DE\_best\_2\_exp & -16.215 & 0.768 & -16.065 & -18.332 & -14.650 & 4086.760 \\
+            DE\_rand\_2\_exp & -18.131 & 0.513 & -18.076 & -19.363 & -17.096 & 4109.900 \\
+            DE\_best\_1\_bin & -13.380 & 0.838 & -13.372 & -15.761 & -12.002 & 4250.480 \\
+            DE\_rand\_1\_bin & -12.490 & 0.729 & -12.378 & -14.461 & -11.170 & 4186.710 \\
+            DE\_randbest\_1\_bin & -12.781 & 0.713 & -12.786 & -14.298 & -11.023 & 4431.400 \\
+            DE\_best\_2\_bin & -11.556 & 0.705 & -11.374 & -13.875 & -10.335 & 4316.230 \\
+            DE\_rand\_2\_bin & -13.656 & 0.756 & -13.510 & -16.355 & -12.357 & 4350.370 \\
+            PSO & -20.529 & 2.371 & -20.360 & -25.914 & -15.397 & 2823.570 \\
+            SCA & -8.138 & 0.582 & -8.082 & -9.561 & -6.677 & 3502.060 \\
+            BA & -7.169 & 0.661 & -7.175 & -8.937 & -6.061 & 4394.190 \\
+            DBA & -15.695 & 1.779 & -15.923 & -20.261 & -12.819 & 6825.380 \\
+            ALO & -9.952 & 0.767 & -9.920 & -12.278 & -8.455 & 7833.270 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 13: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{GA}, Cost (mean): -29.162300\\
+\textbf{GA}, Cost (mean): -25.973400\\
 \newpage
 \subsection{Function 14: Masters' Cosine Wave}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f14"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f14"}.png}
     
     \caption{Cost and CPU total running time of Function 14: Masters' Cosine Wave} 
     \label{fig:f14}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &    mean &  std\_dev &  median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA & -22.551 &    1.774 & -22.478 &    -28.620 &    -19.170 & 38860.600 \\
-     DE\_best\_1\_exp & -22.620 &    1.755 & -22.355 &    -26.365 &    -19.271 & 30252.600 \\
-     DE\_rand\_1\_exp & -22.235 &    0.502 & -22.158 &    -23.303 &    -21.337 & 30482.500 \\
- DE\_randbest\_1\_exp & -13.754 &    0.580 & -13.812 &    -15.174 &    -12.210 & 31799.300 \\
-     DE\_best\_2\_exp & -15.387 &    1.369 & -15.296 &    -19.256 &    -11.753 & 32301.600 \\
-     DE\_rand\_2\_exp & -28.991 &    0.007 & -28.992 &    -29.000 &    -28.961 & 30769.200 \\
-     DE\_best\_1\_bin & -11.126 &    2.351 & -11.167 &    -16.951 &     -6.997 & 34167.800 \\
-     DE\_rand\_1\_bin &  -4.776 &    0.533 &  -4.698 &     -6.764 &     -3.857 & 34352.300 \\
- DE\_randbest\_1\_bin &  -5.366 &    0.469 &  -5.251 &     -6.670 &     -4.589 & 35714.600 \\
-     DE\_best\_2\_bin &  -5.745 &    1.145 &  -5.571 &     -8.340 &     -3.810 & 36286.100 \\
-     DE\_rand\_2\_bin &  -6.434 &    0.592 &  -6.383 &     -7.735 &     -5.338 & 36647.900 \\
-               PSO &  -6.088 &    1.328 &  -6.084 &    -10.232 &     -3.476 & 24629.300 \\
-               SCA & -27.556 &    2.529 & -28.695 &    -29.000 &    -17.345 & 34416.300 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 14: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &    mean &  std\_dev &  median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & -13.381 & 1.599 & -13.384 & -16.633 & -9.898 & 2755.500 \\
+            DE\_best\_1\_exp & -7.140 & 0.771 & -7.127 & -8.758 & -5.558 & 2502.870 \\
+            DE\_rand\_1\_exp & -7.101 & 0.492 & -7.080 & -8.649 & -6.173 & 2501.480 \\
+            DE\_randbest\_1\_exp & -5.333 & 0.454 & -5.332 & -6.343 & -4.330 & 2519.360 \\
+            DE\_best\_2\_exp & -6.356 & 0.534 & -6.436 & -7.230 & -5.045 & 2578.470 \\
+            DE\_rand\_2\_exp & -7.510 & 0.544 & -7.499 & -8.679 & -6.369 & 2572.430 \\
+            DE\_best\_1\_bin & -4.322 & 0.612 & -4.257 & -5.828 & -3.324 & 2805.490 \\
+            DE\_rand\_1\_bin & -2.910 & 0.335 & -2.870 & -3.858 & -2.245 & 2762.950 \\
+            DE\_randbest\_1\_bin & -3.275 & 0.354 & -3.167 & -4.015 & -2.732 & 2824.200 \\
+            DE\_best\_2\_bin & -2.789 & 0.425 & -2.738 & -3.732 & -1.939 & 2892.490 \\
+            DE\_rand\_2\_bin & -3.575 & 0.382 & -3.475 & -4.884 & -2.978 & 2855.320 \\
+            PSO & -5.021 & 1.191 & -4.948 & -7.564 & -2.476 & 2075.840 \\
+            SCA & -8.302 & 2.002 & -8.186 & -13.939 & -4.191 & 2809.800 \\
+            BA & -2.191 & 0.299 & -2.154 & -3.429 & -1.672 & 2929.150 \\
+            DBA & -3.575 & 0.802 & -3.349 & -6.319 & -2.469 & 3963.750 \\
+            ALO & -24.384 & 5.268 & -27.870 & -29.000 & -12.044 & 6999.430 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 14: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{DE\_rand\_2\_exp}, Cost (mean): -28.990800\\
+\textbf{ALO}, Cost (mean): -24.383900\\
 \newpage
 \subsection{Function 15: Quartic}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f15"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f15"}.png}
     
     \caption{Cost and CPU total running time of Function 15: Quartic} 
     \label{fig:f15}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &  mean &  std\_dev &  median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA & 0.004 &    0.003 &   0.004 &      0.001 &      0.013 & 24313.500 \\
-     DE\_best\_1\_exp & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 13904.000 \\
-     DE\_rand\_1\_exp & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 14042.600 \\
- DE\_randbest\_1\_exp & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 13976.100 \\
-     DE\_best\_2\_exp & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 14488.100 \\
-     DE\_rand\_2\_exp & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 14973.200 \\
-     DE\_best\_1\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 15984.500 \\
-     DE\_rand\_1\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 15365.800 \\
- DE\_randbest\_1\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 16738.400 \\
-     DE\_best\_2\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 17181.300 \\
-     DE\_rand\_2\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 17731.700 \\
-               PSO & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 17367.900 \\
-               SCA & 7.731 &   24.212 &   0.136 &      0.000 &    156.060 & 26450.100 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 15: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &         mean &      std\_dev &       median &  range\_min &     range\_max &  time\_ms \\
+            \midrule
+            GA & 44470.800 & 24400.800 & 40083.200 & 8031.960 & 116445.000 & 1485.830 \\
+            DE\_best\_1\_exp & 947.130 & 889.073 & 692.658 & 32.479 & 4291.420 & 1072.870 \\
+            DE\_rand\_1\_exp & 94613.300 & 37297.100 & 96982.200 & 34981.900 & 199166.000 & 1090.210 \\
+            DE\_randbest\_1\_exp & 89.971 & 118.516 & 36.497 & 4.766 & 529.270 & 1113.890 \\
+            DE\_best\_2\_exp & 244.925 & 646.618 & 65.635 & 1.216 & 4463.240 & 1139.650 \\
+            DE\_rand\_2\_exp & 133879.000 & 68969.800 & 125159.000 & 43305.500 & 349768.000 & 1164.070 \\
+            DE\_best\_1\_bin & 0.029 & 0.070 & 0.007 & 0.000 & 0.422 & 1288.130 \\
+            DE\_rand\_1\_bin & 10670.600 & 5041.410 & 9569.610 & 1678.420 & 24112.200 & 1253.430 \\
+            DE\_randbest\_1\_bin & 3.964 & 18.988 & 0.012 & 0.000 & 134.742 & 1380.030 \\
+            DE\_best\_2\_bin & 0.040 & 0.159 & 0.006 & 0.001 & 1.137 & 1353.450 \\
+            DE\_rand\_2\_bin & 3715.320 & 1960.350 & 3370.310 & 1470.040 & 11655.600 & 1419.340 \\
+            PSO & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 1392.580 \\
+            SCA & 25492800.000 & 28849300.000 & 15001300.000 & 554160.000 & 121235000.000 & 2074.320 \\
+            BA & 274670.000 & 228659.000 & 179170.000 & 27804.200 & 1209450.000 & 1445.850 \\
+            DBA & 5871.970 & 4573.400 & 4895.840 & 901.039 & 26064.100 & 1271.940 \\
+            ALO & 0.013 & 0.088 & 0.000 & 0.000 & 0.631 & 6396.300 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 15: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{DE\_best\_1\_bin}, Cost (mean): 0.000000\\
+\textbf{PSO}, Cost (mean): 0.000001\\
 \noindent
 \textbf{Two-Sample Z-Test Hypothesis Testing: }
 confidence interval = 95\%\\
 \vspace{-3mm}
 \rule[3mm]{\linewidth}{0.2pt}
 Null hypothesis: The best algorithm and the tested one are equal\\
-\textbf{DE\_best\_1\_exp}, Cost (mean): 0.000000
-, P value: 0.311300\\
-\textbf{DE\_randbest\_1\_exp}, Cost (mean): 0.000000
-, P value: 0.312400\\
-\textbf{DE\_best\_2\_exp}, Cost (mean): 0.000000
-, P value: 0.267400\\
-\textbf{DE\_rand\_2\_exp}, Cost (mean): 0.000000
-, P value: 0.298700\\
-\textbf{DE\_randbest\_1\_bin}, Cost (mean): 0.000000
-, P value: 0.312000\\
+\textbf{DE\_randbest\_1\_bin}, Cost (mean): 3.963670
+, P value: 0.139900\\
+\textbf{DE\_best\_2\_bin}, Cost (mean): 0.039723
+, P value: 0.077600\\
+\textbf{ALO}, Cost (mean): 0.013024
+, P value: 0.296900\\
 \newpage
 \subsection{Function 16: Levy}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f16"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f16"}.png}
     
     \caption{Cost and CPU total running time of Function 16: Levy} 
     \label{fig:f16}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &  mean &  std\_dev &  median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA & 0.230 &    0.774 &   0.001 &      0.001 &      4.547 & 55783.300 \\
-     DE\_best\_1\_exp & 0.004 &    0.018 &   0.000 &      0.000 &      0.090 & 44530.300 \\
-     DE\_rand\_1\_exp & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 45399.700 \\
- DE\_randbest\_1\_exp & 0.002 &    0.013 &   0.000 &      0.000 &      0.090 & 45126.400 \\
-     DE\_best\_2\_exp & 1.134 &    1.065 &   0.723 &      0.000 &      5.177 & 45666.200 \\
-     DE\_rand\_2\_exp & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 46461.800 \\
-     DE\_best\_1\_bin & 0.744 &    0.853 &   0.454 &      0.000 &      3.180 & 48093.800 \\
-     DE\_rand\_1\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 46963.000 \\
- DE\_randbest\_1\_bin & 0.041 &    0.103 &   0.000 &      0.000 &      0.544 & 47283.200 \\
-     DE\_best\_2\_bin & 1.332 &    1.564 &   0.589 &      0.000 &      6.544 & 48122.700 \\
-     DE\_rand\_2\_bin & 0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 49301.700 \\
-               PSO & 4.303 &    3.234 &   3.472 &      0.454 &     14.906 & 32961.200 \\
-               SCA & 2.042 &    0.183 &   2.028 &      1.780 &      2.978 & 45821.000 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 16: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &    mean &  std\_dev &  median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & 3.845 & 2.650 & 3.112 & 0.640 & 16.040 & 4286.270 \\
+            DE\_best\_1\_exp & 0.293 & 0.286 & 0.190 & 0.035 & 1.299 & 3930.070 \\
+            DE\_rand\_1\_exp & 0.578 & 0.112 & 0.552 & 0.406 & 0.859 & 4063.700 \\
+            DE\_randbest\_1\_exp & 0.291 & 0.155 & 0.241 & 0.107 & 0.745 & 4012.540 \\
+            DE\_best\_2\_exp & 3.158 & 2.056 & 2.773 & 0.361 & 9.424 & 3807.100 \\
+            DE\_rand\_2\_exp & 0.523 & 0.118 & 0.503 & 0.293 & 0.821 & 4110.930 \\
+            DE\_best\_1\_bin & 1.589 & 1.244 & 1.222 & 0.000 & 6.090 & 4040.910 \\
+            DE\_rand\_1\_bin & 0.391 & 0.094 & 0.378 & 0.160 & 0.565 & 4236.930 \\
+            DE\_randbest\_1\_bin & 0.208 & 0.361 & 0.090 & 0.000 & 1.907 & 4016.220 \\
+            DE\_best\_2\_bin & 2.519 & 1.892 & 2.227 & 0.090 & 8.004 & 4072.410 \\
+            DE\_rand\_2\_bin & 0.110 & 0.025 & 0.105 & 0.066 & 0.170 & 4364.090 \\
+            PSO & 8.790 & 5.504 & 8.089 & 0.723 & 26.274 & 2681.750 \\
+            SCA & 18.451 & 9.892 & 17.175 & 3.011 & 45.824 & 3618.720 \\
+            BA & 120.242 & 20.295 & 121.984 & 75.598 & 162.128 & 4588.260 \\
+            DBA & 6.721 & 3.728 & 6.576 & 0.684 & 16.474 & 6509.460 \\
+            ALO & 0.009 & 0.007 & 0.008 & 0.001 & 0.040 & 7679.500 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 16: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{DE\_rand\_2\_bin}, Cost (mean): 0.000000\\
-\noindent
-\textbf{Two-Sample Z-Test Hypothesis Testing: }
-confidence interval = 95\%\\
-\vspace{-3mm}
-\rule[3mm]{\linewidth}{0.2pt}
-Null hypothesis: The best algorithm and the tested one are equal\\
-\textbf{DE\_best\_1\_exp}, Cost (mean): 0.003581
-, P value: 0.148900\\
-\textbf{DE\_randbest\_1\_exp}, Cost (mean): 0.001791
-, P value: 0.312400\\
+\textbf{ALO}, Cost (mean): 0.009452\\
 \newpage
 \subsection{Function 17: Step}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f17"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f17"}.png}
     
     \caption{Cost and CPU total running time of Function 17: Step} 
     \label{fig:f17}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &  mean &  std\_dev &  median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA & 8.169 &    0.136 &   8.149 &      7.946 &      8.481 & 24166.900 \\
-     DE\_best\_1\_exp & 7.500 &    0.000 &   7.500 &      7.500 &      7.500 & 13384.400 \\
-     DE\_rand\_1\_exp & 7.500 &    0.000 &   7.500 &      7.500 &      7.500 & 13573.500 \\
- DE\_randbest\_1\_exp & 7.500 &    0.000 &   7.500 &      7.500 &      7.500 & 13732.800 \\
-     DE\_best\_2\_exp & 7.500 &    0.000 &   7.500 &      7.500 &      7.501 & 14291.200 \\
-     DE\_rand\_2\_exp & 7.500 &    0.000 &   7.500 &      7.500 &      7.500 & 14825.900 \\
-     DE\_best\_1\_bin & 7.500 &    0.000 &   7.500 &      7.500 &      7.500 & 15772.200 \\
-     DE\_rand\_1\_bin & 7.500 &    0.000 &   7.500 &      7.500 &      7.500 & 14996.700 \\
- DE\_randbest\_1\_bin & 7.500 &    0.000 &   7.500 &      7.500 &      7.500 & 16562.200 \\
-     DE\_best\_2\_bin & 7.500 &    0.000 &   7.500 &      7.500 &      7.500 & 16949.400 \\
-     DE\_rand\_2\_bin & 7.500 &    0.000 &   7.500 &      7.500 &      7.500 & 17527.800 \\
-               PSO & 7.500 &    0.000 &   7.500 &      7.500 &      7.501 & 17268.900 \\
-               SCA & 7.627 &    0.223 &   7.564 &      7.505 &      8.649 & 26166.300 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 17: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &     mean &  std\_dev &   median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & 125.421 & 28.308 & 120.986 & 64.643 & 195.547 & 1495.940 \\
+            DE\_best\_1\_exp & 17.826 & 3.661 & 17.180 & 12.716 & 34.064 & 1044.910 \\
+            DE\_rand\_1\_exp & 110.850 & 19.415 & 112.765 & 56.362 & 142.078 & 1054.840 \\
+            DE\_randbest\_1\_exp & 16.331 & 1.566 & 16.019 & 13.849 & 20.439 & 1080.690 \\
+            DE\_best\_2\_exp & 10.773 & 2.710 & 9.733 & 8.221 & 22.181 & 1124.630 \\
+            DE\_rand\_2\_exp & 128.013 & 30.635 & 126.135 & 73.262 & 211.891 & 1148.730 \\
+            DE\_best\_1\_bin & 7.705 & 0.072 & 7.688 & 7.595 & 7.966 & 1256.120 \\
+            DE\_rand\_1\_bin & 43.111 & 6.135 & 42.627 & 29.990 & 59.466 & 1189.570 \\
+            DE\_randbest\_1\_bin & 7.659 & 0.039 & 7.653 & 7.605 & 7.820 & 1349.140 \\
+            DE\_best\_2\_bin & 7.854 & 0.113 & 7.836 & 7.652 & 8.139 & 1336.450 \\
+            DE\_rand\_2\_bin & 24.323 & 2.694 & 24.445 & 19.570 & 32.268 & 1355.820 \\
+            PSO & 7.679 & 0.143 & 7.640 & 7.542 & 8.140 & 1381.340 \\
+            SCA & 1376.250 & 864.277 & 1223.120 & 45.231 & 3809.660 & 2049.890 \\
+            BA & 261.551 & 58.007 & 267.306 & 143.930 & 409.819 & 1458.380 \\
+            DBA & 67.753 & 16.406 & 66.787 & 32.294 & 110.711 & 1235.500 \\
+            ALO & 7.677 & 0.192 & 7.643 & 7.500 & 8.431 & 6390.780 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 17: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{DE\_best\_1\_exp}, Cost (mean): 7.500000\\
+\textbf{DE\_randbest\_1\_bin}, Cost (mean): 7.659330\\
 \noindent
 \textbf{Two-Sample Z-Test Hypothesis Testing: }
 confidence interval = 95\%\\
 \vspace{-3mm}
 \rule[3mm]{\linewidth}{0.2pt}
 Null hypothesis: The best algorithm and the tested one are equal\\
-\textbf{DE\_rand\_1\_exp}, Cost (mean): 7.500000
-, P value: 1.000000\\
-\textbf{DE\_randbest\_1\_exp}, Cost (mean): 7.500000
-, P value: 1.000000\\
-\textbf{DE\_rand\_2\_exp}, Cost (mean): 7.500000
-, P value: 1.000000\\
-\textbf{DE\_best\_1\_bin}, Cost (mean): 7.500000
-, P value: 1.000000\\
-\textbf{DE\_rand\_1\_bin}, Cost (mean): 7.500000
-, P value: 1.000000\\
-\textbf{DE\_randbest\_1\_bin}, Cost (mean): 7.500000
-, P value: 1.000000\\
-\textbf{DE\_best\_2\_bin}, Cost (mean): 7.500000
-, P value: 1.000000\\
-\textbf{DE\_rand\_2\_bin}, Cost (mean): 7.500000
-, P value: 1.000000\\
+\textbf{PSO}, Cost (mean): 7.679030
+, P value: 0.348300\\
+\textbf{ALO}, Cost (mean): 7.677180
+, P value: 0.518700\\
 \newpage
 \subsection{Function 18: Alphine}
 
-    \begin{figure}[H]
+\begin{figure}[H]
     \centering
     
-    \includegraphics[width=1\linewidth]{{"figures/figures-linux-1cpu-500-500/f18"}.png}
+    \includegraphics[width=1\linewidth]{{"figures/03 optimization linux 100 200 ALO/figures/f18"}.png}
     
     \caption{Cost and CPU total running time of Function 18: Alphine} 
     \label{fig:f18}
-    \end{figure}
-    
+\end{figure}
+
 \begin{table}[H]
     \centering
     \footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-         algorithm &   mean &  std\_dev &  median &  range\_min &  range\_max &   time\_ms \\
-\midrule
-                GA &  0.273 &    0.182 &   0.240 &      0.049 &      1.103 & 28117.800 \\
-     DE\_best\_1\_exp &  0.000 &    0.000 &   0.000 &      0.000 &      0.000 & 17426.400 \\
-     DE\_rand\_1\_exp &  0.003 &    0.000 &   0.003 &      0.002 &      0.003 & 17302.100 \\
- DE\_randbest\_1\_exp &  7.106 &    1.864 &   6.788 &      3.979 &     11.909 & 20792.700 \\
-     DE\_best\_2\_exp &  0.014 &    0.053 &   0.000 &      0.000 &      0.342 & 18513.100 \\
-     DE\_rand\_2\_exp &  0.002 &    0.000 &   0.002 &      0.002 &      0.003 & 18404.700 \\
-     DE\_best\_1\_bin &  1.064 &    7.446 &   0.000 &      0.000 &     53.188 & 19791.200 \\
-     DE\_rand\_1\_bin &  0.018 &    0.001 &   0.018 &      0.015 &      0.019 & 18636.300 \\
- DE\_randbest\_1\_bin &  0.089 &    0.626 &   0.000 &      0.000 &      4.472 & 20124.500 \\
-     DE\_best\_2\_bin & 10.504 &   25.786 &   0.000 &      0.000 &    124.525 & 22391.200 \\
-     DE\_rand\_2\_bin &  0.012 &    0.001 &   0.012 &      0.010 &      0.013 & 20807.300 \\
-               PSO & 10.733 &   24.130 &   0.001 &      0.000 &    121.910 & 19501.300 \\
-               SCA &  6.166 &    8.912 &   2.738 &      0.015 &     42.774 & 29122.300 \\
-\bottomrule
-\end{tabular}
-
-\caption{Function 18: Statistical Analysis of the Cost} 
-    \end{table}
+    \begin{adjustbox}{width=1\textwidth}
+        \begin{tabular}{lrrrrrr}
+            \toprule
+            algorithm &    mean &  std\_dev &  median &  range\_min &  range\_max &  time\_ms \\
+            \midrule
+            GA & 17.991 & 4.037 & 18.067 & 10.891 & 27.051 & 1826.850 \\
+            DE\_best\_1\_exp & 37.864 & 12.668 & 35.370 & 15.437 & 73.569 & 1576.760 \\
+            DE\_rand\_1\_exp & 27.112 & 3.996 & 27.426 & 19.596 & 35.474 & 1588.730 \\
+            DE\_randbest\_1\_exp & 51.131 & 8.403 & 49.970 & 37.658 & 73.088 & 1607.030 \\
+            DE\_best\_2\_exp & 40.449 & 19.763 & 37.293 & 7.506 & 100.949 & 1645.680 \\
+            DE\_rand\_2\_exp & 22.361 & 3.222 & 22.231 & 15.525 & 28.308 & 1667.370 \\
+            DE\_best\_1\_bin & 60.902 & 25.219 & 59.704 & 10.036 & 143.576 & 1829.760 \\
+            DE\_rand\_1\_bin & 25.037 & 3.675 & 24.234 & 19.301 & 35.590 & 1755.460 \\
+            DE\_randbest\_1\_bin & 25.796 & 13.889 & 21.654 & 9.023 & 84.681 & 1866.120 \\
+            DE\_best\_2\_bin & 97.684 & 45.079 & 90.748 & 31.946 & 224.148 & 1875.420 \\
+            DE\_rand\_2\_bin & 12.928 & 1.452 & 13.000 & 9.392 & 15.897 & 1919.240 \\
+            PSO & 39.814 & 25.583 & 32.434 & 6.663 & 101.126 & 1703.470 \\
+            SCA & 91.572 & 38.420 & 85.955 & 20.058 & 186.021 & 2321.580 \\
+            BA & 408.737 & 38.876 & 416.711 & 312.912 & 471.564 & 1973.070 \\
+            DBA & 78.506 & 21.623 & 75.316 & 44.873 & 143.701 & 2104.510 \\
+            ALO & 0.056 & 0.117 & 0.008 & 0.000 & 0.575 & 6530.740 \\
+            \bottomrule
+        \end{tabular}
+        
+        
+    \end{adjustbox}
+    \caption{Function 18: Statistical Analysis of the Cost} 
+\end{table}
 Best Algorithm: \\
-\textbf{DE\_best\_1\_exp}, Cost (mean): 0.000005\\
-\noindent
-\textbf{Two-Sample Z-Test Hypothesis Testing: }
-confidence interval = 95\%\\
-\vspace{-3mm}
-\rule[3mm]{\linewidth}{0.2pt}
-Null hypothesis: The best algorithm and the tested one are equal\\
-\textbf{DE\_best\_2\_exp}, Cost (mean): 0.013991
-, P value: 0.064400\\
-\textbf{DE\_best\_1\_bin}, Cost (mean): 1.063840
-, P value: 0.312400\\
-\textbf{DE\_randbest\_1\_bin}, Cost (mean): 0.089453
-, P value: 0.312400\\
+\textbf{ALO}, Cost (mean): 0.055910\\
+
+
+
+
 
 
 
@@ -1075,7 +1209,7 @@ Null hypothesis: The best algorithm and the tested one are equal\\
     \subsection{Summary}
     
 
-The table \ref{tab:summary_best} shows a summary of the best mean cost obtained for each function. It can be observed that the Differential Evolution Algorithm found the minimum cost most of the time. The GA took second place,  and PSO the third place. DE seems to be the absolute winner. However, the result is a little unfair because DE is participating with ten different versions, and there is only one version of GA and DE.
+The table \ref{tab:summary_best} shows a summary of the best mean cost obtained for each function.
 
 
 
@@ -1083,64 +1217,312 @@ The table \ref{tab:summary_best} shows a summary of the best mean cost obtained 
 %\end{landscape}
 
 
+
+    \begin{table}[H]
+        \centering
+        \tiny 
+        
+        \begin{adjustbox}{width=1\textwidth}
+\begin{tabular}{lrrrrrrrrr}
+    \toprule
+    algorithm &       f1 &       f2 &            f3 &      f4 &      f5 &      f6 &     f7 &      f8 &      f9 \\
+    \midrule
+    GA & 1227.950 & 76.080 & 327876.000 & 78.319 & 1.597 & -40.040 & 30.725 & -68.310 & 60.544 \\
+    DE\_best\_1\_exp & 2594.260 & 3.423 & 13272.100 & 136.788 & 0.993 & -36.360 & 40.988 & -63.738 & 22.074 \\
+    DE\_rand\_1\_exp & 3176.050 & 73.259 & 587827.000 & 160.392 & 1.471 & -35.411 & 42.010 & -60.805 & 39.602 \\
+    DE\_randbest\_1\_exp & 6421.590 & 2.555 & 1902.470 & 157.514 & 0.963 & -35.890 & 41.171 & -22.559 & 47.446 \\
+    DE\_best\_2\_exp & 3698.620 & 0.452 & 3945.820 & 141.617 & 0.243 & -35.896 & 43.031 & -61.269 & 58.112 \\
+    DE\_rand\_2\_exp & 1861.060 & 83.211 & 838744.000 & 138.059 & 1.496 & -35.393 & 41.704 & -67.769 & 31.213 \\
+    DE\_best\_1\_bin & 2061.100 & 0.003 & 608.995 & 177.708 & 0.014 & -32.782 & 53.395 & -68.010 & 37.730 \\
+    DE\_rand\_1\_bin & 6891.470 & 19.215 & 72522.400 & 201.957 & 1.120 & -32.770 & 51.687 & -32.317 & 50.575 \\
+    DE\_randbest\_1\_bin & 6841.440 & 0.002 & 625.385 & 188.274 & 0.016 & -33.406 & 50.244 & -35.068 & 6.924 \\
+    DE\_best\_2\_bin & 2294.620 & 0.007 & 751.848 & 223.900 & 0.028 & -31.684 & 54.359 & -47.107 & 74.527 \\
+    DE\_rand\_2\_bin & 6191.390 & 8.040 & 34467.400 & 166.760 & 1.049 & -33.105 & 50.529 & -60.806 & 15.052 \\
+    PSO & 3266.090 & 0.001 & 20887.400 & 116.462 & 1.283 & -33.175 & 31.156 & -9.022 & 194.587 \\
+    SCA & 7207.630 & 1495.250 & 284742000.000 & 345.389 & 10.016 & -31.745 & 54.498 & 43.560 & 41.552 \\
+    BA & 4858.750 & 196.477 & 1168380.000 & 624.340 & 140.993 & -27.969 & 59.303 & 157.836 & 402.363 \\
+    DBA & 3800.850 & 36.711 & 48239.000 & 337.212 & 1.216 & -35.407 & 36.421 & 31.779 & 220.732 \\
+    ALO & 0.044 & 0.008 & 2.579 & 5.612 & 0.037 & -40.692 & 29.001 & -83.278 & 2.561 \\
+    \bottomrule
+\end{tabular}
+\end{adjustbox}
+
+\begin{adjustbox}{width=1\textwidth}
+\begin{tabular}{lrrrrrrrrr}
+    \toprule
+    algorithm &        f10 &        f11 &    f12 &     f13 &     f14 &          f15 &     f16 &      f17 &     f18 \\
+    \midrule
+    GA & -18289.500 & -10569.000 & 6.217 & -25.973 & -13.381 & 44470.800 & 3.845 & 125.421 & 17.991 \\
+    DE\_best\_1\_exp & -13753.900 & -8245.300 & 8.163 & -17.900 & -7.140 & 947.130 & 0.293 & 17.826 & 37.864 \\
+    DE\_rand\_1\_exp & -12855.500 & -7134.590 & 10.313 & -17.257 & -7.101 & 94613.300 & 0.578 & 110.850 & 27.112 \\
+    DE\_randbest\_1\_exp & -9134.640 & -6094.790 & 10.602 & -16.258 & -5.333 & 89.971 & 0.291 & 16.331 & 51.131 \\
+    DE\_best\_2\_exp & -13381.200 & -8221.190 & 7.937 & -16.215 & -6.356 & 244.925 & 3.158 & 10.773 & 40.449 \\
+    DE\_rand\_2\_exp & -13802.800 & -7264.640 & 10.471 & -18.131 & -7.510 & 133879.000 & 0.523 & 128.013 & 22.361 \\
+    DE\_best\_1\_bin & -14247.100 & -8791.590 & 6.244 & -13.380 & -4.322 & 0.029 & 1.589 & 7.705 & 60.902 \\
+    DE\_rand\_1\_bin & -8399.290 & -5116.550 & 8.309 & -12.490 & -2.910 & 10670.600 & 0.391 & 43.111 & 25.037 \\
+    DE\_randbest\_1\_bin & -8037.240 & -5649.690 & 8.266 & -12.781 & -3.275 & 3.964 & 0.208 & 7.659 & 25.796 \\
+    DE\_best\_2\_bin & -13237.800 & -8247.990 & 7.006 & -11.556 & -2.789 & 0.040 & 2.519 & 7.854 & 97.684 \\
+    DE\_rand\_2\_bin & -8796.180 & -5045.660 & 11.206 & -13.656 & -3.575 & 3715.320 & 0.110 & 24.323 & 12.928 \\
+    PSO & -15308.800 & -9438.670 & 2.887 & -20.529 & -5.021 & 0.000 & 8.790 & 7.679 & 39.814 \\
+    SCA & -6927.370 & -6228.130 & 9.168 & -8.138 & -8.302 & 25492800.000 & 18.451 & 1376.250 & 91.572 \\
+    BA & -10675.600 & -7652.450 & 8.020 & -7.169 & -2.191 & 274670.000 & 120.242 & 261.551 & 408.737 \\
+    DBA & -13664.000 & -9698.780 & 7.507 & -15.695 & -3.575 & 5871.970 & 6.721 & 67.753 & 78.506 \\
+    ALO & -14414.900 & -13111.900 & 0.000 & -9.952 & -24.384 & 0.013 & 0.009 & 7.677 & 0.056 \\
+    \bottomrule
+\end{tabular}
+
+\end{adjustbox}
+\caption{mean cost of each optimization algorithm with different bench-mark functions. iterations:100 population:200} 
+\label{tab:summary}
+\end{table}
+
+
+
 \begin{table}[H]
     \centering
-    \footnotesize 
-\begin{tabular}{rlrp{0.5\textwidth}}
-\toprule
- function\_id & best\_algorithm &  best\_cost &                                                                                                                  similar\_result obtained by hypothesis testing \\
-\midrule
- 1 &  DE\_rand\_2\_exp & -0.002 &   \\
- 2 &  PSO & 0.000 &  DE\_best\_2\_exp \\
- 3 &  DE\_best\_2\_bin & 6.766 &  DE\_best\_2\_exp, PSO \\
- 4 &  DE\_rand\_2\_exp & 0.000 &   \\
- 5 &  DE\_rand\_2\_bin & 0.000 &   \\
- 6 &  GA & -43.097 &   \\
- 7 &  GA & 29.109 &   \\
- 8 &  DE\_rand\_1\_exp & -86.333 &  DE\_rand\_2\_exp, DE\_rand\_2\_bin \\
- 9 &  DE\_rand\_2\_bin & 0.000 &  DE\_best\_1\_exp, DE\_randbest\_1\_bin \\
- 10 &  DE\_best\_1\_exp & -22349.800 &   \\
- 11 &  DE\_best\_1\_exp & -13371.700 &   \\
- 12 &  DE\_rand\_1\_exp & 1.880 &   \\
- 13 &  GA & -29.162 &   \\
- 14 &  DE\_rand\_2\_exp & -28.991 &   \\
- 15 &  DE\_best\_1\_bin & 0.000 &  DE\_best\_1\_exp, DE\_randbest\_1\_exp, DE\_best\_2\_exp, DE\_rand\_2\_exp, DE\_randbest\_1\_bin \\
- 16 &  DE\_rand\_2\_bin & 0.000 &  DE\_best\_1\_exp, DE\_randbest\_1\_exp \\
- 17 &  DE\_best\_1\_exp & 7.500 &  DE\_rand\_1\_exp, DE\_randbest\_1\_exp, DE\_rand\_2\_exp, DE\_best\_1\_bin, DE\_rand\_1\_bin, DE\_randbest\_1\_bin, DE\_best\_2\_bin, DE\_rand\_2\_bin \\
- 18 &  DE\_best\_1\_exp & 0.000 &  DE\_best\_2\_exp, DE\_best\_1\_bin, DE\_randbest\_1\_bin \\
-\bottomrule
-\end{tabular}
-\caption{Summary: best mean cost of each optimization algorithm with different bench-mark functions} 
+    \scriptsize
+    \begin{tabular}{rlrp{0.3\textwidth}}
+        \toprule
+        function\_id &     best\_algorithm &  best\_cost (mean) &                         similar\_result \\
+        \midrule
+        1 &  ALO & 0.044 &   \\
+        2 &  PSO & 0.001 &   \\
+        3 &  ALO & 2.579 &  DE\_randbest\_1\_bin, PSO \\
+        4 &  ALO & 5.612 &   \\
+        5 &  DE\_best\_1\_bin & 0.014 &  DE\_randbest\_1\_bin, PSO, ALO \\
+        6 &  ALO & -40.692 &  GA \\
+        7 &  ALO & 29.001 &   \\
+        8 &  ALO & -83.278 &   \\
+        9 &  ALO & 2.561 &   \\
+        10 &  GA & -18289.500 &   \\
+        11 &  ALO & -13111.900 &   \\
+        12 &  ALO & 0.000 &   \\
+        13 &  GA & -25.973 &   \\
+        14 &  ALO & -24.384 &   \\
+        15 &  PSO & 0.000 &  DE\_randbest\_1\_bin, DE\_best\_2\_bin, ALO \\
+        16 &  ALO & 0.009 &   \\
+        17 &  DE\_randbest\_1\_bin & 7.659 &  PSO, ALO \\
+        18 &  ALO & 0.056 &   \\
+        \bottomrule
+    \end{tabular}
+    \caption{best mean cost of each bench-mark functions} 
     \label{tab:summary_best}
 \end{table}
 
 
-\section{Discussion}
+
+\section{Testing with different iterations and populations}
+\subsection{iteration: 200 population: 200}
+
+    \begin{table}[H]
+    \centering
+    \tiny 
+    
+    \begin{adjustbox}{width=1\textwidth}
+
+\begin{tabular}{lrrrrrrrrr}
+    \toprule
+    algorithm &       f1 &      f2 &           f3 &      f4 &      f5 &      f6 &     f7 &      f8 &      f9 \\
+    \midrule
+    GA & 1112.630 &   5.892 &     2793.560 &  23.149 &   1.067 & -41.728 & 29.729 & -82.148 &  18.947 \\
+    DE\_best\_1\_exp &  818.031 &   0.000 &      226.672 &  45.388 &   0.009 & -38.472 & 36.599 & -79.549 &   2.980 \\
+    DE\_rand\_1\_exp & 1257.490 &   0.105 &      714.642 &  45.913 &   0.131 & -37.673 & 37.800 & -86.060 &   0.363 \\
+    DE\_randbest\_1\_exp & 5349.210 &   0.001 &      170.952 & 104.180 &   0.009 & -37.636 & 37.282 & -50.032 &   2.535 \\
+    DE\_best\_2\_exp & 1696.720 &   0.002 &      851.988 &  69.924 &   0.025 & -37.802 & 38.714 & -63.594 &  48.809 \\
+    DE\_rand\_2\_exp &  118.620 &   0.675 &    10713.600 &  21.054 &   0.263 & -37.743 & 37.461 & -85.751 &   0.298 \\
+    DE\_best\_1\_bin & 1959.070 &   0.000 &       77.386 &  69.477 &   0.006 & -33.524 & 51.691 & -71.410 &  33.071 \\
+    DE\_rand\_1\_bin & 6247.280 &   0.006 &      233.834 & 153.858 &   0.018 & -33.813 & 45.837 & -70.955 &   0.324 \\
+    DE\_randbest\_1\_bin & 5538.660 &   0.000 &      218.849 & 164.571 &   0.004 & -33.961 & 47.625 & -76.861 &   5.529 \\
+    DE\_best\_2\_bin & 1922.260 &   0.000 &      108.453 & 190.028 &   0.009 & -32.482 & 53.403 & -60.138 &  59.691 \\
+    DE\_rand\_2\_bin & 5464.790 &   0.001 &      164.307 & 100.340 &   0.003 & -34.381 & 44.513 & -85.831 &   0.053 \\
+    PSO & 3253.400 &   0.000 &   160886.000 & 121.126 &   0.014 & -35.867 & 30.194 &  -2.911 & 210.716 \\
+    SCA & 7080.270 & 117.846 & 11869300.000 & 169.699 &   1.735 & -32.666 & 48.863 &  20.980 &   2.646 \\
+    BA & 4994.940 &  94.129 &   351464.000 & 543.358 & 133.951 & -28.552 & 58.386 & 124.767 & 392.025 \\
+    DBA & 3810.520 &  17.037 &    33449.300 & 334.082 &   1.102 & -36.391 & 34.169 &  29.500 & 222.807 \\
+    ALO &   71.152 &   0.000 &        1.745 &   0.008 &   0.000 & -43.199 & 29.000 & -83.978 &   0.604 \\
+    \bottomrule
+\end{tabular}
+
+    \end{adjustbox}
+    
+    \begin{adjustbox}{width=1\textwidth}
+\begin{tabular}{lrrrrrrrrr}
+    \toprule
+    algorithm &        f10 &        f11 &   f12 &     f13 &     f14 &         f15 &     f16 &     f17 &     f18 \\
+    \midrule
+    GA & -19007.100 & -11053.000 & 5.554 & -27.065 & -14.803 &     159.207 &   3.376 &  23.265 &   5.674 \\
+    DE\_best\_1\_exp & -17495.600 & -10156.800 & 6.954 & -22.294 & -12.031 &       0.011 &   0.158 &   7.543 &   5.977 \\
+    DE\_rand\_1\_exp & -15427.400 &  -8315.950 & 8.408 & -20.724 & -13.628 &       7.311 &   0.001 &   8.348 &   0.240 \\
+    DE\_randbest\_1\_exp & -10818.400 &  -7055.290 & 9.695 & -18.770 &  -7.712 &       0.049 &   0.015 &   7.575 &  25.308 \\
+    DE\_best\_2\_exp & -16930.100 &  -9722.580 & 7.090 & -19.187 &  -9.579 &       9.977 &   1.950 &   7.931 &  17.305 \\
+    DE\_rand\_2\_exp & -16432.000 &  -8363.040 & 9.155 & -21.644 & -14.223 &     763.248 &   0.002 &   9.046 &   0.122 \\
+    DE\_best\_1\_bin & -18460.100 & -10405.500 & 5.881 & -14.908 &  -6.186 &       0.000 &   1.743 &   7.500 &  25.320 \\
+    DE\_rand\_1\_bin &  -9844.840 &  -5697.990 & 5.100 & -13.870 &  -3.519 &       0.685 &   0.000 &   7.707 &   0.131 \\
+    DE\_randbest\_1\_bin &  -9614.670 &  -6410.850 & 7.571 & -13.731 &  -3.899 &       3.869 &   0.246 &   7.500 &   3.769 \\
+    DE\_best\_2\_bin & -17654.300 &  -9353.810 & 6.988 & -12.124 &  -3.824 &       0.002 &   2.104 &   7.500 &  69.942 \\
+    DE\_rand\_2\_bin & -10110.000 &  -5455.780 & 8.712 & -15.269 &  -4.614 &       4.846 &   0.000 &   7.552 &   0.024 \\
+    PSO & -15525.100 &  -9425.460 & 3.008 & -21.109 &  -5.213 &       0.000 &   9.014 &   7.524 &  25.213 \\
+    SCA &  -7251.820 &  -6421.380 & 8.923 &  -8.258 & -13.443 & 1517870.000 &   5.598 & 139.382 &  47.632 \\
+    BA & -11386.500 &  -7863.540 & 7.933 &  -7.342 &  -2.297 &   26675.900 & 105.081 & 140.907 & 397.843 \\
+    DBA & -13742.900 & -10095.900 & 7.433 & -17.348 &  -3.936 &    1227.830 &   7.065 &  44.402 &  71.843 \\
+    ALO & -15082.400 & -13270.400 & 0.000 &  -9.560 & -28.172 &       0.000 &   0.001 &   7.511 &   0.003 \\
+    \bottomrule
+\end{tabular}
+
+        
+    \end{adjustbox}
+    \caption{mean cost of each optimization algorithm with different bench-mark functions. iterations:200 population:200} 
+    \label{tab:summary}
+\end{table}
 
 
-Comparing the summary table \ref{tab:summary_best}  with the previous report, it can be noticed that the results are very different since for this project we increased the population to 500 and the number of iterations also 500. 
 
-Despite the PSO only found the best cost twice, it can be observed from the CPU total running time figures that many times the PSO runs much faster than other algorithms. 
-Additionally, numerous Cost figures show that PSO has a big standard deviation and it also presents outliers, this behavior might be caused that PSO needs more iterations to converge.
+\begin{table}[H]
+    \centering
+    \scriptsize
 
-For the p-value calculation, Two-sample Z-test has been used. However, It can be noticed from the statistical analysis tables and figures that in the sample data there are many outliers. As a consequence, we should find another better method for hypothesis testing or run the algorithms with more iterations or get better configuration parameters to make the algorithms converge and avoid the outliers.
+\begin{tabular}{rlrp{0.5\textwidth}}
+    \toprule
+    function\_id &     best\_algorithm &  best\_cost (mean) &                                                                                     similar\_result \\
+    \midrule
+    1 &  ALO & 71.152 &  DE\_rand\_2\_exp \\
+    2 &  PSO & 0.000 &  DE\_randbest\_1\_bin \\
+    3 &  ALO & 1.745 &  DE\_rand\_2\_exp \\
+    4 &  ALO & 0.008 &   \\
+    5 &  ALO & 0.000 &   \\
+    6 &  ALO & -43.199 &   \\
+    7 &  ALO & 29.000 &   \\
+    8 &  DE\_rand\_1\_exp & -86.060 &   \\
+    9 &  DE\_rand\_2\_bin & 0.053 &   \\
+    10 &  GA & -19007.100 &  DE\_best\_1\_bin \\
+    11 &  ALO & -13270.400 &   \\
+    12 &  ALO & 0.000 &   \\
+    13 &  GA & -27.065 &   \\
+    14 &  ALO & -28.172 &   \\
+    15 &  PSO & 0.000 &  DE\_best\_2\_exp, DE\_best\_1\_bin, DE\_rand\_1\_bin, DE\_randbest\_1\_bin, DE\_best\_2\_bin, DE\_rand\_2\_bin, ALO \\
+    16 &  DE\_rand\_2\_bin & 0.000 &   \\
+    17 &  DE\_randbest\_1\_bin & 7.500 &  DE\_best\_1\_bin, PSO \\
+    18 &  ALO & 0.003 &   \\
+    \bottomrule
+\end{tabular}
 
-%Changing inertial weight during the iteration will balance exploration and exploitation. 
 
-For future work, the comparison between different algorithms can be done in many other ways: 
+    \caption{best mean cost of each bench-mark functions} 
+    \label{tab:summary_best}
+\end{table}
 
-   \begin{enumerate}[label=\arabic*)]
-\item We can set a target cost and test which algorithm achieves the target cost first, in this way we can get a better comparison about which algorithm converges faster.
-  
-\item We can give each optimization algorithm a specific time constraint and stop the iterations when the algorithm reaches the constraint, then we can compare the cost between different algorithms and find the best one.
-\end{enumerate}
+
+
+\subsection{iteration: 500 population: 500}
+
+    \begin{table}[H]
+    \centering
+    \tiny 
+    
+    \begin{adjustbox}{width=1\textwidth}
+        
+\begin{tabular}{lrrrrrrrrr}
+    \toprule
+    algorithm &       f1 &    f2 &        f3 &      f4 &     f5 &      f6 &     f7 &      f8 &      f9 \\
+    \midrule
+    GA & 346.864 & 0.025 & 122.842 & 0.351 & 0.134 & -43.046 & 29.106 & -86.234 & 0.889 \\
+    DE\_best\_1\_exp & 396.466 & 0.000 & 25.724 & 6.169 & 0.008 & -40.980 & 32.104 & -82.573 & 0.103 \\
+    DE\_rand\_1\_exp & 0.001 & 0.000 & 31.544 & 0.001 & 0.000 & -40.169 & 32.984 & -86.333 & 0.000 \\
+    DE\_randbest\_1\_exp & 3560.760 & 0.000 & 36.208 & 49.267 & 0.002 & -39.930 & 33.171 & -74.767 & 1.160 \\
+    DE\_best\_2\_exp & 1087.850 & 0.000 & 24.237 & 23.521 & 0.015 & -40.025 & 33.496 & -70.173 & 25.029 \\
+    DE\_rand\_2\_exp & -0.002 & 0.000 & 39.264 & 0.000 & 0.000 & -40.137 & 32.700 & -86.333 & 0.000 \\
+    DE\_best\_1\_bin & 1777.820 & 0.000 & 19.859 & 32.035 & 0.009 & -34.937 & 45.604 & -73.242 & 29.896 \\
+    DE\_rand\_1\_bin & 5293.970 & 0.000 & 31.142 & 113.277 & 0.000 & -35.227 & 38.805 & -86.333 & 0.000 \\
+    DE\_randbest\_1\_bin & 2393.760 & 0.000 & 29.024 & 135.499 & 0.004 & -35.425 & 43.725 & -79.566 & 0.381 \\
+    DE\_best\_2\_bin & 1895.380 & 0.000 & 9.337 & 113.615 & 0.010 & -33.917 & 48.660 & -70.656 & 45.034 \\
+    DE\_rand\_2\_bin & 4575.130 & 0.000 & 43.035 & 47.380 & 0.000 & -35.809 & 36.782 & -86.333 & 0.000 \\
+    PSO & 3204.070 & 0.000 & 20919.700 & 87.138 & 0.013 & -37.427 & 30.005 & -30.332 & 157.399 \\
+    SCA & 6517.380 & 0.011 & 687.530 & 29.613 & 0.127 & -33.900 & 41.917 & 3.168 & 0.003 \\
+    BA & 4460.820 & 8.839 & 11416.500 & 320.595 & 50.833 & -28.761 & 51.448 & 318.422 & 404.284 \\
+    DBA & 3690.000 & 0.391 & 1107.200 & 278.966 & 0.273 & -38.525 & 32.054 & 9.072 & 181.164 \\
+    ALO & 71.062 & 0.000 & 0.098 & 0.000 & 0.000 & -43.380 & 29.000 & -84.851 & 0.000 \\
+    \bottomrule
+\end{tabular}
+        
+    \end{adjustbox}
+    
+    \begin{adjustbox}{width=1\textwidth}
+
+        \begin{tabular}{lrrrrrrrrr}
+            \toprule
+            algorithm &        f10 &        f11 &   f12 &     f13 &     f14 &     f15 &    f16 &    f17 &     f18 \\
+            \midrule
+            GA & -21637.800 & -12360.500 & 3.811 & -29.191 & -22.825 & 0.004 & 0.321 & 8.161 & 0.293 \\
+            DE\_best\_1\_exp & -22301.800 & -13277.900 & 4.705 & -28.003 & -22.526 & 0.000 & 0.013 & 7.500 & 0.000 \\
+            DE\_rand\_1\_exp & -19611.600 & -10095.300 & 1.890 & -25.086 & -22.496 & 0.000 & 0.000 & 7.500 & 0.003 \\
+            DE\_randbest\_1\_exp & -13425.000 & -8621.130 & 8.034 & -23.195 & -14.014 & 0.000 & 0.000 & 7.500 & 6.940 \\
+            DE\_best\_2\_exp & -20798.500 & -12037.600 & 5.630 & -24.343 & -15.538 & 0.000 & 0.996 & 7.500 & 0.125 \\
+            DE\_rand\_2\_exp & -20567.800 & -10162.800 & 4.164 & -26.053 & -28.988 & 0.010 & 0.000 & 7.500 & 0.002 \\
+            DE\_best\_1\_bin & -18800.800 & -11966.600 & 5.111 & -18.748 & -11.524 & 0.000 & 0.673 & 7.500 & 0.386 \\
+            DE\_rand\_1\_bin & -15014.500 & -7984.760 & 3.136 & -15.626 & -4.756 & 0.000 & 0.000 & 7.500 & 0.017 \\
+            DE\_randbest\_1\_bin & -14260.400 & -8166.830 & 6.450 & -15.481 & -5.208 & 0.000 & 0.023 & 7.500 & 0.000 \\
+            DE\_best\_2\_bin & -18263.100 & -12214.200 & 6.295 & -13.771 & -5.766 & 0.000 & 1.792 & 7.500 & 6.555 \\
+            DE\_rand\_2\_bin & -14726.500 & -6288.340 & 4.102 & -17.209 & -6.541 & 0.000 & 0.000 & 7.500 & 0.012 \\
+            PSO & -15949.900 & -9814.110 & 2.742 & -21.960 & -6.469 & 0.000 & 5.412 & 7.500 & 10.842 \\
+            SCA & -8186.760 & -7252.980 & 8.330 & -8.778 & -26.774 & 21.615 & 2.067 & 7.598 & 5.970 \\
+            BA & -12123.300 & -8260.450 & 7.541 & -9.690 & -2.860 & 125.619 & 63.409 & 29.474 & 342.043 \\
+            DBA & -14240.600 & -10597.200 & 7.174 & -19.843 & -4.471 & 6.227 & 4.783 & 12.422 & 37.666 \\
+            ALO & -19142.200 & -13232.900 & 0.000 & -10.138 & -29.000 & 0.000 & 0.000 & 7.500 & 0.000 \\
+            \bottomrule
+        \end{tabular}
+        
+    \end{adjustbox}
+    \caption{mean cost of each optimization algorithm with different bench-mark functions. iterations:500 population:500} 
+    \label{tab:summary}
+\end{table}
+
+
+
+\begin{table}[H]
+    \centering
+    \scriptsize
+    
+    
+\begin{tabular}{rlrp{0.3\textwidth}}
+    \toprule
+    function\_id &     best\_algorithm &  best\_cost (mean) &                                                                                                                            similar\_result \\
+    \midrule
+    1 &  DE\_rand\_2\_exp & -0.002 &  ALO \\
+    2 &  ALO & 0.000 &  DE\_best\_2\_exp \\
+    3 &  ALO & 0.098 &  PSO \\
+    4 &  DE\_rand\_2\_exp & 0.000 &   \\
+    5 &  DE\_rand\_2\_bin & 0.000 &  DE\_rand\_2\_exp \\
+    6 &  ALO & -43.380 &   \\
+    7 &  ALO & 29.000 &   \\
+    8 &  DE\_rand\_1\_exp & -86.333 &  DE\_rand\_2\_exp, DE\_rand\_1\_bin, DE\_rand\_2\_bin \\
+    9 &  DE\_rand\_2\_bin & 0.000 &  DE\_best\_1\_exp, DE\_randbest\_1\_exp, DE\_randbest\_1\_bin, ALO \\
+    10 &  DE\_best\_1\_exp & -22301.800 &   \\
+    11 &  DE\_best\_1\_exp & -13277.900 &  ALO \\
+    12 &  ALO & 0.000 &   \\
+    13 &  GA & -29.191 &   \\
+    14 &  ALO & -29.000 &   \\
+    15 &  DE\_best\_1\_bin & 0.000 &  DE\_best\_1\_exp, DE\_randbest\_1\_exp, DE\_best\_2\_exp, DE\_rand\_2\_exp, DE\_randbest\_1\_bin \\
+    16 &  DE\_randbest\_1\_exp & 0.000 &  DE\_best\_1\_exp \\
+    17 &  DE\_best\_1\_exp & 7.500 &  DE\_rand\_1\_exp, DE\_randbest\_1\_exp, DE\_rand\_2\_exp, DE\_best\_1\_bin, DE\_rand\_1\_bin, DE\_randbest\_1\_bin, DE\_best\_2\_bin, DE\_rand\_2\_bin, PSO, ALO \\
+    18 &  ALO & 0.000 &  DE\_best\_2\_exp, DE\_best\_1\_bin, DE\_randbest\_1\_bin \\
+    \bottomrule
+\end{tabular}
+
+    
+    \caption{best mean cost of each bench-mark functions} 
+    \label{tab:summary_best}
+\end{table}
+
+
 
 
     \section{Conclusion}
 
 
 
-    In this project many optimization algorithms have been implemented and tested, they are Genetic Algorithm, Differential Evolution Algorithm, Particle Swarm Optimization, and Sine Cosine Algorithm. From the testing results, it can be observed that DE won most of the time, but we cannot confirm DE is better than other algorithms since it is a little bit unfair to compare 10 versions of DE with only one version of other algorithms.  Furthermore, it can also be noticed that PSO runs much faster than other algorithms in numerous times. In summary, we can conclude that all of the studied algorithms are pretty good since after 500 iterations with a population size of 500 in most of the time almost all of them could find results that are very close to the optimal value. Despite this, one inconvenient of the evolutionary-based optimization algorithm is that the calibration of its parameters requires very tedious work.
+    In this project many optimization algorithms have been implemented and tested, they are Genetic Algorithm, Differential Evolution Algorithm, Particle Swarm Optimization, Sine Cosine Algorithm, Bat Algorithm, Directional Bat Algorithm, and Ant Lion Optimizer. Many configurations using different population sizes and iterations have been tested. From the results, it can be observed that ALO won most of the time. However, it is much slower than other algorithms.
+    Additionally, it can also be noticed that PSO runs much faster than other algorithms in numerous times. 
+    In summary, we can conclude that almost all of the studied algorithms are pretty good since after 500 iterations with a population size of 500 in most of them could find results that are very close to the optimal value. Despite this, one inconvenient of the evolutionary-based optimization algorithm is that the calibration of its parameters requires very tedious work. Though ALO can be the exception, this algorithm has the beauty of solving the problem without the requirement of configuration parameters, but the reason for why ALO performs better than another algorithm is still unknown, perhaps there is a hidden mathematical explanation that we don't understand yet.
 
 
 
