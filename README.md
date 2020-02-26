@@ -1,6 +1,6 @@
-# CS471 Optimization - Project 3
+# CS471 Optimization - Project
 
-## Genetic Algorithm (GA) and Differential Evolution Algorithm (DE)
+## Population based Optimization Algorithms
 
 ## Compiler in Windows
 g++ (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 8.1.0
