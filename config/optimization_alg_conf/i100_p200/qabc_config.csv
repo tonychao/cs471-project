@@ -1,0 +1,2 @@
+iterations,limit,neighbourhood radius, population size
+100,50,0.5,200

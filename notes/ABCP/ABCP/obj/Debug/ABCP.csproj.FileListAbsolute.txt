@@ -1,0 +1,9 @@
+C:\Users\BEYZA\Desktop\ABCP site icin\ABCP\ABCP\bin\Debug\ABCP.exe.config
+C:\Users\BEYZA\Desktop\ABCP site icin\ABCP\ABCP\obj\Debug\ABCP.csprojResolveAssemblyReference.cache
+C:\Users\BEYZA\Desktop\ABCP site icin\ABCP\ABCP\obj\Debug\ABCP.Form1.resources
+C:\Users\BEYZA\Desktop\ABCP site icin\ABCP\ABCP\obj\Debug\ABCP.Properties.Resources.resources
+C:\Users\BEYZA\Desktop\ABCP site icin\ABCP\ABCP\obj\Debug\ABCP.csproj.GenerateResource.Cache
+C:\Users\BEYZA\Desktop\ABCP site icin\ABCP\ABCP\bin\Debug\ABCP.exe
+C:\Users\BEYZA\Desktop\ABCP site icin\ABCP\ABCP\bin\Debug\ABCP.pdb
+C:\Users\BEYZA\Desktop\ABCP site icin\ABCP\ABCP\obj\Debug\ABCP.exe
+C:\Users\BEYZA\Desktop\ABCP site icin\ABCP\ABCP\obj\Debug\ABCP.pdb

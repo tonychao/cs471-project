@@ -15,3 +15,4 @@ Id, Algorithm name, config file
 13,BA,../config/optimization_alg_conf/i100_p200/ba_config.csv
 14,DBA,../config/optimization_alg_conf/i100_p200/dba_config.csv
 15,ALO,../config/optimization_alg_conf/i100_p200/alo_config.csv
+16,QABC,../config/optimization_alg_conf/i100_p200/qabc_config.csv
