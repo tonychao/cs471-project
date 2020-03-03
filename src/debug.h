@@ -12,7 +12,7 @@
 //#define DEBUGLEVEL0 
 //#define DEBUGLEVEL1
 //#define DEBUGVAR
-//#define DEBUGFILE    
+//B#define DEBUGFILE    
 
     //std::cout << x
     #ifdef DEBUGLEVEL0
