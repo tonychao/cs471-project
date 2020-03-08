@@ -1,0 +1,9 @@
+\begin{thebibliography}{1}
+
+\bibitem{clock}
+Measuring cpi time in c.
+\newblock
+  \url{https://stackoverflow.com/questions/20167685/measuring-cpu-time-in-c}.
+\newblock Accessed: 2020-02-11.
+
+\end{thebibliography}
